@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title><%= @getPreparedTitle() %></title>
+  <%- @getBlock("meta").toHTML() %>
+  <%- @getBlock("styles").add(["/styles/style.css"]).toHTML() %>
+</head>
+  <h1><%= @document.title %></h1>
+  <%- @content %>
+  <ul>
+    <% for page in @getCollection("posts").toJSON(): %>
+      <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
+        <a href="<%= page.url %>">
+          <%= page.title %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+  <%- @getBlock("scripts").add(["/vendor/jquery-2.1.0.min.js","/scripts/script.js"]).toHTML() %>
+</body>
+</html>
