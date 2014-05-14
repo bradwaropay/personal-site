@@ -2,10 +2,9 @@
 <head>
   <title><%= @getPreparedTitle() %></title>
   <%- @getBlock("meta").toHTML() %>
-  <%- @getBlock("styles").add(["/styles/style.css"]).toHTML() %>
+  <%- @getBlock("styles").add(["/vendor/styles/normalize.css","/styles/style.css"]).toHTML() %>
 </head>
 <body>
-  <img src="/images/logo.gif" />
   <ul>
     <% for page in @getCollection("pages").toJSON(): %>
       <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
@@ -15,7 +14,6 @@
       </li>
     <% end %>
   </ul>
-  <h1><%= @document.title %></h1>
   <%- @content %>
   <ul>
     <% for page in @getCollection("posts").toJSON(): %>
@@ -26,6 +24,6 @@
       </li>
     <% end %>
   </ul>
-  <%-@getBlock("scripts").add(["/vendor/jquery-2.1.0.min.js","/scripts/script.js"]).toHTML() %>
+  <%-@getBlock("scripts").add(["/vendor/scripts/jquery-2.1.0.min.js","/scripts/script.js"]).toHTML() %>
 </body>
 </html>

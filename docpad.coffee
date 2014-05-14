@@ -20,7 +20,7 @@ docpadConfig = {
         model.setMetaDefaults({layout:"default"})
     posts: ->
       @getCollection("html").findAllLive({isPost:true},[{date:-1}]).on "add", (model) ->
-        model.setMetaDefaults({layout:"post"})
+        model.setMetaDefaults({layout:"default"})
 }
 
 # Export the DocPad Configuration
