@@ -1,29 +1,3 @@
-<html>
-<head>
-  <title><%= @getPreparedTitle() %></title>
-  <%- @getBlock("meta").toHTML() %>
-  <%- @getBlock("styles").add(["/vendor/styles/normalize.css","/styles/style.css"]).toHTML() %>
-</head>
-<body>
-  <ul>
-    <% for page in @getCollection("pages").toJSON(): %>
-      <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
-        <a href="<%= page.url %>">
-          <%= page.title %>
-        </a>
-      </li>
-    <% end %>
-  </ul>
+<%- @partial('organisms/start') %>
   <%- @content %>
-  <ul>
-    <% for page in @getCollection("posts").toJSON(): %>
-      <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
-        <a href="<%= page.url %>">
-          <%= page.title %>
-        </a>
-      </li>
-    <% end %>
-  </ul>
-  <%-@getBlock("scripts").add(["/vendor/scripts/jquery-2.1.0.min.js","/scripts/script.js"]).toHTML() %>
-</body>
-</html>
+<%- @partial('organisms/end') %>

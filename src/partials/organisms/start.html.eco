@@ -1,0 +1,7 @@
+<html>
+<head>
+  <title><%= @getPreparedTitle() %></title>
+  <%- @getBlock("meta").toHTML() %>
+  <%- @getBlock("styles").add(["/vendor/styles/normalize.css","/styles/style.css"]).toHTML() %>
+</head>
+<body>
