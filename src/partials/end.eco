@@ -1,0 +1,6 @@
+  <%- @getBlock("scripts").add([
+    "/scripts/vendor/jquery.min.js",
+    "/scripts/script.js"
+  ]).toHTML() %>
+</body>
+</html>

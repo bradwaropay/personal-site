@@ -1,11 +1,3 @@
-<html>
-<head>
-  <title><%= @getPreparedTitle() %></title>
-  <%- @getBlock("meta").toHTML() %>
-  <%- @getBlock("styles").add(["/styles/vendor/normalize.css","/styles/style.css"]).toHTML() %>
-</head>
-<body>
+<%- @partial('start') %>
   <%- @content %>
-  <%- @getBlock("scripts").add(["/scripts/vendor/jquery.min.js","/scripts/script.js"]).toHTML() %>
-</body>
-</html>
+<%- @partial('end') %>
