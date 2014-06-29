@@ -1,9 +1,0 @@
-<ul>
-  <% for page in @getCollection("posts").toJSON(): %>
-    <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
-      <a href="<%= page.url %>">
-        <%= page.title %>
-      </a>
-    </li>
-  <% end %>
-</ul>
