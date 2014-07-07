@@ -1,0 +1,133 @@
+.site-nav {
+  height: 70px;
+  padding: 10px;
+  transition: background-color .2s;
+
+  ul {
+    display: table;
+    margin: 0;
+    padding-left: 60px;
+    width: 100%;
+  }
+
+  li {
+    display: table-cell;
+    position: relative;
+    text-align: center;
+
+    &:after {
+      border-right: 1px solid #fff;
+      content: "";
+      display: block;
+      height: 10px;
+      position: absolute;
+      top: 6px; right: 0;
+    }
+
+    &:last-child {
+
+      &:after {
+        display: none;
+      }
+    }
+
+    a {
+      color: #fff;
+      display: inline-block;
+      text-decoration: none;
+      text-transform: lowercase;
+    }
+  }
+
+  .active {
+
+    a {
+      border-bottom: 1px dotted #fff;
+    }
+  }
+
+  @media screen and (min-width: 35.5em) {
+    left: 0;
+    height: auto;
+    min-height: 100%;
+    padding: 0;
+    position: fixed;
+    width: 200px;
+
+    ul {
+      display: block;
+      padding-left: 0;
+    }
+
+    li {
+      display: block;
+      text-align: left;
+      width: auto;
+
+      &:after {
+        display: none;
+      }
+
+      a {
+        border-left: 20px solid #fff;
+        font-size: 1.5em;
+        line-height: 1;
+        margin-bottom: 5px;
+        padding-left: 5px;
+        text-align: left;
+        transition: border-width .2s;
+
+        &:hover {
+          border-left-width: 40px;
+        }
+      }
+    }
+
+    .active {
+
+      a {
+        border-bottom: none;
+        border-left-width: 30px;
+
+        &:hover {
+          border-left-width: 30px;
+        }
+      }
+    }
+  }
+
+  &.about {
+    background-color: @yellow;
+  }
+
+  &.projects {
+    background-color: @red;
+  }
+
+  &.thoughts {
+    background-color: @blue;
+  }
+
+  &.work {
+    background-color: @green;
+  }
+}
+
+.logo {
+  background: url(@logo) no-repeat center;
+  background-size: 50px;
+  display: block;
+  float: left;
+  height: 50px;
+  position: absolute;
+  width: 50px;
+
+  @media screen and (min-width: 35.5em) {
+    background-size: 160px;
+    float: none;
+    height: 200px;
+    padding: 20px;
+    position: relative;
+    width: 200px;
+  }
+}

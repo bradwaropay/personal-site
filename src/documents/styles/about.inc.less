@@ -1,0 +1,33 @@
+.about-bg {
+  position: relative;
+
+  @media screen and (min-width: 64em) {
+    min-height: 100%;
+  }
+
+  &:after {
+    background: url(/images/test-bg.jpg) no-repeat center;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+
+    @media screen and (min-width: 64em) {
+      background-attachment: fixed;
+      height: auto;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+    }
+  }
+}
+
+.about-copy {
+  padding: 30px;
+
+  p {
+    font-size: 1.2em;
+  }
+}

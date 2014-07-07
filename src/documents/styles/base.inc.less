@@ -1,0 +1,134 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+
+  @media screen and (min-width: 35.5em) {
+    padding-left: 200px;
+  }
+}
+
+html,
+button,
+input,
+select,
+textarea,
+.pure-g [class *= "pure-u"] {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+h1,h2,h3 {
+  line-height: 1;
+  margin: 0;
+}
+
+h1,h2 {
+  text-transform: lowercase;
+}
+
+h1,h3,
+a {
+
+  .about & {
+    color: @yellow;
+  }
+
+  .projects & {
+    color: @red;
+  }
+
+  .thoughts & {
+    color: @blue;
+  }
+
+  .work & {
+    color: @green;
+  }
+}
+
+h1 {
+  font-weight: 800;
+}
+
+h2 {
+  font-weight: 300;
+}
+
+.content {
+
+  a {
+    border-bottom: 1px dotted;
+    text-decoration: none;
+    transition: border-color .2s,
+                color .2s;
+
+    .about & {
+      border-color: @yellow;
+    }
+
+    .projects & {
+      border-color: @red;
+    }
+
+    .thoughts & {
+      border-color: @blue;
+    }
+
+    .work & {
+      border-color: @green;
+    }
+
+    &:hover {
+      border-color: #ccc;
+      color: #ccc;
+    }
+  }
+}
+
+.social {
+  margin: 20px 0;
+  padding-left: 0;
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    background-size: 100%;
+    border-bottom: none;
+    display: block;
+    height: 40px;
+    transition: background-image .2s;
+    width: 40px;
+
+    &.github {
+      background: url(@github) no-repeat left top;
+
+      &:hover {
+        background: url(@githubYellow) no-repeat left top;
+      }
+    }
+
+    &.gplus {
+      background: url(@gplus) no-repeat left top;
+
+      &:hover {
+        background: url(@gplusYellow) no-repeat left top;
+      }
+    }
+
+    &.twitter {
+      background: url(@twitter) no-repeat left top;
+
+      &:hover {
+        background: url(@twitterYellow) no-repeat left top;
+      }
+    }
+  }
+}
