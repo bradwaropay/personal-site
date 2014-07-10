@@ -8,7 +8,7 @@ $('.site-nav ul a').not('.site-nav .active a').hover(function(){
 
 $('.site-nav ul a').mouseleave(function(){
   $('.site-nav').attr('class',"site-nav").addClass($('.site-nav li.active').text().toLowerCase());
-})
+});
 
 // Work Thumbnails
 $('.work-item').each(function() {

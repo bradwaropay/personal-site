@@ -7,7 +7,7 @@
 body {
   line-height: 1.5;
 
-  @media screen and (min-width: 35.5em) {
+  @media screen and (min-width: 46em) {
     padding-left: 200px;
   }
 }
@@ -68,22 +68,6 @@ h2 {
     transition: border-color .2s,
                 color .2s;
 
-    .about & {
-      border-color: @yellow;
-    }
-
-    .projects & {
-      border-color: @red;
-    }
-
-    .thoughts & {
-      border-color: @blue;
-    }
-
-    .work & {
-      border-color: @green;
-    }
-
     &:hover {
       border-color: #ccc;
       color: #ccc;
@@ -100,17 +84,33 @@ h2 {
   }
 
   a {
-    background-size: 100%;
     border-bottom: none;
     display: block;
     height: 40px;
-    transition: background-image .2s;
+    max-height: 40px;
+    position: relative;
     width: 40px;
+    max-width: 40px;
+
+    &:after {
+      content: "";
+      opacity: 0;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      transition: opacity .2s;
+    }
+
+    &:hover {
+
+      &:after {
+        opacity: 1;
+      }
+    }
 
     &.github {
       background: url(@github) no-repeat left top;
 
-      &:hover {
+      &:after {
         background: url(@githubYellow) no-repeat left top;
       }
     }
@@ -118,7 +118,7 @@ h2 {
     &.gplus {
       background: url(@gplus) no-repeat left top;
 
-      &:hover {
+      &:after {
         background: url(@gplusYellow) no-repeat left top;
       }
     }
@@ -126,7 +126,7 @@ h2 {
     &.twitter {
       background: url(@twitter) no-repeat left top;
 
-      &:hover {
+      &:after {
         background: url(@twitterYellow) no-repeat left top;
       }
     }

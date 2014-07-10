@@ -42,11 +42,11 @@
   .active {
 
     a {
-      border-bottom: 1px dotted #fff;
+      border-bottom: 1px dotted;
     }
   }
 
-  @media screen and (min-width: 35.5em) {
+  @media screen and (min-width: 46em) {
     left: 0;
     height: auto;
     min-height: 100%;
@@ -69,7 +69,7 @@
       }
 
       a {
-        border-left: 20px solid #fff;
+        border-left: 20px solid;
         font-size: 1.5em;
         line-height: 1;
         margin-bottom: 5px;
@@ -100,34 +100,28 @@
     background-color: @yellow;
   }
 
-  &.projects {
-    background-color: @red;
-  }
-
   &.thoughts {
     background-color: @blue;
   }
 
   &.work {
-    background-color: @green;
+    background-color: @red;
   }
 }
 
 .logo {
   background: url(@logo) no-repeat center;
-  background-size: 50px;
   display: block;
   float: left;
   height: 50px;
   position: absolute;
   width: 50px;
 
-  @media screen and (min-width: 35.5em) {
-    background-size: 160px;
+  @media screen and (min-width: 46em) {
     float: none;
-    height: 200px;
-    padding: 20px;
+    height: 160px;
+    margin: 20px;
     position: relative;
-    width: 200px;
+    width: 160px;
   }
 }

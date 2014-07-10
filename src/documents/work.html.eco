@@ -4,7 +4,7 @@ section: "work"
 isPage: true
 ---
 <% for work in @getCollection("work").toJSON(): %>
-  <article class="<%= work.basename %>-thumb work-item pure-u-1 pure-u-md-1-2">
+  <article class="<%= work.basename %>-thumb work-item pure-u-1 pure-u-sm-1-2">
     <a href="<%= work.url %>">
       <header>
         <h1 class="fit-text"><%= work.title %></h1>
@@ -12,55 +12,7 @@ isPage: true
       </header>
     </a>
   </article>
-  <article class="please-stand-by pure-u-1 pure-u-md-1-2">
-    <a href="#">
-      <header>
-        <h1 class="fit-text">Please Stand By</h1>
-        <p>This item is under construction...</p>
-      </header>
-    </a>
-  </article>
-  <article class="please-stand-by pure-u-1 pure-u-md-1-2">
-    <a href="#">
-      <header>
-        <h1 class="fit-text">Please Stand By</h1>
-        <p>This item is under construction...</p>
-      </header>
-    </a>
-  </article>
-  <article class="please-stand-by pure-u-1 pure-u-md-1-2">
-    <a href="#">
-      <header>
-        <h1 class="fit-text">Please Stand By</h1>
-        <p>This item is under construction...</p>
-      </header>
-    </a>
-  </article>
-  <article class="please-stand-by pure-u-1 pure-u-md-1-2">
-    <a href="#">
-      <header>
-        <h1 class="fit-text">Please Stand By</h1>
-        <p>This item is under construction...</p>
-      </header>
-    </a>
-  </article>
-  <article class="please-stand-by pure-u-1 pure-u-md-1-2">
-    <a href="#">
-      <header>
-        <h1 class="fit-text">Please Stand By</h1>
-        <p>This item is under construction...</p>
-      </header>
-    </a>
-  </article>
-  <article class="please-stand-by pure-u-1 pure-u-md-1-2">
-    <a href="#">
-      <header>
-        <h1 class="fit-text">Please Stand By</h1>
-        <p>This item is under construction...</p>
-      </header>
-    </a>
-  </article>
-  <article class="please-stand-by pure-u-1 pure-u-md-1-2">
+  <article class="please-stand-by pure-u-1 pure-u-sm-1-2">
     <a href="#">
       <header>
         <h1 class="fit-text">Please Stand By</h1>
