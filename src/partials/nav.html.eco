@@ -1,7 +1,7 @@
 <nav class="site-nav <%= @document.section %>">
   <a href="/" class="logo"></a>
   <ul>
-    <% for page in @getCollection("pages").toJSON(): %>
+    <% for page in @getCollection("pages").sortArray('title':0): %>
       <li class="<%= if page.section is @document.section then 'active' else 'inactive' %>">
         <a href="<%= page.url %>">
           <%= page.title %>

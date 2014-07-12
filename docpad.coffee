@@ -17,11 +17,15 @@ docpadConfig = {
   collections:
     pages: ->
       @getCollection("html").findAllLive({isPage:true}).on "add", (model) ->
-        model.setMetaDefaults({layout:"default"})
+        model.setMetaDefaults({layout:"page"})
 
-    work: ->
-      @getCollection("html").findAllLive({relativeOutDirPath: 'work'}).on "add", (model) ->
-        model.setMetaDefaults({layout:"default",section:"work"})
+    posts: ->
+      @getCollection("html").findAllLive({relativeOutDirPath: 'blog/posts'}).on "add", (model) ->
+        model.setMetaDefaults({layout:"post",section:"blog"})
+
+    entries: ->
+      @getCollection("html").findAllLive({relativeOutDirPath: 'work/entries'}).on "add", (model) ->
+        model.setMetaDefaults({layout:"page",section:"work"})
 }
 
 # Export the DocPad Configuration

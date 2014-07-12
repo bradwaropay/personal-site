@@ -87,11 +87,10 @@
 
       a {
         border-bottom: none;
-        border-left-width: 30px;
+      }
 
-        &:hover {
-          border-left-width: 30px;
-        }
+      a,a:hover {
+        border-left-width: 30px;
       }
     }
   }
@@ -100,7 +99,7 @@
     background-color: @yellow;
   }
 
-  &.thoughts {
+  &.blog {
     background-color: @blue;
   }
 
@@ -110,7 +109,7 @@
 }
 
 .logo {
-  background: url(@logo) no-repeat center;
+  background-image: url(@logo);
   display: block;
   float: left;
   height: 50px;

@@ -1,0 +1,11 @@
+<%- @partial('start') %>
+  <% for work in @getCollection("entries").toJSON(): %>
+    <article class="<%= work.basename %>-thumb work-entry pure-u-1 pure-u-sm-1-2">
+      <a href="<%= work.url %>">
+        <header>
+          <h1 class="fit-text"><%= work.title %></h1>
+        </header>
+      </a>
+    </article>
+  <% end %>
+<%- @partial('end') %>

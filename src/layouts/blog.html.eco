@@ -1,0 +1,14 @@
+<%- @partial('start') %>
+  <div class="post-list pure-u-1">
+    <article class="post">
+      <a href="#">
+        <header>
+          <time datetime="2014-07-09">July 9, 2014</time>
+          <h1>Test Article</h1>
+        </header>
+        <h2>Test Article Description</h2>
+      </a>
+    </article>
+    <%- @content %>
+  </div>
+<%- @partial('end') %>
