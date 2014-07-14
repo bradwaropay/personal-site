@@ -23,9 +23,9 @@ $('.site-nav ul a').mouseleave(function(){
 // Work Thumbnails
 $('.work .work-entry').each(function() {
   var th = $(this).attr('id');
-  addCSSRule(document.styleSheets[2], '#' + th, 'background-image: url(/work/' + th + '.jpg)');
+  addCSSRule(document.styleSheets[2], '#' + th, 'background-image: url(/images/work/' + th + '.jpg)');
 });
 
 // Work Background
 var bg = $('.work .bg').attr('id');
-addCSSRule(document.styleSheets[2], '.work .bg:after', 'background-image: url(/work/' + bg + '.jpg)');
+addCSSRule(document.styleSheets[2], '.work .bg:after', 'background-image: url(/images/work/' + bg + '.jpg)');
