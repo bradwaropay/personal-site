@@ -25,12 +25,12 @@ docpadConfig = {
       @getCollection('html').findAllLive({isNavLink:true})
 
     posts: ->
-      @getCollection('html').findAllLive({relativeOutDirPath: 'blog/posts'}).on 'add', (model) ->
-        model.setMetaDefaults({layout:'post',section:'blog'})
+      @getCollection('html').findAllLive({relativeOutDirPath: 'blog/posts'}, [{date: -1}]).on 'add', (model) ->
+        model.setMetaDefaults({layout: 'post', section: 'blog'})
 
     entries: ->
       @getCollection('html').findAllLive({relativeOutDirPath: 'work/entries'}).on 'add', (model) ->
-        model.setMetaDefaults({layout:'page',section:'work'})
+        model.setMetaDefaults({layout: 'page', section: 'work'})
 }
 
 # Export the DocPad Configuration
