@@ -9,4 +9,4 @@
 </head>
 <body class="<%= @document.section %>">
   <%- @partial('nav') %>
-  <div class="content pure-g">
+  <div class="pure-g">

@@ -1,3 +1,25 @@
 <%- @partial('start') %>
-  <%- @content %>
+  <div class="post-page content pure-u-1">
+    <header>
+      <time datetime="<%= @robotDate(@document.date) %>"><%= @humanDate(@document.date) %></time>
+      <span class="category-tag"><%= @document.category %></span>
+      <h1 class="fit-text"><%= @document.title %></h1>
+      <h2 class="fit-text"><%= @document.subtitle %></h2>
+    </header>
+    <%- @content %>
+    <% for document,documentIndex in @getCollection('posts').toJSON(): %>
+      <% if @document.id is document.id: %>
+        <% if documentIndex >= 1: %>
+          <a href="<%= @getCollection('posts').toJSON()[documentIndex-1].url %>" class="previous">&laquo; Previous</a>
+        <% else: %>
+          <a href="/blog" class="previous">&laquo; Back to blog</a>
+        <% end %>
+        <% if documentIndex < @getCollection('posts').length - 1: %>
+          <a href="<%= @getCollection('posts').toJSON()[documentIndex+1].url %>" class="next">Next &raquo;</a>
+        <% else if documentIndex > 0: %>
+          <a href="/blog" class="next">Back to blog &raquo;</a>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 <%- @partial('end') %>

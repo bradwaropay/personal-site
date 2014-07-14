@@ -1,25 +1,57 @@
-.post-list {
+.post-list,
+.post-page {
   padding: 30px;
+
+  @media screen and (min-width: 64em) {
+    padding: 30px 150px;
+  }
+
+  time {
+    color: #ccc;
+    line-height: 1;
+    position: absolute;
+    top: 15px; left: 15px;
+  }
+}
+
+.post-list {
+
+  >a,>a:hover {
+    color: @text;
+  }
+
+  >a {
+    text-decoration: none;
+  }
+
+  h1,h2 {
+    margin: 0;
+  }
+}
+
+.post-page {
+
+  header {
+    padding-top: 40px;
+    position: relative;
+  }
+
+  time {
+    top: 5px; left: 0;
+  }
+
+  .category-tag {
+    top: 0; right: 0;
+  }
 }
 
 .post {
   border-bottom: 1px dotted @blue;
-  margin-bottom: 1em;
-  padding: 1em;
-  transition: background-color .2s;
+  padding: 45px 15px 15px;
+  position: relative;
+  transition: background-color .4s;
 
   &:hover {
     background-color: #efefef;
-  }
-
-  a,a:hover {
-    color: @text;
-  }
-
-  a {
-
-    &:hover {
-      background-color: #ccc;
-    }
   }
 }

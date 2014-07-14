@@ -1,90 +1,70 @@
-.index-bg {
-  position: relative;
+.about {
 
-  @media screen and (min-width: 64em) {
-    min-height: 100%;
-  }
-
-  &:after {
-    background: url(/images/test-bg.jpg) no-repeat center;
-    -webkit-background-size: cover;
-       -moz-background-size: cover;
-         -o-background-size: cover;
-            background-size: cover;
-    content: "";
-    display: block;
-    padding-top: 56.25%;
-
-    @media screen and (min-width: 64em) {
-      background-attachment: fixed;
-      height: auto;
-      position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-    }
-  }
-}
-
-.index-copy {
-  padding: 30px;
-
-  p {
-    font-size: 1.2em;
-  }
-}
-
-.social {
-  margin: 20px 0;
-  padding-left: 0;
-
-  li {
-    display: inline-block;
-  }
-
-  a {
-    border-bottom: none;
-    display: block;
-    height: 40px;
-    max-height: 40px;
-    position: relative;
-    width: 40px;
-    max-width: 40px;
+  .bg {
 
     &:after {
-      content: "";
-      opacity: 0;
-      position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-      transition: opacity .2s;
+      background: url(/images/test-bg.jpg) no-repeat center;
+      -webkit-background-size: cover;
+         -moz-background-size: cover;
+           -o-background-size: cover;
+              background-size: cover;
+    }
+  }
+
+  .social {
+    margin: 20px 0;
+    padding-left: 0;
+
+    li {
+      display: inline-block;
     }
 
-    &:hover {
+    a {
+      border-bottom: none;
+      display: block;
+      height: 40px;
+      max-height: 40px;
+      position: relative;
+      width: 40px;
+      max-width: 40px;
 
       &:after {
-        opacity: 1;
+        content: "";
+        opacity: 0;
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        transition: opacity .2s;
       }
-    }
 
-    &.github {
-      background-image: url(@github);
+      &:hover {
 
-      &:after {
-        background-image: url(@githubYellow);
+        &:after {
+          opacity: 1;
+        }
       }
-    }
 
-    &.gplus {
-      background-image: url(@gplus);
+      &.github {
+        background-image: url(@github);
 
-      &:after {
-        background-image: url(@gplusYellow);
+        &:after {
+          background-image: url(@githubYellow);
+        }
       }
-    }
 
-    &.twitter {
-      background-image: url(@twitter);
+      &.gplus {
+        background-image: url(@gplus);
 
-      &:after {
-        background-image: url(@twitterYellow);
+        &:after {
+          background-image: url(@gplusYellow);
+        }
+      }
+
+      &.twitter {
+        background-image: url(@twitter);
+
+        &:after {
+          background-image: url(@twitterYellow);
+        }
       }
     }
   }
