@@ -365,10 +365,11 @@ h2 {
   border-bottom: 1px dotted #00a69c;
   padding: 45px 15px 15px;
   position: relative;
-  transition: background-color 0.4s;
+  transition: background-color 1.6s;
 }
 .post:hover {
   background-color: #efefef;
+  transition: background-color 0.4s;
 }
 .work h1 {
   margin-bottom: .67em;
