@@ -1,7 +1,7 @@
 <%- @partial('start') %>
   <div class="post-page content pure-u-1">
     <header>
-      <time datetime="<%= @robotDate(@document.date) %>"><%= @humanDate(@document.date) %></time>
+      <time datetime="<%= @document.robotDate %>"><%= @document.humanDate %></time>
       <span class="category-tag"><%= @document.category %></span>
       <h1 class="fit-text"><%= @document.title %></h1>
       <h2 class="fit-text"><%= @document.subtitle %></h2>
