@@ -162,7 +162,6 @@ h2 {
 @media screen and (min-width: 46em) {
   .site-nav {
     left: 0;
-    height: auto;
     min-height: 100%;
     padding: 0;
     position: fixed;
@@ -235,43 +234,37 @@ h2 {
   float: right;
 }
 .bg {
-  position: relative;
-}
-@media screen and (min-width: 64em) {
-  .bg {
-    min-height: 100%;
-  }
-}
-.bg:after {
+  background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  content: "";
-  display: block;
   padding-top: 56.25%;
+  position: relative;
 }
 @media screen and (min-width: 64em) {
-  .bg:after {
+  .bg {
     background-attachment: fixed;
-    height: auto;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    background-position-x: 200px;
+    min-height: 100%;
   }
 }
 .content {
   font-size: 1.2em;
   padding: 30px;
 }
-.about .bg:after {
-  background: url(/images/test-bg.jpg) no-repeat center;
+.about .bg {
+  background-image: url(/images/test-bg.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+@media screen and (min-width: 64em) {
+  .about .bg {
+    background-attachment: fixed;
+    background-position-x: 200px;
+  }
 }
 .about .social {
   margin: 20px 0;

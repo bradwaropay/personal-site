@@ -1,4 +1,4 @@
 ---
-title:    "beacons.io"
+title:    "bcons.io"
 category: "Front-End"
 ---

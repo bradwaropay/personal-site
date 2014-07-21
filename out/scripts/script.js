@@ -22,10 +22,24 @@ $('.site-nav ul a').mouseleave(function(){
 
 // Work Thumbnails
 $('.work .work-entry').each(function() {
-  var th = $(this).attr('id');
-  addCSSRule(document.styleSheets[2], '#' + th, 'background-image: url(/images/work/' + th + '/' + th + '-th.png)');
+  var th = $(this).attr('id'),
+      retina = window.devicePixelRatio > 1;
+
+  if (retina) {
+    addCSSRule(document.styleSheets[2], '#' + th, 'background-image: url(/images/work/' + th + '/' + th + '-th@2x.jpg)');
+  }
+  else {
+    addCSSRule(document.styleSheets[2], '#' + th, 'background-image: url(/images/work/' + th + '/' + th + '-th.jpg)');
+  }
 });
 
 // Work Background
-var bg = $('.work .bg').attr('id');
-addCSSRule(document.styleSheets[2], '.work .bg:after', 'background-image: url(/images/work/' + bg + '/' + bg + '-bg.png)');
+var bg = $('.work .bg').attr('id'),
+    retina = window.devicePixelRatio > 1;
+
+if (retina) {
+  addCSSRule(document.styleSheets[2], '.work .bg', 'background-image: url(/images/work/' + bg + '/' + bg + '-bg@2x.jpg)');
+}
+else {
+  addCSSRule(document.styleSheets[2], '.work .bg', 'background-image: url(/images/work/' + bg + '/' + bg + '-bg.jpg)');
+}

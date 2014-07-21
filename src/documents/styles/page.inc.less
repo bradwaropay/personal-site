@@ -1,25 +1,16 @@
 .bg {
+  background-position: center;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+  padding-top: 56.25%;
   position: relative;
 
   @media screen and (min-width: 64em) {
+    background-attachment: fixed;
+    background-position-x: 200px;
     min-height: 100%;
-  }
-
-  &:after {
-    -webkit-background-size: cover;
-       -moz-background-size: cover;
-         -o-background-size: cover;
-            background-size: cover;
-    content: "";
-    display: block;
-    padding-top: 56.25%;
-
-    @media screen and (min-width: 64em) {
-      background-attachment: fixed;
-      height: auto;
-      position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-    }
   }
 }
 
