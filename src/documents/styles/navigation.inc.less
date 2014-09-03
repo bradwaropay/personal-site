@@ -1,12 +1,16 @@
 .site-nav {
   height: 70px;
   padding: 10px 20px;
+  position: relative;
   transition: background-color .2s;
 
   ul {
     display: table;
     margin: 0;
-    padding: 10px 0 0 70px;
+    padding-left: 70px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 100%;
   }
 
@@ -56,6 +60,9 @@
     ul {
       display: block;
       padding-left: 0;
+      position: relative;
+      top: auto;
+      transform: none;
     }
 
     li {
@@ -111,13 +118,11 @@
   background-image: url(@logo);
   display: block;
   height: 50px;
-  position: absolute;
   width: 50px;
 
   @media screen and (min-width: 46em) {
     height: 160px;
     margin: 20px;
-    position: relative;
     width: 160px;
   }
 }
