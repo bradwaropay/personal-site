@@ -2,8 +2,7 @@
 function addCSSRule(sheet, selector, rules, index) {
   if(sheet.insertRule) {
     sheet.insertRule(selector + "{" + rules + "}", index);
-  }
-  else {
+  } else {
     sheet.addRule(selector, rules, index);
   }
 }
@@ -27,8 +26,7 @@ $('.work .work-entry').each(function() {
 
   if (retina) {
     addCSSRule(document.styleSheets[2], '#' + th, 'background-image: url(/images/work/' + th + '/' + th + '-th@2x.jpg)');
-  }
-  else {
+  } else {
     addCSSRule(document.styleSheets[2], '#' + th, 'background-image: url(/images/work/' + th + '/' + th + '-th.jpg)');
   }
 });
