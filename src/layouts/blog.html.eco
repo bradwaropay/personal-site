@@ -1,14 +1,15 @@
-<%- @partial('start') %>
-  <div class="post-list pure-u-1">
-    <% for post in @getCollection("posts").toJSON(): %>
-      <a href="<%= post.url %>">
-        <article class="post">
-          <time datetime="<%= post.robotDate %>"><%= post.humanDate %></time>
-          <span class="category-tag"><%= post.category %></span>
-          <h1><%= post.title %></h1>
-          <h2><%= post.subtitle %></h2>
-        </article>
-      </a>
-    <% end %>
-  </div>
-<%- @partial('end') %>
+---
+layout:   "default"
+---
+<div class="post-list pure-u-1">
+  <% for post in @getCollection("posts").toJSON(): %>
+    <a href="<%= post.url %>">
+      <article class="post">
+        <time datetime="<%= post.robotDate %>"><%= post.humanDate %></time>
+        <span class="category-tag"><%= post.category %></span>
+        <h1><%= post.title %></h1>
+        <h2><%= post.subtitle %></h2>
+      </article>
+    </a>
+  <% end %>
+</div>
