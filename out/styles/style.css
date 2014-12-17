@@ -256,8 +256,7 @@ h2 {
   padding: 30px;
 }
 .about .bg {
-<<<<<<< HEAD
-  background-image: url(/images/about-bg.png);
+  background-image: url(/images/test-bg.png);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -267,9 +266,6 @@ h2 {
   .about .bg {
     background-position-x: -175px;
   }
-=======
-  background-image: url(/images/test-bg.jpg);
->>>>>>> 81dad8af53fd0f2671880525e84bd552ff0e4fa4
 }
 .about .social {
   margin: 20px 0;
