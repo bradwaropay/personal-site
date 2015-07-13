@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title><%= @getPreparedTitle() %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <%- @getBlock('meta').toHTML() %>
+  <%- @getBlock('styles').add(["/styles/style.css"]).toHTML() %>
+</head>
+<body class="<%= @document.section %>">
+  <header class="header-main">
+    <nav class="nav-main">
+      <ul>
+        <% for page in @getCollection("navLinks").toJSON(): %>
+          <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
+            <a href="<%= page.url %>">
+              <%= page.title %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+    header
+  </header>
+  <main class="content-main" role="main">
+    <%- @content %>
+  </main>
+  <footer class="footer-main">
+    footer
+  </footer>
+  <%- @getBlock('scripts').add(["/scripts/script.js"]).toHTML() %>
+</body>
+</html>
