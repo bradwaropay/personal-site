@@ -6,12 +6,6 @@ var plugins = require('gulp-load-plugins')({
   replaceString: /\bgulp[\-.]/
 });
 
-// Clean less files
-gulp.task('clean-css', function () {
-  return gulp.src('./out/styles/*.less')
-    .pipe(plugins.clean());
-});
-
 // Get Bower dependencies
 gulp.task('bower-css', function() {
  	gulp.src(plugins.mainBowerFiles())
@@ -29,5 +23,11 @@ gulp.task('bower-js', function() {
 		.pipe(gulp.dest('./out/scripts/lib'));
 });
 
+// Clean less files
+gulp.task('clean-css', function () {
+  return gulp.src('./out/styles/*.less')
+    .pipe(plugins.clean());
+});
+
 // Default task
-gulp.task('default', ['clean-css', 'bower-css', 'bower-js']);
+gulp.task('default', ['bower-css', 'bower-js', 'clean-css']);
