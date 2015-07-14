@@ -9,5 +9,16 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "pure": "~0.6.0"
+  },
+  "overrides": {
+    "pure": {
+      "main": [
+        "pure.css",
+        "grids-responsive-min.css"
+      ]
+    }
+  }
 }
