@@ -10,6 +10,11 @@ var plugins = require('gulp-load-plugins')({
 gulp.task('bower-css', function() {
  	gulp.src(plugins.mainBowerFiles())
 		.pipe(plugins.filter('*.css'))
+    .pipe(plugins.order([
+			'pure.css',
+      'grids-responsive-min.css',
+			'*'
+		]))
 		.pipe(plugins.concat('lib.css'))
     .pipe(plugins.minifyCss({keepSpecialComments: 0}))
 		.pipe(gulp.dest('./out/styles/lib'));
@@ -18,6 +23,10 @@ gulp.task('bower-css', function() {
 gulp.task('bower-js', function() {
  	gulp.src(plugins.mainBowerFiles())
 		.pipe(plugins.filter('*.js'))
+    .pipe(plugins.order([
+			'jquery.js',
+			'*'
+		]))
 		.pipe(plugins.concat('lib.js'))
 		.pipe(plugins.uglify())
 		.pipe(gulp.dest('./out/scripts/lib'));
