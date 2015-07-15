@@ -3,7 +3,7 @@
   <title><%= @getPreparedTitle() %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <%- @getBlock('meta').toHTML() %>
-  <%- @getBlock('styles').add(["/styles/lib/lib.js", "/styles/style.css"]).toHTML() %>
+  <%- @getBlock('styles').add(["/styles/lib/lib.css", "/styles/style.css"]).toHTML() %>
 </head>
 <body>
   <%- @partial('header') %>
