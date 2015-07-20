@@ -3,14 +3,17 @@
   <title><%= @getPreparedTitle() %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <%- @getBlock('meta').toHTML() %>
+  <script src="//use.typekit.net/upf6zkz.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
   <%- @getBlock('styles').add(["/styles/lib/lib.css", "/styles/style.css"]).toHTML() %>
 </head>
 <body>
   <%- @partial('header') %>
-  <main class="content-main" role="main">
+  <main class="main-content" role="main">
     <%- @content %>
   </main>
   <%- @partial('footer') %>
   <%- @getBlock('scripts').add(["/scripts/lib/lib.js", "/scripts/script.js"]).toHTML() %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.2.1/trianglify.min.js"></script>
 </body>
 </html>

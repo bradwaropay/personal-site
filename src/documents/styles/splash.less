@@ -1,20 +1,35 @@
 .splash-header {
-  background: #eee;
+  background: @red;
   height: 300px;
-}
+  overflow: hidden;
+  position: relative;
 
-.splash-header__section {
-  padding: 15px;
-
-  h1,p {
-    margin: 0;
+  canvas {
+    background-attachment: fixed;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
   }
-}
 
-.splash-header__section--development {
-  text-align: right;
-}
+  &__section {
+    color: @redLight;
+    padding: 30px 15px;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(0,0,0,.2);
+    z-index: 10;
 
-.splash-content-bar__callout {
-  padding: 15px;
+    h1,p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    &--development {
+
+    }
+  }
 }

@@ -1,3 +1,7 @@
-<footer class="footer-main">
-  footer
+<footer class="content-section main-footer">
+  <div class="content-section__inner pure-g">
+    <div class="main-footer__inner pure-u-1">
+      footer
+    </div>
+  </div>
 </footer>
