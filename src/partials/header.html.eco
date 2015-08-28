@@ -1,8 +1,8 @@
 <header class="content-section main-header">
-  <nav class="content-section__inner main-nav pure-menu pure-menu-horizontal">
-    <ul class="list-inline pure-menu-list">
+  <nav class="content-section__inner main-nav">
+    <ul>
       <% for page in @getCollection("navLinks").toJSON(): %>
-        <li class="pure-menu-item <%= if page.id is @document.id then 'active' else 'inactive' %>">
+        <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
           <a href="<%= page.url %>">
             <%= page.title %>
           </a>

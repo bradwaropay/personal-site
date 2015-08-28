@@ -1,6 +1,6 @@
 .splash-header {
   background: @red;
-  height: 300px;
+  min-height: 300px;
   overflow: hidden;
   position: relative;
 
@@ -12,24 +12,59 @@
 
   &__section {
     color: @redLight;
-    padding: 30px 15px;
+    margin-top: 60px;
     position: relative;
     text-align: center;
     text-shadow: 0 0 5px rgba(0,0,0,.2);
     z-index: 10;
 
-    h1,p {
-      margin: 0;
+    @media (min-width: @sm) {
+      margin-top: 90px;
+    }
+
+    @media (min-width: @md) {
+      margin: 60px 0;
+    }
+
+    @media (min-width: @lg) {
+      margin: 90px 0 60px 0;
+    }
+
+    &:last-child {
+      margin-bottom: 60px;
+
+      @media (min-width: @sm) {
+        margin-bottom: 90px;
+      }
     }
 
     h1 {
-      font-size: 48px;
+      font-size: 42px;
       line-height: 1;
-      margin-bottom: 10px;
+      margin-top: 157.5px;
+      position: relative;
+
+      @media (min-width: @sm) and (max-width: @md), (min-width: @lg) {
+        display: inline-block;
+        margin: 0 0 60px 157.5px;
+      }
     }
 
-    &--development {
+    svg {
+      right: 50%; bottom: 100%;
+      position: absolute;
+      transform: translate(50%,-15px);
+      width: 150px;
 
+      @media (min-width: @sm) and (max-width: @md), (min-width: @lg) {
+        margin-right: 15px;
+        top: 50%; right: 100%; bottom: auto;
+        transform: translate(0,-50%);
+      }
+    }
+
+    p {
+      margin: 0;
     }
   }
 }

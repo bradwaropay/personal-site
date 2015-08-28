@@ -5,65 +5,33 @@ isNavLink: true
 ---
 <header class="content-section content-header splash-header">
   <div class="content-section__inner pure-g">
-    <section class="splash-header__section splash-header__section--design pure-u-1-2">
-      <h1>Full Stack<br>Designer</h1>
+    <section class="splash-header__section splash-header__section--design pure-u-1 pure-u-md-1-2">
+      <h1><%- @partial('svg/designer') %>Full Stack<br>Designer</h1>
       <p>Researched processes, memorable UX, thoughtful interactions, high fidelity visuals and strong creative direction.</p>
       <p class="color--gray-light">Design from concept to production.</p>
     </section>
-    <section class="splash-header__section splash-header__section--development pure-u-1-2">
-      <h1>Front-End<br>Developer</h1>
+    <section class="splash-header__section splash-header__section--development pure-u-1 pure-u-md-1-2">
+      <h1><%- @partial('svg/developer') %>Front-End<br>Developer</h1>
       <p>HTML, CSS, and JS best practices, popular framework and library knowledge, ever learning, and resourceful.</p>
-      <p class="color--gray-light">Clean, reliable, and modern development.</p>
+      <p class="color--gray-light">Clean, reliable, modern development.</p>
     </section>
   </div>
 </header>
 
-<section class="content-section splash-content-bar">
+<section class="content-section">
   <div class="content-section__inner pure-g">
     <div class="pure-u-1">
       <h1 class="heading heading--lg">Featured work</h1>
     </div>
-    <div class="content-callout content-callout--featured-work pure-u-1-3">
+    <div class="content-callout content-callout--featured-work pure-u-1 pure-u-sm-3-5">
       <a href="#">
-        <h2 class="content-callout--featured-work__title">Talu.io</h2>
+        <h2 class="content-callout--featured-work__title">talu.io</h2>
         <div class="tag">HTML | CSS | JS</div>
-        <img src="//lorempixel.com/1000/500/abstract" class="pure-img" />
+        <img src="//placehold.it/1200x600" class="pure-img" />
       </a>
     </div>
-    <div class="content-callout content-callout--featured-work pure-u-1-3">
-      <a href="#">
-        <h2 class="content-callout--featured-work__title">Title</h2>
-        <div class="tag">HTML | CSS | JS</div>
-        <img src="//lorempixel.com/1000/500/animals" class="pure-img" />
-      </a>
-    </div>
-    <div class="content-callout content-callout--featured-work pure-u-1-3">
-      <a href="#">
-        <h2 class="content-callout--featured-work__title">Title</h2>
-        <div class="tag">HTML | CSS | JS</div>
-        <img src="//lorempixel.com/1000/500/city" class="pure-img" />
-      </a>
-    </div>
-    <div class="content-callout content-callout--featured-work pure-u-1-3">
-      <a href="#">
-        <h2 class="content-callout--featured-work__title">Title</h2>
-        <div class="tag">HTML | CSS | JS</div>
-        <img src="//lorempixel.com/1000/500/food" class="pure-img" />
-      </a>
-    </div>
-    <div class="content-callout content-callout--featured-work pure-u-1-3">
-      <a href="#">
-        <h2 class="content-callout--featured-work__title">Title</h2>
-        <div class="tag">HTML | CSS | JS</div>
-        <img src="//lorempixel.com/1000/500/sports" class="pure-img" />
-      </a>
-    </div>
-    <div class="content-callout content-callout--featured-work pure-u-1-3">
-      <a href="#">
-        <h2 class="content-callout--featured-work__title">Title</h2>
-        <div class="tag">HTML | CSS | JS</div>
-        <img src="//lorempixel.com/1000/500/nature" class="pure-img" />
-      </a>
+    <div class="pure-u-1 pure-u-sm-2-5">
+      <h2>talu.io</h2>
     </div>
   </div>
 </section>
