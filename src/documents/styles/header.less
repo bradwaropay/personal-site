@@ -6,53 +6,171 @@
 .main-nav {
   .cf;
   line-height: 1;
-  padding: 0 30px;
+  padding: 15px 30px;
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
+  @media (min-width: @md) {
+    padding: 0 30px;
   }
 
-  li {
+  &__brand {
+    color: @yellow;
+    display: inline-block;
     float: left;
+    font-family: @azoSansUber;
+    font-weight: 400;
+    padding: 15px 30px 15px 0;
+    text-decoration: none;
 
-    &:first-child {
+    span {
+      color: @grayLight;
+    }
+  }
 
-      a {
-        padding-left: 0;
+  &__hamburger {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    height: 30px;
+    position: relative;
+    width: 30px;
+
+    @media (min-width: @md) {
+      display: none;
+    }
+
+    &.is-open {
+
+      .main-nav__hamburger__bar,
+      .main-nav__hamburger__bar--primary:before,
+      .main-nav__hamburger__bar--primary:after {
+        background-color: @grayLight;
+      }
+
+      .main-nav__hamburger__bar {
+
+        &--primary {
+          transform: translate(0,-50%) rotate(45deg);
+
+          &:before,
+          &:after {
+            opacity: 0;
+            top: 0;
+            width: 0;
+          }
+        }
+
+        &--secondary {
+          transform: translate(0,-50%) rotate(-45deg);
+        }
       }
     }
 
-    &:last-child {
-      a {
-        padding-right: 0;
-      }
+    &__bar,
+    &__bar--primary:before,
+    &__bar--primary:after {
+      background-color: @yellow;
+      content: "";
+      display: block;
+      height: 5px;
+      left: 0;
+      position: absolute;
+      transition: all .2s ease-in-out;
+      width: 100%;
     }
 
-    &.active {
+    &__bar {
+      top: 50%;
+      transform: translate(0,-50%);
 
-      a {
-        color: @grayLight;
+      &--primary {
+
+        &:before {
+          top: -200%;
+        }
 
         &:after {
-          border-bottom: 5px solid @yellow;
-          content: "";
-          display: block;
-          position: absolute;
-          right: 15px; bottom: 0; left: 15px;
+          top: 200%;
         }
       }
     }
   }
 
-  a {
-    color: @yellow;
-    display: inline-block;
-    font-family: @azoSansUber;
-    font-weight: 400;
-    padding: 15px;
+  &__list {
+    .cf;
+    display: none;
+    list-style: none;
+    margin: 45px 0 0;
+    padding-left: 0;
     position: relative;
-    text-decoration: none;
+
+    @media (min-width: @md) {
+      display: block !important;
+      margin: 0;
+    }
+
+    &__item {
+      float: none;
+
+      @media (min-width: @md) {
+        float: left;
+      }
+
+      &:first-child {
+
+        a {
+
+          @media (min-width: @md) {
+            padding-left: 0;
+          }
+        }
+      }
+
+      &:last-child {
+
+        a {
+
+          @media (min-width: @md) {
+            padding-right: 0;
+          }
+        }
+      }
+
+      a {
+        color: @yellow;
+        display: block;
+        font-family: @azoSansUber;
+        font-weight: 400;
+        margin: 0 -30px;
+        padding: 15px 30px;
+        text-decoration: none;
+
+        @media (min-width: @md) {
+          display: inline-block;
+          margin: 0;
+          padding: 15px;
+        }
+      }
+
+      &.active {
+
+        a {
+          color: @grayLight;
+        }
+      }
+    }
+
+    &__hoverbar {
+      border-top: 5px solid @yellow;
+      bottom:0; left: 0;
+      display: none;
+      position: absolute;
+      transition: border-color .2s,
+                  left .2s,
+                  width .2s;
+
+      @media (min-width: @md) {
+        display: block;
+      }
+    }
   }
 }

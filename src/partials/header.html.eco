@@ -1,8 +1,12 @@
 <header class="content-section main-header">
   <nav class="content-section__inner main-nav">
-    <ul>
+    <div class="main-nav__hamburger">
+      <span class="main-nav__hamburger__bar main-nav__hamburger__bar--primary"></span>
+      <span class="main-nav__hamburger__bar main-nav__hamburger__bar--secondary"></span>
+    </div>
+    <ul class="main-nav__list">
       <% for page in @getCollection("navLinks").toJSON(): %>
-        <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
+        <li class="main-nav__list__item <%= if page.id is @document.id then 'active' else 'inactive' %>">
           <a href="<%= page.url %>">
             <%= page.title %>
           </a>
