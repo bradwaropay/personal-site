@@ -38,10 +38,21 @@
   hoverNavHoverBarPosition();
 
   // Toggle open/close mobile navigation
+  var mobileNavIsOpen = false;
+
+  function toggleMobileNav() {
+    $('.main-nav__hamburger').toggleClass('is-open');
+    $('.main-nav__list').toggleClass('is-open');
+  }
+
   $('.main-nav__hamburger').click(function(){
-		$(this).toggleClass('is-open');
-    $('.main-nav__list').slideToggle();
-	});
+    toggleMobileNav();
+    if (mobileNavIsOpen === false) {
+      mobileNavIsOpen = true;
+    } else {
+      mobileNavIsOpen = false;
+    }
+  });
 
   // Initialize and append trianglify
   function setFeaturedWorkBackground(){
@@ -65,12 +76,16 @@
 
   setFeaturedWorkBackground();
 
-  // Remove, reinitialize and append trianglify and reset hover bar on window resize
+  // Close mobile nav, reset hover bar, and remove, reinitialize and append trianglify, on window resize
   var resizeTimer;
 
   $(window).on('resize', function(e) {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function() {
+      if (mobileNavIsOpen === true) {
+        toggleMobileNav();
+        mobileNavIsOpen = false;
+      }
       setNavHoverBarPosition();
       clearFeaturedWorkBackground();
       setFeaturedWorkBackground();

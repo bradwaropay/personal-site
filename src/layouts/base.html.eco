@@ -8,6 +8,7 @@
   <%- @getBlock('styles').add(["/styles/lib/lib.css", "/styles/style.css"]).toHTML() %>
 </head>
 <body>
+  <%- @partial('svg/icons') %>
   <%- @partial('header') %>
   <main class="main-content" role="main">
     <%- @content %>

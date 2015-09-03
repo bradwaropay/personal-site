@@ -6,7 +6,6 @@ html, button, input, select, textarea,
 html,
 body {
   background-color: @grayLight;
-  color: @redDark;
   font-size: 18px;
   font-weight: 300;
   line-height: 1.6;
@@ -33,20 +32,13 @@ html {
   &--gray-light {
     color: @grayLight;
   }
-
-  &--yellow {
-    color: @yellow;
-  }
 }
 
-h1,h2,h3 {
+// Typography and Layout
+.heading {
   font-family: @azoSansUber;
   font-weight: 400;
   line-height: 1;
-}
-
-.heading {
-  margin: 15px 0;
 
   &--sm {
     font-size: 18px;
@@ -62,7 +54,22 @@ h1,h2,h3 {
 }
 
 .content-section {
+  color: @redDark;
   margin-bottom: 15px;
+
+  a {
+    color: @orange;
+    text-decoration: none;
+  }
+
+  &--red-dark {
+    background-color: @redDark;
+    color: @redLight;
+
+    a {
+      color: @yellow;
+    }
+  }
 
   &__inner {
     margin: 0 auto;
@@ -132,6 +139,7 @@ h1,h2,h3 {
   }
 }
 
+// Tags and Icons
 .tag {
   background: @orange;
   color: @grayLight;
@@ -152,4 +160,11 @@ h1,h2,h3 {
     top: 100%; right: 0;
     width: 0;
   }
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
 }

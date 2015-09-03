@@ -1,7 +1,31 @@
-<footer class="content-section main-footer">
+<footer class="content-section content-section--red-dark main-footer">
   <div class="content-section__inner main-footer__inner pure-g">
-    <div class="pure-u-1">
-      footer
+    <div class="pure-u-1 pure-u-md-3-4">
+      <h1 class="heading heading--md color color--gray-light">About Brad Waropay</h1>
+      <p>Nullam maximus pharetra lacinia. Curabitur molestie nibh tortor, ut consequat ligula ullamcorper sit amet. Donec urna tortor, convallis id dictum vel, semper in massa. Nullam porta mattis elementum. Proin at eros turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam porttitor purus lacus, et blandit est ultricies a. Integer ante turpis, fermentum nec tempor quis, vestibulum eu lacus. In imperdiet in massa ac dictum.</p>
+      <p><a href="#">Read more &raquo;</a></p>
+    </div>
+    <div class="pure-u-1 pure-u-md-1-4">
+      <nav class="social-nav">
+        <h2 class="heading heading--sm color color--gray-light">Get in touch</h2>
+        <ul class="social-nav__list">
+          <li class="social-nav__list__item">
+            <a href="#">
+              <svg class="icon icon-google-plus"><use xlink:href="#icon-github"></use></svg>
+            </a>
+          </li>
+          <li class="social-nav__list__item">
+            <a href="#">
+              <svg class="icon icon-google-plus"><use xlink:href="#icon-twitter"></use></svg>
+            </a>
+          </li>
+          <li class="social-nav__list__item">
+            <a href="#">
+              <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </footer>

@@ -1,4 +1,4 @@
-<header class="content-section main-header">
+<header class="content-section content-section--red-dark main-header">
   <nav class="content-section__inner main-nav">
     <div class="main-nav__hamburger">
       <span class="main-nav__hamburger__bar main-nav__hamburger__bar--primary"></span>
