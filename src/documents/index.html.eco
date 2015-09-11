@@ -18,7 +18,7 @@ isNavLink: true
   </div>
 </header>
 
-<section class="content-section">
+<!-- <section class="content-section">
   <div class="content-section__inner pure-g">
     <div class="pure-u-1">
       <h1 class="heading heading--lg">Featured work</h1>
@@ -34,4 +34,4 @@ isNavLink: true
       <h2>talu.io</h2>
     </div>
   </div>
-</section>
+</section> -->

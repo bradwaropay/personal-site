@@ -41,8 +41,7 @@
   var mobileNavIsOpen = false;
 
   function toggleMobileNav() {
-    $('.main-nav__hamburger').toggleClass('is-open');
-    $('.main-nav__list').toggleClass('is-open');
+    $('.main-nav').toggleClass('is-open');
   }
 
   $('.main-nav__hamburger').click(function(){

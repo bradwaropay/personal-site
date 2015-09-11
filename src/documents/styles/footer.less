@@ -2,7 +2,36 @@
   margin: 45px 0 60px;
 
   &__inner {
-    padding: 15px
+    padding: 15px;
+
+    &__about {
+      position: relative;
+      text-align: center;
+
+      @media (min-width: @md) {
+        padding-left: 0;
+        text-align: left;
+      }
+
+      &__image {
+        border-radius: 50%;
+        margin: 15px 0;
+        position: relative;
+
+        @media (min-width: @md) {
+          position: absolute;
+          top: 0; left: 15px;
+        }
+      }
+
+      &__content {
+        padding-left: 0;
+
+        @media (min-width: @md) {
+          padding-left: 180px;
+        }
+      }
+    }
   }
 }
 
@@ -24,6 +53,19 @@
 
       &:last-child {
         margin-right: 0;
+      }
+
+      &:hover {
+
+        svg {
+          fill: @grayLight;
+          transform: scale(1.05);
+        }
+      }
+
+      svg {
+        transition: fill .2s,
+                    transform .2s;
       }
     }
   }
