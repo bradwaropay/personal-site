@@ -1,5 +1,5 @@
 <footer class="content-section content-section--red-dark main-footer">
-  <div class="content-section__inner main-footer__inner pure-g">
+  <div class="content-section__inner content-section__inner--lg main-footer__inner pure-g">
     <div class="main-footer__inner__about pure-u-1 pure-u-md-3-4">
       <img src="//placehold.it/150x150" class="main-footer__inner__about__image" />
       <div class="main-footer__inner__about__content">

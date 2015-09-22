@@ -1,5 +1,5 @@
 <header class="content-section content-section--red-dark main-header">
-  <nav class="content-section__inner main-nav">
+  <nav class="content-section__inner content-section__inner--xl main-nav">
     <div class="main-nav__spacer">
       <a href="/" class="main-nav__brand">Brad<span class="color--gray-light">Waropay</span></a>
       <div class="main-nav__hamburger">

@@ -1,0 +1,14 @@
+<div class="content-section content-section--trianglify">
+  <div class="content-section__inner content-section__inner--xl pure-g">
+    <section class="design-develop-section pure-u-1 pure-u-md-1-2">
+      <h1 class="heading design-develop-section__heading"><%- @partial('svg/designer') %>Full Stack<br>Designer</h1>
+      <p>Researched processes, memorable UX, thoughtful interactions, high fidelity visuals, and strong creative direction.</p>
+      <p class="color--gray-light">Design from concept to production.</p>
+    </section>
+    <section class="design-develop-section pure-u-1 pure-u-md-1-2">
+      <h1 class="heading design-develop-section__heading"><%- @partial('svg/developer') %>Front-End<br>Developer</h1>
+      <p>HTML, CSS, and JS best practices, popular framework and library knowledge, ever learning, and resourceful.</p>
+      <p class="color--gray-light">Clean, reliable, modern development.</p>
+    </section>
+  </div>
+</div>
