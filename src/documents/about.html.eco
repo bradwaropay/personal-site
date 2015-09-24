@@ -1,6 +1,0 @@
----
-title: "About"
-layout: "base"
-isNavLink: true
----
-<%- @partial('design-develop') %>

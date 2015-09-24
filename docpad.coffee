@@ -16,7 +16,7 @@ docpadConfig = {
 
   collections:
     navLinks: ->
-      @getCollection('html').findAllLive({isNavLink:true})
+      @getCollection('html').findAllLive({isNavLink:true},[{title:1}])
 }
 
 # Export the DocPad Configuration

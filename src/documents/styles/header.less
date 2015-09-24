@@ -1,5 +1,5 @@
 .main-header {
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .main-nav {
@@ -11,11 +11,11 @@
   transition: padding-bottom .2s ease-out;
 
   @media (min-width: @md) {
-    padding: 0 30px;
+    padding: 0 2rem;
   }
 
   &.is-open {
-    padding-bottom: 15px;
+    padding-bottom: 1rem;
 
     .main-nav__hamburger__bar,
     .main-nav__hamburger__bar--primary:before,
@@ -52,7 +52,7 @@
   }
 
   &__spacer {
-    height: ~"calc(1em + 30px)";
+    height: ~"calc(3rem)";
 
     @media (min-width: @md) {
       height: 0;
@@ -66,26 +66,30 @@
     position: absolute;
     text-align: right;
     text-decoration: none;
-    top: 15px; right: 100%; left: 30px;
+    top: 1rem; right: 100%; left: 2rem;
     transition: right .4s;
     z-index: 10;
 
     @media (min-width: @md) {
-      top: 15px; right: 30px; left: auto;
+      top: 1rem; right: 2rem; left: auto;
+    }
+
+    &:hover {
+      text-decoration: none;
     }
   }
 
   &__hamburger {
     cursor: pointer;
     display: inline-block;
-    height: 30px;
+    height: 2rem;
     position: absolute;
     top: 7.5px; right: 30px;
     transition: right .2s;
-    width: 30px;
+    width: 2rem;
 
     @media (min-width: @md) {
-      right: -30px;
+      right: -2rem;
     }
 
     &__bar,
@@ -175,13 +179,13 @@
         font-family: @azoSansUber;
         font-weight: 400;
         margin: 0;
-        padding: 15px 30px;
+        padding: 1rem 2rem;
         text-decoration: none;
         transition: background-color .2s;
 
         @media (min-width: @md) {
           display: inline-block;
-          padding: 15px;
+          padding: 1rem;
         }
 
         &:hover {
