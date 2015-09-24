@@ -3,4 +3,13 @@ title: "About"
 layout: "no-footer"
 isNavLink: true
 ---
+<section class="content-section content-section--about-cover">
+  <div class="content-section__inner content-section__inner--md pure-g">
+    <div class="pure-u-1-2">
+      <h1 class="heading heading--xl color--red-light">Hey, I'm Brad</h1>
+      <p>I'm a developer, designer, illustrator, and technology enthusiast with a passion for problem solving, an obession with craftsmanship, and a love of good beer.</p>
+    </div>
+  </div>
+</section>
+
 <%- @partial('design-develop') %>

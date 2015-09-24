@@ -47,6 +47,10 @@ a {
   &--gray-light {
     color: @grayLight;
   }
+
+  &--red-light {
+    color: @redLight;
+  }
 }
 
 .heading {
@@ -64,6 +68,14 @@ a {
 
   &--lg {
     font-size: 2rem;
+  }
+
+  &--xl {
+    font-size: 2.5rem;
+  }
+
+  &--xxl {
+    font-size: 3rem;
   }
 }
 
@@ -96,8 +108,16 @@ a {
     }
   }
 
+  &--about-cover {
+    background-image: url(../images/about-cover.jpg);
+    background-size: cover;
+    color: @grayLight;
+    margin-bottom: 0;
+    padding: 4rem 0 3rem;
+  }
+
   &--design-develop {
-    padding: 3rem 0 4rem;
+    padding: 4rem 0;
 
     &__section {
       color: @redLight;
@@ -115,14 +135,14 @@ a {
       }
 
       &__heading {
-        font-size: 2.5rem;
+        font-size: 2rem;
         line-height: 1;
         margin-top: ~"calc(150px + .5rem)";
         position: relative;
 
         @media (min-width: @sm) and (max-width: @md), (min-width: @lg) {
           display: inline-block;
-          margin: 2rem 0 3rem ~"calc(150px + .5rem)";
+          margin: 2.2rem 0 3rem ~"calc(150px + .5rem)";
         }
       }
 
