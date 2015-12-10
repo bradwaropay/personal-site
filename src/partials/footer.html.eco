@@ -3,14 +3,13 @@
     <div class="main-footer__inner__about pure-u-1 pure-u-md-3-4">
       <img src="//placehold.it/150x150" class="main-footer__inner__about__image" />
       <div class="main-footer__inner__about__content">
-        <h1 class="heading heading--md color color--gray-light">Hey, I'm Brad</h1>
-        <p>I'm a developer, designer, illustrator, and technology enthusiast with a passion for problem solving, an obession with craftsmanship, and a love of good beer.</p>
-        <p><a href="#">What I'm about &raquo;</a></p>
+        <%- @partial('about-intro') %>
+        <p><a href="/">What I'm about &raquo;</a></p>
       </div>
     </div>
     <div class="pure-u-1 pure-u-md-1-4">
       <nav class="social-nav">
-        <h2 class="heading heading--sm color color--gray-light">Get in touch</h2>
+        <h2>Get in touch</h2>
         <ul class="social-nav__list">
           <li class="social-nav__list__item">
             <a href="#">

@@ -17,6 +17,9 @@ docpadConfig = {
   collections:
     navLinks: ->
       @getCollection('html').findAllLive({isNavLink:true},[{title:1}])
+    articles: ->
+      @getCollection("html").findAllLive({relativeOutDirPath: 'articles'},[{date:-1}]).on "add", (model) ->
+        model.setMetaDefaults({layout:"article"})
 }
 
 # Export the DocPad Configuration

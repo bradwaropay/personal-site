@@ -35,39 +35,3 @@
     }
   }
 }
-
-.social-nav {
-  margin-bottom: 1rem;
-  text-align: center;
-
-  &__list {
-    .cf;
-    display: inline-block;
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-
-    &__item {
-      float: left;
-      font-size: 2rem;
-      margin-right: 1rem;
-
-      &:last-child {
-        margin-right: 0;
-      }
-
-      &:hover {
-
-        svg {
-          fill: @grayLight;
-          transform: scale(1.05);
-        }
-      }
-
-      svg {
-        transition: fill .2s,
-                    transform .2s;
-      }
-    }
-  }
-}

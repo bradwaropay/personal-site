@@ -27,6 +27,20 @@ h1,h2,p {
   margin: 0 0 1rem;
 }
 
+h1,h2 {
+  font-family: @azoSansUber;
+  font-weight: 400;
+  line-height: 1;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
 a {
   text-decoration: none;
 
@@ -35,28 +49,35 @@ a {
   }
 }
 
-.background-color {
-
-  &--yellow {
-    background-color: @yellow;
-  }
-}
-
+.background-color,
 .color {
 
   &--gray-light {
     color: @grayLight;
   }
 
+  &--red-dark {
+    color: @redDark;
+  }
+
+  &--red {
+    color: @red;
+  }
+
   &--red-light {
     color: @redLight;
+  }
+
+  &--orange {
+    color: @orange;
+  }
+
+  &--yellow {
+    color: @yellow;
   }
 }
 
 .heading {
-  font-family: @azoSansUber;
-  font-weight: 400;
-  line-height: 1;
 
   &--sm {
     font-size: 1rem;
@@ -81,7 +102,11 @@ a {
 
 .content-section {
   color: @redDark;
-  margin-bottom: 2rem;
+  padding: 4rem 0;
+
+  h1,h2 {
+   color: @red;
+  }
 
   a {
     color: @orange;
@@ -91,6 +116,10 @@ a {
     background-color: @redDark;
     color: @redLight;
 
+    h1,h2 {
+     color: @grayLight;
+    }
+
     a {
       color: @yellow;
     }
@@ -98,6 +127,7 @@ a {
 
   &--trianglify {
     background: @red;
+    color: @redLight;
     overflow: hidden;
     position: relative;
 
@@ -106,21 +136,29 @@ a {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
     }
+
+    h1,h2 {
+     color: @redLight;
+    }
   }
 
   &--about-cover {
     background-image: url(../images/about-cover.jpg);
     background-size: cover;
     color: @grayLight;
-    margin-bottom: 0;
-    padding: 4rem 0 3rem;
+
+    h1,h2 {
+     color: @redLight;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
   }
 
   &--design-develop {
-    padding: 4rem 0;
 
     &__section {
-      color: @redLight;
       position: relative;
       text-align: center;
       text-shadow: 0 0 5px rgba(0,0,0,.2);
@@ -192,4 +230,40 @@ a {
   width: 1em;
   height: 1em;
   fill: currentColor;
+}
+
+.social-nav {
+  margin-bottom: 1rem;
+  text-align: center;
+
+  &__list {
+    .cf;
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+
+    &__item {
+      float: left;
+      font-size: 2rem;
+      margin-right: 1rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+
+        svg {
+          fill: @grayLight;
+          transform: scale(1.05);
+        }
+      }
+
+      svg {
+        transition: fill .2s,
+                    transform .2s;
+      }
+    }
+  }
 }
