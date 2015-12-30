@@ -3,23 +3,19 @@
 
 # Define the DocPad Configuration
 docpadConfig = {
-  plugins:
-    ghpages:
-      deployRemote: "origin"
-      deployBranch: "master"
 
   templateData:
     site:
-      title: "Brad Waropay"
+      styles: [
+        '/styles/lib.css'
+        '/styles/style.css'
+      ]
+      scripts: [
+        '/scripts/lib.js'
+        '/scripts/script.js'
+      ]
 
-    getPreparedTitle: -> if @document.title then "#{@document.title} | #{@site.title}" else @site.title
-
-  collections:
-    navLinks: ->
-      @getCollection('html').findAllLive({isNavLink:true},[{title:1}])
-    articles: ->
-      @getCollection("html").findAllLive({relativeOutDirPath: 'articles'},[{date:-1}]).on "add", (model) ->
-        model.setMetaDefaults({layout:"article"})
+  # ignoreCustomPatterns: /\b_.*\.css/
 }
 
 # Export the DocPad Configuration

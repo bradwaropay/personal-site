@@ -1,14 +1,11 @@
 <html>
 <head>
-  <title><%= @getPreparedTitle() %></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <%- @getBlock('meta').toHTML() %>
-  <script src="//use.typekit.net/upf6zkz.js"></script>
-  <script>try{Typekit.load();}catch(e){}</script>
-  <%- @getBlock('styles').add(["/styles/lib/lib.css", "/styles/style.css"]).toHTML() %>
+  <title><%= @document.title %> | My Website</title>
+  <%- @getBlock("meta").toHTML() %>
+  <%- @getBlock("styles").add(@site.styles).toHTML() %>
 </head>
-<body>
+<body class="main">
   <%- @content %>
-  <%- @getBlock('scripts').add(["/scripts/lib/lib.js", "/scripts/script.js"]).toHTML() %>
+  <%- @getBlock('scripts').add(@site.scripts).toHTML() %>
 </body>
 </html>

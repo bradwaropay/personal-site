@@ -1,20 +1,10 @@
-<header class="content-section content-section--red-dark main-header">
-  <nav class="content-section__inner content-section__inner--xl main-nav">
-    <div class="main-nav__spacer">
-      <a href="/" class="main-nav__brand">Brad<span class="color--gray-light">Waropay</span></a>
-      <div class="main-nav__hamburger">
-        <span class="main-nav__hamburger__bar main-nav__hamburger__bar--primary"></span>
-        <span class="main-nav__hamburger__bar main-nav__hamburger__bar--secondary"></span>
-      </div>
-    </div>
-    <ul class="main-nav__list">
-      <% for page in @getCollection("navLinks").toJSON(): %>
-        <li class="main-nav__list__item <%= if page.id is @document.id then 'active' else 'inactive' %>">
-          <a href="<%= page.url %>">
-            <%= page.title %>
-          </a>
-        </li>
-      <% end %>
+<header class="main__header">
+  <nav class="main__header__nav">
+    <a class="main__header__logo" href=""><%- @partial('svg/logo_waropay') %></a>
+    <ul class="main__header__nav__list">
+      <li class="main__header__nav__list__item"><a href="">articles</a></li>
+      <li class="main__header__nav__list__item"><a href="">info</a></li>
+      <li class="main__header__nav__list__item"><a href="">work</a></li>
     </ul>
   </nav>
 </header>

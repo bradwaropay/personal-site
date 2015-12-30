@@ -1,8 +1,14 @@
 {
-  "name": "bradwaropay.github.io",
-  "version": "0.0.0",
-  "homepage": "https://github.com/bradwaropay/bradwaropay.github.io",
+  "name": "no-skeleton.docpad",
+  "description": "New DocPad project without using a skeleton",
+  "main": "node_modules/.bin/docpad-server",
+  "authors": [
+    "Brad Waropay <Brad.waropay@gmail.com>"
+  ],
   "license": "MIT",
+  "homepage": "https://github.com/bradwaropay/bradwaropay.github.io",
+  "moduleType": [],
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -11,16 +17,6 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.4",
-    "pure": "~0.6.0",
-    "smoothstate": "~0.7.2"
-  },
-  "overrides": {
-    "pure": {
-      "main": [
-        "pure.css",
-        "grids-responsive-min.css"
-      ]
-    }
+    "jquery": "~2.1.4"
   }
 }

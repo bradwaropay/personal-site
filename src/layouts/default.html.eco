@@ -1,0 +1,8 @@
+---
+layout: "base"
+---
+<%- @partial('header') %>
+<section class="row">
+  <%- @content %>
+</section>
+<%- @partial('footer') %>
