@@ -3,7 +3,6 @@
 
 # Define the DocPad Configuration
 docpadConfig = {
-
   templateData:
     site:
       styles: [
@@ -14,8 +13,6 @@ docpadConfig = {
         '/scripts/lib.js'
         '/scripts/script.js'
       ]
-
-  # ignoreCustomPatterns: /\b_.*\.css/
 }
 
 # Export the DocPad Configuration
