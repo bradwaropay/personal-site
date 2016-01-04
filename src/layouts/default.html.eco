@@ -3,6 +3,15 @@ layout: "base"
 ---
 <%- @partial('header') %>
 <section class="row">
+  <div class="about">
+    <h1 class="about__heading">I'm a developer, designer, and technology enthusiast with a passion for problem solving, an obession with craftsmanship, and a love of good beer.</h1>
+    <ul class="about__social-list">
+      <li class="about__social-list__item"><a href="">Twitter</a></li>
+      <li class="about__social-list__item"><a href="">GitHub</a></li>
+      <li class="about__social-list__item"><a href="">Codepen</a></li>
+      <li class="about__social-list__item"><a href="">Dribbble</a></li>
+    </ul>
+  </div>
   <%- @content %>
 </section>
 <%- @partial('footer') %>
