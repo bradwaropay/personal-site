@@ -4,3 +4,6 @@
 
 $raleway: 'Raleway', sans-serif;
 $bitter: 'Bitter', serif;
+
+/*Breakpoints*/
+$sm: 40em;

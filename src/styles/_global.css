@@ -1,5 +1,7 @@
 html,
 body {
+  background-color: #fafafa;
+  color: #444;
   font-family: $raleway;
   font-size: 18px;
   line-height: 1.4;
@@ -12,7 +14,7 @@ h1,h2,h3 {
 }
 
 .about {
-  border-bottom: 1px solid #555;
+  border-bottom: 1px solid #444;
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
 

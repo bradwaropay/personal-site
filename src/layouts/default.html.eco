@@ -4,7 +4,8 @@ layout: "base"
 <%- @partial('header') %>
 <section class="row">
   <div class="about">
-    <h1 class="about__heading">I'm a developer, designer, and technology enthusiast with a passion for problem solving, an obession with craftsmanship, and a love of good beer.</h1>
+    <h1 class="about__heading">Hi, I'm Brad.</h1><h2>I'm a developer, designer, and technology enthusiast with a passion for problem solving, an obession with craftsmanship, and a love of good beer.</h2>
+    <p><a href="#">More about what I do</a></p>
     <ul class="about__social-list">
       <li class="about__social-list__item"><a href="">Twitter</a></li>
       <li class="about__social-list__item"><a href="">GitHub</a></li>

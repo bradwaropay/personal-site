@@ -1,3 +1,26 @@
 ---
 layout: "default"
 ---
+<article class="article">
+  <div class="article__thumbnail">
+    <a href="#"><img src="//placehold.it/300x250" class="article__thumbnail__image" /></a>
+  </div>
+  <div class="article__info">
+    <time datetime="2012-12-08" class="article__info__time">8 December 2012</time>
+    <h1 class="article__info__title">Maecenas quis felis ultrices, scelerisque.</h1>
+    <p class="article__info__excerpt">Pellentesque in est commodo, egestas leo id, pretium felis. Aliquam pulvinar imperdiet mi mollis sollicitudin&hellip; <a href="#">read more</a></p>
+  </div>
+</article>
+
+<article class="article">
+  <div class="article__thumbnail">
+    <a href="#"><img src="//placehold.it/300x250" class="article__thumbnail__image" /></a>
+  </div>
+  <div class="article__info">
+    <time datetime="2012-12-08" class="article__info__time">8 December 2012</time>
+    <h1 class="article__info__title">Maecenas quis felis ultrices, scelerisque.</h1>
+    <p class="article__info__excerpt">Pellentesque in est commodo, egestas leo id, pretium felis. Aliquam pulvinar imperdiet mi mollis sollicitudin&hellip; <a href="#">read more</a></p>
+  </div>
+</article>
+
+<div class="article-navigation"><a href="">older articles</a> // <a href="#">newer articles</a></div>

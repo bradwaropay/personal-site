@@ -1,5 +1,5 @@
 <footer class="main__footer">
-  <section class="row">
+  <section class="main__footer__row">
     <div class="main__footer__column">
       <p>test</p>
     </div>
