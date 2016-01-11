@@ -2,7 +2,11 @@
 
 .row {
   lost-center: 100%;
-  padding: 0 30px;
+  padding: 0 1rem;
+
+  @media (min-width: $sm) {
+    padding: 0 2rem;
+  }
 
   @media (min-width: $md) {
     lost-center: 800px;

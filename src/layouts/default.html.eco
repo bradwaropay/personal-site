@@ -5,7 +5,7 @@ layout: "base"
 <section class="row">
   <div class="about">
     <h1 class="about__heading"><a href="#" class="about__heading__link">Hi, I'm Brad.</a><br>I'm a developer, designer, and technology enthusiast with a passion for problem solving, an obession with craftsmanship, and a love of good beer.</h1>
-    <%- @partial('social_list') %>
+    <%- @partial('link-lists') %>
   </div>
   <%- @content %>
 </section>

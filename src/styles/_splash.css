@@ -1,0 +1,13 @@
+.about {
+  border-bottom: 1px solid $black;
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+
+  &__heading {
+    font-size: 1.5rem;
+
+    &__link {
+      font-size: 3rem;
+    }
+  }
+}

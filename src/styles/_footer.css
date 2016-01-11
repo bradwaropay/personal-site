@@ -2,19 +2,9 @@
   background-color: #222;
   color: #fff;
   margin-top: 4rem;
+  padding: 1rem;
 
-  &__row {
-    lost-center: 100%;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 30px;
-
-    @media (min-width: $md) {
-      lost-center: 800px;
-    }
-
-    @media (min-width: $lg) {
-      lost-center: 960px;
-    }
+  @media (min-width: $sm) {
+    padding: 1rem 2rem;
   }
 }
