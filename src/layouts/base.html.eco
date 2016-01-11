@@ -4,7 +4,7 @@
   <%- @getBlock("meta").toHTML() %>
   <%- @getBlock("styles").add(@site.styles).toHTML() %>
 </head>
-<body class="main">
+<body>
   <%- @content %>
   <%- @getBlock('scripts').add(@site.scripts).toHTML() %>
 </body>

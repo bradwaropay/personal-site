@@ -1,12 +1,14 @@
 ---
 layout: "base"
 ---
-<%- @partial('header') %>
-<section class="row">
-  <div class="about">
-    <h1 class="about__heading"><a href="#" class="about__heading__link">Hi, I'm Brad.</a><br>I'm a developer, designer, and technology enthusiast with a passion for problem solving, an obession with craftsmanship, and a love of good beer.</h1>
-    <%- @partial('link-lists') %>
+<main role="main" class="main">
+  <%- @partial('header') %>
+  <div class="row">
+    <section class="about">
+      <h1 class="about__heading"><a href="#" class="about__heading__link">Hi, I'm Brad.</a><br>I'm a developer, designer, and technology enthusiast with a passion for problem solving, an obession with craftsmanship, and a love of good beer.</h1>
+      <%- @partial('link-lists') %>
+    </section>
+    <%- @content %>
   </div>
-  <%- @content %>
-</section>
-<%- @partial('footer') %>
+  <%- @partial('footer') %>
+</main>

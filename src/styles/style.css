@@ -1,6 +1,6 @@
 @import url('variables');
-@import url('grid');
 @import url('global');
+@import url('grid');
 @import url('header');
 @import url('footer');
 @import url('link-lists');

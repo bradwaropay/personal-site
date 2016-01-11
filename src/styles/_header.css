@@ -28,10 +28,6 @@
 
         &:last-child {
           margin-right: 0;
-
-          @media (min-width: $sm) {
-            margin-right: 2rem;
-          }
         }
 
         a {
