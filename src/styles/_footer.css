@@ -1,12 +1,20 @@
 .main__footer {
   background-color: #222;
   color: #fff;
+  margin-top: 4rem;
 
   &__row {
-    lost-center: 40em;
-  }
+    lost-center: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 30px;
 
-  &__column {
-    lost-column: 1/3;
+    @media (min-width: $md) {
+      lost-center: 800px;
+    }
+
+    @media (min-width: $lg) {
+      lost-center: 960px;
+    }
   }
 }

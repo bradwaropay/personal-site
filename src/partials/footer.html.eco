@@ -1,13 +1,6 @@
 <footer class="main__footer">
   <section class="main__footer__row">
-    <div class="main__footer__column">
-      <p>test</p>
-    </div>
-    <div class="main__footer__column">
-      <p>test</p>
-    </div>
-    <div class="main__footer__column">
-      <p>test</p>
-    </div>
+    <%- @partial('social_list') %>
+    <a href="#">hire me</a>
   </section>
 </footer>

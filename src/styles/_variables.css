@@ -6,4 +6,17 @@ $raleway: 'Raleway', sans-serif;
 $bitter: 'Bitter', serif;
 
 /*Breakpoints*/
-$sm: 40em;
+$sm: 600px;
+$md: 800px;
+$lg: 1000px;
+
+/*Colors*/
+$white: #fafafa;
+$gray: #aaa;
+$black: #444;
+
+$green1: #007F42;
+$green2: #4CFFA8;
+$green3: #00FF83;
+$green4: #267F54;
+$green5: #00CC69;

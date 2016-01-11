@@ -1,47 +1,112 @@
 html,
 body {
-  background-color: #fafafa;
-  color: #444;
+  background-color: $white;
+  box-sizing: border-box;
+  color: $black;
   font-family: $raleway;
-  font-size: 18px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.8;
+
+  @media (min-width: $sm) {
+    font-size: 18px;
+  }
+
+  @media (min-width: $md) {
+    font-size: 20px;
+  }
+
+  @media (min-width: $lg) {
+    font-size: 22px;
+  }
+}
+
+* {
+  box-sizing: inherit;
+
+  + * {
+    margin-top: 0;
+  }
+
+  &:before,
+  &:after {
+    box-sizing: inherit;
+ }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:only-child {
+    margin: 0;
+  }
 }
 
 h1,h2,h3 {
   font-family: $bitter;
   font-weight: 700;
-  margin: 0 0 1em;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+a {
+  color: $green5;
+  text-decoration: none;
+  transition: color .2s;
+
+  &:hover {
+    color: $green1;
+  }
+}
+
+.social-list,
+.misc-list {
+  line-height: 1;
+  list-style-type: none;
+  padding-left: 0;
+
+  &__item {
+    float:left;
+
+    &:after {
+      content: "/";
+      display: inline-block;
+    }
+
+    &:last-child {
+
+      &:after {
+        display: none;
+      }
+    }
+  }
 }
 
 .about {
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid $black;
   margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 4rem;
 
   &__heading {
-    font-size: 2rem;
-    margin-bottom: .5rem;
-  }
+    font-size: 1.5rem;
 
-  &__social-list {
-    list-style-type: none;
-    margin-top: 0;
-    padding-left: 0;
-
-    &__item {
-      float:left;
-
-      &:after {
-        content: "/";
-        display: inline-block;
-      }
-
-      &:last-child {
-
-        &:after {
-          display: none;
-        }
-      }
+    &__link {
+      font-size: 3rem;
     }
   }
 }

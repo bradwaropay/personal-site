@@ -6,12 +6,13 @@ var plugins = require('gulp-load-plugins')({
   pattern: [
     'gulp-*',
     'gulp.*',
+    'postcss-*',
     'autoprefixer',
     'lost',
     'main-bower-files',
     'precss'
   ],
-  replaceString: /\bgulp[\-.]/
+  replaceString: /\b(gulp|postcss)[\-.]/
 });
 
 // CSS and JS paths
@@ -51,8 +52,8 @@ gulp.task('bower-js', function() {
 // Include PostCSS processors
 var processors = [
   plugins.precss(),
-  plugins.autoprefixer(),
-  plugins.lost()
+  plugins.lost(),
+  plugins.autoprefixer()
 ];
 
 // Compile CSS

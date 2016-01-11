@@ -1,5 +1,14 @@
 @lost flexbox flex;
 
 .row {
-  lost-center: 40em;
+  lost-center: 100%;
+  padding: 0 30px;
+
+  @media (min-width: $md) {
+    lost-center: 800px;
+  }
+
+  @media (min-width: $lg) {
+    lost-center: 960px;
+  }
 }

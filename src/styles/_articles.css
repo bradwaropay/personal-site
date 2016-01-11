@@ -1,17 +1,21 @@
 .article {
   lost-flex-container: row;
-
-  align-items: center;
-  border-bottom: 1px solid #000;
-  margin-bottom: 2em;
-  padding-bottom: 1em;
+  border-bottom: 1px solid $black;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
 
   &:last-of-type {
     border-bottom: none;
   }
 
   &__thumbnail {
-    lost-column: 1/3;
+    lost-column: 1;
+    margin-bottom: 1rem;
+
+    @media (min-width: $md) {
+      lost-column: 1/3;
+      margin-bottom: 0;
+    }
 
     &__image {
       max-width: 100%;
@@ -19,6 +23,21 @@
   }
 
   &__info {
-    lost-column: 2/3;
+    lost-column: 1;
+
+    @media (min-width: $md) {
+      lost-column: 2/3;
+    }
+
+    &__date {
+      color: $gray;
+      line-height: 1;
+    }
+
+    &__title {
+      font-size: 2rem;
+      line-height: 1.1;
+      margin-bottom: .5rem;
+    }
   }
 }
