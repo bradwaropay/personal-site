@@ -1,0 +1,12 @@
+---
+layout: "base"
+---
+<main role="main" class="main">
+  <%- @partial('header') %>
+  <div class="row">
+    <% for article in @getCollection("articles").toJSON(): %>
+      <%- @partial('article') %>
+    <% end %>
+  </div>
+  <%- @partial('footer') %>
+</main>

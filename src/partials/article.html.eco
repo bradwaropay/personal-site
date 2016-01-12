@@ -1,0 +1,10 @@
+<article class="article">
+  <div class="article__thumbnail">
+    <a href="<%= article.url %>"><img src="//placehold.it/1600x1200" class="article__thumbnail__image" /></a>
+  </div>
+  <div class="article__info">
+    <time datetime="2012-12-08" class="article__info__date"><%= article.date %></time>
+    <h1 class="article__info__title"><a href="<%= article.url %>"><%= article.title %></a></h1>
+    <p class="article__info__excerpt"><%= article.description %></p>
+  </div>
+</article>
