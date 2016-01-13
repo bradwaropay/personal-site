@@ -2,9 +2,9 @@
 layout: "base"
 ---
 <main role="main" class="main">
-  <%- @partial('header') %>
+  <%- @partial("header") %>
   <div class="row">
     <%- @content %>
   </div>
-  <%- @partial('footer') %>
+  <%- @partial("footer") %>
 </main>

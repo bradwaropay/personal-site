@@ -1,6 +1,5 @@
 ---
+layout: "info"
 title: "Info"
 isNavItem: true
-layout: "page"
 ---
-<%- @partial('about') %>

@@ -8,7 +8,10 @@
     "docpad-plugin-eco": "~2.1.0",
     "docpad-plugin-gulp": "~2.1.6",
     "docpad-plugin-livereload": "~2.7.1",
-    "docpad-plugin-partials": "~2.9.2"
+    "docpad-plugin-moment": "~2.0.2",
+    "docpad-plugin-paged": "~2.4.0",
+    "docpad-plugin-partials": "~2.9.2",
+    "docpad-plugin-rss": "~2.3.1"
   },
   "main": "node_modules/.bin/docpad-server",
   "scripts": {

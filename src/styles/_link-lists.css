@@ -10,7 +10,6 @@
   }
 
   &__list {
-    line-height: 1;
     list-style-type: none;
     margin: 0 0 1rem;
     padding-left: 0;

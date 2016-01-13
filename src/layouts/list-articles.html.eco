@@ -4,11 +4,7 @@ layout: "base"
 <main role="main" class="main">
   <%- @partial("header") %>
   <div class="row">
-    <section class="about">
-      <%- @partial("about-heading") %>
-      <%- @partial("link-lists") %>
-    </section>
-    <% for article in @getCollection("articles").toJSON()[0..2]: %>
+    <% for article in @getPageCollection("articles").toJSON(): %>
       <article class="article">
         <div class="article__thumbnail">
           <a href="<%= article.url %>"><img src="//placehold.it/1600x1200" class="article__thumbnail__image" /></a>
@@ -20,7 +16,7 @@ layout: "base"
         </div>
       </article>
     <% end %>
-    <a href="/articles.html">more articles</a>
+    <% if @hasNextPage(): %><a href="<%= @getNextPage() %>">older articles</a><% end %><% if @hasPrevPage() && @hasNextPage(): %>//<% end %><% if @hasPrevPage(): %><a href="<%= @getPrevPage() %>">newer articles</a><% end %>
   </div>
   <%- @partial("footer") %>
 </main>

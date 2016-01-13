@@ -6,6 +6,6 @@
 </head>
 <body>
   <%- @content %>
-  <%- @getBlock('scripts').add(@site.scripts).toHTML() %>
+  <%- @getBlock("scripts").add(@site.scripts).toHTML() %>
 </body>
 </html>

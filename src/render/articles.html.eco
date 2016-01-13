@@ -1,5 +1,8 @@
 ---
+layout: "list-articles"
 title: "Articles"
 isNavItem: true
-layout: "articles"
+isPaged: true
+pagedCollection: "articles"
+pageSize: 5
 ---

@@ -1,6 +1,6 @@
 <header class="main__header">
   <nav class="main__header__nav">
-    <a href="/" class="main__header__logo"><%- @partial('svg/logo_waropay') %></a>
+    <a href="/" class="main__header__logo"><%- @partial("svg/logo_waropay") %></a>
     <ul class="main__header__nav__list">
       <% for navItem in @getCollection("nav").toJSON(): %>
         <li class="main__header__nav__list__item"><a href="<%= navItem.url %>"><%= navItem.title %></a></li>
