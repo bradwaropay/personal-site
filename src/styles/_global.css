@@ -12,10 +12,6 @@ body {
   }
 
   @media (min-width: $md) {
-    font-size: 20px;
-  }
-
-  @media (min-width: $lg) {
     font-size: 22px;
   }
 }

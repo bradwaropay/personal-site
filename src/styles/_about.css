@@ -9,10 +9,21 @@
   }
 
   &__heading {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+
+    @media (min-width: $sm) {
+      font-size: 1.5rem;
+    }
 
     &__link {
-      font-size: 3rem;
+      display: inline-block;
+      font-size: 2.5rem;
+      line-height: 1.1;
+      margin-bottom: .2rem;
+
+      @media (min-width: $sm) {
+        font-size: 3rem;
+      }
     }
   }
 }

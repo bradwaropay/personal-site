@@ -4,11 +4,7 @@ layout: "base"
 <main role="main" class="main">
   <%- @partial("header") %>
   <div class="row">
-    <section class="about">
-      <%- @partial("about-heading") %>
-      <%- @partial("link-lists") %>
-    </section>
-    <% for article in @getCollection("articles").toJSON()[0..2]: %>
+    <% for article in @getPageCollection("articles").toJSON(): %>
       <article class="article-list">
         <header class="article-list__heading">
           <div class="article-list__heading__thumbnail">
@@ -22,7 +18,7 @@ layout: "base"
         <p class="article-list__info__excerpt"><%= article.description %></p>
       </article>
     <% end %>
-    <a href="/articles.html">more articles</a>
+    <% if @hasNextPage(): %><a href="<%= @getNextPage() %>">older articles</a><% end %><% if @hasPrevPage() && @hasNextPage(): %>//<% end %><% if @hasPrevPage(): %><a href="<%= @getPrevPage() %>">newer articles</a><% end %>
   </div>
   <%- @partial("footer") %>
 </main>

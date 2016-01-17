@@ -1,0 +1,16 @@
+---
+layout: "base"
+---
+<main role="main" class="main">
+  <%- @partial("header") %>
+  <section class="work-full">
+    <header class="work-heading">
+      <h1 class="work-full__heading__title"><%= @document.title %></h1>
+      <p class="work-full__heading__description"><%= @document.description %></p>
+    </header>
+    <div class="row">
+      <%- @content %>
+    </div>
+  </section>
+  <%- @partial("footer") %>
+</main>

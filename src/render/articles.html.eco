@@ -1,5 +1,5 @@
 ---
-layout: "list-articles"
+layout: "article-list"
 title: "Articles"
 isNavItem: true
 isPaged: true

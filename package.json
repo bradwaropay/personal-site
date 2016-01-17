@@ -4,10 +4,12 @@
   "description": "New DocPad project without using a skeleton",
   "dependencies": {
     "docpad": "~6.78.4",
+    "docpad-plugin-cleanurls": "~2.8.1",
     "docpad-plugin-coffeescript": "~2.5.0",
     "docpad-plugin-eco": "~2.1.0",
     "docpad-plugin-gulp": "~2.1.6",
     "docpad-plugin-livereload": "~2.7.1",
+    "docpad-plugin-marked": "~2.3.0",
     "docpad-plugin-moment": "~2.0.2",
     "docpad-plugin-paged": "~2.4.0",
     "docpad-plugin-partials": "~2.9.2",

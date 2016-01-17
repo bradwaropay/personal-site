@@ -1,5 +1,4 @@
-.article {
-  lost-flex-container: row;
+.article-list {
   border-bottom: 1px solid $black;
   margin-bottom: 4rem;
   padding-bottom: 4rem;
@@ -9,36 +8,76 @@
     padding-bottom: 0;
   }
 
-  &__thumbnail {
-    lost-column: 1;
+  &__heading {
+    lost-flex-container: row;
+    align-items: center;
     margin-bottom: 1rem;
 
-    @media (min-width: $md) {
-      lost-column: 1/3;
-      margin-bottom: 0;
+    &__thumbnail {
+      lost-column: 1;
+      margin-bottom: 1rem;
+
+      @media (min-width: $sm) {
+        lost-column: 1/4;
+        margin-bottom: 0;
+      }
+
+      &__image {
+        max-width: 100%;
+      }
     }
 
-    &__image {
-      max-width: 100%;
+    &__info {
+      lost-column: 1;
+
+      @media (min-width: $sm) {
+        lost-column: 3/4;
+      }
+
+      &__date {
+        color: $gray;
+        line-height: 1;
+      }
+
+      &__title {
+        font-size: 1.8rem;
+        line-height: 1.1;
+      }
+    }
+  }
+}
+
+.article-full {
+  margin-bottom: 3rem;
+
+  &__image {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  &__date {
+    color: $gray;
+    line-height: 1;
+  }
+
+  &__title {
+    font-size: 2.6rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+
+    @media (min-width: $sm) {
+      font-size: 3rem;
     }
   }
 
-  &__info {
-    lost-column: 1;
-
-    @media (min-width: $md) {
-      lost-column: 2/3;
-    }
-
-    &__date {
-      color: $gray;
-      line-height: 1;
-    }
-
-    &__title {
-      font-size: 2rem;
-      line-height: 1.1;
-      margin-bottom: .5rem;
-    }
+  &__description {
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
   }
+}
+
+#disqus_thread {
+  width: 100%;
 }
