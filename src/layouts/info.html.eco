@@ -1,15 +1,13 @@
 ---
 layout: "base"
 ---
-<main role="main" class="main">
-  <%- @partial("header") %>
-  <div class="row">
-    <section class="about">
-      <%- @partial("about-heading") %>
-      <%- @partial("about-extended") %>
-      <%- @partial("link-lists") %>
-    </section>
-    <%- @content %>
-  </div>
-  <%- @partial("footer") %>
-</main>
+<%- @partial("header") %>
+<div class="row">
+  <section class="about">
+    <%- @partial("about-heading") %>
+    <%- @partial("about-extended") %>
+    <%- @partial("link-lists") %>
+  </section>
+  <%- @content %>
+</div>
+<%- @partial("footer") %>

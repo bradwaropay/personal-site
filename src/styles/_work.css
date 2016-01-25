@@ -1,7 +1,7 @@
 .work-list {
   lost-flex-container: row;
   align-items: center;
-  border-bottom: 1px solid $black;
+  border-bottom: 1px solid $copy;
   margin-bottom: 4rem;
   padding-bottom: 4rem;
 
@@ -42,15 +42,18 @@
 .work-full {
   margin-bottom: 3rem;
 
-  &__title {
-    line-height: 1.1;
-    margin-bottom: 2rem;
-  }
+  &__header {
 
-  &__description {
-    border-top: 1px solid $black;
-    border-bottom: 1px solid $black;
-    margin-bottom: 2rem;
-    padding: 1rem 0;
+    &__title {
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+
+    &__description {
+      border-top: 1px solid $copy;
+      border-bottom: 1px solid $copy;
+      margin-bottom: 2rem;
+      padding: 1rem 0;
+    }
   }
 }

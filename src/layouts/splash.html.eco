@@ -1,28 +1,26 @@
 ---
 layout: "base"
 ---
-<main role="main" class="main">
-  <%- @partial("header") %>
-  <div class="row">
-    <section class="about">
-      <%- @partial("about-heading") %>
-      <%- @partial("link-lists") %>
-    </section>
-    <% for article in @getCollection("articles").toJSON()[0..2]: %>
-      <article class="article-list">
-        <header class="article-list__heading">
-          <div class="article-list__heading__thumbnail">
-            <a href="<%= article.url %>"><img src="//placehold.it/1600x1200" class="article-list__heading__thumbnail__image" /></a>
-          </div>
-          <div class="article-list__heading__info">
-            <time datetime="<%= article.computerDate %>" class="article-list__heading__info__date"><%= article.humanDate %></time>
-            <h1 class="article-list__heading__info__title"><a href="<%= article.url %>"><%= article.title %></a></h1>
-          </div>
-        </header>
-        <p class="article-list__info__excerpt"><%= article.description %></p>
-      </article>
-    <% end %>
-    <a href="/articles.html">more articles</a>
-  </div>
-  <%- @partial("footer") %>
-</main>
+<%- @partial("header") %>
+<div class="row">
+  <section class="about">
+    <%- @partial("about-heading") %>
+    <%- @partial("link-lists") %>
+  </section>
+  <% for article in @getCollection("articles").toJSON()[0..2]: %>
+    <article class="article-list">
+      <header class="article-list__header">
+        <div class="article-list__header__thumbnail">
+          <a href="<%= article.url %>"><img src="//placehold.it/1600x1200" class="article-list__header__thumbnail__image" /></a>
+        </div>
+        <div class="article-list__header__info">
+          <time datetime="<%= article.computerDate %>" class="article-list__header__info__date"><%= article.humanDate %></time>
+          <h1 class="article-list__header__info__title"><a href="<%= article.url %>"><%= article.title %></a></h1>
+        </div>
+      </header>
+      <p class="article-list__description"><%= article.description %></p>
+    </article>
+  <% end %>
+  <a href="/articles.html">more articles</a>
+</div>
+<%- @partial("footer") %>

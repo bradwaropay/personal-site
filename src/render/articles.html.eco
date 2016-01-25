@@ -5,4 +5,5 @@ isNavItem: true
 isPaged: true
 pagedCollection: "articles"
 pageSize: 5
+sitemap: false
 ---

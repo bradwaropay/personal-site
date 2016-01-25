@@ -10,12 +10,14 @@ $sm: 640px;
 $md: 780px;
 
 /*Colors*/
-$white: #fafafa;
-$gray: #aaa;
-$black: #444;
+$cream: #FFF9E6;
+$chocolate: #422727;
+$beryl: #029978;
+$creamsicle: #EB8E4B;
+$grapefruit: #EB4B4B;
 
-$green1: #007F42;
-$green2: #4CFFA8;
-$green3: #00FF83;
-$green4: #267F54;
-$green5: #00CC69;
+$background: $cream;
+$copy: $chocolate;
+$accent: $beryl;
+$link: $creamsicle;
+$linkHover: $grapefruit;

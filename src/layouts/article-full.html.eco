@@ -5,9 +5,11 @@ layout: "base"
   <%- @partial("header") %>
   <div class="row">
     <section class="article-full">
-      <time datetime="<%= @document.computerDate %>" class="article-full__date"><%= @document.humanDate %></time>
-      <h1 class="article-full__title"><%= @document.title %></h1>
-      <p class="article-full__description"><%= @document.description %></p>
+      <header class="article-full__header">
+        <time datetime="<%= @document.computerDate %>" class="article-full__header__date"><%= @document.humanDate %></time>
+        <h1 class="article-full__header__title"><%= @document.title %></h1>
+        <p class="article-full__header__description"><%= @document.description %></p>
+      </header>
       <%- @content %>
     </section>
     <div id="disqus_thread"></div>

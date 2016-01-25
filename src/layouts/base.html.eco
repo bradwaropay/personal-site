@@ -5,7 +5,9 @@
   <%- @getBlock("styles").add(@site.styles).toHTML() %>
 </head>
 <body>
-  <%- @content %>
+  <main role="main" class="main">
+    <%- @content %>
+  </main>
   <%- @getBlock("scripts").add(@site.scripts).toHTML() %>
 </body>
 </html>

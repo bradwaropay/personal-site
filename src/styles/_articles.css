@@ -1,5 +1,5 @@
 .article-list {
-  border-bottom: 1px solid $black;
+  border-bottom: 1px solid $copy;
   margin-bottom: 4rem;
   padding-bottom: 4rem;
 
@@ -8,7 +8,7 @@
     padding-bottom: 0;
   }
 
-  &__heading {
+  &__header {
     lost-flex-container: row;
     align-items: center;
     margin-bottom: 1rem;
@@ -35,7 +35,7 @@
       }
 
       &__date {
-        color: $gray;
+        color: $accent;
         line-height: 1;
       }
 
@@ -50,29 +50,33 @@
 .article-full {
   margin-bottom: 3rem;
 
-  &__image {
-    max-width: 100%;
-    margin-bottom: 2rem;
-  }
+  &__header {
 
-  &__date {
-    color: $gray;
-    line-height: 1;
-  }
+    &__image {
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
 
-  &__title {
-    font-size: 2.6rem;
-    line-height: 1.1;
-    margin-bottom: 2rem;
+    &__date {
+      color: $accent;
+      line-height: 1;
+    }
 
-    @media (min-width: $sm) {
-      font-size: 3rem;
+    &__title {
+      font-size: 2.6rem;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+
+      @media (min-width: $sm) {
+        font-size: 3rem;
+      }
     }
   }
 
   &__description {
-    border-top: 1px solid $black;
-    border-bottom: 1px solid $black;
+    border-top: 1px solid $copy;
+    border-bottom: 1px solid $copy;
+    color: $accent;
     margin-bottom: 2rem;
     padding: 1rem 0;
   }
