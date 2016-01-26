@@ -8,15 +8,17 @@ $bitter: 'Bitter', serif;
 /*Breakpoints*/
 $sm: 640px;
 $md: 780px;
+$lg: 960px;
+$xl: 1240px;
 
 /*Colors*/
-$cream: #FFF9E6;
+$bone: #FFF9E6;
 $chocolate: #422727;
 $beryl: #029978;
 $creamsicle: #EB8E4B;
 $grapefruit: #EB4B4B;
 
-$background: $cream;
+$background: $bone;
 $copy: $chocolate;
 $accent: $beryl;
 $link: $creamsicle;

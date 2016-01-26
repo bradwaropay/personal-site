@@ -1,14 +1,18 @@
 ---
 layout: "base"
 ---
-<%- @partial("header") %>
-<section class="work-full">
-  <header class="work-header">
-    <h1 class="work-full__header__title"><%= @document.title %></h1>
-    <p class="work-full__header__description"><%= @document.description %></p>
-  </header>
-  <div class="row">
-    <%- @content %>
-  </div>
-</section>
+<div class="work-full--wrap">
+  <%- @partial("header") %>
+  <section class="work-full">
+    <header class="work-full__header work-full__header--<%= @document.basename %>">
+      <div class="row">
+        <h1 class="work-full__header__title"><%= @document.title %></h1>
+        <p class="work-full__header__description"><%= @document.description %></p>
+      </div>
+    </header>
+    <div class="row">
+      <%- @content %>
+    </div>
+  </section>
+</div>
 <%- @partial("footer") %>
