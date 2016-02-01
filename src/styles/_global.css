@@ -23,8 +23,8 @@ body {
     margin-top: 0;
   }
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     box-sizing: inherit;
  }
 
@@ -68,4 +68,50 @@ a {
   &:hover {
     color: $linkHover;
   }
+}
+
+hr {
+  border-top: 0;
+  border-bottom-color: $copy;
+  margin: 3rem 0;
+}
+
+blockquote {
+  border-left: .5rem solid $accentTwo;
+  margin: 0 0 1.5rem;
+  padding: 0 1rem;
+
+  p {
+    display: inline;
+    font-style: italic;
+
+    &::before,
+    &::after {
+      color: $accentOne;
+      display: inline-block;
+      font-size: 5rem;
+      line-height: .9;
+      height: 1.5rem;
+      vertical-align: text-bottom;
+    }
+
+    &::before {
+      content: '“';
+      margin: 0 1rem 0 -1rem;
+    }
+
+    &::after {
+      content: '”';
+      margin: 0 .5rem 0 -.5rem;
+    }
+  }
+
+  footer {
+    font-weight: 700;
+    text-align: right;
+  }
+}
+
+pre {
+  white-space: pre-wrap;
 }

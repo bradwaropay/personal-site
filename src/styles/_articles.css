@@ -35,7 +35,7 @@
       }
 
       &__date {
-        color: $accent;
+        color: $accentOne;
         line-height: 1;
       }
 
@@ -58,7 +58,7 @@
     }
 
     &__date {
-      color: $accent;
+      color: $accentTwo;
       line-height: 1;
     }
 
@@ -75,7 +75,7 @@
     &__description {
       border-top: 1px solid $copy;
       border-bottom: 1px solid $copy;
-      color: $accent;
+      color: $accentOne;
       margin-bottom: 2rem;
       padding: 1rem 0;
     }

@@ -25,14 +25,14 @@
     &__item {
       float:left;
 
-      &:after {
+      &::after {
         content: "/";
         display: inline-block;
       }
 
       &:last-child {
 
-        &:after {
+        &::after {
           display: none;
         }
       }

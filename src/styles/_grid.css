@@ -6,11 +6,11 @@
   padding: 0 1rem;
 
   @media (min-width: $sm) {
-    lost-center: 640px;
+    lost-center: $sm;
     padding: 0 2rem;
   }
 
   @media (min-width: $md) {
-    lost-center: 780px;
+    lost-center: $md;
   }
 }
