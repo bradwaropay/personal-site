@@ -41,6 +41,14 @@ body {
   }
 }
 
+#background-particles {
+  position: fixed;
+}
+
+.main {
+  position: relative;
+}
+
 h1,h2,h3 {
   font-family: $bitter;
   font-weight: 700;

@@ -6,6 +6,7 @@
   <%- @getBlock("styles").add(@site.styles).toHTML() %>
 </head>
 <body>
+  <canvas id="background-particles"></canvas>
   <main role="main" class="main">
     <%- @content %>
   </main>
