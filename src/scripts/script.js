@@ -1,4 +1,3 @@
 (function($) {
-  // Background Particles
-  CanvasParticles.init();
+  backgroundParticles();
 })(jQuery);
