@@ -14,7 +14,7 @@ layout: "base"
           <a href="<%= article.url %>"><img src="//placehold.it/1600x1200" class="article-list__header__thumbnail__image" /></a>
         </div>
         <div class="article-list__header__info">
-          <time datetime="<%= article.computerDate %>" class="article-list__header__info__date"><%= article.humanDate %></time>
+          <time datetime="<%= article.robotDate %>" class="article-list__header__info__date"><%= article.humanDate %></time>
           <h1 class="article-list__header__info__title"><a href="<%= article.url %>"><%= article.title %></a></h1>
         </div>
       </header>

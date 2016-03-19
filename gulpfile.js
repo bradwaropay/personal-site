@@ -23,8 +23,7 @@ var paths = {
   jsDestination: './out/scripts/'
 }
 
-// Get Bower dependencies
-// Bower compile lib CSS
+// Get Bower dependencies and compile lib CSS
 gulp.task('bower-css', function() {
    gulp.src(plugins.mainBowerFiles())
     .pipe(plugins.filter('*.css'))
@@ -36,7 +35,7 @@ gulp.task('bower-css', function() {
     .pipe(gulp.dest(paths.cssDestination));
 });
 
-// Bower compile lib JS
+// Get Bower dependencies and compile lib JS
 gulp.task('bower-js', function() {
    gulp.src(plugins.mainBowerFiles())
     .pipe(plugins.filter('*.js'))
@@ -67,10 +66,18 @@ gulp.task('compile-css', function() {
     .pipe(gulp.dest(paths.cssDestination));
 });
 
-// Clean CSS
-gulp.task('clean-css', ['compile-css'], function () {
-  return gulp.src('./out/**/_*.css')
-    .pipe(plugins.clean());
+// Compile JS
+gulp.task('compile-js', function() {
+  return gulp.src(paths.jsSource + '**/*.js')
+    .pipe(plugins.filter('*.js'))
+    .pipe(plugins.order([
+      '*',
+      'script.js'
+    ]))
+    .pipe(plugins.concat('script.js'))
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest(paths.jsDestination));
 });
 
-gulp.task('default', ['bower-css', 'bower-js', 'clean-css']);
+// Tasks
+gulp.task('default', ['bower-css', 'bower-js', 'compile-css', 'compile-js']);
