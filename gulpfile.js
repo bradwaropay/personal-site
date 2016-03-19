@@ -17,6 +17,8 @@ var plugins = require('gulp-load-plugins')({
 
 // CSS and JS paths
 var paths = {
+  src: './src/',
+  out: './out/',
   cssSource: './src/styles/',
   cssDestination: './out/styles/',
   jsSource: './src/scripts/',
@@ -66,6 +68,12 @@ gulp.task('compile-css', function() {
     .pipe(gulp.dest(paths.cssDestination));
 });
 
+// Clean CSS
+gulp.task('clean-css', ['compile-css'], function () {
+  return gulp.src(paths.out + '*.css', {read: false})
+    .pipe(plugins.clean())
+});
+
 // Compile JS
 gulp.task('compile-js', function() {
   return gulp.src(paths.jsSource + '**/*.js')
@@ -79,5 +87,11 @@ gulp.task('compile-js', function() {
     .pipe(gulp.dest(paths.jsDestination));
 });
 
+// Clean JS
+gulp.task('clean-js', ['compile-js'], function () {
+  return gulp.src(paths.out + '*.js', {read: false})
+    .pipe(plugins.clean())
+});
+
 // Tasks
-gulp.task('default', ['bower-css', 'bower-js', 'compile-css', 'compile-js']);
+gulp.task('default', ['bower-css', 'bower-js', 'clean-css', 'clean-js']);
