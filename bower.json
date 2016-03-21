@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
+    "google-code-prettify": "~1.0.4",
     "jquery": "~2.1.4",
     "normalize-css": "~3.0.3",
     "smoothstate": "~0.7.2"

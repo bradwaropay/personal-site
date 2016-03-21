@@ -17,8 +17,6 @@ description: "Mauris a auctor mauris. Fusce sollicitudin elit vitae velit commod
 3. test
 
 
-<!--?prettify?-->
-
     class Program
       {
         static void Main(string[] args)

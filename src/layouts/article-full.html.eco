@@ -11,8 +11,10 @@ layout: "base"
         <p class="article-full__header__description"><%= @document.description %></p>
       </header>
       <%- @content %>
+      <footer class="article-full__footer">
+        <div id="disqus_thread" class="article-full__comments"></div>
+      </footer>
     </section>
-    <div id="disqus_thread"></div>
     <script>
       /**
       * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.

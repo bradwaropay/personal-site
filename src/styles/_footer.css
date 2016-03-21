@@ -1,7 +1,6 @@
 .main__footer {
   background-color: $copy;
   color: $background;
-  margin-top: 4rem;
   padding: 1rem;
 
   @media (min-width: $sm) {

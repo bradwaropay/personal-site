@@ -83,6 +83,7 @@ gulp.task('compile-js', function() {
       'script.js'
     ]))
     .pipe(plugins.concat('script.js'))
+    .pipe(plugins.uglify())
     .pipe(gulp.dest(paths.jsDestination));
 });
 
