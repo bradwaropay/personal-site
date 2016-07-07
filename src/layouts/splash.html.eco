@@ -1,11 +1,10 @@
 ---
-layout: "base"
+layout: "wrap"
 ---
-<%- @partial("header") %>
 <div class="row">
-  <section class="about">
-    <header class="about__header">
-      <%- @partial("about-heading") %>
+  <section class="info">
+    <header class="info__header">
+      <%- @partial("info-heading") %>
       <%- @partial("link-lists") %>
     </header>
   </section>
@@ -27,4 +26,3 @@ layout: "base"
     <a href="/articles.html">more articles</a>
   </section>
 </div>
-<%- @partial("footer") %>

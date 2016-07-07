@@ -11,6 +11,9 @@ $md: 780px;
 $lg: 960px;
 $xl: 1240px;
 
+/*Row widths*/
+$singleWide: 35rem;
+
 /*Colors*/
 $bone: #FFF9E6;
 $chocolate: #422727;

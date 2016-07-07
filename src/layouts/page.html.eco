@@ -1,8 +1,6 @@
 ---
-layout: "base"
+layout: "wrap"
 ---
-<%- @partial("header") %>
 <div class="row">
   <%- @content %>
 </div>
-<%- @partial("footer") %>

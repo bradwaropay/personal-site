@@ -45,7 +45,7 @@ body {
   position: fixed;
 }
 
-.main {
+.page-container {
   position: relative;
 }
 
@@ -124,4 +124,24 @@ blockquote {
 
 pre {
   white-space: pre-wrap;
+}
+
+.button {
+  border: 1px solid $creamsicle;
+  color: $creamsicle;
+  display: inline-block;
+  padding: .4rem;
+  transition: border-color .2s,
+              color .2s;
+
+  &:after {
+    content: '»';
+    display: inline-block;
+    margin-left: .2rem;
+  }
+
+  &:hover {
+    border-color: $grapefruit;
+    color: $grapefruit;
+  }
 }
