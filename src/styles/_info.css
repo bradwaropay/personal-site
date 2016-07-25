@@ -42,57 +42,9 @@
     }
   }
 
-  &__icon {
+  .icon-animation {
     margin-bottom: 1rem;
     max-width: 200px;
-
-    &:hover {
-      .heart-group {
-        animation: heartbeat 1s infinite alternate ease-out;
-        transform-origin: 50% 50%;
-      }
-
-      .heart__gear {
-
-        &--1 {
-          animation: gearRotateRight 5s infinite linear;
-          transform-origin: 50% 50%;
-        }
-
-        &--2 {
-          animation: gearRotateLeft 5s infinite linear;
-          transform-origin: 50% 50%;
-        }
-      }
-
-      .design-develop {
-
-        &__pencil-brackets {
-          transform: rotate(-45deg) scale(.8, .8) translateX(20%) translateY(-25%);
-          transition: transform .5s;
-        }
-
-        &__pencil {
-          opacity: 0;
-          transform: translateX(-100%) translateY(100%);
-          transition: opacity .5s .5s,
-                      transform .5s .5s ease-out;
-        }
-
-        &__bracket {
-
-          &--code {
-            opacity: 1;
-
-            &--2 {
-              transform: translateX(-80%) translateY(-80%);
-              transition: opacity .5s .5s,
-                          transform .5s .5s ease-out;
-            }
-          }
-        }
-      }
-    }
   }
 
   &__skills {
@@ -156,92 +108,186 @@
   }
 }
 
-.design-develop {
+.icon-animation {
 
-  &__pencil-brackets {
-    transform-origin: 50% 50%;
-    transition: transform .5s .5s ease-out;
+  &--creativity {
+
+    &__raindrops {
+      opacity: 0;
+      transition: opacity .5s;
+    }
+
+    &__bulb-full {
+      transform-origin: 50% 50%;
+      transition: transform .5s;
+    }
+
+    &__bulb-top {
+        transition: opacity .5s,
+                    transform .5s;
+    }
+
+    &__bulb-brain {
+      opacity: 0;
+      transition: opacity .5s;
+    }
+
+    &__lightning-bolt {
+      opacity: 0;
+    }
   }
 
-  &__pencil {
-    transition: opacity .5s,
-                transform .5s;
-  }
+  &--versatility {
 
-  &__bracket {
+    &__design-develop {
+      transform-origin: 50% 50%;
+      transition: transform .5s .5s;
+    }
 
-    &--code {
+    &__pencil {
+      transition: opacity .5s,
+                  transform .5s ease-out;
+    }
+
+    &__bracket {
       opacity: 0;
       transition: opacity .5s;
 
       &--2 {
         transition: opacity .5s,
-                    transform .5s ease-out;
+                    transform .5s ease-in;
       }
     }
   }
-}
 
-.creativity {
+  &--passion {
 
-  &__brain-bulb {
-    transform-origin: 50% 50%;
-    transition: transform .5s;
-  }
-
-  &__brain {
-    opacity: 0;
-    transition: opacity .5s;
-  }
-
-  &__bulb {
-    fill: $creamsicle;
-    transition: fill .5s;
-
-    &__top {
-      transition: opacity .5s,
-                  transform .5s;
-    }
   }
 
   &:hover {
 
-    .creativity__brain-bulb {
-      transform: scale(1.2,1.2) translateY(30%);
-    }
+    .icon-animation--creativity {
 
-    .creativity__brain {
-      opacity: 1;
-    }
+      &__raindrops {
+        animation: iconAnimationCreativityRaindrops 5s infinite linear;
+        opacity: .25;
+        transition: opacity 3s;
+      }
 
-    .creativity__bulb {
-      fill: $bone;
+      &__lightning-bolt {
 
-      &__top {
-        opacity: 0;
-        transform: translateY(-200%);
+        &--1 {
+          animation: iconAnimationCreativityLightningBolt1 2s 1s infinite;
+        }
+
+        &--2 {
+          animation: iconAnimationCreativityLightningBolt2 2s 1s infinite;
+        }
+
+        &--3 {
+          animation: iconAnimationCreativityLightningBolt3 2s 1s infinite;
+        }
+      }
+
+      &__bulb-full {
+        transform: scale(1.2,1.2) translateY(25%);
+      }
+
+      &__bulb-top {
+          opacity: 0;
+          transform: translateY(-300%);
+      }
+
+      &__bulb-brain {
+        opacity: 1;
       }
     }
 
+    .icon-animation--versatility {
+
+      &__design-develop {
+        transform: rotate(-45deg) scale(.8, .8) translateX(20%) translateY(-25%);
+        transition: transform .5s;
+      }
+
+      &__pencil {
+        opacity: 0;
+        transform: translateX(-100%) translateY(100%);
+        transition: opacity .5s .5s,
+                    transform .5s .5s ease-in;
+      }
+
+      &__bracket {
+        opacity: 1;
+
+        &--2 {
+          transform: translateX(-80%) translateY(-80%);
+          transition: opacity .5s .5s,
+                      transform .5s .6s ease-out;
+        }
+      }
+    }
+
+    .icon-animation--passion {
+
+      &__heart {
+        animation: iconAnimationPassionHeartbeat 1s infinite alternate;
+        transform-origin: 50% 50%;
+      }
+
+      &__gear {
+        transform-origin: 50% 50%;
+
+        &--1 {
+          animation: iconAnimationPassionGear1 5s infinite linear;
+        }
+
+        &--2 {
+          animation: iconAnimationPassionGear2 5s infinite linear;
+        }
+      }
+    }
   }
 }
 
-@keyframes pencilBracketsRotateScaleIn {
-  from {transform: rotate(0deg) scale(1, 1) translateX(0) translateY(0);}
-  to   {transform: rotate(-45deg) scale(.8, .8) translateX(20%) translateY(-25%);}
+@keyframes iconAnimationCreativityRaindrops {
+  from {transform: translateY(0);}
+  to   {transform: translateY(50%);}
 }
 
-@keyframes heartbeat {
+@keyframes iconAnimationCreativityLightningBolt1 {
+  0%   {opacity: 0;}
+  17%  {opacity: 1;}
+  33%  {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+@keyframes iconAnimationCreativityLightningBolt2 {
+  0%   {opacity: 0;}
+  33%  {opacity: 0;}
+  50%  {opacity: 1;}
+  66%  {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+@keyframes iconAnimationCreativityLightningBolt3 {
+  0%   {opacity: 0;}
+  66%  {opacity: 0;}
+  83%  {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes iconAnimationPassionHeartbeat {
   from {transform: scale(1, 1);}
   to   {transform: scale(1.05, 1.05);}
 }
 
-@keyframes gearRotateRight {
+@keyframes iconAnimationPassionGear1 {
   from {transform: rotate(0deg);}
   to   {transform: rotate(359deg);}
 }
 
-@keyframes gearRotateLeft {
+@keyframes iconAnimationPassionGear2 {
   from {transform: rotate(0deg);}
   to   {transform: rotate(-359deg);}
 }

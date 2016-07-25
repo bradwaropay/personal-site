@@ -9,23 +9,23 @@ layout: "wrap"
     </header>
   </div>
   <div class="info__callouts">
-    <div class="row row--double-wide">
+    <div class="row row--full">
       <div class="info__column info__column--1-3">
-        <%- @partial("svg/icon_creativity") %>
+        <%- @partial("svg/icon_animation-creativity") %>
         <h2 class="info__callouts__heading">Who?</h2>
         <p>I'm a developer with a passion for creativity and craftsmanship that likes to spend my time exploring ideas and solving problems. Currently, I work as a Senior Front End Developer at <a href="http://www.meltmedia.com">meltmedia</a> in <a href="http://why.az/">always sunny</a> Tempe, Arizona.</p>
         <a href="#about" class="button">About my background</a>
       </div>
       <div class="info__column info__column--1-3">
-        <%- @partial("svg/icon_design-develop") %>
+        <%- @partial("svg/icon_animation-versatility") %>
         <h2 class="info__callouts__heading">What?</h2>
-        <p>Honestly, I like to do a little bit of everything. Whether it's a design solution or tech, I like to get my hands dirty and always enjoy a good challenge, no matter what medium or platform. I strive to create smart, engaging, and meaningful experiences.</p>
+        <p>Honestly, I like to do a little bit of everything. Whether it's a design solution or technical one, I like to get my hands dirty and always enjoy a good challenge, no matter what medium or platform. I strive to create smart, engaging, and meaningful experiences.</p>
         <a href="/work" class="button">Check out my work</a>
       </div>
       <div class="info__column info__column--1-3">
-        <%- @partial("svg/icon_heart") %>
+        <%- @partial("svg/icon_animation-passion") %>
         <h2 class="info__callouts__heading">Why?</h2>
-        <p>I love to learn and trying to come up with ways to improve things, even just a little bit. I love technology and all aspects of creating with it. From discovery to mastery, my goal is to learn, innovate, and share that knowledge along the way.</p>
+        <p>I love to learn and coming up with ways to improve things, even if it's just a little bit. I love technology and all aspects of creating with it. From discovery to mastery, my goal is to learn, innovate, and share that knowledge along the way.</p>
         <a href="/articles" class="button">What I'm up to</a>
       </div>
     </div>
