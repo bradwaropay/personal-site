@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "New DocPad project without using a skeleton",
   "dependencies": {
-    "docpad": "~6.78.4",
+    "docpad": "~6.78.6",
     "docpad-plugin-cleanurls": "~2.8.1",
     "docpad-plugin-coffeescript": "~2.5.0",
     "docpad-plugin-eco": "~2.1.0",
