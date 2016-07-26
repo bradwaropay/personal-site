@@ -5,7 +5,7 @@
     }
   });
 
-  $('pre').addClass('prettyprint');
+  $('pre').addClass('prettyprint linenums nocode');
   prettyPrint();
 
   backgroundParticles();

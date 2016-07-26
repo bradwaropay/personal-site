@@ -1,0 +1,14 @@
+<header class="main-header">
+  <div class="row row--full">
+    <nav class="main-header__nav">
+      <a href="/" class="main-header__logo"><%- @partial("svg/_logo-waropay") %></a>
+      <ul class="main-header__nav-list">
+        <% for navItem in @getCollection("nav").toJSON(): %>
+          <li class="main-header__nav-list__item">
+            <a href="<%= navItem.url %>" class="main-header__link"><%= navItem.title %></a>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

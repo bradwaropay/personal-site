@@ -1,60 +1,14 @@
 ---
-layout: "wrap"
+layout: "base"
 ---
-<section class="info">
-  <div class="row">
+<div class="row">
+  <section class="info">
     <header class="info__header">
-      <%- @partial("info-heading") %>
-      <%- @partial("link-lists") %>
+      <%- @partial("_info-heading") %>
+      <%- @partial("_social-links") %>
     </header>
-  </div>
-  <div class="info__callouts">
-    <div class="row row--full">
-      <div class="info__column info__column--1-3">
-        <%- @partial("svg/icon_animation-creativity") %>
-        <h2 class="info__callouts__heading">Who?</h2>
-        <p>I'm a developer with a passion for creativity and craftsmanship that likes to spend my time exploring ideas and solving problems. Currently, I work as a Senior Front End Developer at <a href="http://www.meltmedia.com">meltmedia</a> in <a href="http://why.az/">always sunny</a> Tempe, Arizona.</p>
-        <a href="#about" class="button">About my background</a>
-      </div>
-      <div class="info__column info__column--1-3">
-        <%- @partial("svg/icon_animation-versatility") %>
-        <h2 class="info__callouts__heading">What?</h2>
-        <p>Honestly, I like to do a little bit of everything. Whether it's a design solution or technical one, I like to get my hands dirty and always enjoy a good challenge, no matter what medium or platform. I strive to create smart, engaging, and meaningful experiences.</p>
-        <a href="/work" class="button">Check out my work</a>
-      </div>
-      <div class="info__column info__column--1-3">
-        <%- @partial("svg/icon_animation-passion") %>
-        <h2 class="info__callouts__heading">Why?</h2>
-        <p>I love to learn and coming up with ways to improve things, even if it's just a little bit. I love technology and all aspects of creating with it. From discovery to mastery, my goal is to learn, innovate, and share that knowledge along the way.</p>
-        <a href="/articles" class="button">What I'm up to</a>
-      </div>
+    <div class="info__content">
+      <%- @content %>
     </div>
-  </div>
-  <div class="info__skills">
-    <div class="row row--double-wide">
-      <div class="info__column info__column--1-3">
-        test
-      </div>
-      <div class="info__column info__column--2-3">
-        <h2 class="info__skills__heading">A little about myself.</h2>
-      </div>
-    </div>
-    <div class="row row--double-wide">
-      <div class="info__column info__column--2-3">
-        <h2 class="info__skills__heading">Jack of all trades, master of some.</h2>
-        <p>Nobody can be good at everything, no matter how much I want to be. I do however, really enjoy being hands on and exploring as many things as I can in development and design. This is my passion and I don't believe there is anything I can't do if I really want to. The most exciting part of this field is the constant change, there is always something new to learn or improve upon.</p>
-        <p>While I pride myself in being incredibly versatile as a developer, my main areas of focus are strategic implementation, from structure and markup to design systems, as well as engaging and optimized interactions. In a world of ever increasing devices, screens, users, and complexities, it's paramount to take a more thoughtful and holistic approach to development and design, embracing a device agnostic approach and flexibility.</p>
-      </div>
-      <div class="info__column info__column--1-3">
-        test
-      </div>
-    </div>
-  </div>
-  <div class="info__more">
-    <div class="info__more__content row">
-      <h2 class="info__more__content__heading">Thoughtful, handcrafted front-end solutions</h2>
-      <p>Got a project that needs some direction or an idea that you don't know how to get off the ground? I'm currently looking for new challenges. Whether it's an interactive site, that idea for an app you've had, to consulting on a design system. Drop me a line and tell me about what awesome thing you're creating!</p>
-      <a href="#" class="button">Let's build something together</a>
-    </div>
-  </div>
-</section>
+  </section>
+</div>

@@ -95,10 +95,9 @@ var backgroundParticles = function() {
 
   function scaleParticleCount() {
     particles.nb = Math.round((canvas.width * canvas.height) * .0004);
+    particles.array = []
 
     createParticles();
-
-    particles.array.length = particles.nb;
   }
 
   function resizeCanvas() {
@@ -108,19 +107,6 @@ var backgroundParticles = function() {
     redrawCanvas();
 
     scaleParticleCount();
-
-    for(i = 0; i < particles.nb; i++){
-      var particle = particles.array[i];
-
-      if (particle.x > canvas.width) {
-        particle.x = canvas.width;
-      }
-
-      else if (particle.y > canvas.height) {
-        particle.y = canvas.height;
-      }
-
-    }
   }
 
   setInterval(createParticles, 1000/30);
@@ -128,4 +114,6 @@ var backgroundParticles = function() {
   window.addEventListener('resize', resizeCanvas, false)
 
   resizeCanvas();
+
+  $(canvas).addClass('is-active').fadeIn(2000);
 };

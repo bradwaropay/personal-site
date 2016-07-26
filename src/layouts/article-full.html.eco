@@ -1,5 +1,5 @@
 ---
-layout: "wrap"
+layout: "base"
 ---
 <div class="row">
   <section class="article-full">
@@ -8,26 +8,23 @@ layout: "wrap"
       <h1 class="article-full__header__title"><%= @document.title %></h1>
       <p class="article-full__header__description"><%= @document.description %></p>
     </header>
-    <%- @content %>
+    <div class="article-full__content">
+      <%- @content %>
+    </div>
     <footer class="article-full__footer">
       <div id="disqus_thread" class="article-full__comments"></div>
     </footer>
   </section>
   <script>
-    /**
-    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
+    var disqus_shortname = '<%= @disqusShortName %>';
+    var disqus_url = '<%= @getPageUrlWithHostname() %>';
+    var disqus_identifier = disqus_url;
+    var disqus_title = '<%= @document.title %>';
+
+    (function() {
       var d = document, s = d.createElement('script');
 
-      s.src = '//bradwaropay.disqus.com/embed.js';
+      s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);

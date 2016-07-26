@@ -6,18 +6,26 @@ docpadConfig = {
 
   templateData:
     site:
+      url: "http://bradwaropay.com"
+
+      title: "Brad Waropay"
+
       styles: [
         "/styles/lib.css"
         "/styles/style.css"
       ]
+
       scripts: [
         "/scripts/lib.js"
         "/scripts/script.js"
       ]
 
-      title: "Brad Waropay"
+    getPageUrlWithHostname: ->
+      "#{@site.url}#{@document.url}"
 
     getPreparedTitle: -> if @document.title then "#{@document.title} | #{@site.title}" else @site.title
+
+    disqusShortName: 'bradwaropay'
 
   collections:
     nav: ->
@@ -25,18 +33,22 @@ docpadConfig = {
         isNavItem:true
         isPagedAuto: $ne: true
       })
+
     articles: ->
       @getCollection("html").findAllLive({
         relativeOutDirPath: "articles"
         isPagedAuto: $ne: true
       },[{date:-1}]).on "add", (model) ->
-        model.setMetaDefaults({layout:"article-full"})
-    work: ->
-      @getCollection("html").findAllLive({
-        relativeOutDirPath: "work"
-      },[{date:-1}]).on "add", (model) ->
-        model.setMetaDefaults({layout:"work-full"})
+        model.setMetaDefaults({
+          layout:"article-full"
+          sitemap: false
+        })
 
+    sitemap: ->
+      @getCollection("html").findAllLive({
+        isSitemap:true
+        isPagedAuto: $ne: true
+      })
 
   plugins:
     moment:
@@ -50,6 +62,9 @@ docpadConfig = {
         collection: "articles"
         url: "/rss.xml"
         title: "Brad Waropay | Articles"
+
+    sitemap:
+      collectionName: 'sitemap'
 }
 
 # Export the DocPad Configuration

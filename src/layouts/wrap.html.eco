@@ -1,8 +1,0 @@
----
-layout: "base"
----
-<%- @partial("header") %>
-<main role="main" class="main">
-  <%- @content %>
-</main>
-<%- @partial("footer") %>

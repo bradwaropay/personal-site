@@ -3,7 +3,7 @@
 @import url('grid');
 @import url('header');
 @import url('footer');
-@import url('link-lists');
+@import url('social-links');
 @import url('info');
-@import url('articles');
-@import url('work');
+@import url('article-list');
+@import url('article-full');

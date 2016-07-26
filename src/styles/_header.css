@@ -1,7 +1,8 @@
 .main-header {
-  font-family: $bitter;
-  margin-bottom: 3rem;
-  padding: 1rem 0;
+  font-family: $headingFontFamily;
+  font-weight: $headingFontWeight;
+  margin-bottom: calc($baseVerticalGutter * 3);
+  padding: $baseVerticalGutter 0;
 
   &__nav {
     align-items: center;
@@ -14,50 +15,11 @@
       flex-direction: row;
       justify-content: space-between;
     }
-
-    &__list {
-      list-style: none;
-      margin: 0;
-      padding-left: 0;
-
-      &__item {
-        float: left;
-        margin-right: 2rem;
-
-        &:last-child {
-          margin-right: 0;
-        }
-
-        a {
-          text-decoration: none;
-          position: relative;
-
-          &::before {
-            background-color: $grapefruit;
-            content: '';
-            top: 100%; left: 50%;
-            height: 3px;
-            position: absolute;
-            transition: left .2s,
-                        width .2s;
-            width: 0;
-          }
-
-          &:hover {
-
-            &::before {
-              left: 0;
-              width: 100%;
-            }
-          }
-        }
-      }
-    }
   }
 
   &__logo {
     fill: $copy;
-    margin-bottom: 1rem;
+    margin-bottom: $baseVerticalGutter;
     transition: fill .2s;
     width: 100px;
 
@@ -68,6 +30,45 @@
 
     &:hover {
       fill: $linkHover;
+    }
+  }
+
+  &__nav-list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+
+    &__item {
+      float: left;
+      margin-right: $baseHorizontalGutter;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    position: relative;
+
+    &::before {
+      background-color: $grapefruit;
+      content: '';
+      top: 100%; left: 50%;
+      height: 3px;
+      position: absolute;
+      transition: left .2s,
+                  width .2s;
+      width: 0;
+    }
+
+    &:hover {
+
+      &::before {
+        left: 0;
+        width: 100%;
+      }
     }
   }
 }

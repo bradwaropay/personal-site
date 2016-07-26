@@ -1,30 +1,20 @@
 @lost flexbox flex;
 
 .row {
-  lost-center: 100% 2rem;
+  lost-center: $rowFull $pageGutter;
 
   @media (min-width: $sm) {
-    lost-center: $singleWide;
+    lost-center: $rowCenter;
   }
 
-  &.row--double-wide {
-
-    @media (min-width: $sm) {
-      lost-center: calc($singleWide*2);
-    }
+  @media (min-width: $sm) {
+    lost-center: $rowCenter;
   }
 
-  &.row--triple-wide {
+  &--full {
 
     @media (min-width: $sm) {
-      lost-center: calc($singleWide*3);
-    }
-  }
-
-  &.row--full {
-
-    @media (min-width: $sm) {
-      lost-center: 100%;
+      lost-center: $rowFull;
     }
   }
 }

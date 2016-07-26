@@ -3,16 +3,16 @@ body {
   background-color: $background;
   box-sizing: border-box;
   color: $copy;
-  font-family: $raleway;
-  font-size: 16px;
-  line-height: 1.8;
+  font-family: $bodyFontFamily;
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
 
   @media (min-width: $sm) {
-    font-size: 18px;
+    font-size: calc($baseFontSize * 1.125);
   }
 
   @media (min-width: $md) {
-    font-size: 22px;
+    font-size: calc($baseFontSize * 1.375);
   }
 }
 
@@ -42,6 +42,7 @@ body {
 }
 
 #background-particles {
+  display: none;
   position: fixed;
 }
 
@@ -49,23 +50,32 @@ body {
   position: relative;
 }
 
-h1,h2,h3 {
-  font-family: $bitter;
-  font-weight: 700;
-  line-height: 1.4;
-  margin: 0 0 1rem;
+h1,h2,h3,h4,h5,h6,
+p,ul,ol,img,pre {
+  margin: 0 0 $baseVerticalGutter;
 }
 
-h1 {
-  font-size: 3rem;
+h1,h2,h3,h4,h5,h6 {
+  font-family: $headingFontFamily;
+  font-weight: $headingFontWeight;
+  line-height: calc($baseLineHeight * .8125);
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
+
+  @media (min-width: $sm) {
+    font-size: 2rem;
+  }
 }
 
 h3 {
-  font-size: 1.5rem;
+  color: $accentOne;
+  font-size: 1.2rem;
+
+  @media (min-width: $sm) {
+    font-size: 1.5rem;
+  }
 }
 
 a {
@@ -78,16 +88,13 @@ a {
   }
 }
 
-hr {
-  border-top: 0;
-  border-bottom-color: $copy;
-  margin: 3rem 0;
+blockquote,hr {
+  margin: calc($baseVerticalGutter * 3) 0;
 }
 
 blockquote {
   border-left: .5rem solid $accentTwo;
-  margin: 0 0 1.5rem;
-  padding: 0 1rem;
+  padding: 0 $baseHorizontalGutter;
 
   p {
     display: inline;
@@ -122,26 +129,29 @@ blockquote {
   }
 }
 
-pre {
-  white-space: pre-wrap;
+hr {
+  border-top: 0;
+  border-bottom-color: $copy;
 }
 
-.button {
-  border: 1px solid $creamsicle;
-  color: $creamsicle;
-  display: inline-block;
-  padding: .4rem;
-  transition: border-color .2s,
-              color .2s;
+img {
+  max-width: 100%;
+}
 
-  &:after {
-    content: '»';
-    display: inline-block;
-    margin-left: .2rem;
-  }
+pre {
+  white-space: pre-wrap;
 
-  &:hover {
-    border-color: $grapefruit;
-    color: $grapefruit;
+  &.prettyprint {
+    /*TODO: Fix color variable*/
+    background-color: color(#422727 a(90%));
+    border-color: $copy;
+    color: $background;
+    font-size: calc($baseFontSize / 1.142857);
+    padding: calc($baseVerticalGutter / 2);
+
+    li {
+      background: none;
+      list-style: decimal;
+    }
   }
 }

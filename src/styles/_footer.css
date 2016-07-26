@@ -1,5 +1,5 @@
 .main-footer {
   background-color: $copy;
   color: $background;
-  padding: 1rem 0;
+  padding: $baseVerticalGutter 0;
 }
