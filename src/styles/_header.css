@@ -2,7 +2,7 @@
   font-family: $headingFontFamily;
   font-weight: $headingFontWeight;
   margin-bottom: calc($baseVerticalGutter * 3);
-  padding: $baseVerticalGutter 0;
+  padding: $baseVerticalGutter 0 0;
 
   &__nav {
     align-items: center;
