@@ -67,7 +67,7 @@ docpadConfig = {
       collectionName: 'sitemap'
 
     ghpages:
-        deployRemote: 'source'
+        deployRemote: 'origin'
         deployBranch: 'master'
 }
 
