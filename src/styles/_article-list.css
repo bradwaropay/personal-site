@@ -1,11 +1,11 @@
 .article-list {
-  margin-bottom: calc($baseVerticalGutter * 3);
+  margin-bottom: calc($baseVerticalGutter * 2.5);
   width: 100%;
 
   &__article {
     border-bottom: 1px solid $copy;
-    margin-bottom: calc($baseVerticalGutter * 3);
-    padding-bottom: calc($baseVerticalGutter * 3);
+    margin-bottom: calc($baseVerticalGutter * 2);
+    padding-bottom: calc($baseVerticalGutter * 2);
 
     &:last-of-type {
       border-bottom: none;
@@ -13,7 +13,7 @@
     }
 
     &__header {
-      margin-bottom: $baseVerticalGutter;
+      margin-bottom: calc($baseVerticalGutter / 3);
 
       &__date {
         color: $accentOne;

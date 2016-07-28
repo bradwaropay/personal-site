@@ -14,6 +14,10 @@ body {
   @media (min-width: $md) {
     font-size: calc($baseFontSize * 1.375);
   }
+
+  @media (min-width: $lg) {
+    font-size: calc($baseFontSize * 1.5);
+  }
 }
 
 * {
@@ -93,7 +97,7 @@ a {
 }
 
 blockquote,hr {
-  margin: calc($baseVerticalGutter * 3) 0;
+  margin: calc($baseVerticalGutter * 2) 0;
 }
 
 blockquote {
