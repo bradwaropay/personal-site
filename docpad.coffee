@@ -63,7 +63,6 @@ docpadConfig = {
               sitemap: false
             })
 
-
   plugins:
     moment:
       formats: [
