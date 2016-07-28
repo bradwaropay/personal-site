@@ -50,6 +50,20 @@ docpadConfig = {
         isPagedAuto: $ne: true
       })
 
+  environments:
+    development:
+      collections:
+        articles: ->
+          @getCollection('html').findAllLive({
+            relativeDirPath: {'$in' : ['articles', 'drafts']}
+            isPagedAuto: $ne: true
+          }, [date: -1]).on "add", (model) ->
+            model.setMetaDefaults({
+              layout:"article-full"
+              sitemap: false
+            })
+
+
   plugins:
     moment:
       formats: [
