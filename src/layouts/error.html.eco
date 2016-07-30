@@ -1,0 +1,9 @@
+---
+layout: "base"
+---
+<div class="row">
+  <section class="error">
+    <h1 class="error__heading"><%= @document.title %></h1>
+    <%- @content %>
+  </section>
+</div>
