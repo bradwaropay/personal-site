@@ -151,7 +151,6 @@ pre {
   white-space: pre-wrap;
 
   &.prettyprint {
-    /*TODO: Fix color variable*/
     background-color: color(#422727 a(90%));
     border-color: $copy;
     color: $background;
