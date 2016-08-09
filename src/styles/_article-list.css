@@ -1,6 +1,4 @@
 .article-list {
-  margin-bottom: calc($baseVerticalGutter * 2.5);
-  width: 100%;
 
   &__article {
     border-bottom: 1px solid $copy;
@@ -10,6 +8,10 @@
     &:last-of-type {
       border-bottom: none;
       padding-bottom: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
     }
 
     &__header {
@@ -28,5 +30,11 @@
         }
       }
     }
+  }
+
+  &__nav {
+    display: inline-block;
+    line-height: 1;
+    margin-bottom: calc($baseVerticalGutter * .5);
   }
 }

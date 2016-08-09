@@ -2,22 +2,26 @@
 layout: "base"
 ---
 <div class="row">
-  <section class="info">
-    <header class="info__header">
-      <%- @partial("_info-heading") %>
-      <%- @partial("_social-links") %>
-    </header>
-  </section>
-  <section class="article-list">
-    <% for article in @getCollection("articles").toJSON()[0..2]: %>
-      <article class="article-list__article">
-        <header class="article-list__article__header">
-          <time datetime="<%= article.robotDate %>" class="article-list__article__header__date"><%= article.humanDate %></time>
-          <h1 class="article-list__article__header__title"><a href="<%= article.url %>" class="class="article-list__article__header__link""><%= article.title %></a></h1>
-        </header>
-        <p class="article-list__article__description"><%= article.description %></p>
-      </article>
-    <% end %>
-    <a href="/articles">more articles</a>
-  </section>
+  <div class="section-content">
+    <section class="info info--splash">
+      <header class="info__header">
+        <%- @partial("_info-heading") %>
+        <%- @partial("_social-links") %>
+      </header>
+    </section>
+    <section class="article-list">
+      <% for article in @getCollection("articles").toJSON()[0..2]: %>
+        <article class="article-list__article">
+          <header class="article-list__article__header">
+            <time datetime="<%= article.robotDate %>" class="article-list__article__header__date"><%= article.humanDate %></time>
+            <h1 class="article-list__article__header__title"><a href="<%= article.url %>" class="class="article-list__article__header__link""><%= article.title %></a></h1>
+          </header>
+          <p class="article-list__article__description"><%= article.description %></p>
+        </article>
+      <% end %>
+      <div class="article-list__nav">
+        <a href="/articles">more articles</a>
+      </div>
+    </section>
+  </div>
 </div>

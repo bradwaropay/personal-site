@@ -2,7 +2,7 @@
 layout: "base"
 ---
 <div class="row">
-  <section class="error">
+  <section class="error section-content">
     <h1 class="error__heading"><%= @document.title %></h1>
     <%- @content %>
   </section>

@@ -61,6 +61,12 @@ body {
   flex: 1;
 }
 
+.section-content {
+  background-color: color(#FFF9E6 a(50%));
+  margin-bottom: calc($baseVerticalGutter * 2);
+  width: 100%;
+}
+
 h1,h2,h3,h4,h5,h6,
 p,ul,ol,img,pre {
   margin: 0 0 $baseVerticalGutter;

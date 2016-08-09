@@ -1,10 +1,17 @@
 .info {
-  width: 100%;
+
+  &--splash {
+    margin-bottom: calc($baseVerticalGutter * 2);
+  }
 
   &__header {
     border-bottom: 1px solid $copy;
     margin-bottom: calc($baseVerticalGutter * 2);
     padding-bottom: calc($baseVerticalGutter * 2);
+
+    &:only-child {
+      margin-bottom: 0;
+    }
   }
 
   &__heading {
@@ -24,9 +31,5 @@
         font-size: 3.5rem;
       }
     }
-  }
-
-  &__content {
-    margin-bottom: calc($baseVerticalGutter * 4);
   }
 }

@@ -2,7 +2,7 @@
 layout: "base"
 ---
 <div class="row">
-  <section class="info">
+  <section class="info section-content">
     <header class="info__header">
       <%- @partial("_info-heading") %>
       <%- @partial("_social-links") %>

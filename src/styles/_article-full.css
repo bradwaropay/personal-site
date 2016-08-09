@@ -1,8 +1,7 @@
 .article-full {
-  margin-bottom: calc($baseVerticalGutter * 4);
-  width: 100%;
 
   &__header {
+    margin-bottom: calc($baseVerticalGutter * 2);
 
     &__date {
       color: $accentOne;
@@ -22,12 +21,7 @@
       border-top: 1px solid $copy;
       border-bottom: 1px solid $copy;
       color: $accentOne;
-      margin-bottom: calc($baseVerticalGutter * 2);
       padding: $baseVerticalGutter 0;
     }
-  }
-
-  &__content {
-    margin-bottom: calc($baseVerticalGutter * 2);
   }
 }
