@@ -1,5 +1,5 @@
 ---
-date: "2016/7/31"
+date: "2016/8/1"
 title: "Hello, World!"
-description: "The first post in, hopefully, the start of something bigger."
+description: "Testing… 1… 2… 3…"
 ---

@@ -31,10 +31,4 @@
       }
     }
   }
-
-  &__nav {
-    display: inline-block;
-    line-height: 1;
-    margin-bottom: calc($baseVerticalGutter * .5);
-  }
 }
