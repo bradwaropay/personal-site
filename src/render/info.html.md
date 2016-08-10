@@ -6,6 +6,6 @@ isSitemap: true
 ---
 I love learning and exploring ideas. Honestly, I like to do a little bit of everything when it comes to technology, especially all aspects of creating with it. Whether it's a design solution or a technical one, I always enjoy a good challenge. No matter what medium or platform, I strive to create smart, engaging, and meaningful experiences. From discovery to mastery, my goal is to learn, innovate, and share that knowledge along the way.
 
-When I'm not working on and playing with code, I spend my time playing with new tech and gadgets, perfecting my grilling skills, brewing up new batches of [beer](#), and slowly chipping away at the enormous backlog of books I impulsively buy.
+When I'm not experimenting or working on code, I spend my time playing with new tech and gadgets, perfecting my grilling skills, brewing up new batches of [beer](#), and slowly chipping away at the enormous backlog of books I impulsively buy.
 
 Currently, I work as a Senior Front End Developer at [meltmedia](http://www.meltmedia.com) in [always sunny](http://why.az) Tempe, Arizona.
