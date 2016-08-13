@@ -2,6 +2,10 @@
   "name": "no-skeleton.docpad",
   "version": "0.1.0",
   "description": "New DocPad project without using a skeleton",
+  "main": "node_modules/.bin/docpad-server",
+  "scripts": {
+    "start": "node_modules/.bin/docpad-server"
+  },
   "dependencies": {
     "docpad": "~6.78.6",
     "docpad-plugin-cleanurls": "~2.8.1",
@@ -17,10 +21,6 @@
     "docpad-plugin-rss": "~2.3.1",
     "docpad-plugin-sitemap": "~2.2.0",
     "webfontloader": "^1.6.22"
-  },
-  "main": "node_modules/.bin/docpad-server",
-  "scripts": {
-    "start": "node_modules/.bin/docpad-server"
   },
   "devDependencies": {
     "autoprefixer": "^6.2.0",
