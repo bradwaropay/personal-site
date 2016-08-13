@@ -2,7 +2,7 @@
 layout: "base"
 ---
 <div class="row">
-  <div class="section-content section-content--nav">
+  <div class="section-content">
     <section class="info info--splash">
       <header class="info__header">
         <%- @partial("_info-heading") %>
@@ -19,7 +19,9 @@ layout: "base"
           <p class="article-list__article__description"><%= article.description %></p>
         </article>
       <% end %>
-      <a href="/articles">more articles</a>
+      <ul class="article-list__nav">
+        <li class="article-list__nav__item"><a href="/articles" class="articel-list__nav__link">more articles</a></li>
+      </ul>
     </section>
   </div>
 </div>

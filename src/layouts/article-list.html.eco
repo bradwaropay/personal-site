@@ -2,7 +2,7 @@
 layout: "base"
 ---
 <div class="row">
-  <section class="article-list section-content <% if @hasPrevPage() || @hasNextPage(): %>section-content--nav<% end %>">
+  <section class="article-list section-content">
     <% for article in @getPageCollection("articles").toJSON(): %>
       <article class="article-list__article">
         <header class="article-list__article__header">
@@ -12,6 +12,11 @@ layout: "base"
         <p class="article-list__article__description"><%= article.description %></p>
       </article>
     <% end %>
-    <% if @hasNextPage(): %><a href="<%= @getNextPage() %>">older articles</a><% end %><% if @hasPrevPage() && @hasNextPage(): %>//<% end %><% if @hasPrevPage(): %><a href="<%= @getPrevPage() %>">newer articles</a><% end %>
+    <% if @hasPrevPage() || @hasNextPage(): %>
+      <div class="article-list__nav">
+        <% if @hasNextPage(): %><li class="article-list__nav__item"><a href="<%= @getNextPage() %>" class="article-list__nav__link">older articles</a></li><% end %>
+        <% if @hasPrevPage(): %><li class="article-list__nav__item"><a href="<%= @getPrevPage() %>" class="article-list__nav__link">newer articles</a></li><% end %>
+      </div>
+    <% end %>
   </section>
 </div>

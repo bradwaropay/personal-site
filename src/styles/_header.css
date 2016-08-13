@@ -36,12 +36,14 @@
   }
 
   &__nav-list {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
     list-style: none;
     margin: 0;
     padding-left: 0;
 
     &__item {
-      float: left;
       margin-right: $baseHorizontalGutter;
 
       &:last-child {

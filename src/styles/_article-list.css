@@ -31,4 +31,21 @@
       }
     }
   }
+
+  &__nav {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-bottom: calc($baseVerticalGutter * .5);
+    padding-left: 0;
+  }
+}
+
+.article-list__nav__item + .article-list__nav__item {
+
+  &::before {
+    content: '//';
+    display: inline-block;
+  }
 }

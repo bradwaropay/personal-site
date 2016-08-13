@@ -11,8 +11,11 @@
   }
 
   &__list {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
     list-style-type: none;
-    margin: 0 0 1rem;
+    margin-bottom: calc($baseVerticalGutter);
     padding-left: 0;
 
     @media (min-width: $sm) {
@@ -24,7 +27,6 @@
     }
 
     &__item {
-      float:left;
 
       &::after {
         content: "/";
