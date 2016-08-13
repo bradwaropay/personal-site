@@ -63,7 +63,7 @@ body {
 
 .section-content {
   background-color: color(#FFF9E6 a(50%));
-  margin-bottom: calc($baseVerticalGutter * 2);
+  margin-bottom: calc($baseVerticalGutter * 4);
   width: 100%;
 }
 
