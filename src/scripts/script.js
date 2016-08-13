@@ -1,6 +1,6 @@
 (function($) {
 
-  BackgroundParticles().init();
+  BackgroundParticles.init();
 
   WebFont.load({
     google: {

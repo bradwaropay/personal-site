@@ -1,4 +1,4 @@
-var BackgroundParticles = function() {
+var BackgroundParticles = (function() {
 
   var canvas = $('#background-particles').get(0),
       ctx = canvas.getContext('2d'),
@@ -164,4 +164,4 @@ var BackgroundParticles = function() {
     init: init
   };
 
-};
+})();
