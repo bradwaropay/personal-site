@@ -130,16 +130,8 @@ var BackgroundParticles = (function() {
     ctx.strokeStyle = connectColor;
     ctx.lineWidth = connectWidth;
 
-    particles.nb = Math.round((canvas.width * canvas.height) * .0004);
+    particles.nb = Math.round((canvas.width * canvas.height) * .0003);
     particles.array = []
-
-  }
-
-  var init = function() {
-
-    _drawCanvas();
-
-    _animateParticles();
 
     if ($(canvas).hasClass('is-active')) {
 
@@ -152,6 +144,14 @@ var BackgroundParticles = (function() {
       $(canvas).addClass('is-active').fadeIn(2000);
 
     }
+
+  }
+
+  var init = function() {
+
+    _drawCanvas();
+
+    _animateParticles();
 
     window.onmousemove = function(canvasPosition) {
 
