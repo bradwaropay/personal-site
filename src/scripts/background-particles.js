@@ -149,18 +149,32 @@ var BackgroundParticles = (function() {
 
   var init = function() {
 
+    var documentWidth = $(document).width(),
+        documentHeight = $(document).height();
+
     _drawCanvas();
 
     _animateParticles();
 
-    window.onmousemove = function(canvasPosition) {
+    $(window).mousemove(function(canvasPosition) {
 
       mousePosition.x = canvasPosition.pageX;
       mousePosition.y = canvasPosition.pageY - window.scrollY;
 
-    }
+    })
 
-    window.addEventListener('resize', _drawCanvas, false);
+    $(window).resize(function() {
+
+      if (documentWidth != $(document).width() || documentHeight != $(document).height()) {
+
+        documentWidth = $(document).width();
+        documentHeight = $(document).height();
+
+        _drawCanvas();
+
+      }
+
+    });
 
     return 'Initializing Background Particles';
 
