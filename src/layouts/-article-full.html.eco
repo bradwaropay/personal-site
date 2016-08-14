@@ -1,34 +1,31 @@
 ---
 layout: "-base"
 ---
+
 <div class="row">
+
   <section class="article-full section-content">
+
     <header class="article-full__header">
+
       <time datetime="<%= @document.robotDate %>" class="article-full__header__date"><%= @document.humanDate %></time>
       <h1 class="article-full__header__title"><%= @document.title %></h1>
       <p class="article-full__header__description"><%= @document.description %></p>
+
     </header>
+
     <div class="article-full__content">
+
       <%- @content %>
+
     </div>
+
     <footer class="article-full__footer">
-      <div id="disqus_thread" class="article-full__comments"></div>
+
+      <%- @partial("_disqus-thread") %>
+
     </footer>
+
   </section>
-  <script>
-    var disqus_shortname = '<%= @disqusShortName %>';
-    var disqus_url = '<%= @getPageUrlWithHostname() %>';
-    var disqus_identifier = disqus_url;
-    var disqus_title = '<%= @document.title %>';
 
-    (function() {
-      var d = document, s = d.createElement('script');
-
-      s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </div>

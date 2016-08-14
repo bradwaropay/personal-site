@@ -1,14 +1,24 @@
 ---
 layout: "-base"
 ---
+
 <div class="row">
+
   <section class="info section-content">
+
     <header class="info__header">
+
       <%- @partial("_info-heading") %>
       <%- @partial("_social-links") %>
+
     </header>
+
     <div class="info__content">
+
       <%- @content %>
+
     </div>
+
   </section>
+
 </div>

@@ -1,5 +1,8 @@
 var BackgroundParticles = (function() {
 
+  var documentWidth,
+      documentHeight;
+
   var canvas = $('#background-particles').get(0),
       ctx = canvas.getContext('2d'),
       particleColor = '#422727',
@@ -149,12 +152,16 @@ var BackgroundParticles = (function() {
 
   var init = function() {
 
-    var documentWidth = $(document).width(),
-        documentHeight = $(document).height();
+    setTimeout(function(){
 
-    _drawCanvas();
+      documentWidth = $(document).width();
+      documentHeight = $(document).height();
 
-    _animateParticles();
+      _drawCanvas();
+
+      _animateParticles();
+
+    }, 1000);
 
     $(window).mousemove(function(canvasPosition) {
 
@@ -176,7 +183,7 @@ var BackgroundParticles = (function() {
 
     });
 
-    return 'Initializing Background Particles';
+    return 'Initialize Background Particles';
 
   }
 

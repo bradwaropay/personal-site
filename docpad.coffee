@@ -25,6 +25,9 @@ docpadConfig = {
 
     getPreparedTitle: -> if @document.title then "#{@document.title} | #{@site.title}" else @site.title
 
+    getPageID: ->
+      "#{@document.robotDate}-#{@document.basename}"
+
     googleAnalyticsID: '43111430-1'
 
     disqusShortName: 'bradwaropay'
