@@ -2,9 +2,9 @@ var BackgroundParticles = (function() {
 
   var canvas = $('#background-particles').get(0),
       ctx = canvas.getContext('2d'),
-      colorParticle = '#422727',
-      colorConnect = '#422727',
-      requestID;
+      particleColor = '#422727',
+      connectColor = '#422727',
+      connectWidth = .1;
 
   var particles = {
     nb: 0,
@@ -96,12 +96,9 @@ var BackgroundParticles = (function() {
 
   };
 
-  var _createParticles = function() {
+  var _drawParticles = function() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = colorParticle;
-    ctx.lineWidth = .1;
-    ctx.strokeStyle = colorConnect;
 
     for (i = 0; i < particles.nb; i++) {
 
@@ -111,29 +108,38 @@ var BackgroundParticles = (function() {
 
     }
 
-    particle.connect();
     particle.animate();
+    particle.connect();
 
-    requestID = requestAnimationFrame(_createParticles);
+    requestAnimationFrame(_drawParticles);
 
   }
 
-  var _renderParticles = function() {
+  var _animateParticles = function() {
+
+    requestAnimationFrame(_drawParticles);
+
+  }
+
+  var _drawCanvas = function() {
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    ctx.fillStyle = particleColor;
+    ctx.strokeStyle = connectColor;
+    ctx.lineWidth = connectWidth;
+
     particles.nb = Math.round((canvas.width * canvas.height) * .0004);
     particles.array = []
-
-    cancelAnimationFrame(requestID);
-    _createParticles();
 
   }
 
   var init = function() {
 
-    _renderParticles();
+    _drawCanvas();
+
+    _animateParticles();
 
     if ($(canvas).hasClass('is-active')) {
 
@@ -154,7 +160,7 @@ var BackgroundParticles = (function() {
 
     }
 
-    window.addEventListener('resize', _renderParticles, false);
+    window.addEventListener('resize', _drawCanvas, false);
 
     return 'Initializing Background Particles';
 
