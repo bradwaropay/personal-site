@@ -68,7 +68,7 @@ var BackgroundParticles = (function() {
 
     },
 
-    connect: function(){
+    connect: function() {
 
       for (i = 0; i < particles.nb; i++) {
 
