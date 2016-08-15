@@ -10,6 +10,13 @@ layout: "-base"
 
       <time datetime="<%= @document.robotDate %>" class="article-full__header__date"><%= @document.humanDate %></time>
       <h1 class="article-full__header__title"><%= @document.title %></h1>
+
+      <% if @document.hasImage: %>
+        <div class="article-full__header__image article-full__header__image--<%= @document.basename %> row--full-nested">
+
+        </div>
+      <% end %>
+
       <p class="article-full__header__description"><%= @document.description %></p>
 
     </header>

@@ -17,6 +17,15 @@
       }
     }
 
+    &__image {
+      background-attachment: fixed;
+      background-color: $coffee;
+      background-position: center;
+      background-size: cover;
+      height: calc($baseVerticalGutter * 8);
+      margin-bottom: calc($baseVerticalGutter * 2);
+    }
+
     &__description {
       border-top: 1px solid $copy;
       border-bottom: 1px solid $copy;
