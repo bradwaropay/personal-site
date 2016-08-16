@@ -84,8 +84,8 @@ var BackgroundParticles = (function() {
               ctx.beginPath();
               ctx.moveTo(iParticle.x, iParticle.y);
               ctx.lineTo(jParticle.x, jParticle.y);
-              ctx.stroke();
               ctx.closePath();
+              ctx.stroke();
 
             }
 
