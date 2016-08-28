@@ -76,6 +76,18 @@ body {
     border-color: $linkHover;
   }
 
+  &--solid {
+    background-color: $link;
+    border: none;
+    color: $background;
+    transition: background-color .2s;
+
+    &:hover {
+      background-color: $linkHover;
+      color: $background;
+    }
+  }
+
   &--full {
     display: block;
     text-align: center;
