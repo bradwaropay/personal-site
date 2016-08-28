@@ -135,7 +135,7 @@ var BackgroundParticles = (function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    particles.nb = Math.round((canvas.width * canvas.height) * .0003);
+    particles.nb = Math.round((canvas.width * canvas.height) * .0002);
     particles.array = []
 
     if ($(canvas).hasClass('is-active')) {
