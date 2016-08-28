@@ -4,7 +4,7 @@ layout: "-base"
 
 <div class="row">
 
-  <section class="article-list section-content">
+  <section class="article-list column">
 
     <% for article in @getPageCollection("articles").toJSON(): %>
 

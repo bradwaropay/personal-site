@@ -4,7 +4,7 @@ layout: "-base"
 
 <div class="row">
 
-  <section class="error section-content">
+  <section class="error column">
 
     <h1 class="error__heading"><%= @document.title %></h1>
 

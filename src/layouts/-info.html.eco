@@ -4,7 +4,7 @@ layout: "-base"
 
 <div class="row">
 
-  <section class="info section-content">
+  <section class="info column">
 
     <header class="info__header">
 
@@ -13,9 +13,17 @@ layout: "-base"
 
     </header>
 
-    <div class="info__content">
+    <div class="info__intro">
 
-      <%- @content %>
+        <%- @partial("_info-intro") %>
+
+    </div>
+
+    <%- @partial("_info-sections") %>
+
+    <div class="info__outro">
+
+        <%- @partial("_info-outro") %>
 
     </div>
 

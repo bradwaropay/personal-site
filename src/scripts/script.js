@@ -1,9 +1,5 @@
 (function($) {
 
-  if ($('#disqus_thread').length < 1) {
-    BackgroundParticles.init();
-  }
-
   WebFont.load({
 
     google: {
@@ -14,5 +10,10 @@
 
   $('pre').addClass('prettyprint linenums nocode');
   prettyPrint();
+
+
+  if ($('#disqus_thread').length < 1) {
+    BackgroundParticles.init();
+  }
 
 })(jQuery);

@@ -49,6 +49,7 @@ body {
 #background-particles {
   display: none;
   position: fixed;
+  transform: translateZ(0);
 }
 
 .page-container {
@@ -61,12 +62,24 @@ body {
 
 .main-content {
   flex-grow: 1;
+  margin-bottom: calc($baseVerticalGutter * 4);
 }
 
-.section-content {
-  background-color: color(#FFF9E6 a(50%));
-  margin-bottom: calc($baseVerticalGutter * 4);
-  width: 100%;
+.button {
+  border: 2px solid $linkColor;
+  display: inline-block;
+  padding: calc($baseVerticalGutter / 2) calc($baseHorizontalGutter / 2);
+  transition: border-color .2s,
+              color .2s;
+
+  &:hover {
+    border-color: $linkHover;
+  }
+
+  &--full {
+    display: block;
+    text-align: center;
+  }
 }
 
 h1,h2,h3,h4,h5,h6,
@@ -180,5 +193,12 @@ pre {
       background: none;
       list-style: decimal;
     }
+  }
+}
+
+.img {
+
+  &--circle {
+    border-radius: 50%;
   }
 }

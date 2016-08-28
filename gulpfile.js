@@ -43,6 +43,8 @@ gulp.task('bower-js', function() {
     .pipe(plugins.filter('*.js'))
     .pipe(plugins.order([
       'jquery.js',
+      'd3.js',
+      'c3.js',
       '*'
     ]))
     .pipe(plugins.concat('lib.js'))

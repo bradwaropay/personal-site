@@ -57,7 +57,7 @@
     position: relative;
 
     &::before {
-      background-color: $grapefruit;
+      background-color: $accentTwo;
       content: '';
       top: 100%; left: 50%;
       height: 3px;

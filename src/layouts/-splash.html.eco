@@ -4,7 +4,7 @@ layout: "-base"
 
 <div class="row">
 
-  <div class="section-content">
+  <div class="column">
 
     <section class="info info--splash">
 

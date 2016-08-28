@@ -5,14 +5,15 @@ var BackgroundParticles = (function() {
 
   var canvas = $('#background-particles').get(0),
       ctx = canvas.getContext('2d'),
+      particleFadeIn = 2000,
       particleColor = '#422727',
-      connectColor = '#422727',
+      connectColor = '66, 39, 39',
       connectWidth = .1;
 
   var particles = {
     nb: 0,
     array: [],
-    distance: 60
+    distance: 75
   };
 
   var mousePosition = {
@@ -37,6 +38,7 @@ var BackgroundParticles = (function() {
 
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+      ctx.fillStyle = particleColor;
       ctx.fill();
 
     },
@@ -54,7 +56,7 @@ var BackgroundParticles = (function() {
 
         }
 
-        else if (particle.y < 0 || particle.y > canvas.height) {
+        if (particle.y < 0 || particle.y > canvas.height) {
 
           particle.vx = particle.vx;
           particle.vy = - particle.vy;
@@ -74,20 +76,22 @@ var BackgroundParticles = (function() {
 
         for (j = 0; j < particles.nb; j++) {
 
-          var iParticle = particles.array[i];
-          var jParticle = particles.array[j];
+          var iParticle = particles.array[i],
+              iParticleLocation = Math.sqrt(Math.pow(iParticle.x - mousePosition.x, 2) + Math.pow(iParticle.y - mousePosition.y, 2)),
+              jParticle = particles.array[j],
+              jParticleLocation = Math.sqrt(Math.pow(jParticle.x - mousePosition.x, 2) + Math.pow(jParticle.y - mousePosition.y, 2)),
+              particleDistance = Math.sqrt(Math.pow(iParticle.x - jParticle.x, 2) + Math.pow(iParticle.y - jParticle.y, 2));
 
-          if ((iParticle.x - jParticle.x) < particles.distance && (iParticle.y - jParticle.y) < particles.distance && (iParticle.x - jParticle.x) > - particles.distance && (iParticle.y - jParticle.y) > - particles.distance) {
+          if (iParticleLocation <= mousePosition.radius && particleDistance <= particles.distance) {
 
-            if ((iParticle.x - mousePosition.x) < mousePosition.radius && (iParticle.y - mousePosition.y) < mousePosition.radius && (iParticle.x - mousePosition.x) > - mousePosition.radius && (iParticle.y - mousePosition.y) > - mousePosition.radius) {
+              var connectOpacity = particleDistance / particles.distance;
 
               ctx.beginPath();
               ctx.moveTo(iParticle.x, iParticle.y);
               ctx.lineTo(jParticle.x, jParticle.y);
-              ctx.closePath();
+              ctx.strokeStyle = 'rgba(' + connectColor + ',' + connectOpacity + ')';
+              ctx.lineWidth = connectWidth;
               ctx.stroke();
-
-            }
 
           }
 
@@ -106,7 +110,9 @@ var BackgroundParticles = (function() {
     for (i = 0; i < particles.nb; i++) {
 
       particles.array.push(new _Particle());
+
       var particle = particles.array[i];
+
       particle.create();
 
     }
@@ -129,22 +135,18 @@ var BackgroundParticles = (function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    ctx.fillStyle = particleColor;
-    ctx.strokeStyle = connectColor;
-    ctx.lineWidth = connectWidth;
-
     particles.nb = Math.round((canvas.width * canvas.height) * .0003);
     particles.array = []
 
     if ($(canvas).hasClass('is-active')) {
 
-      $(canvas).hide().fadeIn(2000);
+      $(canvas).hide().fadeIn(particleFadeIn);
 
     }
 
     else {
 
-      $(canvas).addClass('is-active').fadeIn(2000);
+      $(canvas).addClass('is-active').fadeIn(particleFadeIn);
 
     }
 

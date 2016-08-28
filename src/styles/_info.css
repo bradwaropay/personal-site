@@ -32,4 +32,83 @@
       }
     }
   }
+
+  &__intro {
+    margin-bottom: calc($baseVerticalGutter * 2);
+  }
+
+  &__section {
+    padding: calc($baseVerticalGutter * 2) 0;
+
+    &:last-of-type {
+      margin-bottom: calc($baseVerticalGutter * 2);
+    }
+
+    &--coffee {
+      background-color: $coffee;
+      color: $background;
+    }
+
+    &--grapefruit {
+      background-color: $grapefruit;
+      color: $background;
+    }
+
+    &--beryl {
+      background-color: $beryl;
+      color: $background;
+    }
+
+    &--lists {
+
+      .info__section__heading {;
+        margin-bottom: calc($baseVerticalGutter * 2);
+      }
+    }
+
+    &__heading {;
+      font-size: 2.5rem;
+      margin-bottom: calc($baseVerticalGutter / 2);
+
+      @media (min-width: $sm) {
+        font-size: 3rem;
+      }
+    }
+
+    &__subheading {;
+      font-size: 1.5rem;
+      margin-bottom: calc($baseVerticalGutter / 2);
+    }
+
+
+    &__list {
+      border-bottom: 1px solid $background;
+      margin-bottom: calc($baseVerticalGutter * 2);
+      padding: 0 0 calc($baseVerticalGutter * 2) 0;
+
+      &:last-of-type {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding: 0;
+      }
+    }
+
+    &__list-item {
+      display: inline-block;
+
+      &::after {
+        color: $copy;
+        content: "|";
+        display: inline-block;
+        margin: 0 calc($baseHorizontalGutter / 2);
+      }
+
+      &:last-child {
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
 }

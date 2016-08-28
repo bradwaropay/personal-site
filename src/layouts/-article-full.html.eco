@@ -4,7 +4,7 @@ layout: "-base"
 
 <div class="row">
 
-  <section class="article-full section-content">
+  <section class="article-full column">
 
     <header class="article-full__header">
 
