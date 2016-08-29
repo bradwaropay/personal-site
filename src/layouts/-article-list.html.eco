@@ -2,7 +2,7 @@
 layout: "-base"
 ---
 
-<div class="row">
+<div class="page-container__content row">
 
   <section class="article-list column">
 

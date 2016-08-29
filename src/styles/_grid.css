@@ -52,30 +52,4 @@
       margin-bottom: 0;
     }
   }
-
-  &--1-5 {
-    margin-bottom: calc($baseVerticalGutter * 2);
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-
-    @media (min-width: $lg) {
-      lost-column: 1/5;
-      margin-bottom: 0;
-    }
-  }
-
-  &--4-5 {
-    margin-bottom: calc($baseVerticalGutter * 2);
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-
-    @media (min-width: $lg) {
-      lost-column: 4/5;
-      margin-bottom: 0;
-    }
-  }
 }

@@ -58,6 +58,10 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   position: relative;
+
+  &__content {
+    background-color: color(#FFF9E6 a(50%));
+  }
 }
 
 .main-content {
