@@ -41,15 +41,9 @@
   lost-column: 1;
 
   &--1-2 {
-    margin-bottom: calc($baseVerticalGutter * 2);
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
 
     @media (min-width: $lg) {
       lost-column: 1/2;
-      margin-bottom: 0;
     }
   }
 }
