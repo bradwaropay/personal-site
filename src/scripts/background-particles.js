@@ -1,17 +1,15 @@
 var BackgroundParticles = (function() {
 
   var canvas = $('#background-particles').get(0),
-      ctx = canvas.getContext('2d'),
-      canvasFadeIn = 2000;
-
-  var particleColor = '#422727',
-      connectColor = '66, 39, 39',
-      connectWidth = .1;
+      ctx = canvas.getContext('2d');
 
   var particles = {
     nb: 0,
     array: [],
-    distance: 75
+    color: '#422727',
+    connectDistance: 75,
+    connectColor: '66, 39, 39',
+    connectWidth: .1
   };
 
   var mousePosition = {
@@ -65,7 +63,7 @@ var BackgroundParticles = (function() {
 
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-    ctx.fillStyle = particleColor;
+    ctx.fillStyle = particles.color;
     ctx.fill();
 
     if (this.x < 0 || this.x > canvas.width) {
@@ -89,15 +87,15 @@ var BackgroundParticles = (function() {
           location = Math.sqrt(Math.pow(this.x - mousePosition.x, 2) + Math.pow(this.y - mousePosition.y, 2)),
           distance = Math.sqrt(Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2));
 
-      if (location <= mousePosition.radius && distance <= particles.distance) {
+      if (location <= mousePosition.radius && distance <= particles.connectDistance) {
 
-          var connectOpacity = distance / particles.distance;
+          var connectOpacity = distance / particles.connectDistance;
 
           ctx.beginPath();
           ctx.moveTo(this.x, this.y);
           ctx.lineTo(that.x, that.y);
-          ctx.strokeStyle = 'rgba(' + connectColor + ',' + connectOpacity + ')';
-          ctx.lineWidth = connectWidth;
+          ctx.strokeStyle = 'rgba(' + particles.connectColor + ',' + connectOpacity + ')';
+          ctx.lineWidth = particles.connectWidth;
           ctx.stroke();
 
       }
@@ -116,12 +114,10 @@ var BackgroundParticles = (function() {
 
     for (var i = 0; i < particles.nb; i++) {
 
-      var radius = Math.random();
-
-      var x = Math.random() * canvas.width,
-          y = Math.random() * canvas.height;
-
-      var vx = -.5 + Math.random(),
+      var radius = Math.random(),
+          x = Math.random() * canvas.width,
+          y = Math.random() * canvas.height,
+          vx = -.5 + Math.random(),
           vy = -.5 + Math.random();
 
       var particle = new _Particle(radius, x, y, vx, vy);
@@ -131,13 +127,13 @@ var BackgroundParticles = (function() {
 
     if ($(canvas).hasClass('is-active')) {
 
-      $(canvas).hide().fadeIn(canvasFadeIn);
+      $(canvas).hide().fadeIn(2000);
 
     }
 
     else {
 
-      $(canvas).addClass('is-active').fadeIn(canvasFadeIn);
+      $(canvas).addClass('is-active').fadeIn(2000);
 
       requestAnimationFrame(_drawParticles);
 
