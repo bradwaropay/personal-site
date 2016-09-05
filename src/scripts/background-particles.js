@@ -1,12 +1,10 @@
 var BackgroundParticles = (function() {
 
-  var documentWidth,
-      documentHeight;
-
   var canvas = $('#background-particles').get(0),
       ctx = canvas.getContext('2d'),
-      particleFadeIn = 2000,
-      particleColor = '#422727',
+      canvasFadeIn = 2000;
+
+  var particleColor = '#422727',
       connectColor = '66, 39, 39',
       connectWidth = .1;
 
@@ -20,150 +18,12 @@ var BackgroundParticles = (function() {
     radius: 100
   };
 
-  var _Particle = function() {
-
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-
-    this.vx = -.5 + Math.random();
-    this.vy = -.5 + Math.random();
-
-    this.radius = Math.random();
-
-  }
-
-  _Particle.prototype = {
-
-    create: function() {
-
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-      ctx.fillStyle = particleColor;
-      ctx.fill();
-
-    },
-
-    animate: function() {
-
-      for(i = 0; i < particles.nb; i++){
-
-        var particle = particles.array[i];
-
-        if (particle.x < 0 || particle.x > canvas.width) {
-
-          particle.vx = - particle.vx;
-          particle.vy = particle.vy;
-
-        }
-
-        if (particle.y < 0 || particle.y > canvas.height) {
-
-          particle.vx = particle.vx;
-          particle.vy = - particle.vy;
-
-        }
-
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-
-      }
-
-    },
-
-    connect: function() {
-
-      for (i = 0; i < particles.nb; i++) {
-
-        for (j = 0; j < particles.nb; j++) {
-
-          var iParticle = particles.array[i],
-              iParticleLocation = Math.sqrt(Math.pow(iParticle.x - mousePosition.x, 2) + Math.pow(iParticle.y - mousePosition.y, 2)),
-              jParticle = particles.array[j],
-              jParticleLocation = Math.sqrt(Math.pow(jParticle.x - mousePosition.x, 2) + Math.pow(jParticle.y - mousePosition.y, 2)),
-              particleDistance = Math.sqrt(Math.pow(iParticle.x - jParticle.x, 2) + Math.pow(iParticle.y - jParticle.y, 2));
-
-          if (iParticleLocation <= mousePosition.radius && particleDistance <= particles.distance) {
-
-              var connectOpacity = particleDistance / particles.distance;
-
-              ctx.beginPath();
-              ctx.moveTo(iParticle.x, iParticle.y);
-              ctx.lineTo(jParticle.x, jParticle.y);
-              ctx.strokeStyle = 'rgba(' + connectColor + ',' + connectOpacity + ')';
-              ctx.lineWidth = connectWidth;
-              ctx.stroke();
-
-          }
-
-        }
-
-      }
-
-    }
-
-  };
-
-  var _drawParticles = function() {
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    for (i = 0; i < particles.nb; i++) {
-
-      particles.array.push(new _Particle());
-
-      var particle = particles.array[i];
-
-      particle.create();
-
-    }
-
-    particle.animate();
-    particle.connect();
-
-    requestAnimationFrame(_drawParticles);
-
-  }
-
-  var _animateParticles = function() {
-
-    requestAnimationFrame(_drawParticles);
-
-  }
-
-  var _drawCanvas = function() {
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    particles.nb = Math.round((canvas.width * canvas.height) * .0002);
-    particles.array = []
-
-    if ($(canvas).hasClass('is-active')) {
-
-      $(canvas).hide().fadeIn(particleFadeIn);
-
-    }
-
-    else {
-
-      $(canvas).addClass('is-active').fadeIn(particleFadeIn);
-
-    }
-
-  }
-
   var init = function() {
 
-    setTimeout(function(){
+    var documentWidth = $(document).width();
+    var documentHeight = $(document).height();
 
-      documentWidth = $(document).width();
-      documentHeight = $(document).height();
-
-      _drawCanvas();
-
-      _animateParticles();
-
-    }, 1000);
+    _createParticles();
 
     $(window).mousemove(function(canvasPosition) {
 
@@ -179,13 +39,123 @@ var BackgroundParticles = (function() {
         documentWidth = $(document).width();
         documentHeight = $(document).height();
 
-        _drawCanvas();
+        _createParticles();
 
       }
 
     });
 
     return 'Initialize Background Particles';
+
+  }
+
+  var _Particle = function(radius, x, y, vx, vy) {
+
+    this.radius = radius;
+
+    this.x = x;
+    this.y = y;
+
+    this.vx = vx;
+    this.vy = vy;
+
+  }
+
+  _Particle.prototype.update = function() {
+
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+    ctx.fillStyle = particleColor;
+    ctx.fill();
+
+    if (this.x < 0 || this.x > canvas.width) {
+
+      this.vx = - this.vx;
+
+    }
+
+    if (this.y < 0 || this.y > canvas.height) {
+
+      this.vy = - this.vy;
+
+    }
+
+    this.x += this.vx;
+    this.y += this.vy;
+
+    for (var i = 0; i < particles.nb; i++) {
+
+      var that = particles.array[i],
+          location = Math.sqrt(Math.pow(this.x - mousePosition.x, 2) + Math.pow(this.y - mousePosition.y, 2)),
+          distance = Math.sqrt(Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2));
+
+      if (location <= mousePosition.radius && distance <= particles.distance) {
+
+          var connectOpacity = distance / particles.distance;
+
+          ctx.beginPath();
+          ctx.moveTo(this.x, this.y);
+          ctx.lineTo(that.x, that.y);
+          ctx.strokeStyle = 'rgba(' + connectColor + ',' + connectOpacity + ')';
+          ctx.lineWidth = connectWidth;
+          ctx.stroke();
+
+      }
+
+    }
+
+  };
+
+  var _createParticles = function() {
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    particles.nb = Math.round((canvas.width * canvas.height) * .0002);
+    particles.array = [];
+
+    for (var i = 0; i < particles.nb; i++) {
+
+      var radius = Math.random();
+
+      var x = Math.random() * canvas.width,
+          y = Math.random() * canvas.height;
+
+      var vx = -.5 + Math.random(),
+          vy = -.5 + Math.random();
+
+      var particle = new _Particle(radius, x, y, vx, vy);
+      particles.array.push(particle);
+
+    }
+
+    if ($(canvas).hasClass('is-active')) {
+
+      $(canvas).hide().fadeIn(canvasFadeIn);
+
+    }
+
+    else {
+
+      $(canvas).addClass('is-active').fadeIn(canvasFadeIn);
+
+      requestAnimationFrame(_drawParticles);
+
+    }
+  }
+
+  var _drawParticles = function() {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (var i = 0; i < particles.nb; i++) {
+
+      var particle = particles.array[i];
+      particle.update();
+
+    }
+
+    requestAnimationFrame(_drawParticles);
 
   }
 
