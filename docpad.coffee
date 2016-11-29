@@ -49,6 +49,22 @@ docpadConfig = {
           sitemap: false
         })
 
+    notes: ->
+      @getCollection("html").findAllLive({
+        relativeOutDirPath: "notes"
+        isPagedAuto: $ne: true
+      },[{date:-1}]).on "add", (model) ->
+        model.setMetaDefaults({
+          layout:"-note-full"
+          sitemap: false
+        })
+
+    posts: ->
+      @getCollection('html').findAllLive({
+        relativeDirPath: {'$in' : ['articles', 'notes']}
+        isPagedAuto: $ne: true
+      },[date:-1])
+
     sitemap: ->
       @getCollection("html").findAllLive({
         isSitemap:true
@@ -60,13 +76,29 @@ docpadConfig = {
       collections:
         articles: ->
           @getCollection('html').findAllLive({
-            relativeDirPath: {'$in' : ['articles', 'drafts']}
+            relativeDirPath: {'$in' : ['articles', 'drafts/articles']}
             isPagedAuto: $ne: true
-          }, [date: -1]).on "add", (model) ->
+          },[date:-1]).on "add", (model) ->
             model.setMetaDefaults({
               layout:"-article-full"
               sitemap: false
             })
+
+        notes: ->
+          @getCollection('html').findAllLive({
+            relativeDirPath: {'$in' : ['notes', 'drafts/notes']}
+            isPagedAuto: $ne: true
+          },[date:-1]).on "add", (model) ->
+            model.setMetaDefaults({
+              layout:"-note-full"
+              sitemap: false
+            })
+
+        posts: ->
+          @getCollection('html').findAllLive({
+            relativeDirPath: {'$in' : ['articles', 'drafts/articles', 'notes', 'drafts/notes']}
+            isPagedAuto: $ne: true
+          },[date:-1])
 
   plugins:
     moment:

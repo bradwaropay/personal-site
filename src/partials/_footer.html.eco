@@ -1,9 +1,5 @@
 <footer class="main-footer">
 
-  <div class="row row--full">
-
-    <%- @partial("_social-links") %>
-
-  </div>
+  <%- @partial("_social-nav") %>
 
 </footer>

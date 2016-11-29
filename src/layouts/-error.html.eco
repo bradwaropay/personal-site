@@ -2,7 +2,7 @@
 layout: "-base"
 ---
 
-<div class="page-container__content row">
+<div class="row">
 
   <section class="error column">
 

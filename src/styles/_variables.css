@@ -55,8 +55,8 @@ $grapefruit: #EB4B4B;
 @pacman: #ffd462;
 
 /**Applied Pallete**/
-$background: $bone;
-$copy: $coffee;
+$primaryLight: $bone;
+$primaryDark: $coffee;
 $accentOne: $beryl;
 $accentTwo: $grapefruit;
 $link: $creamsicle;

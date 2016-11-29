@@ -2,48 +2,48 @@
 layout: "-base"
 ---
 
-<div class="page-container__content row">
+<div class="row">
 
-  <div class="column">
+  <section class="splash column">
 
-    <section class="info info--splash">
+    <header class="splash__header">
 
-      <header class="info__header">
+      <%- @partial("_intro") %>
 
-        <%- @partial("_info-heading") %>
-        <%- @partial("_social-links") %>
+      <%- @partial("_social-nav") %>
 
-      </header>
+    </header>
 
-    </section>
+    <% for post in @getCollection("posts").toJSON()[0..2]: %>
 
-    <section class="article-list">
+      <article class="splash__post">
 
-      <% for article in @getCollection("articles").toJSON()[0..2]: %>
+        <header class="splash__post__header">
 
-        <article class="article-list__article">
+          <time datetime="<%= post.robotDate %>" class="splash__post__date"><%= post.humanDate %></time>
 
-          <header class="article-list__article__header">
+          <h1 class="splash__post__title"><a href="<%= post.url %>" class="splash__post__link"><%= post.title %></a></h1>
 
-            <time datetime="<%= article.robotDate %>" class="article-list__article__header__date"><%= article.humanDate %></time>
-            <h1 class="article-list__article__header__title"><a href="<%= article.url %>" class="class="article-list__article__header__link""><%= article.title %></a></h1>
+        </header>
 
-          </header>
+        <p class="splash__post__description"><%= post.description %></p>
 
-          <p class="article-list__article__description"><%= article.description %></p>
+      </article>
 
-        </article>
+    <% end %>
 
-      <% end %>
+    <ul class="splash__nav-list">
 
-      <ul class="article-list__nav">
+      <li class="splash__nav-list__item">more</li>
 
-        <li class="article-list__nav__item"><a href="/articles" class="articel-list__nav__link">more articles</a></li>
+      <li class="splash__nav-list__item"><a href="/articles" class="splash__nav-list__link">articles</a></li>
 
-      </ul>
+      <li class="splash__nav-list__item"><a href="/notes" class="splash__nav-list__link">notes</a></li>
 
-    </section>
+      <li class="splash__nav-list__item"><a href="/info" class="splash__nav-list__link">info</a></li>
 
-  </div>
+    </ul>
+
+  </section>
 
 </div>

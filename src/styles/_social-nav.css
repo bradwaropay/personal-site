@@ -1,0 +1,25 @@
+.social-nav {
+  align-items: center;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.social-nav-list {
+
+  &__item {
+    float: left;
+
+    &::after {
+      content: "/";
+      display: inline-block;
+    }
+
+    &:last-child {
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

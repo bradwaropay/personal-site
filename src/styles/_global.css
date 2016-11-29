@@ -1,220 +1,76 @@
-html,
+html {
+  -ms-text-size-adjust: 100%;
+}
+
 body {
-  background-color: $background;
-  box-sizing: border-box;
-  color: $copy;
-  font-family: $bodyFontFamily;
-  font-size: $baseFontSize;
-  height: 100%;
-  line-height: $baseLineHeight;
-
-  @media (min-width: $sm) {
-    font-size: calc($baseFontSize * 1.125);
-  }
-
-  @media (min-width: $md) {
-    font-size: calc($baseFontSize * 1.375);
-  }
-
-  @media (min-width: $lg) {
-    font-size: calc($baseFontSize * 1.5);
-  }
-}
-
-* {
-  box-sizing: inherit;
-
-  + * {
-    margin-top: 0;
-  }
-
-  &::before,
-  &::after {
-    box-sizing: inherit;
- }
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  &:only-child {
-    margin: 0;
-  }
-}
-
-#background-particles {
-  display: none;
-  position: fixed;
-  transform: translateZ(0);
-}
-
-.page-container {
+  background-color: $primaryLight;
+  color: $primaryDark;
   display: flex;
   flex-direction: column;
-  min-height: 100%;
-  overflow-x: hidden;
-  position: relative;
-
-  &__content {
-    background-color: color(#FFF9E6 a(50%));
-  }
+  font: 16px/1 $raleway;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
 }
 
-.main-content {
-  flex-grow: 1;
-  margin-bottom: calc($baseVerticalGutter * 4);
+h1,h2,h3,h4,
+p,
+blockquote,
+figure,
+ol,ul {
+  margin: 0;
+  padding: 0;
 }
 
-.button {
-  border: 2px solid $linkColor;
-  display: inline-block;
-  padding: calc($baseVerticalGutter / 2) calc($baseHorizontalGutter / 2);
-  transition: border-color .2s,
-              color .2s;
-
-  &:hover {
-    border-color: $linkHover;
-  }
-
-  &--solid {
-    background-color: $link;
-    border: none;
-    color: $background;
-    transition: background-color .2s;
-
-    &:hover {
-      background-color: $linkHover;
-      color: $background;
-    }
-  }
-
-  &--full {
-    display: block;
-    text-align: center;
-  }
+main,
+li {
+  display: block;
 }
 
-h1,h2,h3,h4,h5,h6,
-p,ul,ol,img,pre {
-  margin: 0 0 $baseVerticalGutter;
+h1,h2,h3,h4 {
+  font-size: inherit;
 }
 
-h1,h2,h3,h4,h5,h6 {
-  font-family: $headingFontFamily;
-  font-weight: $headingFontWeight;
-  line-height: calc($baseLineHeight * .8125);
+strong {
+  font-weight: bold;
 }
 
-h1 {
-  font-size: 2.5rem;
-
-  @media (min-width: $sm) {
-    font-size: 3rem;
-  }
-}
-
-h2 {
-  font-size: 1.5rem;
-
-  @media (min-width: $sm) {
-    font-size: 2rem;
-  }
-}
-
-h3 {
-  color: $accentOne;
-  font-size: 1.2rem;
-
-  @media (min-width: $sm) {
-    font-size: 1.5rem;
-  }
+a,
+button {
+  color: inherit;
+  transition: .3s;
 }
 
 a {
   color: $link;
   text-decoration: none;
-  transition: color .2s;
 
   &:hover {
     color: $linkHover;
   }
 }
 
-blockquote,hr {
-  margin: calc($baseVerticalGutter * 2) 0;
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  -webkit-font-smoothing: inherit;
+  letter-spacing: inherit;
+  overflow: visible;
 }
 
-blockquote {
-  border-left: .5rem solid $accentTwo;
-  padding: 0 $baseHorizontalGutter;
-
-  p {
-    display: inline;
-    font-style: italic;
-
-    &::before,
-    &::after {
-      color: $accentOne;
-      display: inline-block;
-      font-family: $bitter;
-      font-size: 3rem;
-      font-style: normal;
-      line-height: .9;
-      height: 1.3rem;
-      vertical-align: text-bottom;
-    }
-
-    &::before {
-      content: '“';
-      margin-right: .2rem;
-    }
-
-    &::after {
-      content: '”';
-      margin-left: .2rem;
-    }
-  }
-
-  footer {
-    font-weight: 700;
-    text-align: right;
-  }
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
 
-hr {
-  border-top: 0;
-  border-bottom-color: $copy;
+:focus {
+  outline: 0;
 }
 
 img {
-  margin: $baseVerticalGutter 0;
+  border: 0;
+  height: auto;
   max-width: 100%;
-}
-
-pre {
-  white-space: pre-wrap;
-
-  &.prettyprint {
-    background-color: color(#422727 a(90%));
-    border-color: $copy;
-    color: $background;
-    font-size: calc($baseFontSize / 1.142857);
-    padding: calc($baseVerticalGutter / 2);
-
-    li {
-      background: none;
-      list-style: decimal;
-    }
-  }
-}
-
-.img {
-
-  &--circle {
-    border-radius: 50%;
-  }
 }

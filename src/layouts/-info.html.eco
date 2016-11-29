@@ -2,30 +2,11 @@
 layout: "-base"
 ---
 
-<div class="page-container__content row">
+<div class="row">
 
   <section class="info column">
 
-    <header class="info__header">
-
-      <%- @partial("_info-heading") %>
-      <%- @partial("_social-links") %>
-
-    </header>
-
-    <div class="info__intro">
-
-        <%- @partial("_info-intro") %>
-
-    </div>
-
-    <%- @partial("_info-sections") %>
-
-    <div class="info__outro">
-
-        <%- @partial("_info-outro") %>
-
-    </div>
+    <%- @content %>
 
   </section>
 

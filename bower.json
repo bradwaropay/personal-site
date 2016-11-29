@@ -18,9 +18,6 @@
   ],
   "dependencies": {
     "google-code-prettify": "~1.0.4",
-    "jquery": "~2.1.4",
-    "normalize-css": "~3.0.3",
-    "c3": "^0.4.11",
-    "d3": "^3.5.0"
+    "jquery": "~2.1.4"
   }
 }
