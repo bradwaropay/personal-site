@@ -1,5 +1,5 @@
 .main-footer {
   background-color: $primaryDark;
   color: $primaryLight;
-  padding: $baseVerticalGutter $pageGutter;
+  padding: $gutter;
 }

@@ -1,11 +1,11 @@
 .social-nav {
-  align-items: center;
   display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+  flex-direction: column;
 
-.social-nav-list {
+  @media (min-width: $mdBp) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
   &__item {
     float: left;

@@ -1,0 +1,25 @@
+---
+layout: "page"
+---
+
+<header class="note-full__header">
+
+  <time datetime="<%= @document.robotDate %>" class="note-full__date"><%= @document.humanDate %></time>
+
+  <h1 class="note-full__title"><%= @document.title %></h1>
+
+  <p class="note-full__description"><%= @document.description %></p>
+
+</header>
+
+<div class="note-full__content">
+
+  <%- @content %>
+
+</div>
+
+<footer class="note-full__footer">
+
+  <%- @partial("_disqus-thread") %>
+
+</footer>

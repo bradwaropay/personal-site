@@ -1,37 +1,19 @@
 .main-header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: $gutter;
 
-  &__nav {
-    align-items: center;
-    display:flex;
+  @media (min-width: $mdBp) {
     flex-direction: row;
     justify-content: space-between;
-    margin: $baseVerticalGutter $pageGutter;
-  }
 
-  .logo {
-    fill: $link;
-    transition: .2s;
-    width: 75px;
-
-    &:hover {
-      fill: $linkHover;
-      transform: scale(1.1);
+    > * + * {
+      margin-top: 0;
     }
   }
 
-  &__nav-list {
-
-    &__item {
-      float: left;
-      margin-right: $baseHorizontalGutter;
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-
-    &__link {
-      font-family: $bitter;
-    }
+  > * + * {
+    margin-top: $rhythm;
   }
 }

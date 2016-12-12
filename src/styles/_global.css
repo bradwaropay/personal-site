@@ -7,10 +7,25 @@ body {
   color: $primaryDark;
   display: flex;
   flex-direction: column;
-  font: 16px/1 $raleway;
+  font-family: $primaryFont;
+  font-size: calc(1rem * $baseFontSizeMin);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  line-height: 1;
   margin: 0;
+
+  @media (min-width: $smBp) {
+    font-size: calc((1rem * $baseFontSizeMin) + ($baseFontSizeDiff) * (100vw - 20rem) / (80 - 20) );
+  }
+
+  @media (min-width: $lgBp) {
+    font-size: calc(1rem * $baseFontSizeMax);
+  }
+}
+
+main,
+li {
+  display: block;
 }
 
 h1,h2,h3,h4,
@@ -20,11 +35,6 @@ figure,
 ol,ul {
   margin: 0;
   padding: 0;
-}
-
-main,
-li {
-  display: block;
 }
 
 h1,h2,h3,h4 {
@@ -38,7 +48,7 @@ strong {
 a,
 button {
   color: inherit;
-  transition: .3s;
+  transition: color $linkTransition;
 }
 
 a {
@@ -60,17 +70,17 @@ button {
   overflow: visible;
 }
 
-::-moz-focus-inner {
+img {
   border: 0;
-  padding: 0;
+  height: auto;
+  max-width: 100%;
 }
 
 :focus {
   outline: 0;
 }
 
-img {
+::-moz-focus-inner {
   border: 0;
-  height: auto;
-  max-width: 100%;
+  padding: 0;
 }

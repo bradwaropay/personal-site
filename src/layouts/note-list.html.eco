@@ -1,0 +1,33 @@
+---
+layout: "page"
+---
+
+<% for note in @getPageCollection("notes").toJSON(): %>
+
+  <note class="note-list__note">
+
+    <header class="note-list__note__header">
+
+      <time datetime="<%= note.robotDate %>" class="note-list__note__date"><%= note.humanDate %></time>
+
+      <h1 class="note-list__note__title"><a href="<%= note.url %>" class="class="note-list__note__header__link""><%= note.title %></a></h1>
+
+    </header>
+
+    <p class="note-list__note__description"><%= note.description %></p>
+
+  </note>
+
+<% end %>
+
+<% if @hasPrevPage() || @hasNextPage(): %>
+
+  <ul class="note-list__nav-list">
+
+    <% if @hasNextPage(): %><li class="note-list__nav-list__item"><a href="<%= @getNextPage() %>" class="note-list__nav-list__link">older notes</a></li><% end %>
+
+    <% if @hasPrevPage(): %><li class="note-list__nav-list__item"><a href="<%= @getPrevPage() %>" class="note-list__nav-list__link">newer notes</a></li><% end %>
+
+  </ul>
+
+<% end %>

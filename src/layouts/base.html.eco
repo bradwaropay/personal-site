@@ -44,15 +44,7 @@
 
 <body>
 
-  <%- @partial("_header") %>
-
-  <main role="main" class="main-content">
-
-    <%- @content %>
-
-  </main>
-
-  <%- @partial("_footer") %>
+  <%- @content %>
 
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
 

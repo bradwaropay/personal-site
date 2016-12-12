@@ -1,0 +1,12 @@
+.site-logo {
+  display: inline-block;
+  fill: $link;
+  transition: fill $linkTransition,
+              transform $linkTransition;
+  width: 100px;
+
+  &:hover {
+    fill: $linkHover;
+    transform: scale(1.1);
+  }
+}

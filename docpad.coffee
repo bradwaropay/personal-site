@@ -45,7 +45,7 @@ docpadConfig = {
         isPagedAuto: $ne: true
       },[{date:-1}]).on "add", (model) ->
         model.setMetaDefaults({
-          layout:"-article-full"
+          layout:"article-full"
           sitemap: false
         })
 
@@ -55,7 +55,7 @@ docpadConfig = {
         isPagedAuto: $ne: true
       },[{date:-1}]).on "add", (model) ->
         model.setMetaDefaults({
-          layout:"-note-full"
+          layout:"note-full"
           sitemap: false
         })
 
@@ -80,7 +80,7 @@ docpadConfig = {
             isPagedAuto: $ne: true
           },[date:-1]).on "add", (model) ->
             model.setMetaDefaults({
-              layout:"-article-full"
+              layout:"article-full"
               sitemap: false
             })
 
@@ -90,7 +90,7 @@ docpadConfig = {
             isPagedAuto: $ne: true
           },[date:-1]).on "add", (model) ->
             model.setMetaDefaults({
-              layout:"-note-full"
+              layout:"note-full"
               sitemap: false
             })
 

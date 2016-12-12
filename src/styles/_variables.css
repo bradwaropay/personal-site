@@ -1,22 +1,9 @@
 /*Layout*/
 
 /**Breakpoints**/
-$xs: 480px;
-$sm: 640px;
-$md: 780px;
-$lg: 960px;
-$xl: 1280px;
-
-/**Rows**/
-$rowCenter: 35rem;
-$rowCenterDouble: 52.5rem;
-$rowFull: 100%;
-
-/**Gutters**/
-$pageGutter: 1.6rem;
-$baseHorizontalGutter: 1.6rem;
-$baseVerticalGutter: 1.6rem;
-
+$smBp: 20rem;
+$mdBp: 40rem;
+$lgBp: 80rem;
 
 /*Typography*/
 
@@ -24,35 +11,34 @@ $baseVerticalGutter: 1.6rem;
 $raleway: 'Raleway', sans-serif;
 $bitter: 'Bitter', serif;
 
-/**Base**/
-$baseFontSize: 16px;
-$baseLineHeight: 1.6;
+/**Applied Fonts**/
+$primaryFont: $raleway;
+$accentFont: $bitter;
 
-/**Body**/
-$bodyFontFamily: $raleway;
+/**Base Size and Line Height**/
+$baseFontSizeMin: 1.125;
+$baseFontSizeMax: 1.5;
+$baseFontSizeDiff: $baseFontSizeMax - $baseFontSizeMin;
+$lineHeight: 1.5;
 
-/**Headings**/
-$headingFontFamily: $bitter;
-$headingFontWeight: 700;
+
+/**Gutters**/
+$rhythm: 1.5rem;
+$gutter: $rhythm;
+
+
+/*Transitions and Easings*/
+$linkTransition: .3s;
 
 
 /*Colors*/
 
-/**Palletes**/
-
-/***Vintage***/
+/**Pallete**/
 $bone: #FFF9E6;
 $coffee: #422727;
 $beryl: #029978;
 $creamsicle: #EB8E4B;
 $grapefruit: #EB4B4B;
-
-/***Arcade***/
-@void: #3f0b1b;
-@cherry: #7a1631;
-@strawberry: #cf423c;
-@orange: #fc7d49;
-@pacman: #ffd462;
 
 /**Applied Pallete**/
 $primaryLight: $bone;
@@ -60,4 +46,4 @@ $primaryDark: $coffee;
 $accentOne: $beryl;
 $accentTwo: $grapefruit;
 $link: $creamsicle;
-$linkHover: $grapefruit;
+$linkHover: color($link lightness(-10%));

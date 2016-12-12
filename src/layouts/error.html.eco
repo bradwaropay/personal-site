@@ -1,0 +1,7 @@
+---
+layout: "page"
+---
+
+<h1 class="error__heading"><%= @document.title %></h1>
+
+<%- @content %>

@@ -1,4 +1,10 @@
 .main-content {
   flex-grow: 1;
-  margin: 0 $pageGutter;
+  line-height: $lineHeight;
+  margin: 0 auto;
+  max-width: 35rem;
+
+  > * + * {
+    margin-top: $rhythm;
+  }
 }
