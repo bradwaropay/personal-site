@@ -1,17 +1,24 @@
-@import url('variables');
-@import url('grid');
-@import url('global');
-@import url('site-logo');
-@import url('site-nav');
-@import url('intro');
-@import url('social-nav');
-@import url('main-header');
-@import url('main-content');
-@import url('main-footer');
-@import url('error');
-@import url('article-list');
-@import url('article-full');
-@import url('note-list');
-@import url('note-full');
-@import url('info');
-@import url('splash');
+/*Settings*/
+@import url('settings/variables');
+/*Tools*/
+@import url('tools/mixins');
+/*Generic & Elements*/
+@import url('generic/global');
+@import url('generic/main-content');
+/*Objects*/
+@import url('objects/site-logo');
+@import url('objects/site-nav');
+@import url('objects/social-nav');
+@import url('objects/post-item');
+@import url('objects/post-nav');
+/*Components*/
+@import url('components/site-header');
+@import url('components/site-intro');
+@import url('components/post-list');
+@import url('components/site-footer');
+/*Layouts*/
+
+/*Pages*/
+
+/*Utilities*/
+@import url('utilities/utilities');

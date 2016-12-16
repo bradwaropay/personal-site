@@ -1,0 +1,5 @@
+---
+layout: "_page"
+---
+
+<%- @content %>

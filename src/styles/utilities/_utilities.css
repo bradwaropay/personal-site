@@ -1,0 +1,19 @@
+.inline-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+
+    &::before {
+      content: "/";
+      display: inline-block;
+    }
+
+    &:first-child {
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}

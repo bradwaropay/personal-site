@@ -1,7 +1,0 @@
-<header class="main-header">
-
-  <%- @partial("_site-logo") %>
-
-  <%- @partial("_site-nav") %>
-
-</header>

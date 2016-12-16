@@ -1,0 +1,13 @@
+---
+layout: "_page"
+---
+
+<header class="splash__header">
+
+  <%- @partial("components/_site-intro.html.eco") %>
+
+</header>
+
+<%- @partial("components/_post-list.html.eco", {postType: 'posts'}, {postMin: 0}, {postMax: 2}) %>
+
+<%- @partial("objects/_post-nav.html.eco") %>

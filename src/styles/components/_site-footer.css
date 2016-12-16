@@ -1,0 +1,6 @@
+.site-footer {
+  background-color: $primaryDark;
+  color: $primaryLight;
+  margin-top: calc(2em * $baseLineHeight);
+  padding: calc(1em * $baseLineHeight);
+}

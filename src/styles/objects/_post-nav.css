@@ -1,0 +1,11 @@
+.post-nav {
+  display: flex;
+
+  &__label {
+
+    &::after {
+      content: "//";
+      display: inline-block;
+    }
+  }
+}

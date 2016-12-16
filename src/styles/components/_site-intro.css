@@ -1,0 +1,20 @@
+.site-intro {
+
+  &__heading,
+  &__content {
+    font-family: $bitter;
+  }
+
+  &__heading {
+    font-size: 3.75em;
+    line-height: 1;
+  }
+
+  &__content {
+    margin-top: calc(.5em * $baseLineHeight);
+  }
+
+  .social-nav {
+    margin-top: calc(1em * $baseLineHeight);
+  }
+}

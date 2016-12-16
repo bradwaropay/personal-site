@@ -1,1 +1,0 @@
-<a href="/" class="site-logo"><%- @partial("svg/_logo-waropay") %></a>

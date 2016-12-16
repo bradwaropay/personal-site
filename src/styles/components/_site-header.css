@@ -1,0 +1,19 @@
+.site-header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(1em * $baseLineHeight);
+
+  @media (min-width: $(mdBp)em) {
+    flex-direction: row;
+  }
+
+  > * + * {
+    margin-top: calc(1em * $baseLineHeight);
+
+    @media (min-width: $(mdBp)em) {
+      margin-top: 0;
+    }
+  }
+}

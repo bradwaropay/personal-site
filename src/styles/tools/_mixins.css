@@ -1,0 +1,11 @@
+@define-mixin css-lock  $property, $lockStart, $lockEnd, $minValue, $minMultiplyer, $maxValue, $maxMultipler {
+  $(property): calc($(minMultiplyer)rem * $minValue);
+
+  @media (min-width: $(lockStart)em) {
+    $(property): calc(($(minMultiplyer)rem * $minValue) + (($maxMultipler * $maxValue) - ($minMultiplyer * $minValue)) * (100vw - $(lockStart)rem) / ($lockEnd - $lockStart));
+  }
+
+  @media (min-width: $(lockEnd)em) {
+    $(property): calc($(maxMultipler)rem * $maxValue);
+  }
+}

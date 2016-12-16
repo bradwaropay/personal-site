@@ -1,0 +1,13 @@
+<nav class="post-nav">
+
+  <span class="post-nav__label">more</span>
+
+  <ul class="inline-list post-nav__list">
+
+    <li class="inline-list__item post-nav__item"><a href="/articles" class="post-nav__link">articles</a></li>
+
+    <li class="inline-list__item post-nav__item"><a href="/notes" class="post-nav__link">notes</a></li>
+
+  </ul>
+
+</nav>
