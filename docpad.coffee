@@ -32,20 +32,29 @@ docpadConfig = {
 
     disqusShortName: 'bradwaropay'
 
+    getYaml: ()->
+      @yaml or= require "js-yaml"
+
   collections:
-    nav: ->
+    siteNav: ->
       @getCollection("html").findAllLive({
-        isNavItem:true
+        isSiteNavItem: true
         isPagedAuto: $ne: true
-      })
+      }, [siteNavOrder: 1])
+
+    postNav: ->
+      @getCollection("html").findAllLive({
+        isPostNavItem: true
+        isPagedAuto: $ne: true
+      }, [postNavOrder: 1])
 
     articles: ->
       @getCollection("html").findAllLive({
         relativeOutDirPath: "articles"
         isPagedAuto: $ne: true
-      },[{date:-1}]).on "add", (model) ->
+      }, [date: -1]).on "add", (model) ->
         model.setMetaDefaults({
-          layout:"_post-full"
+          layout: "_post-full"
           sitemap: false
         })
 
@@ -53,7 +62,7 @@ docpadConfig = {
       @getCollection("html").findAllLive({
         relativeOutDirPath: "notes"
         isPagedAuto: $ne: true
-      },[{date:-1}]).on "add", (model) ->
+      }, [date: -1]).on "add", (model) ->
         model.setMetaDefaults({
           layout:"_post-full"
           sitemap: false
@@ -63,11 +72,11 @@ docpadConfig = {
       @getCollection('html').findAllLive({
         relativeDirPath: {'$in' : ['articles', 'notes']}
         isPagedAuto: $ne: true
-      },[date:-1])
+      }, [date: -1])
 
     sitemap: ->
       @getCollection("html").findAllLive({
-        isSitemap:true
+        isSitemap: true
         isPagedAuto: $ne: true
       })
 
@@ -78,9 +87,9 @@ docpadConfig = {
           @getCollection('html').findAllLive({
             relativeDirPath: {'$in' : ['articles', 'drafts/articles']}
             isPagedAuto: $ne: true
-          },[date:-1]).on "add", (model) ->
+          }, [date: -1]).on "add", (model) ->
             model.setMetaDefaults({
-              layout:"_post-full"
+              layout: "_post-full"
               sitemap: false
             })
 
@@ -88,9 +97,9 @@ docpadConfig = {
           @getCollection('html').findAllLive({
             relativeDirPath: {'$in' : ['notes', 'drafts/notes']}
             isPagedAuto: $ne: true
-          },[date:-1]).on "add", (model) ->
+          }, [date: -1]).on "add", (model) ->
             model.setMetaDefaults({
-              layout:"_post-full"
+              layout: "_post-full"
               sitemap: false
             })
 
@@ -98,7 +107,7 @@ docpadConfig = {
           @getCollection('html').findAllLive({
             relativeDirPath: {'$in' : ['articles', 'drafts/articles', 'notes', 'drafts/notes']}
             isPagedAuto: $ne: true
-          },[date:-1])
+          }, [date:- 1])
 
   plugins:
     moment:
@@ -109,9 +118,9 @@ docpadConfig = {
 
     rss:
       default:
-        collection: "articles"
+        collection: "posts"
         url: "/rss.xml"
-        title: "Brad Waropay | Articles"
+        title: "Brad Waropay | Posts"
 
     sitemap:
       collectionName: 'sitemap'

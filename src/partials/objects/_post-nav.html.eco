@@ -4,9 +4,11 @@
 
   <ul class="inline-list post-nav__list">
 
-    <li class="inline-list__item post-nav__item"><a href="/articles" class="post-nav__link">articles</a></li>
+    <% for navItem in @getCollection("postNav").toJSON(): %>
 
-    <li class="inline-list__item post-nav__item"><a href="/notes" class="post-nav__link">notes</a></li>
+      <li class="inline-list__item post-nav__item"><a href="<%= navItem.url %>" class="post-nav__link"><%= navItem.title %></a></li>
+
+    <% end %>
 
   </ul>
 

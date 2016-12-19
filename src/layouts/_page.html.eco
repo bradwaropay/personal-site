@@ -2,6 +2,8 @@
 layout: "_base"
 ---
 
+<!-- <canvas id="background-particles"></canvas> -->
+
 <%- @partial("components/_site-header.html.eco") %>
 
 <main role="main" class="main-content">

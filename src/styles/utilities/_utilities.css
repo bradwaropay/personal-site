@@ -1,4 +1,5 @@
 .inline-list-label {
+  text-transform: lowercase;
 
   &::after {
     content: "//";
@@ -9,19 +10,20 @@
 .inline-list {
   display: flex;
   flex-wrap: wrap;
+  text-transform: lowercase;
 
   &__item {
-
-    &::before {
-      content: "/";
-      display: inline-block;
-    }
 
     &:first-child {
 
       &::before {
         display: none;
       }
+    }
+
+    &::before {
+      content: "/";
+      display: inline-block;
     }
   }
 }

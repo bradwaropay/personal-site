@@ -1,13 +1,10 @@
 .main-content {
+  background-color: rgba($primaryLight, .75);
   flex-grow: 1;
   margin: 0 auto;
   padding: calc(1em * $baseLineHeight);
   max-width: calc((2em * $baseLineHeight) + $(baseContentWidth)em);
   width: 100%;
-
-  > * + * {
-    margin-top: calc(1em * $baseLineHeight);
-  }
 
   &__authored {
 
@@ -18,7 +15,7 @@
     h2 {
       color: $accentTwo;
       font-size: 2em;
-      line-height: 1.125;
+      line-height: 1.275;
     }
 
     h3 {
@@ -122,5 +119,9 @@
         margin-top: calc(1em * $baseLineHeight);
       }
     }
+  }
+
+  > * + * {
+    margin-top: calc(1em * $baseLineHeight);
   }
 }

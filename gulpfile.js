@@ -8,9 +8,8 @@ var plugins = require('gulp-load-plugins')({
     'gulp.*',
     'postcss-*',
     'autoprefixer',
-    'lost',
+    'precss',
     'main-bower-files',
-    'precss'
   ],
   replaceString: /\b(gulp|postcss)[\-.]/
 });
@@ -53,7 +52,7 @@ gulp.task('bower-js', function() {
 // Include PostCSS processors
 var processors = [
   plugins.precss(),
-  plugins.lost(),
+  plugins.hexrgba(),
   plugins.autoprefixer()
 ];
 

@@ -80,3 +80,8 @@ img {
   border: 0;
   padding: 0;
 }
+
+#background-particles {
+  position: fixed;
+  z-index: -1;
+}

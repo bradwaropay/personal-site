@@ -1,6 +1,7 @@
 ---
 title: "Work"
 layout: "_page"
-isNavItem: true
+isSiteNavItem: true
+siteNavOrder: 3
 isSitemap: true
 ---

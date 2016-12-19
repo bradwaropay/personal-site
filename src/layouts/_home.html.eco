@@ -9,5 +9,3 @@ layout: "_page"
 </header>
 
 <%- @partial("components/_post-list.html.eco", {postType: 'posts'}, {postMin: 0}, {postMax: 2}) %>
-
-<%- @partial("objects/_post-nav.html.eco") %>

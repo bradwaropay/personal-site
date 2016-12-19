@@ -8,13 +8,13 @@
 /*Objects*/
 @import url('objects/site-logo');
 @import url('objects/site-nav');
-@import url('objects/social-nav');
 @import url('objects/post-item');
 @import url('objects/post-nav');
 @import url('objects/post-pagination');
 /*Components*/
 @import url('components/site-header');
 @import url('components/site-intro');
+@import url('components/social-nav');
 @import url('components/post-list');
 @import url('components/post-full');
 @import url('components/site-footer');

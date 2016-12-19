@@ -10,8 +10,6 @@
 
     this.callbacks.onReady = [function() {
 
-      // BackgroundParticles.init();
-
     }];
 
   };

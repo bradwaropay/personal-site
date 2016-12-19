@@ -1,6 +1,7 @@
 ---
 title: "Info"
 layout: "_info"
-isNavItem: true
+isSiteNavItem: true
+siteNavOrder: 4
 isSitemap: true
 ---

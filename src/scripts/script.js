@@ -8,8 +8,6 @@
 
   });
 
-  // if ($('#disqus_thread').length < 1) {
-  //   BackgroundParticles.init();
-  // }
+  // BackgroundParticles.init();
 
 })(jQuery);

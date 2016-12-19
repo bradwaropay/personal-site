@@ -5,8 +5,17 @@
     .post-item {
 
       &:first-child {
-        border-top-color: transparent;
+        border-top: none;
+        padding-top: 0;
       }
     }
+  }
+
+  .post-item {
+    margin-top: 0;
+  }
+
+  > * + * {
+    margin-top: calc(1em * $baseLineHeight);
   }
 }

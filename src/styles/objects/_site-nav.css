@@ -1,17 +1,16 @@
 .site-nav {
 
-  &__item {
-    float: left;
-    margin-right: calc(1em * $baseLineHeight);
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
   &__link {
     font-family: $accentFont;
     position: relative;
+
+    &:hover {
+
+      &::before {
+        left: 0;
+        width: 100%;
+      }
+    }
 
     &::before {
       background-color: currentColor;
@@ -23,14 +22,6 @@
       transition: left $linkTransition cubic-bezier(0.175, 0.885, 0.320, 1.275),
                   width $linkTransition cubic-bezier(0.175, 0.885, 0.320, 1.275);
       width: 0;
-    }
-
-    &:hover {
-
-      &::before {
-        left: 0;
-        width: 100%;
-      }
     }
   }
 }
