@@ -5,14 +5,122 @@
   max-width: calc((2em * $baseLineHeight) + $(baseContentWidth)em);
   width: 100%;
 
-  > * {
+  > * + * {
+    margin-top: calc(1em * $baseLineHeight);
+  }
 
-    &:only-child {
-      margin: 0;
+  &__authored {
+
+    h2,h3,h4 {
+      font-family: $accentFont;
     }
 
-    &+ * {
-      margin-top: calc(1em * $baseLineHeight);
+    h2 {
+      color: $accentTwo;
+      font-size: 2em;
+      line-height: 1.125;
+    }
+
+    h3 {
+      font-size: 1.5em;
+      line-height: 1.25;
+    }
+
+    ol,ul {
+
+      ol,ul {
+
+        li {
+          margin-left: calc(.5em * $baseLineHeight);
+        }
+      }
+    }
+
+    ul {
+
+      li::before {
+        color: $accentOne;
+        content: "\2022";
+        margin-right: calc(.25em * $baseLineHeight);
+      }
+    }
+
+    ol {
+
+      li {
+        counter-increment: orderedList;
+
+        &::before {
+          color: $accentOne;
+          content: counters(orderedList,".") " — ";
+        }
+      }
+    }
+
+    pre {
+      border: 1px solid $primaryDark;
+      padding: calc((.5em * $baseLineHeight) - 1px) calc(.75em * $baseLineHeight);
+
+      code {
+        color: $accentOne;
+        font-size: .75em;
+        line-height: 2;
+      }
+    }
+
+    blockquote {
+      border-left: calc(.5em * $baseLineHeight) solid $accentTwo;
+      font-style: italic;
+      padding: calc(.5em * $baseLineHeight) calc(.75em * $baseLineHeight);
+
+      p {
+        padding-left: calc(1em * $baseLineHeight);
+        position: relative;
+
+        &::before {
+          color: $accentOne;
+          content: "\201C";
+          display: inline-block;
+          font-family: $bitter;
+          font-size: 2.5em;
+          font-style: normal;
+          left: 0;
+          line-height: 1;
+          position: absolute;
+        }
+      }
+
+      footer {
+        font-family: $bitter;
+        font-style: normal;
+        text-align: right;
+
+        &::before {
+          content: "\2014";
+          display: inline-block;
+          margin-right: calc(.25em * $baseLineHeight);
+        }
+      }
+    }
+
+    > * {
+
+      ol {
+        counter-reset: orderedList;
+      }
+
+      &:not(pre) {
+
+        code {
+          background: $accentOne;
+          color: $primaryLight;
+          padding: 0 calc(.25em * $baseLineHeight);
+        }
+      }
+
+      &+ * {
+        margin-top: calc(1em * $baseLineHeight);
+      }
     }
   }
 }

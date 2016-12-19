@@ -1,0 +1,32 @@
+.post-full {
+
+  &__date {
+    color: $accentOne;
+  }
+
+  &__title {
+    font-family: $accentFont;
+    font-size: 3em;
+    line-height: 1.25;
+  }
+
+  &__description {
+    border-color: $primaryDark;
+    border-style: solid;
+    border-top-width: 1px;
+    border-right-width: 0;
+    border-bottom-width: 1px;
+    border-left-width: 0;
+    color: $accentTwo;
+    margin-top: calc(1em * $baseLineHeight);
+    padding: calc((.5em * $baseLineHeight) - .5px) 0;
+  }
+
+  &__content {
+    margin-top: calc(1.5em * $baseLineHeight);
+  }
+
+  .comments {
+    margin-top: calc(1.5em * $baseLineHeight);
+  }
+}

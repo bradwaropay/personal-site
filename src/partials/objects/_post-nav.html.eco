@@ -1,6 +1,6 @@
 <nav class="post-nav">
 
-  <span class="post-nav__label">more</span>
+  <span class="inline-list-label post-nav__label">more</span>
 
   <ul class="inline-list post-nav__list">
 

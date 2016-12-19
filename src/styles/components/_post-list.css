@@ -1,3 +1,12 @@
 .post-list {
 
+  &:first-child {
+
+    .post-item {
+
+      &:first-child {
+        border-top-color: transparent;
+      }
+    }
+  }
 }

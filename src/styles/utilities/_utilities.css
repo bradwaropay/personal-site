@@ -1,3 +1,11 @@
+.inline-list-label {
+
+  &::after {
+    content: "//";
+    display: inline-block;
+  }
+}
+
 .inline-list {
   display: flex;
   flex-wrap: wrap;

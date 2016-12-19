@@ -1,8 +1,20 @@
 <section class="post-list">
 
-  <% for post in @getCollection(@postType).toJSON()[@postMin or 0..@postMax]: %>
+  <% if @document.isPaged == true: %>
 
-    <%- @partial("objects/_post-item", {postRobotDate: post.robotDate}, {postHumanDate: post.humanDate}, {postUrl: post.url}, {postTitle: post.title}, {postDescription: post.description}) %>
+    <% for post in @getPageCollection(@postType).toJSON(): %>
+
+      <%- @partial("objects/_post-item", {postRobotDate: post.robotDate}, {postHumanDate: post.humanDate}, {postUrl: post.url}, {postTitle: post.title}, {postDescription: post.description}) %>
+
+    <% end %>
+
+  <% else: %>
+
+    <% for post in @getCollection(@postType).toJSON()[@postMin or 0..@postMax]: %>
+
+      <%- @partial("objects/_post-item", {postRobotDate: post.robotDate}, {postHumanDate: post.humanDate}, {postUrl: post.url}, {postTitle: post.title}, {postDescription: post.description}) %>
+
+    <% end %>
 
   <% end %>
 

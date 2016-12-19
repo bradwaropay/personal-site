@@ -8,10 +8,6 @@
 
   });
 
-  $('pre').addClass('prettyprint linenums nocode');
-  prettyPrint();
-
-
   // if ($('#disqus_thread').length < 1) {
   //   BackgroundParticles.init();
   // }

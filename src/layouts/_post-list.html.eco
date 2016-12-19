@@ -2,4 +2,6 @@
 layout: "_page"
 ---
 
-<%- @content %>
+<%- @partial("components/_post-list.html.eco", {postType: @document.pagedCollection}) %>
+
+<%- @partial("objects/_post-pagination.html.eco") %>

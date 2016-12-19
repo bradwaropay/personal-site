@@ -11,10 +11,12 @@
 @import url('objects/social-nav');
 @import url('objects/post-item');
 @import url('objects/post-nav');
+@import url('objects/post-pagination');
 /*Components*/
 @import url('components/site-header');
 @import url('components/site-intro');
 @import url('components/post-list');
+@import url('components/post-full');
 @import url('components/site-footer');
 /*Layouts*/
 
