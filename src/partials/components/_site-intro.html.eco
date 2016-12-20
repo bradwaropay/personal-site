@@ -1,6 +1,6 @@
 <section class="site-intro">
 
-  <h1 class="site-intro__heading"><a href="/info" class="site-intro__heading-link"><%- @partial("content/site-intro/_site-intro-heading.html.md") %></a></h1>
+  <h1 class="site-intro__heading"><a href="/info" class="site-intro__heading-link">Hi, I'm Brad.</a></h1>
 
   <div class="site-intro__content">
 

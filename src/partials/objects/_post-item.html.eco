@@ -4,7 +4,7 @@
 
     <time datetime="<%= @postRobotDate %>" class="post-item__date"><%= @postHumanDate %></time>
 
-    <h1 class="post-item__title"><a href="<%= @postUrl %>" class="post-item__link"><%= @postTitle %></a></h1>
+    <h2 class="post-item__title"><a href="<%= @postUrl %>" class="post-item__link"><%= @postTitle %></a></h2>
 
   </header>
 

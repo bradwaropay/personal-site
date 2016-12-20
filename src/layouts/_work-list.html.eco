@@ -1,0 +1,5 @@
+---
+layout: "_page"
+---
+
+<%- @partial("components/_work-list.html", {postType: @document.pagedCollection}) %>

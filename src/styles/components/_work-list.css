@@ -1,0 +1,6 @@
+.work-list {
+
+  > * + * {
+    margin-top: calc(1em * $baseLineHeight);
+  }
+}

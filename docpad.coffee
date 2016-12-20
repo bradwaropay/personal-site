@@ -11,7 +11,7 @@ docpadConfig = {
       title: "Brad Waropay"
 
       styles: [
-        "/styles/lib.css"
+        # "/styles/lib.css"
         "/styles/style.css"
       ]
 
@@ -28,11 +28,11 @@ docpadConfig = {
     getPageID: ->
       "#{@document.robotDate}-#{@document.basename}"
 
-    googleAnalyticsID: '43111430-1'
+    googleAnalyticsID: "43111430-1"
 
-    disqusShortName: 'bradwaropay'
+    disqusShortName: "bradwaropay"
 
-    getYaml: ()->
+    getYaml: () ->
       @yaml or= require "js-yaml"
 
   collections:
@@ -69,10 +69,20 @@ docpadConfig = {
         })
 
     posts: ->
-      @getCollection('html').findAllLive({
-        relativeDirPath: {'$in' : ['articles', 'notes']}
+      @getCollection("html").findAllLive({
+        relativeOutDirPath: "notes"
         isPagedAuto: $ne: true
       }, [date: -1])
+
+    work: ->
+      @getCollection("html").findAllLive({
+        relativeOutDirPath: "work"
+        isPagedAuto: $ne: true
+      }, [date: -1]).on "add", (model) ->
+        model.setMetaDefaults({
+          layout: "_work-full"
+          sitemap: false
+        })
 
     sitemap: ->
       @getCollection("html").findAllLive({
@@ -84,8 +94,8 @@ docpadConfig = {
     development:
       collections:
         articles: ->
-          @getCollection('html').findAllLive({
-            relativeDirPath: {'$in' : ['articles', 'drafts/articles']}
+          @getCollection("html").findAllLive({
+            relativeDirPath: {"$in" : ["articles", "drafts/articles"]}
             isPagedAuto: $ne: true
           }, [date: -1]).on "add", (model) ->
             model.setMetaDefaults({
@@ -94,8 +104,8 @@ docpadConfig = {
             })
 
         notes: ->
-          @getCollection('html').findAllLive({
-            relativeDirPath: {'$in' : ['notes', 'drafts/notes']}
+          @getCollection("html").findAllLive({
+            relativeDirPath: {"$in" : ["notes", "drafts/notes"]}
             isPagedAuto: $ne: true
           }, [date: -1]).on "add", (model) ->
             model.setMetaDefaults({
@@ -104,10 +114,20 @@ docpadConfig = {
             })
 
         posts: ->
-          @getCollection('html').findAllLive({
-            relativeDirPath: {'$in' : ['articles', 'drafts/articles', 'notes', 'drafts/notes']}
+          @getCollection("html").findAllLive({
+            relativeDirPath: {"$in" : ["articles", "drafts/articles", "notes", "drafts/notes"]}
             isPagedAuto: $ne: true
           }, [date:- 1])
+
+        work: ->
+          @getCollection("html").findAllLive({
+            relativeDirPath: {"$in" : ["work", "drafts/work"]}
+            isPagedAuto: $ne: true
+          }, [date: -1]).on "add", (model) ->
+            model.setMetaDefaults({
+              layout: "_work-full"
+              sitemap: false
+            })
 
   plugins:
     moment:
@@ -123,11 +143,11 @@ docpadConfig = {
         title: "Brad Waropay | Posts"
 
     sitemap:
-      collectionName: 'sitemap'
+      collectionName: "sitemap"
 
     ghpages:
-        deployRemote: 'origin'
-        deployBranch: 'master'
+        deployRemote: "origin"
+        deployBranch: "master"
 }
 
 # Export the DocPad Configuration

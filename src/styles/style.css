@@ -9,6 +9,7 @@
 @import url('objects/site-logo');
 @import url('objects/site-nav');
 @import url('objects/post-item');
+@import url('objects/work-item');
 @import url('objects/post-nav');
 @import url('objects/post-pagination');
 /*Components*/
@@ -17,6 +18,8 @@
 @import url('components/social-nav');
 @import url('components/post-list');
 @import url('components/post-full');
+@import url('components/work-list');
+@import url('components/work-full');
 @import url('components/site-footer');
 /*Layouts*/
 

@@ -3,3 +3,5 @@ layout: "_page"
 ---
 
 <%- @content %>
+
+<%- @partial("objects/_post-nav.html.eco") %>
