@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node_modules/.bin/docpad-server"
   },
-  "devDependencies": {
+  "dependencies": {
     "autoprefixer": "^6.2.0",
     "docpad": "~6.78.6",
     "docpad-plugin-cleanurls": "~2.8.1",
