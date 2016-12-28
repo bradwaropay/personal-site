@@ -1,9 +1,9 @@
 .site-logo {
   display: inline-block;
   fill: $link;
-  transition: fill $linkTransition,
-              transform $linkTransition cubic-bezier(0.175, 0.885, 0.320, 1.275);
-  @mixin css-lock width, $(smBp), $(lgBp), $rhythmMin, 4, $rhythmMax, 3;
+  transition: fill $transitionDuration,
+              transform $transitionDuration $transitionTimingFunction;
+  @mixin css-lock width, rem, $(smBp), $(lgBp) , 6, 6.75;
 
   &:hover {
     fill: $linkHover;

@@ -19,8 +19,8 @@
       left: 50%;
       position: absolute;
       top: 100%;
-      transition: left $linkTransition cubic-bezier(0.175, 0.885, 0.320, 1.275),
-                  width $linkTransition cubic-bezier(0.175, 0.885, 0.320, 1.275);
+      transition: left $transitionDuration $transitionTimingFunction,
+                  width $transitionDuration $transitionTimingFunction;
       width: 0;
     }
   }

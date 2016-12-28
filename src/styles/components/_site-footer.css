@@ -1,6 +1,6 @@
 .site-footer {
   background-color: $primaryDark;
   color: $primaryLight;
-  margin-top: calc(2em * $baseLineHeight);
-  padding: calc(1em * $baseLineHeight);
+  @mixin property-rhythm margin-top, em, 2;
+  @mixin property-rhythm padding, em, 1;
 }

@@ -3,14 +3,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: calc(1em * $baseLineHeight);
+  @mixin property-rhythm padding, em, 1;
 
   @media (min-width: $(mdBp)em) {
     flex-direction: row;
   }
 
   > * + * {
-    margin-top: calc(1em * $baseLineHeight);
+    @mixin property-rhythm margin-top, em, 1;
 
     @media (min-width: $(mdBp)em) {
       margin-top: 0;

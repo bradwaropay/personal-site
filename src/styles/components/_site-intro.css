@@ -6,15 +6,11 @@
   }
 
   &__heading {
-    font-size: 3.75em;
-    line-height: 1;
+    @mixin font-rhythm em, 3, 2;
   }
 
-  &__content {
-    margin-top: calc(.5em * $baseLineHeight);
-  }
-
+  &__content,
   .social-nav {
-    margin-top: calc(1em * $baseLineHeight);
+    @mixin property-rhythm margin-top, em, .5;
   }
 }

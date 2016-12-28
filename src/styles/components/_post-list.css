@@ -5,17 +5,17 @@
     .post-item {
 
       &:first-child {
-        border-top: none;
         padding-top: 0;
+
+        &::before {
+          display: none;
+        }
       }
     }
   }
 
-  .post-item {
-    margin-top: 0;
-  }
-
-  > * + * {
-    margin-top: calc(1em * $baseLineHeight);
+  .post-nav,
+  .post-pagination {
+    @mixin property-rhythm margin-top, em, 1;
   }
 }

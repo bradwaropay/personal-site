@@ -1,23 +1,40 @@
 .post-item {
-  border-bottom: 1px solid $primaryDark;
-  padding: calc((1em * $baseLineHeight) - .5px) 0;
+  position: relative;
+  @mixin property-rhythm padding-top, em, 1;
+  @mixin property-rhythm padding-bottom, em, 1;
 
   &:first-child {
-    border-top: 1px solid $primaryDark;
+
+    &::before {
+      border-top: 1px solid $primaryDark;
+      top: 0;
+    }
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  &::after {
+    border-bottom: 1px solid $primaryDark;
+    bottom: -1px;
   }
 
   &__date {
-    font-size: .75em;
-    line-height: 2;
     color: $accentOne;
+    @mixin font-rhythm em, .75, 1;
   }
 
   &__title {
     font-family: $accentFont;
-    font-size: 1.5em;
+    @mixin font-rhythm em, 1.5, 1.5;
   }
 
   &__description {
-    margin-top: calc(.5em * $baseLineHeight);
+    @mixin property-rhythm margin-top, em, .5;
   }
 }

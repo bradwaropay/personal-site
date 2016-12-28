@@ -8,8 +8,8 @@ var plugins = require('gulp-load-plugins')({
     'gulp.*',
     'postcss-*',
     'autoprefixer',
-    'precss',
     'main-bower-files',
+    'precss'
   ],
   replaceString: /\b(gulp|postcss)[\-.]/
 });
