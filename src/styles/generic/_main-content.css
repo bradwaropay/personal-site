@@ -97,7 +97,7 @@
           font-style: normal;
           left: 0;
           position: absolute;
-          @mixin font-rhythm em, 2.5, 1;
+          @mixin font-rhythm em, 2.5, 1.666;
         }
       }
 
