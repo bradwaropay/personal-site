@@ -9,13 +9,13 @@ var BackgroundParticles = (function() {
       nb: 0,
       array: [],
       color: '#422727',
-      connectDistance: 75,
+      connectDistance: 100,
       connectColor: '66, 39, 39',
       connectWidth: .1
     };
 
     var mousePosition = {
-      radius: 100
+      radius: 200
     };
 
     var init = function() {
@@ -26,40 +26,34 @@ var BackgroundParticles = (function() {
       _createParticles();
 
       $(window).mousemove(function(canvasPosition) {
-
         mousePosition.x = canvasPosition.pageX;
         mousePosition.y = canvasPosition.pageY - window.scrollY;
-
       })
 
       $(window).resize(function() {
 
         if (documentWidth != $(document).width() || documentHeight != $(document).height()) {
-
           documentWidth = $(document).width();
           documentHeight = $(document).height();
 
           _createParticles();
-
         }
 
       });
 
-      return 'Initialize Background Particles';
+      return 'Initializing particles.';
 
-    }
+    };
 
     var _Particle = function(radius, x, y, vx, vy) {
 
       this.radius = radius;
-
       this.x = x;
       this.y = y;
-
       this.vx = vx;
       this.vy = vy;
 
-    }
+    };
 
     _Particle.prototype.update = function() {
 
@@ -69,15 +63,11 @@ var BackgroundParticles = (function() {
       ctx.fill();
 
       if (this.x < 0 || this.x > canvas.width) {
-
         this.vx = - this.vx;
-
       }
 
       if (this.y < 0 || this.y > canvas.height) {
-
         this.vy = - this.vy;
-
       }
 
       this.x += this.vx;
@@ -90,8 +80,7 @@ var BackgroundParticles = (function() {
             distance = Math.sqrt(Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2));
 
         if (location <= mousePosition.radius && distance <= particles.connectDistance) {
-
-            var connectOpacity = distance / particles.connectDistance;
+            var connectOpacity = 1 - (distance / particles.connectDistance);
 
             ctx.beginPath();
             ctx.moveTo(this.x, this.y);
@@ -99,7 +88,6 @@ var BackgroundParticles = (function() {
             ctx.strokeStyle = 'rgba(' + particles.connectColor + ',' + connectOpacity + ')';
             ctx.lineWidth = particles.connectWidth;
             ctx.stroke();
-
         }
 
       }
@@ -128,19 +116,17 @@ var BackgroundParticles = (function() {
       }
 
       if ($(canvas).hasClass('is-active')) {
-
         $(canvas).hide().fadeIn(2000);
-
       }
 
       else {
 
         $(canvas).addClass('is-active').fadeIn(2000);
-
         requestAnimationFrame(_drawParticles);
 
       }
-    }
+
+    };
 
     var _drawParticles = function() {
 
@@ -155,14 +141,18 @@ var BackgroundParticles = (function() {
 
       requestAnimationFrame(_drawParticles);
 
-    }
+    };
 
   } else {
 
-    var init = function() {
+    var message = 'No particle canvas present.';
 
-      return 'No Background Particle Canvas Present';
-    }
+    var init = function() {
+      return message;
+    };
+
+    console.log(message);
+
   }
 
   return {

@@ -5,6 +5,7 @@
   var $page = $('#main'),
 
       options = {
+
         prefetch: true,
         cacheLength: 2,
 
@@ -25,6 +26,7 @@
             $container.html($newContent);
           }
         }
+
       },
 
       smoothState = $page.smoothState(options).data('smoothState');
