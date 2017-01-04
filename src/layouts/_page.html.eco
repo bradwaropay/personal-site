@@ -4,12 +4,18 @@ layout: "_base"
 
 <!-- <canvas id="background-particles"></canvas> -->
 
-<%- @partial("components/_site-header.html.eco") %>
+<canvas id="background-particles"></canvas>
 
-<main role="main" class="main-content">
+<div id="main" class="scene">
 
-  <%- @content %>
+  <%- @partial("components/_site-header.html.eco") %>
 
-</main>
+  <main role="main" class="main-content scene__item scene__item--fade-in">
 
-<%- @partial("components/_site-footer.html.eco") %>
+    <%- @content %>
+
+  </main>
+
+  <%- @partial("components/_site-footer.html.eco") %>
+
+</div>

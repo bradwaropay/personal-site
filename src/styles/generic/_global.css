@@ -1,14 +1,18 @@
 body {
   background-color: $primaryLight;
   color: $primaryDark;
-  display: flex;
-  flex-direction: column;
   font-family: $primaryFont;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   line-height: $baseLineHeight;
   margin: 0;
   @mixin css-lock font-size, em, $(smBp), $(lgBp), $(baseFontSizeMin), $(baseFontSizeMax);
+}
+
+#main{
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
 }
 
 #background-particles {

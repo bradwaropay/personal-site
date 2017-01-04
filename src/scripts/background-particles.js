@@ -1,6 +1,6 @@
 var BackgroundParticles = (function() {
 
-  if ($('#BackgroundParticles').length) {
+  if ($('#background-particles').length) {
 
     var canvas = $('#background-particles').get(0),
         ctx = canvas.getContext('2d');
@@ -157,10 +157,16 @@ var BackgroundParticles = (function() {
 
     }
 
-    return {
-      init: init
-    };
+  } else {
 
+    var init = function() {
+
+      return 'No Background Particle Canvas Present';
+    }
   }
+
+  return {
+    init: init
+  };
 
 })();

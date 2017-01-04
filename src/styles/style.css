@@ -26,4 +26,6 @@
 /*Layouts*/
 /*Pages*/
 /*Utilities*/
+@import url("utilities/keyframes");
+@import url("utilities/page-transitions");
 @import url("utilities/inline-list");

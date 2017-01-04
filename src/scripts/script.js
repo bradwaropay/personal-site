@@ -8,6 +8,6 @@
 
   });
 
-  // BackgroundParticles.init();
+  BackgroundParticles.init();
 
 })(jQuery);

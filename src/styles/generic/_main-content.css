@@ -2,8 +2,10 @@
   background-color: rgba($primaryLight, .75);
   flex-grow: 1;
   margin: 0 auto;
-  max-width: calc((2em * $baseLineHeight) + $(baseContentWidth)em);
+  position: relative;
+  transform-origin: top;
   width: 100%;
+  max-width: calc((2em * $baseLineHeight) + $(baseContentWidth)em);
   @mixin property-rhythm padding, em, 1;
 
   &__authored {
