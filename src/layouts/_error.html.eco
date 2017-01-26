@@ -1,7 +1,10 @@
 ---
 layout: "_page"
 ---
+<div class="main-content__interior scene__item scene__item--fade-in">
 
-<%- @content %>
+  <%- @content %>
 
-<%- @partial("objects/_post-nav.html.eco") %>
+  <%- @partial("objects/_post-nav.html.eco") %>
+
+</div>

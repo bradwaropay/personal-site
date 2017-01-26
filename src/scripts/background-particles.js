@@ -1,4 +1,4 @@
-var BackgroundParticles = (function() {
+var BackgroundParticles = (function($) {
 
   if ($('#background-particles').length) {
 
@@ -31,28 +31,23 @@ var BackgroundParticles = (function() {
       })
 
       $(window).resize(function() {
-
         if (documentWidth != $(document).width() || documentHeight != $(document).height()) {
           documentWidth = $(document).width();
           documentHeight = $(document).height();
 
           _createParticles();
         }
-
       });
 
       return 'Initializing particles.';
-
     };
 
     var _Particle = function(radius, x, y, vx, vy) {
-
       this.radius = radius;
       this.x = x;
       this.y = y;
       this.vx = vx;
       this.vy = vy;
-
     };
 
     _Particle.prototype.update = function() {
@@ -89,9 +84,7 @@ var BackgroundParticles = (function() {
             ctx.lineWidth = particles.connectWidth;
             ctx.stroke();
         }
-
       }
-
     };
 
     var _createParticles = function() {
@@ -112,20 +105,14 @@ var BackgroundParticles = (function() {
 
         var particle = new _Particle(radius, x, y, vx, vy);
         particles.array.push(particle);
-
       }
 
       if ($(canvas).hasClass('is-active')) {
         $(canvas).hide().fadeIn(2000);
-      }
-
-      else {
-
+      } else {
         $(canvas).addClass('is-active').fadeIn(2000);
         requestAnimationFrame(_drawParticles);
-
       }
-
     };
 
     var _drawParticles = function() {
@@ -133,14 +120,11 @@ var BackgroundParticles = (function() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       for (var i = 0; i < particles.nb; i++) {
-
         var particle = particles.array[i];
         particle.update();
-
       }
 
       requestAnimationFrame(_drawParticles);
-
     };
 
   } else {
@@ -152,11 +136,9 @@ var BackgroundParticles = (function() {
     };
 
     console.log(message);
-
   }
 
   return {
     init: init
   };
-
-})();
+})(jQuery);

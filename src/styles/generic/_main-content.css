@@ -1,12 +1,17 @@
 .main-content {
-  background-color: rgba($primaryLight, .75);
   flex-grow: 1;
   margin: 0 auto;
-  position: relative;
-  transform-origin: top;
   width: 100%;
   max-width: calc((2em * $baseLineHeight) + $(baseContentWidth)em);
-  @mixin property-rhythm padding, em, 1;
+
+  &__interior {
+    background-color: rgba($primaryLight, .75);
+    @mixin property-rhythm padding, em, 1;
+
+    > * + * {
+      @mixin property-rhythm margin-top, em, 1;
+    }
+  }
 
   &__authored {
 
@@ -144,9 +149,5 @@
         @mixin property-rhythm margin-top, em, .666;
       }
     }
-  }
-
-  > * + * {
-    @mixin property-rhythm margin-top, em, 1;
   }
 }

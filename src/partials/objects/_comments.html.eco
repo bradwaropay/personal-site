@@ -9,7 +9,7 @@
     this.page.title = '<%= @document.title %>';
 
     this.callbacks.onReady = [function() {
-
+     console.log('Comments are ready!');
     }];
 
   };

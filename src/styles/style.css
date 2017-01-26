@@ -1,5 +1,6 @@
 /*Settings*/
 @import url("settings/variables");
+@import url("settings/keyframes");
 /*Tools*/
 @import url("tools/css-lock");
 @import url("tools/rhythm");
@@ -7,6 +8,7 @@
 @import url("generic/reset");
 @import url("generic/global");
 @import url("generic/main-content");
+@import url("generic/page-transitions");
 /*Objects*/
 @import url("objects/site-logo");
 @import url("objects/site-nav");
@@ -26,6 +28,4 @@
 /*Layouts*/
 /*Pages*/
 /*Utilities*/
-@import url("utilities/keyframes");
-@import url("utilities/page-transitions");
 @import url("utilities/inline-list");

@@ -1,5 +1,8 @@
 ---
 layout: "_page"
 ---
+<div class="main-content__interior scene__item scene__item--fade-in">
 
-<%- @partial("components/_post-full.html.eco") %>
+  <%- @partial("components/_post-full.html.eco") %>
+
+</div>

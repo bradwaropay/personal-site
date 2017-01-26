@@ -1,1 +1,1 @@
-<a href="/" class="site-logo"><%- @partial("svg/_site-logo.svg") %></a>
+<a href="/" id="site-logo" class="site-logo-link"><%- @partial("svg/_site-logo.svg") %></a>

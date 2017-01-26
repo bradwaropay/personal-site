@@ -19,6 +19,7 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "webfontloader": "^1.6.27",
-    "smoothstate": "^0.7.2"
+    "smoothstate": "^0.7.2",
+    "animejs": "^1.1.3"
   }
 }

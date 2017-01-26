@@ -1,11 +1,14 @@
 ---
 layout: "_page"
 ---
+<div class="main-content__interior scene__item scene__item--fade-in">
 
-<header class="splash__header">
+  <header class="splash__header">
 
-  <%- @partial("components/_site-intro.html.eco") %>
+    <%- @partial("components/_site-intro.html.eco") %>
 
-</header>
+  </header>
 
-<%- @partial("components/_post-list.html.eco", {postType: 'posts'}, {postMin: 0}, {postMax: 2}) %>
+  <%- @partial("components/_post-list.html.eco", {postType: 'posts'}, {postMin: 0}, {postMax: 2}) %>
+
+</div>

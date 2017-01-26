@@ -2,7 +2,7 @@
 layout: "_base"
 ---
 
-<!-- <canvas id="background-particles"></canvas> -->
+<div class="loader"></div>
 
 <canvas id="background-particles"></canvas>
 
@@ -10,7 +10,7 @@ layout: "_base"
 
   <%- @partial("components/_site-header.html.eco") %>
 
-  <main role="main" class="main-content scene__item scene__item--fade-in">
+  <main role="main" class="main-content">
 
     <%- @content %>
 
