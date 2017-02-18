@@ -141,4 +141,5 @@ var BackgroundParticles = (function($) {
   return {
     init: init
   };
+
 })(jQuery);

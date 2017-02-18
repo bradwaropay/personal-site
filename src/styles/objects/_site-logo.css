@@ -43,7 +43,16 @@
 .site-logo {
   display: inline-block;
   fill: $link;
+  transition: fill .3s;
   @mixin css-lock width, rem, $(smBp), $(lgBp), 6, 6.75;
+
+  &:hover {
+    fill: $linkHover;
+
+    .site-logo__item {
+
+    }
+  }
 
   &__inner {
     transform-origin: center;

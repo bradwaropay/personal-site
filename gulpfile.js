@@ -76,13 +76,15 @@ gulp.task('clean-css', ['compile-css'], function () {
 // Compile JS
 gulp.task('compile-js', function() {
   return gulp.src(paths.jsSource + '**/*.js')
-    .pipe(plugins.filter('*.js'))
     .pipe(plugins.order([
-      '*',
+      'webfonts.js',
+      'background-particles.js',
+      'logo-loader.js',
+      'smoothstate.js',
       'script.js'
     ]))
     .pipe(plugins.concat('script.js'))
-    .pipe(plugins.uglify())
+    // .pipe(plugins.uglify())
     .pipe(gulp.dest(paths.jsDestination));
 });
 

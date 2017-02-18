@@ -10,18 +10,16 @@ var LogoLoader = (function($) {
 
   var start = function() {
     logoActive = true;
-    logo.addClass('is-entering');
-    logo.removeClass('is-exiting');
+    logo.removeClass('is-exiting').addClass('is-entering');
 
     logoInnerItem.one(transitionEnd, function(e) {
       if (logoActive) {
-        logo.addClass('is-active');
-        logo.removeClass('is-entering');
+        logo.removeClass('is-entering').addClass('is-active');
       }
     });
 
-    return 'Starting loader animation.';
-  }
+    return 'Start loader animation.';
+  };
 
   var stop = function() {
     logoActive = false;
@@ -29,14 +27,12 @@ var LogoLoader = (function($) {
 
     logoInner.one(transitionEnd, function(e) {
       if (!logoActive) {
-        logo.removeClass('is-entering');
-        logo.removeClass('is-active');
-        logo.removeClass('is-exiting');
+        logo.removeClass('is-entering is-active is-exiting');
       }
     });
 
     return 'End loader animation.';
-  }
+  };
 
   return {
     start: start,

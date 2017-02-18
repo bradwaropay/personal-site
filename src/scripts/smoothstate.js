@@ -1,4 +1,4 @@
-(function($) {
+var SmoothState = (function($) {
 
   'use strict';
 
@@ -24,8 +24,15 @@
             LogoLoader.stop();
           }
         }
-      };
+      },
+      smoothState = $page.smoothState(options).data('smoothState');
 
-  var smoothState = $page.smoothState(options).data('smoothState');
+  var init = function() {
+    return smoothState;
+  };
+
+  return {
+    init: init
+  };
 
 })(jQuery);
