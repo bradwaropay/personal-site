@@ -129,6 +129,11 @@ docpadConfig = {
               sitemap: false
             })
 
+    static:
+      plugins:
+        cleanurls:
+          enabled: false
+
   plugins:
     moment:
       formats: [
