@@ -8,7 +8,6 @@ var plugins = require('gulp-load-plugins')({
     'gulp.*',
     'postcss-*',
     'autoprefixer',
-    'lost',
     'main-bower-files',
     'precss'
   ],
@@ -43,8 +42,6 @@ gulp.task('bower-js', function() {
     .pipe(plugins.filter('*.js'))
     .pipe(plugins.order([
       'jquery.js',
-      'd3.js',
-      'c3.js',
       '*'
     ]))
     .pipe(plugins.concat('lib.js'))
@@ -55,7 +52,7 @@ gulp.task('bower-js', function() {
 // Include PostCSS processors
 var processors = [
   plugins.precss(),
-  plugins.lost(),
+  plugins.hexrgba(),
   plugins.autoprefixer()
 ];
 
@@ -79,13 +76,15 @@ gulp.task('clean-css', ['compile-css'], function () {
 // Compile JS
 gulp.task('compile-js', function() {
   return gulp.src(paths.jsSource + '**/*.js')
-    .pipe(plugins.filter('*.js'))
     .pipe(plugins.order([
-      '*',
+      'webfonts.js',
+      'background-particles.js',
+      'logo-loader.js',
+      'smoothstate.js',
       'script.js'
     ]))
     .pipe(plugins.concat('script.js'))
-    .pipe(plugins.uglify())
+    // .pipe(plugins.uglify())
     .pipe(gulp.dest(paths.jsDestination));
 });
 
@@ -95,5 +94,11 @@ gulp.task('clean-js', ['compile-js'], function () {
     .pipe(plugins.clean())
 });
 
+// Clean Data
+gulp.task('clean-data', function () {
+  return gulp.src(paths.out + 'data', {read: false})
+    .pipe(plugins.clean())
+});
+
 // Tasks
-gulp.task('default', ['bower-css', 'bower-js', 'clean-css', 'clean-js']);
+gulp.task('default', ['bower-css', 'bower-js', 'clean-css', 'clean-js', 'clean-data']);

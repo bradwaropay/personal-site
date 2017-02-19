@@ -1,0 +1,15 @@
+<nav class="post-nav">
+
+  <span class="inline-list-label post-nav__label">more</span>
+
+  <ul class="inline-list post-nav__list">
+
+    <% for navItem in @getCollection("postNav").toJSON(): %>
+
+      <li class="inline-list__item post-nav__item"><a href="<%= navItem.url %>" class="post-nav__link"><%= navItem.title %></a></li>
+
+    <% end %>
+
+  </ul>
+
+</nav>

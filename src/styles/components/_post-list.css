@@ -1,0 +1,21 @@
+.post-list {
+
+  &:first-child {
+
+    .post-item {
+
+      &:first-child {
+        padding-top: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .post-nav,
+  .post-pagination {
+    @mixin property-rhythm margin-top, em, 1;
+  }
+}

@@ -1,0 +1,27 @@
+<section class="post-list">
+
+  <% if @getPageCollection(@postType).length: %>
+
+    <% for post in @getPageCollection(@postType).toJSON()[@postMin..@postMax]: %>
+
+      <%- @partial("objects/_post-item", {postRobotDate: post.robotDate}, {postHumanDate: post.humanDate}, {postUrl: post.url}, {postTitle: post.title}, {postDescription: post.description}) %>
+
+    <% end %>
+
+  <% else: %>
+
+    <p class="post-list__empty">There are currently no <%= @postType %>, please check back soon!</p>
+
+  <% end %>
+
+  <% if @getPageCollection(@postType).length && @document.isPaged: %>
+
+    <%- @partial("objects/_post-pagination.html.eco") %>
+
+  <% else: %>
+
+    <%- @partial("objects/_post-nav.html.eco") %>
+
+  <% end %>
+
+</section>

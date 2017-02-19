@@ -1,0 +1,17 @@
+<% if @hasPrevPage() || @hasNextPage(): %>
+
+  <nav class="post-pagination">
+
+    <span class="inline-list-label post-pagination__label"><%= @document.pagedCollection %></span>
+
+    <ul class="inline-list post-pagination__list">
+
+      <% if @hasNextPage(): %><li class="post-pagination__item post-pagination__item--older"><a href="<%= @getNextPage() %>" class="post-pagination__link post-pagination__link--older">older</a></li><% end %>
+
+      <% if @hasPrevPage(): %><li class="post-pagination__item post-pagination__item--newer"><a href="<%= @getPrevPage() %>" class="post-pagination__link post-pagination__link--newer">newer</a></li><% end %>
+
+    </ul>
+
+  </nav>
+
+<% end %>

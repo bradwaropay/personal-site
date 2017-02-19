@@ -1,0 +1,27 @@
+.site-nav {
+
+  &__link {
+    font-family: $accentFont;
+    position: relative;
+
+    &:hover {
+
+      &::before {
+        left: 0;
+        width: 100%;
+      }
+    }
+
+    &::before {
+      background-color: currentColor;
+      content: '';
+      height: 3px;
+      left: 50%;
+      position: absolute;
+      top: 100%;
+      transition: left $transitionDuration $transitionTimingFunction,
+                  width $transitionDuration $transitionTimingFunction;
+      width: 0;
+    }
+  }
+}

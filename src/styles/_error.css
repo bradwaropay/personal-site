@@ -1,8 +1,0 @@
-.error {
-
-  &__heading {
-    border-bottom: 1px solid $copy;
-    margin-bottom: $baseVerticalGutter;
-    padding-bottom: calc($baseVerticalGutter / 2);
-  }
-}

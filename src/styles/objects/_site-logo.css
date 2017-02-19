@@ -1,0 +1,73 @@
+.site-logo-link {
+
+  &.is-entering,
+  &.is-active {
+
+    .site-logo {
+
+      &__item {
+        transform: scale(.3);
+      }
+
+      &__solid {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.is-active {
+
+    .site-logo {
+      animation-duration: 3s;
+      animation-name: rotateRight;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+
+      &__inner {
+        transform: translate(-33.3px,-33.3px);
+      }
+    }
+  }
+
+  &.is-exiting {
+
+    .site-logo {
+
+      &__inner {
+        transform: translate(0,0);
+      }
+    }
+  }
+}
+
+.site-logo {
+  display: inline-block;
+  fill: $link;
+  transition: fill .3s;
+  @mixin css-lock width, rem, $(smBp), $(lgBp), 6, 6.75;
+
+  &:hover {
+    fill: $linkHover;
+
+    .site-logo__item {
+
+    }
+  }
+
+  &__inner {
+    transform-origin: center;
+    transition: transform 1s;
+    transition-timing-function: $transitionTimingFunction;
+  }
+
+  &__item {
+    transform-origin: center;
+    transition: opacity .5s,
+                transform .5s;
+    transition-timing-function: $transitionTimingFunction;
+  }
+
+  &__solid {
+    opacity: 0;
+  }
+}

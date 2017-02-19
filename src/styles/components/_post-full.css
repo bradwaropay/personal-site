@@ -1,0 +1,47 @@
+.post-full {
+
+  &__date {
+    color: $accentOne;
+    @mixin font-rhythm em, .75, 1;
+  }
+
+  &__title {
+    font-family: $accentFont;
+    @mixin font-rhythm em, 3, 3;
+  }
+
+  &__description {
+    color: $accentTwo;
+    position: relative;
+    @mixin property-rhythm margin-top, em, 1;
+    @mixin property-rhythm padding-top, em, .5;
+    @mixin property-rhythm padding-bottom, em, .5;
+
+    &::before,
+    &::after {
+      content: "";
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+
+    &::before {
+      border-top: 1px solid $primaryDark;
+      top: 0;
+    }
+
+    &::after {
+      border-bottom: 1px solid $primaryDark;
+      bottom: -1px;
+    }
+
+  }
+
+  &__content {
+    @mixin property-rhythm margin-top, em, 2;
+  }
+
+  .comments {
+    @mixin property-rhythm margin-top, em, 2;
+  }
+}

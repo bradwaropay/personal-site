@@ -17,10 +17,9 @@
     "tests"
   ],
   "dependencies": {
-    "google-code-prettify": "~1.0.4",
     "jquery": "~2.1.4",
-    "normalize-css": "~3.0.3",
-    "c3": "^0.4.11",
-    "d3": "^3.5.0"
+    "webfontloader": "^1.6.27",
+    "smoothstate": "^0.7.2",
+    "animejs": "^1.1.3"
   }
 }

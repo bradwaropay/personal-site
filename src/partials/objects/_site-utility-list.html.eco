@@ -1,0 +1,11 @@
+<% data = @getYaml().load(@include 'data/_site-utility-list.yml') %>
+
+<ul class="inline-list social-nav__list site-utility-list">
+
+  <% for item in data: %>
+
+    <li class="inline-list__item social-nav__item site-utility-list__item"><a class="social-nav__link site-utility-list__link" href="<%= item.url %>"><%= item.service %></a></li>
+
+  <% end %>
+
+</ul>

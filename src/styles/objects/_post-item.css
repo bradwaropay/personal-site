@@ -1,0 +1,40 @@
+.post-item {
+  position: relative;
+  @mixin property-rhythm padding-top, em, 1;
+  @mixin property-rhythm padding-bottom, em, 1;
+
+  &:first-child {
+
+    &::before {
+      border-top: 1px solid $primaryDark;
+      top: 0;
+    }
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  &::after {
+    border-bottom: 1px solid $primaryDark;
+    bottom: -1px;
+  }
+
+  &__date {
+    color: $accentOne;
+    @mixin font-rhythm em, .75, 1;
+  }
+
+  &__title {
+    font-family: $accentFont;
+    @mixin font-rhythm em, 1.5, 1.5;
+  }
+
+  &__description {
+    @mixin property-rhythm margin-top, em, .5;
+  }
+}

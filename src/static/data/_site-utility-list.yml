@@ -1,0 +1,7 @@
+-
+  service: Contact
+  url: mailto:brad.waropay@gmail.com
+
+-
+  service: RSS
+  url: /rss.xml

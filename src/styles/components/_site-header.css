@@ -1,0 +1,19 @@
+.site-header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @mixin property-rhythm padding, em, 1;
+
+  @media (min-width: $(mdBp)em) {
+    flex-direction: row;
+  }
+
+  > * + * {
+    @mixin property-rhythm margin-top, em, 1;
+
+    @media (min-width: $(mdBp)em) {
+      margin-top: 0;
+    }
+  }
+}

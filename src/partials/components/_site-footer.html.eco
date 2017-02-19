@@ -1,0 +1,5 @@
+<footer class="site-footer">
+
+  <%- @partial("components/_social-nav.html.eco") %>
+
+</footer>

@@ -1,0 +1,7 @@
+<nav class="social-nav">
+
+  <%- @partial("objects/_inline-list.html.eco", {listType: 'social-network-list'}) %>
+
+  <%- @partial("objects/_inline-list.html.eco", {listType: 'site-utility-list'}) %>
+
+</nav>
