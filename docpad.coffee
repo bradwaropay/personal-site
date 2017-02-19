@@ -50,38 +50,35 @@ docpadConfig = {
 
     articles: ->
       @getCollection("html").findAllLive({
-        relativeOutDirPath: "articles"
+        relativeOutDirPath: "published/articles"
         isPagedAuto: $ne: true
       }, [date: -1]).on "add", (model) ->
         model.setMetaDefaults({
           layout: "_post-full"
-          sitemap: false
         })
 
     notes: ->
       @getCollection("html").findAllLive({
-        relativeOutDirPath: "notes"
+        relativeOutDirPath: "published/notes"
         isPagedAuto: $ne: true
       }, [date: -1]).on "add", (model) ->
         model.setMetaDefaults({
           layout:"_post-full"
-          sitemap: false
         })
 
     posts: ->
       @getCollection("html").findAllLive({
-        relativeOutDirPath: "notes"
+        relativeOutDirPath: "published/notes"
         isPagedAuto: $ne: true
       }, [date: -1])
 
     work: ->
       @getCollection("html").findAllLive({
-        relativeOutDirPath: "work"
+        relativeOutDirPath: "published/work"
         isPagedAuto: $ne: true
       }, [date: -1]).on "add", (model) ->
         model.setMetaDefaults({
           layout: "_work-full"
-          sitemap: false
         })
 
     sitemap: ->
@@ -95,38 +92,35 @@ docpadConfig = {
       collections:
         articles: ->
           @getCollection("html").findAllLive({
-            relativeDirPath: {"$in" : ["articles", "drafts/articles"]}
+            relativeDirPath: {"$in" : ["published/articles", "drafts/articles"]}
             isPagedAuto: $ne: true
           }, [date: -1]).on "add", (model) ->
             model.setMetaDefaults({
               layout: "_post-full"
-              sitemap: false
             })
 
         notes: ->
           @getCollection("html").findAllLive({
-            relativeDirPath: {"$in" : ["notes", "drafts/notes"]}
+            relativeDirPath: {"$in" : ["published/notes", "drafts/notes"]}
             isPagedAuto: $ne: true
           }, [date: -1]).on "add", (model) ->
             model.setMetaDefaults({
               layout: "_post-full"
-              sitemap: false
             })
 
         posts: ->
           @getCollection("html").findAllLive({
-            relativeDirPath: {"$in" : ["articles", "drafts/articles", "notes", "drafts/notes"]}
+            relativeDirPath: {"$in" : ["published/articles", "drafts/articles", "published/notes", "drafts/notes"]}
             isPagedAuto: $ne: true
           }, [date:- 1])
 
         work: ->
           @getCollection("html").findAllLive({
-            relativeDirPath: {"$in" : ["work", "drafts/work"]}
+            relativeDirPath: {"$in" : ["published/work", "drafts/work"]}
             isPagedAuto: $ne: true
           }, [date: -1]).on "add", (model) ->
             model.setMetaDefaults({
               layout: "_work-full"
-              sitemap: false
             })
 
   plugins:
