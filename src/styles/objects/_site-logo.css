@@ -43,15 +43,14 @@
 .site-logo {
   display: inline-block;
   fill: $link;
-  transition: fill .3s;
+  transition: fill .3s,
+              transform .3s;
+  transition-timing-function: $transitionTimingFunction;
   @mixin css-lock width, rem, $(smBp), $(lgBp), 6, 6.75;
 
   &:hover {
     fill: $linkHover;
-
-    .site-logo__item {
-
-    }
+    transform: scale(1.1);
   }
 
   &__inner {
