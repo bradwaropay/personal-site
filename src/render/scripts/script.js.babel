@@ -1,0 +1,9 @@
+---
+browserify: true
+---
+
+import webFonts from './webFonts'
+webFonts('Raleway:400,700', 'Bitter:700')
+
+import smoothState from './smoothState'
+smoothState

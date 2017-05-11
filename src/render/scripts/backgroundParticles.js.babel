@@ -1,0 +1,120 @@
+/* global $ */
+let canvas = $('#background-particles').get(0)
+const ctx = canvas.getContext('2d')
+
+let particles = {
+  nb: 0,
+  array: [],
+  color: '#422727',
+  connectDistance: 100,
+  connectColor: '66, 39, 39',
+  connectWidth: 0.1
+}
+
+let particle
+
+let mousePosition = {
+  radius: 200
+}
+
+export function init () {
+  var documentWidth = $(document).width()
+  var documentHeight = $(document).height()
+
+  createParticles()
+
+  $(window).mousemove(function (canvasPosition) {
+    mousePosition.x = canvasPosition.pageX
+    mousePosition.y = canvasPosition.pageY - window.scrollY
+  })
+
+  $(window).resize(function () {
+    if (documentWidth !== $(document).width() || documentHeight !== $(document).height()) {
+      documentWidth = $(document).width()
+      documentHeight = $(document).height()
+      createParticles()
+    }
+  })
+
+  return 'Initializing particles.'
+}
+
+function Particle (radius, x, y, vx, vy) {
+  this.radius = radius
+  this.x = x
+  this.y = y
+  this.vx = vx
+  this.vy = vy
+}
+
+Particle.prototype.update = function () {
+  ctx.beginPath()
+  ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
+  ctx.fillStyle = particles.color
+  ctx.fill()
+
+  if (this.x < 0 || this.x > canvas.width) {
+    this.vx = -this.vx
+  }
+
+  if (this.y < 0 || this.y > canvas.height) {
+    this.vy = -this.vy
+  }
+
+  this.x += this.vx
+  this.y += this.vy
+
+  for (let i = 0; i < particles.nb; i++) {
+    let that = particles.array[i]
+    let location = Math.sqrt(Math.pow(this.x - mousePosition.x, 2) + Math.pow(this.y - mousePosition.y, 2))
+    let distance = Math.sqrt(Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2))
+
+    if (location <= mousePosition.radius && distance <= particles.connectDistance) {
+      let connectOpacity = 1 - (distance / particles.connectDistance)
+
+      ctx.beginPath()
+      ctx.moveTo(this.x, this.y)
+      ctx.lineTo(that.x, that.y)
+      ctx.strokeStyle = 'rgba(' + particles.connectColor + ',' + connectOpacity + ')'
+      ctx.lineWidth = particles.connectWidth
+      ctx.stroke()
+    }
+  }
+}
+
+function createParticles () {
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight
+
+  particles.nb = Math.round((canvas.width * canvas.height) * 0.0002)
+  particles.array = []
+
+  for (let i = 0; i < particles.nb; i++) {
+    let radius = Math.random()
+    let x = Math.random() * canvas.width
+    let y = Math.random() * canvas.height
+    let vx = -0.5 + Math.random()
+    let vy = -0.5 + Math.random()
+
+    particle = new Particle(radius, x, y, vx, vy)
+    particles.array.push(particle)
+  }
+
+  if ($(canvas).hasClass('is-active')) {
+    $(canvas).hide().fadeIn(2000)
+  } else {
+    $(canvas).addClass('is-active').fadeIn(2000)
+    window.requestAnimationFrame(drawParticles)
+  }
+}
+
+function drawParticles () {
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+  for (let i = 0; i < particles.nb; i++) {
+    particle = particles.array[i]
+    particle.update()
+  }
+
+  window.requestAnimationFrame(drawParticles)
+}

@@ -140,8 +140,8 @@ docpadConfig = {
       collectionName: "sitemap"
 
     ghpages:
-        deployRemote: "origin"
-        deployBranch: "master"
+      deployRemote: "origin"
+      deployBranch: "master"
 }
 
 # Export the DocPad Configuration

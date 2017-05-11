@@ -101,4 +101,4 @@ gulp.task('clean-data', function () {
 });
 
 // Tasks
-gulp.task('default', ['bower-css', 'bower-js', 'clean-css', 'clean-js', 'clean-data']);
+gulp.task('default', ['bower-css', 'bower-js', 'clean-css', 'clean-data']);
