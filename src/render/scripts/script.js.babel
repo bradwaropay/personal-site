@@ -7,3 +7,8 @@ webFonts('Raleway:400,700', 'Bitter:700')
 
 import smoothState from './smoothState'
 smoothState
+
+import backgroundParticles from './backgroundParticles'
+backgroundParticles({
+  canvas: '#background-particles'
+})
