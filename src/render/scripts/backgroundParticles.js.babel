@@ -1,16 +1,9 @@
 /* global $ */
 
-let canvas = $('#background-particles').get(0)
+const canvas = $('#background-particles').get(0)
 const ctx = canvas.getContext('2d')
-
 let particles = {
-  nb: 0,
-  array: [],
-  color: '#422727',
-  connectDistance: 100,
-  connectColor: '66, 39, 39',
-  connectWidth: 0.1,
-  reactRadius: 200
+  array: []
 }
 
 function Particle (radius, x, y, vx, vy) {
@@ -39,12 +32,12 @@ Particle.prototype.update = function () {
   this.y += this.vy
 
   for (let i = 0; i < particles.nb; i++) {
-    let that = particles.array[i]
-    let location = Math.sqrt(Math.pow(this.x - particles.reactX, 2) + Math.pow(this.y - particles.reactY, 2))
-    let distance = Math.sqrt(Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2))
+    const that = particles.array[i]
+    const location = Math.sqrt(Math.pow(this.x - particles.reactX, 2) + Math.pow(this.y - particles.reactY, 2))
+    const distance = Math.sqrt(Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2))
 
     if (location <= particles.reactRadius && distance <= particles.connectDistance) {
-      let connectOpacity = 1 - (distance / particles.connectDistance)
+      const connectOpacity = 1 - (distance / particles.connectDistance)
 
       ctx.beginPath()
       ctx.moveTo(this.x, this.y)
@@ -64,11 +57,11 @@ function createParticles () {
   particles.array = []
 
   for (let i = 0; i < particles.nb; i++) {
-    let radius = Math.random()
-    let x = Math.random() * canvas.width
-    let y = Math.random() * canvas.height
-    let vx = -0.5 + Math.random()
-    let vy = -0.5 + Math.random()
+    const radius = Math.random()
+    const x = Math.random() * canvas.width
+    const y = Math.random() * canvas.height
+    const vx = -0.5 + Math.random()
+    const vy = -0.5 + Math.random()
 
     particles.current = new Particle(radius, x, y, vx, vy)
     particles.array.push(particles.current)
@@ -93,8 +86,13 @@ function drawParticles () {
   window.requestAnimationFrame(drawParticles)
 }
 
-export default function backgroundParticles (options) {
-  if (options.canvas) canvas = $(options.canvas).get(0)
+function backgroundParticles (options) {
+  particles.nb = options.nb || 0
+  particles.color = options.color || '#422727'
+  particles.connectDistance = options.connectDistance || 100
+  particles.connectColor = options.connectColor || '66, 39, 39'
+  particles.connectWidth = options.connectWidth || 0.1
+  particles.reactRadius = options.reactRadius || 200
 
   let documentWidth = $(document).width()
   let documentHeight = $(document).height()
@@ -113,6 +111,6 @@ export default function backgroundParticles (options) {
       createParticles()
     }
   })
-
-  return 'Initializing particles.'
 }
+
+export default backgroundParticles

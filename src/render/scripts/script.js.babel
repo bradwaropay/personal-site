@@ -3,12 +3,9 @@ browserify: true
 ---
 
 import webFonts from './webFonts'
+import smoothState from './smoothState'
+import backgroundParticles from './backgroundParticles'
+
 webFonts('Raleway:400,700', 'Bitter:700')
 
-import smoothState from './smoothState'
-smoothState
-
-import backgroundParticles from './backgroundParticles'
-backgroundParticles({
-  canvas: '#background-particles'
-})
+backgroundParticles()
