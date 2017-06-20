@@ -1,10 +1,8 @@
 /* global $ */
 
-const canvas = $('#background-particles').get(0)
-const ctx = canvas.getContext('2d')
-let particles = {
-  array: []
-}
+let canvas
+let ctx
+let particles = {}
 
 function Particle (radius, x, y, vx, vy) {
   this.radius = radius
@@ -53,7 +51,12 @@ function createParticles () {
   canvas.width = window.innerWidth
   canvas.height = window.innerHeight
 
-  particles.nb = Math.round((canvas.width * canvas.height) * 0.0002)
+  if (particles.nbModeLimit === true) {
+    if (particles.nbMod < 0) particles.nbMod = 1
+    if (particles.nbMod > 100) particles.nbMod = 100
+  }
+
+  particles.nb = Math.round((canvas.width * canvas.height) * (particles.nbMod / 10000))
   particles.array = []
 
   for (let i = 0; i < particles.nb; i++) {
@@ -86,23 +89,16 @@ function drawParticles () {
   window.requestAnimationFrame(drawParticles)
 }
 
-function backgroundParticles (options) {
-  particles.nb = options.nb || 0
-  particles.color = options.color || '#422727'
-  particles.connectDistance = options.connectDistance || 100
-  particles.connectColor = options.connectColor || '66, 39, 39'
-  particles.connectWidth = options.connectWidth || 0.1
-  particles.reactRadius = options.reactRadius || 200
-
-  let documentWidth = $(document).width()
-  let documentHeight = $(document).height()
-
-  createParticles()
-
+function detectMouse () {
   $(window).mousemove(function (canvasPosition) {
     particles.reactX = canvasPosition.pageX
     particles.reactY = canvasPosition.pageY - window.scrollY
   })
+}
+
+function detectResize () {
+  let documentWidth = $(document).width()
+  let documentHeight = $(document).height()
 
   $(window).resize(function () {
     if (documentWidth !== $(document).width() || documentHeight !== $(document).height()) {
@@ -111,6 +107,26 @@ function backgroundParticles (options) {
       createParticles()
     }
   })
+}
+
+function backgroundParticles (options = {}) {
+  canvas = $(options.canvas).get(0) || $('#background-particles').get(0)
+  ctx = canvas.getContext('2d')
+
+  particles = {
+    nbMod: options.nbMod || 2,
+    nbModLimit: options.nbModLimit || true,
+    nbDynamic: options.nbDynamic || true,
+    color: options.color || '#422727',
+    connectDistance: options.connectDistance || 100,
+    connectColor: options.connectColor || '66, 39, 39',
+    connectWidth: options.connectWidth || 0.1,
+    reactRadius: options.reactRadius || 200
+  }
+
+  createParticles()
+  detectMouse()
+  detectResize()
 }
 
 export default backgroundParticles
