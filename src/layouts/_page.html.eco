@@ -4,7 +4,7 @@ layout: "_base"
 
 <div class="loader"></div>
 
-<canvas id="background-particles"></canvas>
+<canvas id="speckle"></canvas>
 
 <div id="main" class="scene">
 

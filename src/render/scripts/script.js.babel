@@ -4,8 +4,8 @@ browserify: true
 
 import webFonts from './webFonts'
 import smoothState from './smoothState'
-import backgroundParticles from './backgroundParticles'
+import speckle from './speckle'
 
 webFonts('Raleway:400,700', 'Bitter:700')
 
-backgroundParticles()
+speckle()

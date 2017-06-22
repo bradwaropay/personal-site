@@ -15,7 +15,7 @@ body {
   flex-direction: column;
 }
 
-#background-particles {
+#speckle {
   position: fixed;
   z-index: -1;
 }
