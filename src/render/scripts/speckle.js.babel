@@ -57,16 +57,21 @@ Speckle.prototype.update = function (canvas, ctx, speckle) {
     const that = speckle.array[i]
     const location = Math.sqrt(Math.pow(this.x - speckle.react.currentX, 2) + Math.pow(this.y - speckle.react.currentY, 2))
     const distance = Math.sqrt(Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2))
-    const connectOpacity = speckle.react.connect.opacity ? speckle.react.connect.opacity : 1 - (distance / speckle.react.connect.distance)
 
-    if (location <= speckle.react.radius && distance <= speckle.react.connect.distance) {
-      ctx.beginPath()
-      ctx.moveTo(this.x, this.y)
-      ctx.lineTo(that.x, that.y)
-      ctx.strokeStyle = 'rgba(' + speckle.react.connect.color + ',' + connectOpacity + ')'
-      ctx.lineWidth = speckle.react.connect.width
-      ctx.stroke()
-    }
+    if (speckle.react.connect.distance) reactConnect(ctx, speckle, that, location, distance)
+  }
+}
+
+function reactConnect (ctx, speckle, that, location, distance) {
+  const connectOpacity = speckle.react.connect.opacity ? speckle.react.connect.opacity : 1 - (distance / speckle.react.connect.distance)
+
+  if (location <= speckle.react.radius && distance <= speckle.react.connect.distance) {
+    ctx.beginPath()
+    ctx.moveTo(this.x, this.y)
+    ctx.lineTo(that.x, that.y)
+    ctx.strokeStyle = 'rgba(' + speckle.react.connect.color + ',' + connectOpacity + ')'
+    ctx.lineWidth = speckle.react.connect.width
+    ctx.stroke()
   }
 }
 
