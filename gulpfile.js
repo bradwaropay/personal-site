@@ -88,7 +88,7 @@ gulp.task('compile-js', function () {
 })
 
 // Clean JS
-gulp.task('clean-js', ['compile-js'], function () {
+gulp.task('clean-js', function () {
   return gulp.src(paths.out + '*.js', {read: false})
     .pipe(plugins.clean())
 })
@@ -100,4 +100,4 @@ gulp.task('clean-data', function () {
 })
 
 // Tasks
-gulp.task('default', ['bower-css', 'bower-js', 'clean-css', 'clean-data'])
+gulp.task('default', ['bower-css', 'bower-js', 'clean-css', 'clean-js', 'clean-data'])
