@@ -1,5 +1,22 @@
 .site-nav {
 
+  .is-exiting & {
+
+    &__link {
+      font-family: $accentFont;
+      position: relative;
+
+      &:hover {
+        color: $link;
+
+        &::before {
+          left: 50%;
+          width: 0;
+        }
+      }
+    }
+  }
+
   &__link {
     font-family: $accentFont;
     position: relative;
@@ -9,6 +26,15 @@
       &::before {
         left: 0;
         width: 100%;
+      }
+
+      &.is-target {
+        color: $link;
+
+        &::before {
+          left: 50%;
+          width: 0;
+        }
       }
     }
 

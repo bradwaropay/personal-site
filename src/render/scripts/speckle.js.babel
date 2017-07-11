@@ -8,6 +8,7 @@ function speckle (options = {
 }) {
   const canvas = $(options.canvas).get(0) || $('#speckle').get(0)
   const ctx = canvas.getContext('2d')
+
   const speckle = {
     color: options.color || '#422727',
     count: {
