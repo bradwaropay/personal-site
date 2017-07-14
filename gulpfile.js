@@ -14,7 +14,7 @@ var plugins = require('gulp-load-plugins')({
   replaceString: /\b(gulp|postcss)[-.]/
 })
 
-// CSS and JS paths
+// Define Paths
 var paths = {
   src: './src/',
   out: './out/',
@@ -24,20 +24,8 @@ var paths = {
   jsDestination: './out/scripts/'
 }
 
-// Get Bower dependencies and compile lib CSS
-gulp.task('bower-css', function () {
-  gulp.src(plugins.mainBowerFiles())
-    .pipe(plugins.filter('*.css'))
-    .pipe(plugins.order([
-      '*'
-    ]))
-    .pipe(plugins.concat('lib.css'))
-    .pipe(plugins.minifyCss({keepSpecialComments: 0}))
-    .pipe(gulp.dest(paths.cssDestination))
-})
-
-// Get Bower dependencies and compile lib JS
-gulp.task('bower-js', function () {
+// Build Lib JS
+gulp.task('build:libjs', ['clean:libjs'], function () {
   gulp.src(plugins.mainBowerFiles())
     .pipe(plugins.filter('*.js'))
     .pipe(plugins.order([
@@ -49,6 +37,15 @@ gulp.task('bower-js', function () {
     .pipe(gulp.dest(paths.jsDestination))
 })
 
+
+// Clean Lib JS
+gulp.task('clean:libjs', function (cb) {
+  return gulp.src([
+    paths.jsDestination + 'lib.js'
+  ], {read: false})
+    .pipe(plugins.clean())
+})
+
 // Include PostCSS processors
 var processors = [
   plugins.precss(),
@@ -56,8 +53,8 @@ var processors = [
   plugins.autoprefixer()
 ]
 
-// Compile CSS
-gulp.task('compile-css', function () {
+// Build CSS
+gulp.task('build:css', function () {
   return gulp.src(paths.cssSource + '**/*.css')
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.postcss(processors))
@@ -68,36 +65,24 @@ gulp.task('compile-css', function () {
 })
 
 // Clean CSS
-gulp.task('clean-css', ['compile-css'], function () {
-  return gulp.src(paths.out + '*.css', {read: false})
+gulp.task('clean:css', function () {
+  return gulp.src([
+    paths.cssDestination
+  ], {read: false})
     .pipe(plugins.clean())
 })
 
-// Compile JS
-gulp.task('compile-js', function () {
-  return gulp.src(paths.jsSource + '**/*.js')
-    .pipe(plugins.order([
-      'webfonts.js',
-      'background-particles.js',
-      'smoothstate.js',
-      'script.js'
-    ]))
-    .pipe(plugins.concat('script.js'))
-    // .pipe(plugins.uglify())
-    .pipe(gulp.dest(paths.jsDestination))
-})
+// Build All
+gulp.task('build', ['build:libjs', 'build:css'])
 
-// Clean JS
-gulp.task('clean-js', function () {
-  return gulp.src(paths.out + '*.js', {read: false})
-    .pipe(plugins.clean())
-})
-
-// Clean Data
-gulp.task('clean-data', function () {
-  return gulp.src(paths.out + 'data', {read: false})
+// Clean Tmp Files
+gulp.task('clean:tmp', ['build'], function () {
+  return gulp.src([
+    paths.out + 'data',
+    paths.jsDestination + 'modules'
+  ], {read: false})
     .pipe(plugins.clean())
 })
 
 // Tasks
-gulp.task('default', ['bower-css', 'bower-js', 'clean-css', 'clean-js', 'clean-data'])
+gulp.task('default', ['clean:tmp'])

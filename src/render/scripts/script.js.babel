@@ -2,10 +2,10 @@
 browserify: true
 ---
 
-import webFonts from './webFonts'
-import smoothState from './smoothState'
+import webFonts from './modules/_webFonts'
+import pageTransition from './modules/_pageTransition'
 // import speckle from './speckle'
 
 webFonts('Raleway:400,700', 'Bitter:700')
-
+pageTransition()
 // speckle()
