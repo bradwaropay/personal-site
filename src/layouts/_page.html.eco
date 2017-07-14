@@ -10,7 +10,7 @@ layout: "_base"
 
   <%- @partial("components/_site-header.html.eco") %>
 
-  <main role="main" class="main-content">
+  <main role="main" class="main-content" data-viewport="<%= @document.siteNavOrder || 0 %>">
 
     <%- @content %>
 

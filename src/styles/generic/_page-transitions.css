@@ -1,12 +1,31 @@
 .scene {
+
+  &[data-transition="fade"] {
+
+    .scene__item {
+      animation-name: fade;
+    }
+  }
+
+  &[data-transition="fadeLeft"] {
+
+    .scene__item {
+      animation-name: fadeLeft;
+    }
+  }
+
+  &[data-transition="fadeRight"] {
+
+    .scene__item {
+      animation-name: fadeRight;
+    }
+  }
+
+
   .scene__item {
     animation-duration: .5s;
     animation-fill-mode: both;
     animation-timing-function: ease-in;
-
-    &--fade-in {
-      animation-name: fadeIn;
-    }
   }
 
   &.is-exiting {

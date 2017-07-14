@@ -1,7 +1,7 @@
 ---
 layout: "_page"
 ---
-<div class="main-content__interior scene__item scene__item--fade-in">
+<div class="main-content__interior scene__item scene__item--fade">
 
   <header class="splash__header">
 
