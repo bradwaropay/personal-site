@@ -54,7 +54,7 @@ var processors = [
 ]
 
 // Build CSS
-gulp.task('build:css', function () {
+gulp.task('build:css', ['clean:css'], function () {
   return gulp.src(paths.cssSource + '**/*.css')
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.postcss(processors))
@@ -75,8 +75,8 @@ gulp.task('clean:css', function () {
 // Build All
 gulp.task('build', ['build:libjs', 'build:css'])
 
-// Clean Tmp Files
-gulp.task('clean:tmp', ['build'], function () {
+// Finalize and  Clean Tmp Files
+gulp.task('finalize', ['build'], function () {
   return gulp.src([
     paths.out + 'data',
     paths.jsDestination + 'modules'
@@ -85,4 +85,4 @@ gulp.task('clean:tmp', ['build'], function () {
 })
 
 // Tasks
-gulp.task('default', ['clean:tmp'])
+gulp.task('default', ['finalize'])
