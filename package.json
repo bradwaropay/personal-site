@@ -1,7 +1,7 @@
 {
-  "name": "no-skeleton.docpad",
-  "version": "0.1.0",
-  "description": "New DocPad project without using a skeleton",
+  "name": "Brad Waropay Site",
+  "version": "1.0",
+  "description": "Brad Waropay Site",
   "main": "node_modules/.bin/docpad-server",
   "scripts": {
     "start": "node_modules/.bin/docpad-server"

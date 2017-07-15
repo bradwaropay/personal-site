@@ -1,6 +1,6 @@
 {
-  "name": "no-skeleton.docpad",
-  "description": "New DocPad project without using a skeleton",
+  "name": "Brad Waropay Site",
+  "description": "Brad Waropay Site",
   "main": "node_modules/.bin/docpad-server",
   "authors": [
     "Brad Waropay <Brad.waropay@gmail.com>"
