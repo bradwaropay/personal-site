@@ -1,11 +1,15 @@
+---
+browserify: true
+---
 /* global $ */
 
-const page = $('#main')
+import comments from './_comments'
 
 let transition
 let clicked
 
-const options = {
+const page = $('#main')
+const content = page.smoothState({
   repeatDelay: 500,
   blacklist: '.no-smoothState',
   prefetch: true,
@@ -37,7 +41,7 @@ const options = {
       $container.attr('data-transition', transition)
       $container.addClass('is-exiting')
 
-      smoothState.restartCSSAnimations()
+      content.restartCSSAnimations()
     }
   },
   onReady: {
@@ -49,13 +53,16 @@ const options = {
       $container.removeClass('is-exiting')
       $container.html($newContent)
     }
+  },
+  onAfter: function () {
+    comments.reset()
   }
-}
 
-const smoothState = page.smoothState(options).data('smoothState')
+}).data('smoothState')
 
 function pageTransition () {
-  smoothState
+  content
+  comments.init();
 }
 
 export default pageTransition

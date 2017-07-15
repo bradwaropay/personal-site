@@ -1,4 +1,4 @@
-<article class="post-full">
+<article class="post-full" data-disqus-identifier="<%= @getPageID() %>" data-disqus-url="<%= @getPageUrlWithHostname() %>" data-disqus-title="<%= @document.title %>">
 
   <header class="post-full__header">
 
@@ -15,5 +15,7 @@
     <%- @content %>
 
   </div>
+
+  <%- @partial("objects/_comments") %>
 
 </article>

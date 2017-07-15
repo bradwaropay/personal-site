@@ -30,8 +30,6 @@ docpadConfig = {
 
     googleAnalyticsID: "43111430-1"
 
-    disqusShortName: "bradwaropay"
-
     getYaml: () ->
       @yaml or= require "js-yaml"
 
