@@ -1,15 +1,46 @@
 .scene {
-  opacity: 0;
-  transition: opacity .5s;
+
+  &[data-transition="fade"] {
+
+    .scene__item {
+      animation-name: fade;
+    }
+  }
+
+  &[data-transition="fadeLeft"] {
+
+    &.is-exiting {
+
+      .scene__item {
+        animation-name: fadeRight;
+      }
+    }
+
+    .scene__item {
+      animation-name: fadeLeft;
+      animation-timing-function: ease-out;
+    }
+  }
+
+  &[data-transition="fadeRight"] {
+
+    &.is-exiting {
+
+      .scene__item {
+        animation-name: fadeLeft;
+      }
+    }
+
+    .scene__item {
+      animation-name: fadeRight;
+      animation-timing-function: ease-out;
+    }
+  }
 
   .scene__item {
-    animation-duration: .5s;
-    animation-fill-mode: both;
+    animation-duration: $transitionNormal;
     animation-timing-function: ease-in;
-
-    &--fade-in {
-      animation-name: fadeIn;
-    }
+    animation-fill-mode: both;
   }
 
   &.is-exiting {
@@ -17,10 +48,5 @@
     .scene__item {
       animation-direction: alternate-reverse;
     }
-  }
-
-  .wf-active &,
-  .wf-inactive & {
-    opacity: 1;
   }
 }

@@ -2,15 +2,13 @@
 layout: "_base"
 ---
 
-<div class="loader"></div>
+<canvas id="speckle"></canvas>
 
-<canvas id="background-particles"></canvas>
-
-<div id="main" class="scene">
+<div id="main" class="scene" data-transition="fade">
 
   <%- @partial("components/_site-header.html.eco") %>
 
-  <main role="main" class="main-content">
+  <main role="main" class="main-content" data-viewport="<%= @document.siteNavOrder || 0 %>">
 
     <%- @content %>
 

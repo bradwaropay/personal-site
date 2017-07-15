@@ -1,40 +1,34 @@
 .site-logo-link {
 
-  &.is-entering,
-  &.is-active {
+  .is-exiting & {
 
-    .site-logo {
+    &:hover {
 
-      &__item {
-        transform: scale(.3);
-      }
+      .site-logo {
+        transform: scale(1);
 
-      &__solid {
-        opacity: 1;
-      }
-    }
-  }
+        &__outer {
+          stroke: $link;
+        }
 
-  &.is-active {
-
-    .site-logo {
-      animation-duration: 3s;
-      animation-name: rotateRight;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-
-      &__inner {
-        transform: translate(-33.3px,-33.3px);
+        &__inner {
+          fill: $link;
+        }
       }
     }
   }
 
-  &.is-exiting {
+  &:hover {
 
     .site-logo {
+      transform: scale(1.1);
+
+      &__outer {
+        stroke: $linkHover;
+      }
 
       &__inner {
-        transform: translate(0,0);
+        fill: $linkHover;
       }
     }
   }
@@ -42,31 +36,19 @@
 
 .site-logo {
   display: inline-block;
-  fill: $link;
-  transition: fill .3s,
-              transform .3s;
-  transition-timing-function: $transitionTimingFunction;
+  transition: transform $transitionSlow $easingBounce;
   @mixin css-lock width, rem, $(smBp), $(lgBp), 6, 6.75;
 
-  &:hover {
-    fill: $linkHover;
-    transform: scale(1.1);
+  &__outer {
+    fill: none;
+    stroke: $link;
+    stroke-miterlimit: 10;
+    stroke-width: 3;
+    transition: stroke $transitionSlow $easingBounce;
   }
 
   &__inner {
-    transform-origin: center;
-    transition: transform 1s;
-    transition-timing-function: $transitionTimingFunction;
-  }
-
-  &__item {
-    transform-origin: center;
-    transition: opacity .5s,
-                transform .5s;
-    transition-timing-function: $transitionTimingFunction;
-  }
-
-  &__solid {
-    opacity: 0;
+    fill: $link;
+    transition: fill $transitionSlow $easingBounce;
   }
 }

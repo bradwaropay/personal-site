@@ -1,5 +1,22 @@
 .site-nav {
 
+  .is-exiting & {
+
+    &__link {
+      font-family: $accentFont;
+      position: relative;
+
+      &:hover {
+        color: $link;
+
+        &::before {
+          left: 50%;
+          width: 0;
+        }
+      }
+    }
+  }
+
   &__link {
     font-family: $accentFont;
     position: relative;
@@ -19,8 +36,8 @@
       left: 50%;
       position: absolute;
       top: 100%;
-      transition: left $transitionDuration $transitionTimingFunction,
-                  width $transitionDuration $transitionTimingFunction;
+      transition: left $transitionFast $easingBounce,
+                  width $transitionFast $easingBounce;
       width: 0;
     }
   }

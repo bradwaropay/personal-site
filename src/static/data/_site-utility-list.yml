@@ -5,3 +5,4 @@
 -
   service: RSS
   url: /rss.xml
+  class: no-smoothState

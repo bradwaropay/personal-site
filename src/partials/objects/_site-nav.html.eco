@@ -4,7 +4,7 @@
 
     <% for navItem in @getCollection("siteNav").toJSON(): %>
 
-      <li class="inline-list__item site-nav__item"><a href="<%= navItem.url %>" class="site-nav__link"><%= navItem.title %></a></li>
+      <li class="inline-list__item site-nav__item"><a href="<%= navItem.url %>" class="site-nav__link" data-viewport-target="<%= navItem.siteNavOrder %>"><%= navItem.title %></a></li>
 
     <% end %>
 

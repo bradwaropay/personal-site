@@ -1,0 +1,11 @@
+/* global WebFont */
+
+function webFonts (...fonts) {
+  WebFont.load({
+    google: {
+      families: [...fonts]
+    }
+  })
+}
+
+export default webFonts

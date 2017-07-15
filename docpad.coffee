@@ -30,8 +30,6 @@ docpadConfig = {
 
     googleAnalyticsID: "43111430-1"
 
-    disqusShortName: "bradwaropay"
-
     getYaml: () ->
       @yaml or= require "js-yaml"
 
@@ -48,15 +46,6 @@ docpadConfig = {
         isPagedAuto: $ne: true
       }, [postNavOrder: 1])
 
-    articles: ->
-      @getCollection("html").findAllLive({
-        relativeOutDirPath: "published/articles"
-        isPagedAuto: $ne: true
-      }, [date: -1]).on "add", (model) ->
-        model.setMetaDefaults({
-          layout: "_post-full"
-        })
-
     notes: ->
       @getCollection("html").findAllLive({
         relativeOutDirPath: "published/notes"
@@ -64,6 +53,17 @@ docpadConfig = {
       }, [date: -1]).on "add", (model) ->
         model.setMetaDefaults({
           layout:"_post-full"
+          siteNavOrder: 1.1
+        })
+
+    articles: ->
+      @getCollection("html").findAllLive({
+        relativeOutDirPath: "published/articles"
+        isPagedAuto: $ne: true
+      }, [date: -1]).on "add", (model) ->
+        model.setMetaDefaults({
+          layout: "_post-full"
+          siteNavOrder: 2.1
         })
 
     posts: ->
@@ -79,6 +79,7 @@ docpadConfig = {
       }, [date: -1]).on "add", (model) ->
         model.setMetaDefaults({
           layout: "_work-full"
+          siteNavOrder: 3.1
         })
 
     sitemap: ->
@@ -90,15 +91,6 @@ docpadConfig = {
   environments:
     development:
       collections:
-        articles: ->
-          @getCollection("html").findAllLive({
-            relativeDirPath: {"$in" : ["published/articles", "drafts/articles"]}
-            isPagedAuto: $ne: true
-          }, [date: -1]).on "add", (model) ->
-            model.setMetaDefaults({
-              layout: "_post-full"
-            })
-
         notes: ->
           @getCollection("html").findAllLive({
             relativeDirPath: {"$in" : ["published/notes", "drafts/notes"]}
@@ -106,6 +98,17 @@ docpadConfig = {
           }, [date: -1]).on "add", (model) ->
             model.setMetaDefaults({
               layout: "_post-full"
+              siteNavOrder: 1.1
+            })
+
+        articles: ->
+          @getCollection("html").findAllLive({
+            relativeDirPath: {"$in" : ["published/articles", "drafts/articles"]}
+            isPagedAuto: $ne: true
+          }, [date: -1]).on "add", (model) ->
+            model.setMetaDefaults({
+              layout: "_post-full"
+              siteNavOrder: 1.1
             })
 
         posts: ->
@@ -121,6 +124,7 @@ docpadConfig = {
           }, [date: -1]).on "add", (model) ->
             model.setMetaDefaults({
               layout: "_work-full"
+              siteNavOrder: 3.1
             })
 
   plugins:
@@ -139,9 +143,13 @@ docpadConfig = {
     sitemap:
       collectionName: "sitemap"
 
+    gulp:
+      writeAfter: false
+      generateAfter: ["default"]
+
     ghpages:
-        deployRemote: "origin"
-        deployBranch: "master"
+      deployRemote: "origin"
+      deployBranch: "master"
 }
 
 # Export the DocPad Configuration

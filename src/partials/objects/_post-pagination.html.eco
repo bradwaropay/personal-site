@@ -6,9 +6,9 @@
 
     <ul class="inline-list post-pagination__list">
 
-      <% if @hasNextPage(): %><li class="post-pagination__item post-pagination__item--older"><a href="<%= @getNextPage() %>" class="post-pagination__link post-pagination__link--older">older</a></li><% end %>
+      <% if @hasNextPage(): %><li class="post-pagination__item post-pagination__item--older"><a href="<%= @getNextPage() %>" class="post-pagination__link post-pagination__link--older" data-viewport-target="<%= @document.siteNavOrder + 1 %>">older</a></li><% end %>
 
-      <% if @hasPrevPage(): %><li class="post-pagination__item post-pagination__item--newer"><a href="<%= @getPrevPage() %>" class="post-pagination__link post-pagination__link--newer">newer</a></li><% end %>
+      <% if @hasPrevPage(): %><li class="post-pagination__item post-pagination__item--newer"><a href="<%= @getPrevPage() %>" class="post-pagination__link post-pagination__link--newer" data-viewport-target="<%= @document.siteNavOrder - 1 %>">newer</a></li><% end %>
 
     </ul>
 

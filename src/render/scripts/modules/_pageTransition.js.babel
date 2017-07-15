@@ -1,0 +1,68 @@
+---
+browserify: true
+---
+/* global $ */
+
+import comments from './_comments'
+
+let transition
+let clicked
+
+const page = $('#main')
+const content = page.smoothState({
+  repeatDelay: 500,
+  blacklist: '.no-smoothState',
+  prefetch: true,
+  cacheLength: 2,
+  onBefore: function ($currentTarget, $container) {
+    const current = $('[data-viewport]').first().data('viewport') || 0
+    const target = $currentTarget.data('viewport-target')
+
+    clicked = true
+
+    switch (true) {
+      case current > target:
+        transition = 'fadeLeft'
+        break
+      case current < target:
+        transition = 'fadeRight'
+        break
+      default:
+        transition = 'fade'
+    }
+  },
+  onStart: {
+    duration: 500,
+    render: function ($container) {
+      if (!clicked) {
+        transition = 'fade'
+      }
+
+      $container.attr('data-transition', transition)
+      $container.addClass('is-exiting')
+
+      content.restartCSSAnimations()
+    }
+  },
+  onReady: {
+    duration: 0,
+    render: function ($container, $newContent) {
+      clicked = false
+
+      $container.attr('data-transition', transition)
+      $container.removeClass('is-exiting')
+      $container.html($newContent)
+    }
+  },
+  onAfter: function () {
+    comments.reset()
+  }
+
+}).data('smoothState')
+
+function pageTransition () {
+  content
+  comments.init();
+}
+
+export default pageTransition
