@@ -9,23 +9,38 @@
 
   &[data-transition="fadeLeft"] {
 
+    &.is-exiting {
+
+      .scene__item {
+        animation-name: fadeRight;
+      }
+    }
+
     .scene__item {
       animation-name: fadeLeft;
+      animation-timing-function: ease-out;
     }
   }
 
   &[data-transition="fadeRight"] {
 
+    &.is-exiting {
+
+      .scene__item {
+        animation-name: fadeLeft;
+      }
+    }
+
     .scene__item {
       animation-name: fadeRight;
+      animation-timing-function: ease-out;
     }
   }
 
-
   .scene__item {
     animation-duration: .5s;
-    animation-fill-mode: both;
     animation-timing-function: ease-in;
+    animation-fill-mode: both;
   }
 
   &.is-exiting {

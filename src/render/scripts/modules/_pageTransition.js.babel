@@ -2,6 +2,7 @@
 
 const page = $('#main')
 let transition
+let clicked
 
 const options = {
   prefetch: true,
@@ -9,15 +10,15 @@ const options = {
   repeatDelay: 500,
   onBefore: function ($currentTarget, $container) {
     const current = $('[data-viewport]').first().data('viewport') || 0
-    const target = $currentTarget.data('target') || 0
+    const target = $currentTarget.data('viewport-target')
 
-    $currentTarget.addClass('is-target')
+    clicked = true
 
     switch (true) {
-      case current < target:
+      case current > target:
         transition = 'fadeLeft'
         break
-      case current > target:
+      case current < target:
         transition = 'fadeRight'
         break
       default:
@@ -27,14 +28,22 @@ const options = {
   onStart: {
     duration: 500,
     render: function ($container) {
+      if (!clicked) {
+        transition = 'fade'
+      }
+
       $container.attr('data-transition', transition)
       $container.addClass('is-exiting')
+
       smoothState.restartCSSAnimations()
     }
   },
   onReady: {
     duration: 0,
     render: function ($container, $newContent) {
+      clicked = false
+
+      $container.attr('data-transition', transition)
       $container.removeClass('is-exiting')
       $container.html($newContent)
     }

@@ -27,15 +27,6 @@
         left: 0;
         width: 100%;
       }
-
-      &.is-target {
-        color: $link;
-
-        &::before {
-          left: 50%;
-          width: 0;
-        }
-      }
     }
 
     &::before {

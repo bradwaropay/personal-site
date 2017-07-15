@@ -6,7 +6,7 @@
 
     <% for navItem in @getCollection("postNav").toJSON(): %>
 
-      <li class="inline-list__item post-nav__item"><a href="<%= navItem.url %>" class="post-nav__link"><%= navItem.title %></a></li>
+      <li class="inline-list__item post-nav__item"><a href="<%= navItem.url %>" class="post-nav__link" data-viewport-target="<%= navItem.siteNavOrder %>"><%= navItem.title %></a></li>
 
     <% end %>
 

@@ -1,18 +1,21 @@
 .site-logo-link {
 
-  &:hover {
+  .is-exiting & {
 
-    .site-logo {
-      fill: $linkHover;
-      transform: scale(1.1);
-    }
-
-    &.is-target {
+    &:hover {
 
       .site-logo {
         fill: $link;
         transform: scale(1);
       }
+    }
+  }
+
+  &:hover {
+
+    .site-logo {
+      fill: $linkHover;
+      transform: scale(1.1);
     }
   }
 }

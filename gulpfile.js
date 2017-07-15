@@ -1,5 +1,6 @@
 // Include gulp
 var gulp = require('gulp')
+var exec = require('child_process').exec
 
 // Include plugins
 var plugins = require('gulp-load-plugins')({
@@ -26,7 +27,8 @@ var paths = {
 
 // Build Lib JS
 gulp.task('build:libjs', ['clean:libjs'], function () {
-  gulp.src(plugins.mainBowerFiles())
+  return gulp.src(plugins.mainBowerFiles())
+    .pipe(plugins.sourcemaps.init())
     .pipe(plugins.filter('*.js'))
     .pipe(plugins.order([
       'jquery.js',
@@ -34,9 +36,9 @@ gulp.task('build:libjs', ['clean:libjs'], function () {
     ]))
     .pipe(plugins.concat('lib.js'))
     .pipe(plugins.uglify())
+    .pipe(plugins.sourcemaps.write('./'))
     .pipe(gulp.dest(paths.jsDestination))
 })
-
 
 // Clean Lib JS
 gulp.task('clean:libjs', function (cb) {
@@ -75,8 +77,8 @@ gulp.task('clean:css', function () {
 // Build All
 gulp.task('build', ['build:libjs', 'build:css'])
 
-// Finalize and  Clean Tmp Files
-gulp.task('finalize', ['build'], function () {
+// Clean Tmp Files
+gulp.task('clean:tmp', ['build'], function () {
   return gulp.src([
     paths.out + 'data',
     paths.jsDestination + 'modules'
@@ -84,5 +86,16 @@ gulp.task('finalize', ['build'], function () {
     .pipe(plugins.clean())
 })
 
+// Deploy
+gulp.task('deploy', ['clean:tmp'], function (cb) {
+  exec('docpad deploy-ghpages --env static', function (err, stdout, stderr) {
+    console.log(stdout)
+    console.log(stderr)
+    cb(err)
+  })
+})
+
 // Tasks
-gulp.task('default', ['finalize'])
+gulp.task('default', ['build'])
+gulp.task('build:prod', ['clean:tmp'])
+gulp.task('build:deploy', ['deploy'])
