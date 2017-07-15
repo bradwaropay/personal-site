@@ -2,8 +2,6 @@
 layout: "_base"
 ---
 
-<div class="loader"></div>
-
 <canvas id="speckle"></canvas>
 
 <div id="main" class="scene" data-transition="fade">

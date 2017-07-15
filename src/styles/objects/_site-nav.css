@@ -36,8 +36,8 @@
       left: 50%;
       position: absolute;
       top: 100%;
-      transition: left $transitionDuration $transitionTimingFunction,
-                  width $transitionDuration $transitionTimingFunction;
+      transition: left $transitionNormal $easingBounce,
+                  width $transitionNormal $easingBounce;
       width: 0;
     }
   }

@@ -23,8 +23,7 @@
 .site-logo {
   display: inline-block;
   fill: $link;
-  transition: fill .3s,
-              transform .3s;
-  transition-timing-function: $transitionTimingFunction;
+  transition: fill $transitionSlow $easingBounce,
+              transform $transitionSlow $easingBounce;
   @mixin css-lock width, rem, $(smBp), $(lgBp), 6, 6.75;
 }
