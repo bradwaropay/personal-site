@@ -4,8 +4,8 @@ browserify: true
 
 import webFonts from './modules/_webFonts'
 import pageTransition from './modules/_pageTransition'
-// import speckle from './speckle'
+import speckle from './modules/_speckle'
 
 webFonts('Raleway:400,700', 'Bitter:700')
 pageTransition()
-// speckle()
+speckle()

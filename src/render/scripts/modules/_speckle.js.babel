@@ -1,40 +1,26 @@
 /* global $ */
+const canvas = $('#speckle').get(0)
+const ctx = canvas.getContext('2d')
 
-function speckle (options = {
-  count: {},
-  react: {
-    connect: {}
-  }
-}) {
-  const canvas = $(options.canvas).get(0) || $('#speckle').get(0)
-  const ctx = canvas.getContext('2d')
+let nb = 0
+let speckArray = []
+let speckColor = '66, 39, 39'
+let speckConnectWidth = 0.1
+let speckConnectRadius = 200
+let speckConnectDistance = 100
+let mouseX
+let mouseY
 
-  const speckle = {
-    color: options.color || '#422727',
-    count: {
-      nb: options.count.nb,
-      dynamicMod: options.count.dynamicMod || 2,
-      dynamicLimit: options.count.limit || true
-    },
-    react: {
-      radius: options.react.radius || 200,
-      connect: {
-        distance: options.react.connect.distance || 100,
-        color: options.react.connect.color || '66, 39, 39',
-        width: options.react.connect.width || 0.1,
-        opacity: options.react.connect.opacity
-      }
-    }
-  }
+function speckle () {
+  const animate = animateSpecks()
 
-  const animate = animateSpeckles(canvas, ctx, speckle)
-  createSpeckles(canvas, ctx, speckle, animate)
+  createSpecks(animate)
 
-  detectMouse(speckle)
-  detectResize(canvas, ctx, speckle)
+  detectMouse()
+  detectResize()
 }
 
-function Speckle (radius, x, y, vx, vy) {
+function Speck (radius, x, y, vx, vy) {
   this.radius = radius
   this.x = x
   this.y = y
@@ -42,10 +28,10 @@ function Speckle (radius, x, y, vx, vy) {
   this.vy = vy
 }
 
-Speckle.prototype.update = function (canvas, ctx, speckle) {
+Speck.prototype.update = function () {
   ctx.beginPath()
   ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
-  ctx.fillStyle = speckle.color
+  ctx.fillStyle = 'rgb(' + speckColor + ')'
   ctx.fill()
 
   if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx
@@ -54,78 +40,73 @@ Speckle.prototype.update = function (canvas, ctx, speckle) {
   this.x += this.vx
   this.y += this.vy
 
-  for (let i = 0; i < speckle.count.nb; i++) {
-    const that = speckle.array[i]
-    const location = Math.sqrt(Math.pow(this.x - speckle.react.currentX, 2) + Math.pow(this.y - speckle.react.currentY, 2))
+  for (let i = 0; i < nb; i++) {
+    const that = speckArray[i]
+    const location = Math.sqrt(Math.pow(this.x - mouseX, 2) + Math.pow(this.y - mouseY, 2))
     const distance = Math.sqrt(Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2))
+    const connectOpacity = 1 - (distance / speckConnectDistance)
 
-    if (speckle.react.connect.distance) reactConnect(ctx, speckle, that, location, distance)
+    if (location <= speckConnectRadius && distance <= speckConnectDistance) {
+      ctx.beginPath()
+      ctx.moveTo(this.x, this.y)
+      ctx.lineTo(that.x, that.y)
+      ctx.strokeStyle = 'rgba(' + speckColor + ',' + connectOpacity + ')'
+      ctx.lineWidth = speckConnectWidth
+      ctx.stroke()
+    }
   }
 }
 
-function reactConnect (ctx, speckle, that, location, distance) {
-  const connectOpacity = speckle.react.connect.opacity ? speckle.react.connect.opacity : 1 - (distance / speckle.react.connect.distance)
-
-  if (location <= speckle.react.radius && distance <= speckle.react.connect.distance) {
-    ctx.beginPath()
-    ctx.moveTo(this.x, this.y)
-    ctx.lineTo(that.x, that.y)
-    ctx.strokeStyle = 'rgba(' + speckle.react.connect.color + ',' + connectOpacity + ')'
-    ctx.lineWidth = speckle.react.connect.width
-    ctx.stroke()
-  }
-}
-
-function createSpeckles (canvas, ctx, speckle, animate) {
+function createSpecks (animate) {
   canvas.width = window.innerWidth
   canvas.height = window.innerHeight
 
-  if (speckle.count.dynamicMod !== false && speckle.count.dynamicLimit === true && (speckle.count.dynamicMod <= 0 || speckle.count.dynamicMod > 100)) speckle.count.dynamicMod = speckle.count.dynamicMod <= 0 ? 1 : 100
+  nb = Math.round((canvas.width * canvas.height) * (2 / 10000))
+  speckArray = []
 
-  speckle.count.nb = speckle.count.dynamicMod !== false ? Math.round((canvas.width * canvas.height) * (speckle.count.dynamicMod / 10000)) : speckle.count.nb
-  speckle.array = []
-
-  for (let i = 0; i < speckle.count.nb; i++) {
+  for (let i = 0; i < nb; i++) {
     const radius = Math.random()
     const x = Math.random() * canvas.width
     const y = Math.random() * canvas.height
     const vx = -0.5 + Math.random()
     const vy = -0.5 + Math.random()
 
-    const createSpeckle = new Speckle(radius, x, y, vx, vy)
-    speckle.array.push(createSpeckle)
+    const createSpeck = new Speck(radius, x, y, vx, vy)
+    speckArray.push(createSpeck)
   }
 
   if (animate) animate
+
+  $(canvas).hide().fadeIn(2000)
 }
 
-function drawSpeckles (canvas, ctx, speckle = {}) {
+function drawSpecks () {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-  for (let i = 0; i < speckle.count.nb; i++) {
-    speckle.current = speckle.array[i]
-    speckle.current.update(canvas, ctx, speckle)
+  for (let i = 0; i < nb; i++) {
+    let speck = speckArray[i]
+    speck.update()
   }
 
   window.requestAnimationFrame(() => {
-    drawSpeckles(canvas, ctx, speckle)
+    drawSpecks()
   })
 }
 
-function animateSpeckles (canvas, ctx, speckle) {
+function animateSpecks () {
   window.requestAnimationFrame(() => {
-    drawSpeckles(canvas, ctx, speckle)
+    drawSpecks()
   })
 }
 
-function detectMouse (speckle) {
+function detectMouse () {
   $(window).mousemove((canvasPosition) => {
-    speckle.react.currentX = canvasPosition.pageX
-    speckle.react.currentY = canvasPosition.pageY - window.scrollY
+    mouseX = canvasPosition.pageX
+    mouseY = canvasPosition.pageY - window.scrollY
   })
 }
 
-function detectResize (canvas, ctx, speckle) {
+function detectResize () {
   let documentWidth = $(document).width()
   let documentHeight = $(document).height()
 
@@ -134,7 +115,7 @@ function detectResize (canvas, ctx, speckle) {
       documentWidth = $(document).width()
       documentHeight = $(document).height()
 
-      createSpeckles(canvas, ctx, speckle)
+      createSpecks()
     }
   })
 }
