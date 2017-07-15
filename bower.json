@@ -1,6 +1,6 @@
 {
-  "name": "Brad Waropay Site",
-  "description": "Brad Waropay Site",
+  "name": "no-skeleton.docpad",
+  "description": "New DocPad project without using a skeleton",
   "main": "node_modules/.bin/docpad-server",
   "authors": [
     "Brad Waropay <brad.waropay@gmail.com>"
@@ -19,6 +19,6 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "smoothstate": "^0.7.2",
-    "webfontloader": "^1.6.27",
+    "webfontloader": "^1.6.27"
   }
 }

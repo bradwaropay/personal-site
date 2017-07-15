@@ -5,8 +5,15 @@
     &:hover {
 
       .site-logo {
-        fill: $link;
         transform: scale(1);
+
+        &__outer {
+          stroke: $link;
+        }
+
+        &__inner {
+          fill: $link;
+        }
       }
     }
   }
@@ -14,16 +21,34 @@
   &:hover {
 
     .site-logo {
-      fill: $linkHover;
       transform: scale(1.1);
+
+      &__outer {
+        stroke: $linkHover;
+      }
+
+      &__inner {
+        fill: $linkHover;
+      }
     }
   }
 }
 
 .site-logo {
   display: inline-block;
-  fill: $link;
-  transition: fill $transitionSlow $easingBounce,
-              transform $transitionSlow $easingBounce;
+  transition: transform $transitionSlow $easingBounce;
   @mixin css-lock width, rem, $(smBp), $(lgBp), 6, 6.75;
+
+  &__outer {
+    fill: none;
+    stroke: $link;
+    stroke-miterlimit: 10;
+    stroke-width: 3;
+    transition: stroke $transitionSlow $easingBounce;
+  }
+
+  &__inner {
+    fill: $link;
+    transition: fill $transitionSlow $easingBounce;
+  }
 }
