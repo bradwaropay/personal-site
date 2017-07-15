@@ -3,7 +3,7 @@
   "description": "Brad Waropay Site",
   "main": "node_modules/.bin/docpad-server",
   "authors": [
-    "Brad Waropay <Brad.waropay@gmail.com>"
+    "Brad Waropay <brad.waropay@gmail.com>"
   ],
   "license": "MIT",
   "homepage": "https://github.com/bradwaropay/bradwaropay.github.io",
