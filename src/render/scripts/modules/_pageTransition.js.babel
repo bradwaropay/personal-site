@@ -1,13 +1,15 @@
 /* global $ */
 
 const page = $('#main')
+
 let transition
 let clicked
 
 const options = {
+  repeatDelay: 500,
+  blacklist: '.no-smoothState',
   prefetch: true,
   cacheLength: 2,
-  repeatDelay: 500,
   onBefore: function ($currentTarget, $container) {
     const current = $('[data-viewport]').first().data('viewport') || 0
     const target = $currentTarget.data('viewport-target')
