@@ -6,6 +6,8 @@
       font-family: $accentFont;
       position: relative;
 
+      &:active,
+      &:focus,
       &:hover {
         color: $link;
 
@@ -21,6 +23,8 @@
     font-family: $accentFont;
     position: relative;
 
+    &:active,
+    &:focus,
     &:hover {
 
       &::before {

@@ -2,6 +2,8 @@
 
   .is-exiting & {
 
+    &:active,
+    &:focus,
     &:hover {
 
       .site-logo {
@@ -18,6 +20,8 @@
     }
   }
 
+  &:active,
+  &:focus,
   &:hover {
 
     .site-logo {
