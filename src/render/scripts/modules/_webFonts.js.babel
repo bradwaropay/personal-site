@@ -3,7 +3,7 @@
 function webFonts (...fonts) {
   WebFont.load({
     google: {
-      families: [...fonts]
+      families: fonts
     }
   })
 }
