@@ -1,9 +1,0 @@
-.social-nav {
-  display:flex;
-  flex-direction: column;
-
-  @media (min-width: $(mdBp)em) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}

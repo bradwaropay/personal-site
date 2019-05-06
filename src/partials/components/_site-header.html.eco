@@ -1,7 +1,0 @@
-<header class="site-header">
-
-  <%- @partial("objects/_site-logo") %>
-
-  <%- @partial("objects/_site-nav.html.eco") %>
-
-</header>

@@ -1,6 +1,0 @@
-.site-footer {
-  background-color: $primaryDark;
-  color: $primaryLight;
-  @mixin property-rhythm margin-top, em, 2;
-  @mixin property-rhythm padding, em, 1;
-}

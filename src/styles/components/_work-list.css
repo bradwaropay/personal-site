@@ -1,7 +1,0 @@
-.work-list {
-
-  .post-nav,
-  .post-pagination {
-    @mixin property-rhythm margin-top, em, 1;
-  }
-}
