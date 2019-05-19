@@ -1,4 +1,4 @@
-# bradwaropay
+# bradwaropay.github.io
 
 > Brad Waropay&#39;s personal site.
 
@@ -17,6 +17,9 @@ $ npm start
 
 # generate static project
 $ npm run generate
+
+# deploy generated project to github pages
+$ npm run deploy
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
