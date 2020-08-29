@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <defs>
+    <style>
+      .a {
+        fill: #242b3a;
+        stroke: #475370;
+        stroke-linejoin: bevel;
+      }
+    </style>
+  </defs>
+  <circle class="a" cx="90" cy="90" r="89" />
+</svg>
