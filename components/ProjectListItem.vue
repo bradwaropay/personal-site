@@ -9,11 +9,7 @@
     >
       <img
         :alt="project.title"
-        :src="
-          project.imageDir
-            ? projectImage
-            : `//placehold.it/300x300/242b3a/384259?text=${project.title}`
-        "
+        :src="`//placehold.it/300x300?text=${project.title}`"
         class="project-list-item__image"
       />
     </component>
@@ -55,11 +51,6 @@ export default {
     },
   },
   computed: {
-    projectImage() {
-      return `${require(`@/assets/images/projects/${
-        this.project.imageDir
-      }/vuepoint.${this.project.imageType || 'jpg'}`)}`
-    },
     primaryLink() {
       let primaryLink
       if (this.project.links) {
