@@ -35,7 +35,7 @@ export default {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 2rem 3rem;
+  padding: 2rem;
 
   &__logo {
     fill: $accent;

@@ -52,7 +52,7 @@ export default {
   background-color: $darker;
   display: grid;
   grid-auto-rows: auto;
-  height: 100vh;
+  height: 100%;
   left: -75%;
   overflow-y: scroll;
   position: fixed;

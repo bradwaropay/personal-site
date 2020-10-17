@@ -1,5 +1,6 @@
 <template>
-  <app-section :footer-link="footerLink" :heading="heading" class="about-intro">
+  <app-section :footer-link="footerLink" class="about-intro">
+    <h1 class="about-intro__heading">{{ heading }}</h1>
     <p class="about-intro__description">{{ description }}</p>
     <inline-link-list :links="links" />
   </app-section>
@@ -43,6 +44,10 @@ export default {
 
 <style lang="scss" scoped>
 .about-intro {
+  &__heading {
+    font: $headingLg;
+  }
+
   &__description {
     margin-top: 0;
   }

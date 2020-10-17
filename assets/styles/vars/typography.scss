@@ -28,7 +28,7 @@ $decorative: normal $regular 1em / 1 $secondaryFont;
 $decorativeLg: normal $regular 2em / 1 $secondaryFont;
 
 // Breakpoints
-$lockMin: 800px;
+$lockMin: 670px;
 $lockMax: 1600px;
 $lockMid: $lockMin + ($lockMax - $lockMin) / 2;
 

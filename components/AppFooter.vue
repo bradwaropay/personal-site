@@ -71,7 +71,7 @@ export default {
     background-color: $light;
     color: $midDark;
     display: flex;
-    padding: 2rem 3rem;
+    padding: 2rem;
     text-decoration: none;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
