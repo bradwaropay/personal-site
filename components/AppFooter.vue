@@ -4,12 +4,12 @@
       v-for="(link, linkIndex) in $options.links"
       :key="linkIndex"
       :href="link.url"
+      :target="link.target || '_self'"
       class="app-footer__link"
-      target="_blank"
     >
       <p class="app-footer__link-copy">
         <span class="app-footer__link-copy-description">
-          {{ link.discription }}
+          {{ link.description }}
         </span>
         <span class="app-footer__link-copy-name">
           <font-awesome-icon
@@ -28,7 +28,7 @@ export default {
   links: [
     {
       url: 'https://github.com/bradwaropay',
-      discription: 'Find me on',
+      description: 'Find me on',
       name: 'GitHub',
       icon: {
         type: 'fab',
@@ -37,7 +37,7 @@ export default {
     },
     {
       url: 'https://twitter.com/bradwaropay',
-      discription: 'Follow me on',
+      description: 'Follow me on',
       name: 'Twitter',
       icon: {
         type: 'fab',
@@ -46,7 +46,7 @@ export default {
     },
     {
       url: 'mailto:brad.waropay@gmail.com',
-      discription: 'Get in touch by',
+      description: 'Get in touch by',
       name: 'Email',
       icon: {
         type: 'fas',

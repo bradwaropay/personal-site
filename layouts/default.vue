@@ -101,7 +101,6 @@ export default {
     grid-template-rows: auto 1fr auto;
     height: 100%;
     transform: translateZ(0);
-    width: 100%;
   }
 
   &__main {
