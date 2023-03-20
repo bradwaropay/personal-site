@@ -301,6 +301,7 @@ export default {
   display: inline-block;
   font-size: 3rem;
   line-height: 1;
+  text-decoration: underline #ffaa00;
 }
 
 @media screen and (min-width: 50rem) {
@@ -336,7 +337,9 @@ export default {
   color: #f1511a;
 }
 
-.link:hover {
+.link:hover,
+.link:focus,
+.link:active {
   text-decoration: underline;
 }
 </style>
