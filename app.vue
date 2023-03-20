@@ -191,7 +191,7 @@ export default {
           language, intuitive accessible UI patterns, and enjoyable interactions
           for your users, but also lay a solid foundation for your product,
           making iteration faster, easier, and enjoyable for developers and
-          designers.
+          designers too.
         </p>
         <footer class="footer">
           <ul class="link-list">
@@ -267,6 +267,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  max-width: 50rem;
   text-align: center;
 }
 
