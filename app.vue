@@ -275,7 +275,7 @@ export default {
   .intro {
     flex-direction: row;
     max-width: 70rem;
-    text-align: justify;
+    text-align: left;
   }
 }
 
