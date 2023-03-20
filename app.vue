@@ -237,9 +237,9 @@ export default {
 
 #speckle {
   background-color: #0d1b27;
-  height: 100vh;
+  min-height: 100vh;
+  position: fixed;
   width: 100vw;
-  position: absolute;
 }
 .container {
   align-items: center;
@@ -252,8 +252,9 @@ export default {
   color: #efefef;
   display: flex;
   font-family: "Inconsolata", monospace;
-  height: 100vh;
+  height: 100%;
   justify-content: center;
+  min-height: 100vh;
   padding: 4rem;
   pointer-events: none;
   position: relative;
