@@ -313,7 +313,7 @@ export default {
 .paragraph {
   font-size: 1.25rem;
   line-height: 1.5;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
 }
 .footer {
   margin-top: 1.5rem;
