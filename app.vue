@@ -141,7 +141,9 @@ export default {
         class="logo"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 89.01"
+        aria-labelledby="logo-title"
       >
+        <title id="logo-title">Brad Waropay Logo</title>
         <defs>
           <linearGradient
             id="logo-gradient"
@@ -296,8 +298,14 @@ export default {
 
 .heading {
   display: inline-block;
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 1;
+}
+
+@media screen and (min-width: 50rem) {
+  .heading {
+    font-size: 4rem;
+  }
 }
 
 .paragraph {
