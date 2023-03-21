@@ -235,7 +235,7 @@ export default {
 </template>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Inconsolata&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
 
 #speckle {
   background-color: #0d1b27;
@@ -300,6 +300,7 @@ export default {
 .heading {
   display: inline-block;
   font-size: 3rem;
+  font-weight: 700;
   line-height: 1;
   text-decoration: underline #ffaa00;
 }
@@ -340,6 +341,7 @@ export default {
 .link:hover,
 .link:focus,
 .link:active {
-  text-decoration: underline;
+  color: #f1511a;
+  text-decoration: wavy underline #ffaa00;
 }
 </style>
