@@ -97,3 +97,27 @@ meter {
 :where(dialog:modal) {
   all: revert;
 }
+
+html,
+body,
+#__nuxt {
+  @include typographyReset;
+
+  background: $backgroundSecondary;
+  height: 100%;
+}
+
+::selection {
+  background-color: rgba($accentSecondary, 0.5);
+}
+
+a {
+  color: #f1511a;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: #f1511a;
+    text-decoration: wavy underline #ffaa00;
+  }
+}

@@ -1,0 +1,21 @@
+// Color Palette
+$sulphur: #ffaa00;
+$flame: #f1511a;
+$haze: #7a5fff;
+$pool: #3EAFC4;
+$slime: #01ff89;
+$ash: #efefef;
+$midnight: #0d1b27;
+$shadow: #281726;
+
+// Color Theme
+$backgroundPrimary: $midnight;
+$backgroundSecondary: $shadow;
+$backgroundGradient: linear-gradient(0deg, $backgroundSecondary 0%, transparent 75%, transparent 100%);
+$contentPrimary: $ash;
+$contentSecondary: $sulphur;
+$actionPrimary: $flame;
+$actionSecondary: $sulphur;
+$accentPrimary: $haze;
+$accentSecondary: $pool;
+$accentTertiary: $slime;

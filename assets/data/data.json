@@ -1,0 +1,100 @@
+{
+  "hero": {
+    "heading": "Hi, I'm Brad Waropay",
+    "description": "I'm a developer and designer with a passion for problem solving and an obsession with craftsmanship. I specialize in front-end architecture and design systems that not only establish a consistent visual language, intuitive accessible UI patterns, and enjoyable interactions for your users, but also lay a solid foundation for your product, making iteration faster, easier, and enjoyable for developers and designers too.",
+    "links": [
+      {
+        "title": "Github",
+        "path": "https://github.com/bradwaropay",
+        "target": "blank"
+      },
+      {
+        "title": "CodePen",
+        "path": "https://codepen.io/bradwaropay",
+        "target": "self"
+      }
+    ]
+  },
+  "featured": {
+    "enabled": true,
+    "heading": "Featured Work",
+    "description": "",
+    "features": [
+      {
+        "image": "",
+        "heading": "Warlock",
+        "description": "Design and component system for my personal microsite.",
+        "builtWith": [
+          "storybook",
+          "vue",
+          "typescript",
+          "sass"
+        ],
+        "path": "#"
+      },
+      {
+        "image": "",
+        "heading": "Gooey",
+        "description": "Labore ad quis culpa dolore enim consequat sit fugiat commodo sunt do. Ea laboris in ullamco non fugiat in nulla occaecat reprehenderit ex commodo Lorem dolor eu. Amet adipisicing occaecat et exercitation incididunt aliquip dolore occaecat.",
+        "path": ""
+      },
+      {
+        "image": "",
+        "heading": "Honey Crew",
+        "description": "Pariatur anim sint qui in duis quis Lorem voluptate veniam exercitation. Dolore tempor ullamco et fugiat commodo occaecat ea et aliqua enim. Est tempor consectetur laboris minim qui duis. Do elit excepteur cupidatat pariatur proident laborum sint pariatur est aliqua. Culpa culpa culpa cillum nisi in veniam quis veniam incididunt labore ut eiusmod.",
+        "path": ""
+      },
+      {
+        "image": "",
+        "heading": "Thirty Four",
+        "description": "Quis quis laborum et proident ipsum anim. Nulla est irure minim non dolore mollit excepteur duis ad officia amet commodo in. Commodo aliquip amet anim id veniam dolore cillum aliqua amet exercitation eu eiusmod incididunt dolore.",
+        "path": ""
+      },
+      {
+        "image": "",
+        "heading": "CSS Micro Animations",
+        "description": "Quis quis laborum et proident ipsum anim. Nulla est irure minim non dolore mollit excepteur duis ad officia amet commodo in. Commodo aliquip amet anim id veniam dolore cillum aliqua amet exercitation eu eiusmod incididunt dolore.",
+        "path": ""
+      }
+    ],
+    "clients": [
+      {
+        "name": "AbbVie",
+        "logo": "abbvie"
+      },
+      {
+        "name": "America's Test Kitchen",
+        "logo": "americas-test-kitchen"
+      },
+      {
+        "name": "The Dyrt",
+        "logo": "the-dyrt"
+      },
+      {
+        "name": "Electrolux",
+        "logo": "electrolux"
+      },
+      {
+        "name": "Fender Musical Instruments",
+        "logo": "fender"
+      },
+      {
+        "name": "Genentech",
+        "logo": "genentech"
+      },
+      {
+        "name": "meltmedia",
+        "logo": "meltmedia"
+      },
+      {
+        "name": "Tyson Foods",
+        "logo": "tyson"
+      }
+    ]
+  },
+  "about": {
+    "enabled": false,
+    "heading": "About Me",
+    "description": "Exercitation ullamco commodo reprehenderit aliquip eiusmod laborum et cupidatat amet laboris labore. Elit laborum occaecat laborum ex labore id ad culpa ex esse pariatur eu nulla labore. Cillum ex quis ipsum occaecat minim ipsum deserunt proident ipsum nostrud ad minim sit. Proident dolor laborum eiusmod laborum nostrud. Duis eiusmod duis nostrud laboris. Id fugiat ad eu sit proident esse nisi voluptate elit laboris. Eiusmod occaecat aute esse deserunt commodo labore ex sint officia. Duis reprehenderit nisi quis cillum veniam tempor dolore. Ex culpa sint ipsum do quis elit enim laborum quis eu minim. Officia veniam Lorem incididunt do pariatur mollit consectetur reprehenderit."
+  }
+}

@@ -1,0 +1,53 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
+
+// Font Families
+$ffPrimary: "Inconsolata", monospace;
+
+// Font Weights
+$fwPrimaryRegular: 400;
+$fwPrimaryBold: 700;
+
+// Global Typography Reset
+@mixin typographyReset {
+  color: $contentPrimary;
+  font-family: $ffPrimary;
+  font-size: 16px;
+  font-weight: $fwPrimaryRegular;
+  line-height: 1.75;
+}
+
+// Text Sizes
+$textSm: 1rem;
+$textMd: 1.25rem;
+$textLg: 1.5rem;
+
+// Headings
+@mixin heading($size: md) {
+  display: inline-block;
+  line-height: 1;
+  text-decoration: underline $contentSecondary;
+
+  @if $size == "lg" {
+    font-size: 3rem;
+    font-weight: $fwPrimaryBold;
+
+    @media screen and (min-width: $bpMd) {
+      font-size: 4rem;
+    }
+  } @else if $size == "md" {
+    font-size: 2rem;
+    font-weight: $fwPrimaryBold;
+
+    @media screen and (min-width: $bpMd) {
+      font-size: 3rem;
+    }
+  } @else {
+    font-size: 1.5rem;
+    font-weight: $fwPrimaryRegular;
+  }
+
+  &+* {
+    margin-top: $spXs;
+  }
+}
