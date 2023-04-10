@@ -51,3 +51,13 @@ $textLg: 1.5rem;
     margin-top: $spXs;
   }
 }
+
+@mixin link {
+  color: $actionPrimary;
+  text-decoration: wavy underline transparent;
+  transition: text-decoration-color 0.2s linear;
+}
+
+@mixin linkHover {
+  text-decoration: wavy underline $actionSecondary;
+}

@@ -10,9 +10,24 @@ $contentContainer: $bpMd;
 $contentContainerLg: $bpLg;
 
 // Spacing
+$sp2Xs: 0.375rem;
 $spXs: 0.75rem;
 $spSm: 1.5rem;
 $spMd: 3rem;
 $spLg: 6rem;
 $spXl: 12rem;
 $sp2Xl: 18rem;
+
+@mixin content {
+  margin: 0 auto;
+  max-width: $contentContainer;
+  padding: 0 $contentGutter;
+
+  @media screen and (min-width: $bpMd) {
+    padding: 0 $contentGutterMd;
+  }
+
+  @media screen and (min-width: $bpLg) {
+    max-width: $contentContainerLg;
+  }
+}

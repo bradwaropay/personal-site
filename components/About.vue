@@ -43,6 +43,8 @@ defineProps<Props>()
 }
 
 .content {
+  flex-grow: 1;
+
   @media screen and (min-width: $bpMd) {
     font-size: $textMd;
   }

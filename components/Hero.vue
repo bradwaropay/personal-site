@@ -2,44 +2,47 @@
 export interface Link {
   title: string,
   path: string,
-  target?: "self" | "blank"
 }
 
 interface Props {
   heading: string,
   description: string,
-  links: Link[]
+  links?: Link[]
 }
 
 defineProps<Props>()
 </script>
 
 <template>
-  <article class="hero">
+  <header class="hero">
     <Logo class="logo" />
     <div class="intro">
       <h1 class="heading">{{ heading }}</h1>
       <p class="description">{{ description }}</p>
-      <footer class="footer">
+      <nav class="nav" v-if="links?.length">
         <ul class="list">
           <li class="item" v-for="link in links">
-            <a class="link" :target="`_${link.target}`" :href="link.path">{{ link.title }}</a>
+            <a class="link" :href="link.path">{{ link.title }}</a>
           </li>
         </ul>
-      </footer>
+      </nav>
     </div>
-  </article>
+  </header>
 </template>
 
 <style lang="scss" scoped>
 .hero {
+  @include content;
+
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: $spMd;
+  padding-top: $spLg;
 
   @media screen and (min-width: $bpLg) {
     flex-direction: row;
+    padding-top: $spXl;
     text-align: left;
   }
 }
@@ -50,6 +53,7 @@ defineProps<Props>()
 }
 
 .intro {
+  flex-grow: 1;
   position: relative;
 
   @media screen and (min-width: $bpMd) {
@@ -65,7 +69,7 @@ defineProps<Props>()
   margin-top: $spSm;
 }
 
-.footer {
+.nav {
   margin-top: $spSm;
 }
 

@@ -6,66 +6,124 @@ export interface Card {
   heading: string,
   description: string,
   path: string,
+  builtWith: string[]
 }
 
 interface Props {
-  card: Card
+  card: Card,
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 </script>
 
 <template>
-  <a class="card" target="_blank" href={{ card.path }}>
-    <div class="images">
+  <a class="link" href={{ card.path }}>
+    <article class="card">
       <img class="image" src="http://via.placeholder.com/640x640" alt="" />
-      <ul class="list">
-        <li class="item"><i class="icon devicon-react-plain" title="react" /></li>
-      </ul>
-    </div>
-    <div class="content">
-      <h3 class="heading">{{ card.heading }}</h3>
-      <p class="description">{{ card.description }}</p>
-    </div>
+      <div class="content">
+        <h3 class="heading">{{ card.heading }}</h3>
+        <p class="description">{{ card.description }}</p>
+      </div>
+      <footer class="footer">
+        <ul class="list">
+          <li class="item" v-for="icon in card.builtWith">
+            <i :class="`icon devicon-${icon}-plain`" :title="icon" />
+          </li>
+        </ul>
+      </footer>
+    </article>
   </a>
 </template>
 
 <style lang="scss" scoped>
-.card {
-  border-radius: 1rem;
-  border: 0.25rem dashed $sulphur;
+.link {
   color: $contentPrimary;
-  display: flex;
-  gap: $spSm;
-  min-height: 100%;
-  padding: $spSm;
   text-decoration: none;
 
   &:hover,
   &:focus,
   &:active {
-    background-color: rgba($contentPrimary, 0.025);
-    border-color: $actionPrimary;
 
-    .featured-link-heading {
-      color: $actionSecondary;
+    .card {
+      background-color: rgba($contentPrimary, 0.075);
+      border-color: $actionPrimary;
+    }
+
+    .heading {
+      @include linkHover;
     }
   }
 }
 
+.card {
+  border-radius: 1rem;
+  border: 0.25rem dashed $sulphur;
+  display: grid;
+  gap: $spXs $spSm;
+  grid-template-areas:
+    "image"
+    "content"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+  padding: $spSm;
+  transition:
+    background-color 0.2s linear,
+    border-color 0.2s linear;
+
+  @media screen and (min-width: $bpSm) {
+    grid-template-areas:
+      "image content"
+      "image footer";
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr auto;
+  }
+}
+
+.image {
+  grid-area: image;
+  max-width: 25%;
+
+  @media screen and (min-width: $bpSm) {
+    max-width: 100%;
+  }
+}
+
 .content {
-  min-width: 75%;
-  max-width: 75%;
+  grid-area: content;
 }
 
 .heading {
-  color: #f1511a;
-  font-size: 1.5rem;
+  @include link;
+
+  font-size: $textLg;
   font-weight: 700;
   line-height: 1;
 }
 
 .description {
-  margin-top: $spXs;
+  margin-top: $sp2Xs;
+}
+
+.footer {
+  display: flex;
+  grid-area: footer;
+  justify-content: flex-end;
+}
+
+.list {
+  display: flex;
+  gap: $sp2Xs;
+  margin-top: $sp2Xs;
+}
+
+.icon {
+  color: $accentSecondary;
+  font-size: $textMd;
+  vertical-align: bottom;
+}
+
+.description {
+  grid-area: description;
 }
 </style>

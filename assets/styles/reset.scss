@@ -4,9 +4,9 @@
 ***/
 
 /*
-    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
-    - The "symbol *" part is to solve Firefox SVG sprite bug
- */
+  Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+  - The "symbol *" part is to solve Firefox SVG sprite bug
+*/
  *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
   all: unset;
   display: revert;
@@ -35,7 +35,7 @@ img {
   max-block-size: 100%;
 }
 
-/* removes spacing between cells in tables */
+/* Removes spacing between cells in tables */
 table {
   border-collapse: collapse;
 }
@@ -45,41 +45,45 @@ input, textarea {
   -webkit-user-select: auto;
 }
 
-/* revert the 'white-space' property for textarea elements on Safari */
+/* Revert the 'white-space' property for textarea elements on Safari */
 textarea {
   white-space: revert;
 }
 
-/* minimum style to allow to style meter element */
+/* Minimum style to allow to style meter element */
 meter {
   -webkit-appearance: revert;
   appearance: revert;
 }
 
-/* preformatted text - use only for this feature */
+/* Preformatted text - use only for this feature */
 :where(pre) {
   all: revert;
 }
 
-/* reset default text opacity of input placeholder */
+/* Reset default text opacity of input placeholder */
 ::placeholder {
   color: unset;
 }
 
-/* remove default dot (•) sign */
+/* Remove default dot (•) sign */
 ::marker {
   content: initial;
 }
 
-/* fix the feature of 'hidden' attribute.
- display:revert; revert to element instead of attribute */
+/*
+  Fix the feature of 'hidden' attribute.
+  - display:revert; revert to element instead of attribute
+*/
 :where([hidden]) {
   display: none;
 }
 
-/* revert for bug in Chromium browsers
- - fix for the content editable attribute will work properly.
- - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+/*
+  Revert for bug in Chromium browsers
+  - fix for the content editable attribute will work properly.
+  - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element
+*/
 :where([contenteditable]:not([contenteditable="false"])) {
   -moz-user-modify: read-write;
   -webkit-user-modify: read-write;
@@ -88,7 +92,7 @@ meter {
   -webkit-user-select: auto;
 }
 
-/* apply back the draggable feature - exist only in Chromium and Safari */
+/* Apply back the draggable feature - exist only in Chromium and Safari */
 :where([draggable="true"]) {
   -webkit-user-drag: element;
 }
@@ -98,13 +102,18 @@ meter {
   all: revert;
 }
 
+/* Custom Reset */
 html,
 body,
 #__nuxt {
   @include typographyReset;
 
+  /* Fallback for mobile browser viewport height changes */
   background: $backgroundSecondary;
+
   height: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: $spMd;
 }
 
 ::selection {
@@ -112,12 +121,11 @@ body,
 }
 
 a {
-  color: #f1511a;
+  @include link;
 
   &:hover,
   &:focus,
   &:active {
-    color: #f1511a;
-    text-decoration: wavy underline #ffaa00;
+    @include linkHover;
   }
 }

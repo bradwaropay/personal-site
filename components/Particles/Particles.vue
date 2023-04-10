@@ -1,16 +1,22 @@
 <script setup lang="ts">
-import Particles from './assets/scripts/particles';
+import { onMounted } from 'vue';
+import generateParticles from './assets/scripts/particles';
 
 interface Props {
   id?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  id: "dust"
+  id: "particles"
 })
 
 onMounted(() => {
-  Particles(props.id);
+  generateParticles({
+    color: "#efefef",
+    connect: {
+      color: "#3eafc4"
+    },
+  });
 })
 </script>
 
@@ -19,7 +25,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-#dust {
+#particles {
   background-color: $backgroundPrimary;
   position: fixed;
   height: 100%;

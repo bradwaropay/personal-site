@@ -8,16 +8,19 @@ const heroLinks = hero.links as HeroLink[];
 
 <template>
   <SiteContainer>
-    <Section id="hero">
+    <template #header>
       <Hero :heading="hero.heading" :description="hero.description" :links="heroLinks" />
-    </Section>
-    <Section id="featured" :heading="featured.heading">
-      <FeaturedCardList :cards="featured.features" />
-      <ClientList :clients="featured.clients" />
+    </template>
+    <Section id="featured">
+      <FeaturedCardList v-if="featured.features.length" :heading="featured.heading" :description="featured.description"
+        :cards="featured.features" />
+      <ClientList v-if="featured.clients.length" :heading="featured.clientsHeading" :clients="featured.clients" />
     </Section>
     <Section id="about">
       <About :heading="about.heading" :description="about.description" />
     </Section>
-    <Footer />
+    <template #footer>
+      <Footer />
+    </template>
   </SiteContainer>
 </template>

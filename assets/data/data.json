@@ -4,59 +4,49 @@
     "description": "I'm a developer and designer with a passion for problem solving and an obsession with craftsmanship. I specialize in front-end architecture and design systems that not only establish a consistent visual language, intuitive accessible UI patterns, and enjoyable interactions for your users, but also lay a solid foundation for your product, making iteration faster, easier, and enjoyable for developers and designers too.",
     "links": [
       {
+        "title": "Featured",
+        "path": "#featured"
+      },
+      {
+        "title": "About",
+        "path": "#about"
+      },
+      {
         "title": "Github",
-        "path": "https://github.com/bradwaropay",
-        "target": "blank"
+        "path": "https://github.com/bradwaropay"
       },
       {
         "title": "CodePen",
-        "path": "https://codepen.io/bradwaropay",
-        "target": "self"
+        "path": "https://codepen.io/bradwaropay"
       }
     ]
   },
   "featured": {
-    "enabled": true,
     "heading": "Featured Work",
-    "description": "",
+    "description": "<p>A selection of recent work and personal projects. For more of my work check out my <a href=\"https://github.com/bradwaropay\">GitHub</a> and <a href=\"https://codepen.io/bradwaropay\">CodePen</a> accounts.</p>",
+    "descriptionNoFeatures": "<p>Sorry, I'm busy organizing this section. For samples of my work check out my <a href=\"https://github.com/bradwaropay\">GitHub</a> and <a href=\"https://codepen.io/bradwaropay\">CodePen</a> accounts.</p>",
     "features": [
       {
         "image": "",
         "heading": "Warlock",
-        "description": "Design and component system for my personal microsite.",
+        "description": "Design and component system for my personal microsite, this site!,",
         "builtWith": [
           "storybook",
-          "vue",
-          "typescript",
-          "sass"
+          "vuejs"
         ],
         "path": "#"
       },
       {
         "image": "",
-        "heading": "Gooey",
-        "description": "Labore ad quis culpa dolore enim consequat sit fugiat commodo sunt do. Ea laboris in ullamco non fugiat in nulla occaecat reprehenderit ex commodo Lorem dolor eu. Amet adipisicing occaecat et exercitation incididunt aliquip dolore occaecat.",
-        "path": ""
-      },
-      {
-        "image": "",
-        "heading": "Honey Crew",
-        "description": "Pariatur anim sint qui in duis quis Lorem voluptate veniam exercitation. Dolore tempor ullamco et fugiat commodo occaecat ea et aliqua enim. Est tempor consectetur laboris minim qui duis. Do elit excepteur cupidatat pariatur proident laborum sint pariatur est aliqua. Culpa culpa culpa cillum nisi in veniam quis veniam incididunt labore ut eiusmod.",
-        "path": ""
-      },
-      {
-        "image": "",
-        "heading": "Thirty Four",
-        "description": "Quis quis laborum et proident ipsum anim. Nulla est irure minim non dolore mollit excepteur duis ad officia amet commodo in. Commodo aliquip amet anim id veniam dolore cillum aliqua amet exercitation eu eiusmod incididunt dolore.",
-        "path": ""
-      },
-      {
-        "image": "",
         "heading": "CSS Micro Animations",
         "description": "Quis quis laborum et proident ipsum anim. Nulla est irure minim non dolore mollit excepteur duis ad officia amet commodo in. Commodo aliquip amet anim id veniam dolore cillum aliqua amet exercitation eu eiusmod incididunt dolore.",
-        "path": ""
+        "path": "",
+        "builtWith": [
+          "css3"
+        ]
       }
     ],
+    "clientsHeading": "A few of the clients I've worked with…",
     "clients": [
       {
         "name": "AbbVie",
@@ -93,8 +83,7 @@
     ]
   },
   "about": {
-    "enabled": false,
     "heading": "About Me",
-    "description": "Exercitation ullamco commodo reprehenderit aliquip eiusmod laborum et cupidatat amet laboris labore. Elit laborum occaecat laborum ex labore id ad culpa ex esse pariatur eu nulla labore. Cillum ex quis ipsum occaecat minim ipsum deserunt proident ipsum nostrud ad minim sit. Proident dolor laborum eiusmod laborum nostrud. Duis eiusmod duis nostrud laboris. Id fugiat ad eu sit proident esse nisi voluptate elit laboris. Eiusmod occaecat aute esse deserunt commodo labore ex sint officia. Duis reprehenderit nisi quis cillum veniam tempor dolore. Ex culpa sint ipsum do quis elit enim laborum quis eu minim. Officia veniam Lorem incididunt do pariatur mollit consectetur reprehenderit."
+    "description": ""
   }
 }

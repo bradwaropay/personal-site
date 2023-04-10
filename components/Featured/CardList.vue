@@ -3,23 +3,28 @@ import { computed } from '@vue/reactivity';
 import { Card } from "~/components/Featured/Card.vue";
 
 interface Props {
+  heading?: string;
+  description?: string;
   cards: Card[]
 }
 
 const props = defineProps<Props>()
 
 const listClasses = computed(() => {
+  const classes = ['list'];
   const evenOdd = props.cards.length % 2 === 0 ? 'even' : "odd";
-  return `list list--has-${evenOdd}-items`
+
+  if (props.cards.length > 1) classes.push(`list--has-${evenOdd}-items`);
+
+  return classes
 });
 </script>
 
 <template>
-  <h2 class="heading">Featured Work</h2>
-  <p class="description">A selection of recent work and personal projects. For more of my work check out my <a
-      href="#">GitHub</a> and <a href="#">CodePen</a> accounts.</p>
+  <h2 class="heading" v-if="!!heading">{{ heading }}</h2>
+  <div class="description" v-if="!!description" v-html="description" />
   <ul :class="listClasses">
-    <li class="item" v-for="card in cards">
+    <li class="item" v-for="card, i in cards">
       <FeaturedCard :card="card" />
     </li>
   </ul>
@@ -41,20 +46,25 @@ const listClasses = computed(() => {
   gap: $spSm;
   grid-auto-rows: 1fr;
   grid-template-columns: repeat(1, 1fr);
-  margin-top: $spSm;
-
-  @media screen and (min-width: $bpMd) {
-    margin-top: $spMd;
-  }
+  margin-top: $spMd;
 
   @media screen and (min-width: $bpLg) {
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: $spMd;
+    grid-template-columns: repeat(4, 1fr);
 
     &--has-odd-items {
-      .item:first-child {
-        grid-column: span 2;
+      .item:last-child {
+        grid-column: 2 / 4;
       }
+    }
+  }
+}
+
+.item {
+  @media screen and (min-width: $bpLg) {
+    grid-column: span 2;
+
+    &:only-child {
+      grid-column: span 4;
     }
   }
 }
