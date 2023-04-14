@@ -1,156 +1,130 @@
-const hexToRGB = (hex: `#${string}`): string => {
-  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  const longHex = hex?.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(longHex);
+import { hexToRGB } from '~/assets/scripts/utils'
 
-  return !!result
-    ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
-    : "255, 255, 255";
-};
+let particlesCanvas: HTMLCanvasElement;
+let particlesCtx: CanvasRenderingContext2D;
+let connectionsCanvas: HTMLCanvasElement;
+let connectionsCtx: CanvasRenderingContext2D;
+let options: Options;
+let particleArray = <Particle[]>[];
+let animationId: number;
+let mouseX: number;
+let mouseY: number;
 
-interface Options {
-  target?: string,
-  color?: `#${string}`,
-  density?: number,
-  connect?: {
-    color?: `#${string}`,
-    distance?: number,
-    radius?: number,
-    width?: number,
-  }
-}
+export class Particle {
+  radius: number;
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
 
-interface Particle {
-  radius: number,
-  x: number,
-  y: number,
-  vx: number,
-  vy: number,
-  update: () => void
-}
-
-export const Particles = (options?: Options) => {
-  const canvas = document.getElementById(options?.target ? options?.target : 'particles') as HTMLCanvasElement;
-  const ctx = canvas?.getContext("2d");
-
-  const particleColor = hexToRGB(options?.color || "#ffffff");
-  const particleDensity = options?.density || 20;
-  const particleConnectColor = hexToRGB(options?.connect?.color || "#ffffff");
-  const particleConnectDistance = options?.connect?.distance || 100;
-  const particleConnectRadius = options?.connect?.radius || 200;
-  const particleConnectWidth = options?.connect?.width || 0.25;
-
-  let nb = 0;
-  let particleArray: Particle[] = [];
-  let mouseX: number;
-  let mouseY: number;
-  let animationId: number;
-  
-  createParticles();
-  detectMouse();
-  detectResize();
-
-  function Particle(this: Particle, radius: number, x: number, y: number, vx: number, vy: number) {
+  constructor(radius: number, x: number, y: number, vx: number, vy: number) {
     this.radius = radius;
     this.x = x;
     this.y = y;
     this.vx = vx;
     this.vy = vy;
-  }
+  };
 
-  Particle.prototype.update = function() {
-    if (!!ctx) {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-      ctx.fillStyle = "rgb(" + particleColor + ")";
-      ctx.fill();
+  move(options: ParticleOptions) {
+    particlesCtx.beginPath();
+    particlesCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+    particlesCtx.fillStyle = `rgb(${hexToRGB(options.color)})`;
+    particlesCtx.fill();
 
-      if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
-      if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
+    if (this.x < 0 || this.x > particlesCanvas.width) this.vx = -this.vx;
+    if (this.y < 0 || this.y > particlesCanvas.height) this.vy = -this.vy;
 
-      this.x += this.vx;
-      this.y += this.vy;
+    this.x += this.vx;
+    this.y += this.vy;
+  };
 
-      for (let i = 0; i < nb; i++) {
-        const that = particleArray[i];
-        const location = Math.sqrt(
-          Math.pow(this.x - mouseX, 2) + Math.pow(this.y - mouseY, 2)
-        );
-        const distance = Math.sqrt(
-          Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2)
-        );
-        const connectOpacity = 1 - distance / particleConnectDistance;
+  connect(options: ConnectOptions) {
+    for (let i = particleArray.length; i > 0; i--) {
+      const that = particleArray[particleArray.length - i];
+      const location = Math.sqrt(Math.pow(this.x - mouseX, 2) + Math.pow(this.y - mouseY, 2));
+      const distance = Math.sqrt(Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2));
+      const connectOpacity = 1 - distance / options.distance;
 
-        if (location <= particleConnectRadius && distance <= particleConnectDistance) {
-          ctx.beginPath();
-          ctx.moveTo(this.x, this.y);
-          ctx.lineTo(that.x, that.y);
-          ctx.strokeStyle =
-            "rgba(" + particleConnectColor + "," + connectOpacity + ")";
-          ctx.lineWidth = particleConnectWidth;
-          ctx.stroke();
-        }
+      if (location <= options.detectRadius && distance <= options.distance) {
+        connectionsCtx.beginPath();
+        connectionsCtx.moveTo(this.x, this.y);
+        connectionsCtx.lineTo(that.x, that.y);
+        connectionsCtx.strokeStyle = `rgba(${hexToRGB(options.color)},${connectOpacity})`;
+        connectionsCtx.lineWidth = options.width;
+        connectionsCtx.stroke();
       }
     }
   };
+};
 
-  function createParticles() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+export const createParticles = () => {
+  particlesCanvas.width = window.innerWidth;
+  particlesCanvas.height = window.innerHeight;
+  connectionsCanvas.width = window.innerWidth;
+  connectionsCanvas.height = window.innerHeight;
 
-    nb = Math.round(canvas.width * canvas.height * (particleDensity / 100000));
-    particleArray = [];
+  const nb = Math.round(particlesCanvas.width * particlesCanvas.height * (options.density / 100000));
+  particleArray = [];
+
+  for (let i = nb; i > 0; i--) {
+    const radius = Math.random();
+    const x = Math.random() * particlesCanvas.width;
+    const y = Math.random() * particlesCanvas.height;
+    const vx = (Math.random() * (options.particle.velocity * 2)) + (-1 * options.particle.velocity);
+    const vy = (Math.random() * (options.particle.velocity * 2)) + (-1 * options.particle.velocity);
+
+    const newParticle = new Particle(radius, x, y, vx, vy);
+    particleArray.push(newParticle);
+  }
+
+  const animateParticles = () => {
+    particlesCtx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
+    
+    connectionsCtx.clearRect(0, 0, connectionsCanvas.width, connectionsCanvas.height);
+    connectionsCtx.fillStyle = options.backgroundColor;
+    connectionsCtx.fillRect(0, 0, connectionsCanvas.width, connectionsCanvas.height);
 
     for (let i = 0; i < nb; i++) {
-      const radius = Math.random();
-      const x = Math.random() * canvas.width;
-      const y = Math.random() * canvas.height;
-      const vx = -0.5 + Math.random();
-      const vy = -0.5 + Math.random();
-
-      const newParticle = new (Particle as any)(radius, x, y, vx, vy);
-      particleArray.push(newParticle);
+      const particle = particleArray[i];
+      particle.move({...options.particle});
+      particle.connect({...options.connect});
     }
 
     animationId = window.requestAnimationFrame(animateParticles);
   }
 
-  function animateParticles() {
-    ctx?.clearRect(0, 0, canvas.width, canvas.height);
+  animationId = window.requestAnimationFrame(animateParticles);
+}
 
-    for (let i = 0; i < nb; i++) {
-      let particle = particleArray[i];
-      particle.update();
-    }
+const detectMouseMove = (mousePosition: MouseEvent) => {
+  mouseX = mousePosition.clientX;
+  mouseY = mousePosition.clientY;
+}
 
-    animationId = window.requestAnimationFrame(animateParticles);
-  }
+const detectResize = () =>  {
+  cancelAnimationFrame(animationId);
+  createParticles();
+}
 
-  function detectMouse() {
-    window.addEventListener("mousemove", (mousePosition) => {
-      mouseX = mousePosition.pageX;
-      mouseY = mousePosition.pageY - window.scrollY;
-    });
-  }
+export const initParticles = (newParticlesCanvas: HTMLCanvasElement, newConnectionsCanvas: HTMLCanvasElement, initOptions: Options) => {
+  particlesCanvas = newParticlesCanvas;
+  particlesCtx = particlesCanvas.getContext('2d') as CanvasRenderingContext2D;
+  connectionsCanvas = newConnectionsCanvas;
+  connectionsCtx = connectionsCanvas.getContext('2d', { alpha: false}) as CanvasRenderingContext2D;
+  options = initOptions;
 
-  function detectResize() {
-    let documentWidth = document.body.clientWidth;
-    let documentHeight = document.body.clientHeight;
-
-    console.log(documentWidth);
-    console.log(documentHeight);
-    window.addEventListener("resize", () => {
-      if (
-        documentWidth !== document.body.clientWidth ||
-        documentHeight !== document.body.clientHeight
-      ) {
-        documentWidth = document.body.clientWidth;
-        documentHeight = document.body.clientHeight;
-        cancelAnimationFrame(animationId);
-        createParticles();
-      }
-    });
+  if (!!particlesCtx) {
+    createParticles();
+    window.addEventListener("mousemove", detectMouseMove);
+    window.addEventListener("resize", () => detectResize());
   }
 }
 
-export default Particles;
+export const destroyParticles = () => {
+  particleArray = [];
+  cancelAnimationFrame(animationId);
+  window.removeEventListener('mousemove', detectMouseMove);
+  window.removeEventListener('resize', detectResize);
+}
+
+export default createParticles;

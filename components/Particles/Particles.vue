@@ -1,34 +1,33 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import generateParticles from './assets/scripts/particles';
+import { initParticles, destroyParticles } from './assets/scripts/particles';
 
-interface Props {
-  id?: string
-}
+import { Options } from './Options'
 
-const props = withDefaults(defineProps<Props>(), {
-  id: "particles"
-})
+const particlesRef = ref();
+const connectionsRef = ref();
 
 onMounted(() => {
-  generateParticles({
-    color: "#efefef",
-    connect: {
-      color: "#3eafc4"
-    },
-  });
+  initParticles(particlesRef.value, connectionsRef.value, Options);
+})
+
+onUnmounted(() => {
+  destroyParticles();
 })
 </script>
 
 <template>
-  <canvas :id="id" />
+  <canvas class="canvas canvas--is-connections" ref="connectionsRef" />
+  <canvas class="canvas canvas--is-particles" ref="particlesRef" />
+  <ParticlesControls />
 </template>
 
 <style lang="scss" scoped>
-#particles {
-  background-color: $backgroundPrimary;
+.canvas {
   position: fixed;
   height: 100%;
-  top: 0;
+
+  &--is-connections {
+    background-color: $backgroundPrimary;
+  }
 }
 </style>
