@@ -1,6 +1,10 @@
 <script lang="ts" setup>
-import Open, { toggleOpen } from "./ControlsState"
+import Open from "./ControlsState"
 import Options from './Options'
+
+const close = () => {
+  Open.value = false;
+}
 
 const particleControls = reactive([
   {
@@ -60,37 +64,71 @@ const connectControls = reactive([
 </script>
 
 <template>
-  <div class="container" v-if="Open" @click="toggleOpen">
-    <div class=" modal" @click.stop>
-      <h3 class=" heading">Particles</h3>
-      <ul class="controls">
-        <li class="control" v-for="control in particleControls">
-          <label class="label">{{ control.label }}</label>
-          <input v-if="control.type === 'range'" :class="`input input--is-${control.type}`" :type="control.type"
-            :min="control.rangeMin" :max="control.rangeMax" :step="control.rangeStep"
-            v-model="Options.particle[control.key as keyof ParticleOptions]" />
-          <input v-else :class="`input input--is-${control.type}`" :type="control.type"
-            v-model="Options.particle[control.key as keyof ParticleOptions]" />
-          <span class="value">{{ Options.particle[control.key as keyof ParticleOptions] }}</span>
-        </li>
-      </ul>
-      <h3 class="heading">Connections</h3>
-      <ul class="controls">
-        <li class="control" v-for="control in connectControls">
-          <label class="label">{{ control.label }}</label>
-          <input v-if="control.type === 'range'" :class="`input input--is-${control.type}`" :type="control.type"
-            :min="control.rangeMin" :max="control.rangeMax" :step="control.rangeStep"
-            v-model="Options.connect[control.key as keyof ConnectOptions]" />
-          <input v-else :class="`input input--is-${control.type}`" :type="control.type"
-            v-model="Options.connect[control.key as keyof ConnectOptions]" />
-          <span class="value">{{ Options.connect[control.key as keyof ConnectOptions] }}</span>
-        </li>
-      </ul>
+  <Transition name="modal">
+    <div class="container" v-if="Open" @click="close">
+      <div class="modal" v-if="Open" @click.stop>
+        <h3 class=" heading">Particles</h3>
+        <ul class="controls">
+          <li class="control" v-for="control in particleControls">
+            <label class="label">{{ control.label }}</label>
+            <input v-if="control.type === 'range'" :class="`input input--is-${control.type}`" :type="control.type"
+              :min="control.rangeMin" :max="control.rangeMax" :step="control.rangeStep"
+              v-model="Options.particle[control.key as keyof ParticleOptions]" />
+            <input v-else :class="`input input--is-${control.type}`" :type="control.type"
+              v-model="Options.particle[control.key as keyof ParticleOptions]" />
+            <span class="value">{{ Options.particle[control.key as keyof ParticleOptions] }}</span>
+          </li>
+        </ul>
+        <h3 class="heading">Connections</h3>
+        <ul class="controls">
+          <li class="control" v-for="control in connectControls">
+            <label class="label">{{ control.label }}</label>
+            <input v-if="control.type === 'range'" :class="`input input--is-${control.type}`" :type="control.type"
+              :min="control.rangeMin" :max="control.rangeMax" :step="control.rangeStep"
+              v-model="Options.connect[control.key as keyof ConnectOptions]" />
+            <input v-else :class="`input input--is-${control.type}`" :type="control.type"
+              v-model="Options.connect[control.key as keyof ConnectOptions]" />
+            <span class="value">{{ Options.connect[control.key as keyof ConnectOptions] }}</span>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <style lang="scss" scoped>
+@keyframes fade-in {
+  0% {
+    transform: translateY(10rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.4s ease-in-out;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-active {
+  .modal {
+    animation: fade-in 0.4s;
+  }
+}
+
+.modal-leave-active {
+  .modal {
+    animation: fade-in 0.4s reverse;
+  }
+}
+
 .container {
   align-items: center;
   background-color: rgba($backgroundPrimary, 0.5);
