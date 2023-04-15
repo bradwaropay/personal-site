@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import Open, { toggleOpen } from "./ControlsState"
 import Options from './Options'
 
 const particleControls = reactive([
@@ -59,9 +60,9 @@ const connectControls = reactive([
 </script>
 
 <template>
-  <div class="container">
-    <div class="modal">
-      <h3 class="heading">Particles</h3>
+  <div class="container" v-if="Open" @click="toggleOpen">
+    <div class=" modal" @click.stop>
+      <h3 class=" heading">Particles</h3>
       <ul class="controls">
         <li class="control" v-for="control in particleControls">
           <label class="label">{{ control.label }}</label>
@@ -92,6 +93,7 @@ const connectControls = reactive([
 <style lang="scss" scoped>
 .container {
   align-items: center;
+  background-color: rgba($backgroundPrimary, 0.5);
   display: flex;
   height: 100%;
   justify-content: center;

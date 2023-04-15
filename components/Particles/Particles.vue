@@ -18,6 +18,7 @@ onUnmounted(() => {
 <template>
   <canvas class="canvas canvas--is-connections" ref="connectionsRef" />
   <canvas class="canvas canvas--is-particles" ref="particlesRef" />
+  <ParticlesControlsToggle />
   <ParticlesControls />
 </template>
 
@@ -25,9 +26,6 @@ onUnmounted(() => {
 .canvas {
   position: fixed;
   height: 100%;
-
-  &--is-connections {
-    background-color: $backgroundPrimary;
-  }
+  width: 100%;
 }
 </style>

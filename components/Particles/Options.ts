@@ -1,6 +1,6 @@
 import { reactive } from "vue";
 
-export const Options: Options = reactive({
+export const defaults: Options = {
   backgroundColor: '#0d1b27',
   density: 20,
   particle: {
@@ -14,6 +14,8 @@ export const Options: Options = reactive({
     distance: 100,
     detectRadius: 200,
   }
-});
+}
+
+export const Options: Options = reactive({...defaults});
 
 export default Options;
