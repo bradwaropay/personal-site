@@ -1,6 +1,16 @@
+<script lang="ts" setup>
+import Open from "~/components/Particles/ControlsState"
+
+const page = ref();
+
+watch(Open, async () => {
+  page.value.inert = Open.value
+});
+</script>
+
 <template>
   <Particles />
-  <div class="container">
+  <div class="container" ref="page">
     <slot name="header" />
     <main>
       <slot />

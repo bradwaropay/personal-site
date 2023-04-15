@@ -66,7 +66,7 @@ const connectControls = reactive([
 <template>
   <Transition name="modal">
     <div class="container" v-if="Open" @click="close">
-      <div class="modal" v-if="Open" @click.stop>
+      <div class="modal" role="dialog" aria-label="Particle Controls" aria-modal="true" v-if="Open" @click.stop>
         <h3 class=" heading">Particles</h3>
         <ul class="controls">
           <li class="control" v-for="control in particleControls">
