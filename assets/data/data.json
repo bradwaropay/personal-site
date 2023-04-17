@@ -1,7 +1,7 @@
 {
   "hero": {
     "heading": "Hi, I'm Brad Waropay",
-    "description": "I'm a developer and designer with a passion for problem solving and an obsession with craftsmanship. I specialize in front-end architecture and leading and consulting teams on creating design systems that make building and maintaining your product as easy and enjoyable as using it.",
+    "description": "I'm a developer and designer with a passion for problem solving and an obsession with craftsmanship. I specialize in front-end architecture, leading teams in creating and growing design systems that make building and maintaining your product as easy and enjoyable as using it.",
     "links": [
       {
         "title": "Featured",
@@ -49,7 +49,7 @@
       {
         "image": "honey-crew",
         "heading": "Honey Crew",
-        "description": "A character generator for Honey Heist. A project for fun and learning Composition API and new vue/nuxt 3 features.",
+        "description": "A character generator for Honey Heist. Created for fun and learning Composition API and other new vue/nuxt 3 features.",
         "path": "",
         "builtWith": [
           "nuxtjs"
@@ -94,6 +94,6 @@
   },
   "about": {
     "heading": "About Me",
-    "description": "<p>I love building for the web and making it better for everyone! With 15+ years experience of creating for the web and leading teams, I focus on the overall user and developer/designer experience (UX/DX), creating intuitive, extensible systems and patterns that foster creativity and productivity, not stifle it, resulting in accessible, responsive, and performant products and tools for users and enabling developers and designers to quickly and easily maintain and iterate on.</p><p>Located in Madison, WI, when I'm not experimenting and creating for the web, I enjoy cooking, fitness, trying out new beers, and spending time with my partner and two dogs.</p>"
+    "description": "<p>I love building for the web and making it better for everyone! With 15+ years experience of creating for the web and leading teams, I focus on the overall user and developer/designer experience (UX/DX), establishing intuitive, extensible systems and patterns that foster creativity and productivity, not stifle it, resulting in accessible, responsive, and performant products and tools for users and easier maintenance and faster iteration times for developers and designers.</p><p>Located in Madison, WI, when I'm not experimenting and creating for the web, I enjoy cooking, fitness, reading and adding to my library, and checking out breweries and trying new beers.</p>"
   }
 }

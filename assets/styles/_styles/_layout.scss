@@ -26,10 +26,12 @@ $sp2Xl: 18rem;
 @mixin content {
   margin: 0 auto;
   max-width: $contentContainer;
-  padding: 0 $contentGutter;
+  padding-left: $contentGutter;
+  padding-right: $contentGutter;
 
   @media screen and (min-width: $bpMd) {
-    padding: 0 $contentGutterMd;
+    padding-left: $contentGutterMd;
+    padding-right: $contentGutterMd;
   }
 
   @media screen and (min-width: $bpLg) {
