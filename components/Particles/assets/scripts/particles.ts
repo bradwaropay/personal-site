@@ -1,4 +1,4 @@
-import { hexToRGB } from '~/assets/scripts/utils'
+import { debounce, hexToRGB } from '~/assets/scripts/utils'
 
 let particleCanvas: HTMLCanvasElement;
 let particleCtx: CanvasRenderingContext2D;
@@ -105,10 +105,23 @@ const detectMouseMove = (mousePosition: MouseEvent) => {
   mouseY = mousePosition.clientY;
 }
 
-const detectResize = () =>  {
-  cancelAnimationFrame(animationId);
-  createParticles();
-}
+const isResizing = (particleCanvas: HTMLCanvasElement, connectCanvas: HTMLCanvasElement) => particleCanvas.classList.contains('canvas--is-resizing') && connectCanvas.classList.contains('canvas--is-resizing');
+
+const detectResizeStart = () => {
+  if (!isResizing(particleCanvas, connectCanvas)) {
+    particleCanvas.classList.add('canvas--is-resizing');
+    connectCanvas.classList.add('canvas--is-resizing');
+    cancelAnimationFrame(animationId);
+  }
+};
+
+const detectResizeFinish = debounce(() => {
+  if (isResizing(particleCanvas, connectCanvas)) {
+    createParticles();
+    particleCanvas.classList.remove('canvas--is-resizing');
+    connectCanvas.classList.remove('canvas--is-resizing');
+  }
+}, 250);
 
 export const initParticles = (newParticlesCanvas: HTMLCanvasElement, newConnectionsCanvas: HTMLCanvasElement, initOptions: Options) => {
   particleCanvas = newParticlesCanvas;
@@ -120,7 +133,8 @@ export const initParticles = (newParticlesCanvas: HTMLCanvasElement, newConnecti
   if (!!particleCtx) {
     createParticles();
     window.addEventListener("mousemove", detectMouseMove);
-    window.addEventListener("resize", () => detectResize());
+    window.addEventListener("resize", detectResizeStart);
+    window.addEventListener("resize", detectResizeFinish);
   }
 }
 
@@ -128,7 +142,8 @@ export const destroyParticles = () => {
   particleArray = [];
   cancelAnimationFrame(animationId);
   window.removeEventListener('mousemove', detectMouseMove);
-  window.removeEventListener('resize', detectResize);
+  window.removeEventListener('resize', detectResizeStart);
+  window.addEventListener("resize", detectResizeFinish);
 }
 
 export default createParticles;

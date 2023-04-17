@@ -1,16 +1,15 @@
+import data from "./assets/data/data.json";
+
+const { hero } = data;
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
     head: {
-      title: "Brad Waropay",
+      title: "Brad Waropay | Front-End Architecture and Design Systems",
+      viewport: "width=device-width, initial-scale=1",
+      charset: "utf-8",
       "meta": [
-        {
-          "name": "viewport",
-          "content": "width=device-width, initial-scale=1"
-        },
-        {
-          "charset": "utf-8"
-        },
         {
           "name": "msapplication-TileColor",
           "content": "#da532c"
@@ -18,6 +17,10 @@ export default defineNuxtConfig({
         {
           "name": "theme-color",
           "content": "#ffffff"
+        },
+        {
+          "name": "description",
+          "content": `${hero.heading}. ${hero.description}`,
         }
       ],
       "link": [

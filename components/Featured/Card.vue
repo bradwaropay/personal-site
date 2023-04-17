@@ -19,7 +19,7 @@ const props = defineProps<Props>()
 <template>
   <a class="link" href={{ card.path }}>
     <article class="card">
-      <img class="image" src="http://via.placeholder.com/640x640" alt="" />
+      <img class="image" :src="`svg/featured/${card.image}.svg`" :alt="card.description" />
       <div class="content">
         <h3 class="heading">{{ card.heading }}</h3>
         <p class="description">{{ card.description }}</p>

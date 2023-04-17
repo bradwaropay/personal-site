@@ -1,7 +1,7 @@
 {
   "hero": {
     "heading": "Hi, I'm Brad Waropay",
-    "description": "I'm a developer and designer with a passion for problem solving and an obsession with craftsmanship. I specialize in front-end architecture and design systems that not only establish a consistent visual language, intuitive accessible UI patterns, and enjoyable interactions for your users, but also lay a solid foundation for your product, making iteration faster, easier, and enjoyable for developers and designers too.",
+    "description": "I'm a developer and designer with a passion for problem solving and an obsession with craftsmanship. I specialize in front-end architecture and leading and consulting teams on creating design systems that make building and maintaining your product as easy and enjoyable as using it.",
     "links": [
       {
         "title": "Featured",
@@ -27,22 +27,32 @@
     "descriptionNoFeatures": "<p>Sorry, I'm busy organizing this section. For samples of my work check out my <a href=\"https://github.com/bradwaropay\">GitHub</a> and <a href=\"https://codepen.io/bradwaropay\">CodePen</a> accounts.</p>",
     "features": [
       {
-        "image": "",
+        "image": "warlock",
         "heading": "Warlock",
-        "description": "Design and component system for my personal microsite, this site!,",
+        "description": "Design system, component library, documentation, and usage guidelines for my personal microsite, this site!",
         "builtWith": [
-          "storybook",
-          "vuejs"
+          "figma",
+          "vuejs",
+          "storybook"
         ],
         "path": "#"
       },
       {
-        "image": "",
+        "image": "css-micro-animations",
         "heading": "CSS Micro Animations",
-        "description": "Quis quis laborum et proident ipsum anim. Nulla est irure minim non dolore mollit excepteur duis ad officia amet commodo in. Commodo aliquip amet anim id veniam dolore cillum aliqua amet exercitation eu eiusmod incididunt dolore.",
+        "description": "An ongoing exercise in creativity with constraints, experimenting with how much can be done with CSS animations and a single <div>.",
         "path": "",
         "builtWith": [
           "css3"
+        ]
+      },
+      {
+        "image": "honey-crew",
+        "heading": "Honey Crew",
+        "description": "A character generator for Honey Heist. A project for fun and learning Composition API and new vue/nuxt 3 features.",
+        "path": "",
+        "builtWith": [
+          "nuxtjs"
         ]
       }
     ],
@@ -84,6 +94,6 @@
   },
   "about": {
     "heading": "About Me",
-    "description": ""
+    "description": "<p>I love building for the web and making it better for everyone! With 15+ years experience of creating for the web and leading teams, I focus on the overall user and developer/designer experience (UX/DX), creating intuitive, extensible systems and patterns that foster creativity and productivity, not stifle it, resulting in accessible, responsive, and performant products and tools for users and enabling developers and designers to quickly and easily maintain and iterate on.</p><p>Located in Madison, WI, when I'm not experimenting and creating for the web, I enjoy cooking, fitness, trying out new beers, and spending time with my partner and two dogs.</p>"
   }
 }

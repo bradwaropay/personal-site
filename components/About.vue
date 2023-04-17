@@ -11,7 +11,7 @@ defineProps<Props>()
   <article class="about">
     <div class="content">
       <h2 class="heading">{{ heading }}</h2>
-      <p class="description">{{ description }}</p>
+      <div class="description" v-html="description" />
     </div>
     <img class="image" src="http://via.placeholder.com/640x640" alt="Brad Waropay Portrait" />
   </article>
@@ -52,5 +52,11 @@ defineProps<Props>()
 
 .heading {
   @include heading;
+}
+
+.description {
+  :deep(p + p) {
+    margin-top: $spXs;
+  }
 }
 </style>
