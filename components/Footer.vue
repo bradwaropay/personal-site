@@ -22,13 +22,13 @@ const date = new Date().getFullYear();
   @media screen and (min-width: $bpMd) {
     margin-top: $spXl;
     max-width: $contentContainerLg;
-    padding: 0 $contentGutterMd $spXs;
+    padding: 0 $contentGutterLg $spXs;
   }
 
   @media screen and (min-width: $bpLg) {
     margin-top: $spXl;
     max-width: $contentContainerLg;
-    padding: 0 $contentGutterMd $spXs;
+    padding: 0 $contentGutterLg $spXs;
   }
 }
 </style>

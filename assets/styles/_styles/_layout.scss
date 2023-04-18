@@ -10,7 +10,7 @@ $zOverlay: 200;
 
 // Layout
 $contentGutter: 2rem;
-$contentGutterMd: 4rem;
+$contentGutterLg: 4rem;
 $contentContainer: $bpMd;
 $contentContainerLg: $bpLg;
 
@@ -29,12 +29,9 @@ $sp2Xl: 18rem;
   padding-left: $contentGutter;
   padding-right: $contentGutter;
 
-  @media screen and (min-width: $bpMd) {
-    padding-left: $contentGutterMd;
-    padding-right: $contentGutterMd;
-  }
-
   @media screen and (min-width: $bpLg) {
     max-width: $contentContainerLg;
+        padding-left: $contentGutterLg;
+    padding-right: $contentGutterLg;
   }
 }

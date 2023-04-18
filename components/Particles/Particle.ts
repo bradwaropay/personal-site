@@ -146,4 +146,4 @@ export const destroyParticles = () => {
   window.addEventListener("resize", detectResizeFinish);
 }
 
-export default createParticles;
+export default Particle;

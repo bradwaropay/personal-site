@@ -10,7 +10,7 @@ const particleControls = reactive([
   {
     label: 'Color',
     key: 'color',
-    type: 'text'
+    type: 'color'
   },
   {
     label: 'Size',
@@ -34,7 +34,7 @@ const connectControls = reactive([
   {
     label: 'Color',
     key: 'color',
-    type: 'text'
+    type: 'color'
   },
   {
     label: 'Width',
@@ -74,7 +74,7 @@ const connectControls = reactive([
             <input v-if="control.type === 'range'" :class="`input input--is-${control.type}`" :type="control.type"
               :min="control.rangeMin" :max="control.rangeMax" :step="control.rangeStep"
               v-model="Options.particle[control.key as keyof ParticleOptions]" />
-            <input v-else :class="`input input--is-${control.type}`" :type="control.type"
+            <input v-if="control.type === 'color'" :class="`input input--is-${control.type}`" :type="control.type"
               v-model="Options.particle[control.key as keyof ParticleOptions]" />
             <span class="value">{{ Options.particle[control.key as keyof ParticleOptions] }}</span>
           </li>
@@ -86,7 +86,7 @@ const connectControls = reactive([
             <input v-if="control.type === 'range'" :class="`input input--is-${control.type}`" :type="control.type"
               :min="control.rangeMin" :max="control.rangeMax" :step="control.rangeStep"
               v-model="Options.connect[control.key as keyof ConnectOptions]" />
-            <input v-else :class="`input input--is-${control.type}`" :type="control.type"
+            <input v-if="control.type === 'color'" :class="`input input--is-${control.type}`" :type="control.type"
               v-model="Options.connect[control.key as keyof ConnectOptions]" />
             <span class="value">{{ Options.connect[control.key as keyof ConnectOptions] }}</span>
           </li>
@@ -99,11 +99,11 @@ const connectControls = reactive([
 <style lang="scss" scoped>
 @keyframes fade-in {
   0% {
-    transform: translateY(10rem);
+    transform: scale(0);
   }
 
   100% {
-    transform: translateY(0);
+    transform: scale(1);
   }
 }
 
@@ -138,16 +138,17 @@ const connectControls = reactive([
   position: fixed;
   width: 100%;
   z-index: 1;
+  padding: $contentGutter;
 }
 
 .modal {
   background-color: rgba($accentPrimary, 0.95);
   box-shadow: 0 0 0.5rem 0 rgba(black, 0.5);
-  font-size: $textMd;
+
   padding: $spSm;
   border-radius: 1rem;
   width: 100%;
-  max-width: 40rem;
+  max-width: 46rem;
 }
 
 .heading {
@@ -163,25 +164,105 @@ const connectControls = reactive([
 .controls {
   background-color: rgba($backgroundPrimary, 0.125);
   box-shadow: inset 0 0 0.25rem 0 rgba(black, 0.1);
-  padding: $sp2Xs $spXs;
+  padding: $spXs $spSm;
 }
 
 .control {
+  align-items: center;
   display: flex;
   gap: $spSm;
+  position: relative;
+
+  &+& {
+    margin-top: $sp2Xs;
+  }
 }
 
 .label {
-  width: 25%;
+  width: 20%;
+  line-height: 1;
 }
 
 .input {
   flex-grow: 1;
 
-  &--is-range {}
+  &--is-range {
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+
+    &::-webkit-slider-runnable-track {
+      background-color: $contentPrimary;
+      height: 0.125rem;
+    }
+
+    &::-webkit-slider-thumb {
+      appearance: none;
+      background-color: $actionPrimary;
+      border: none;
+      border-radius: 50%;
+      height: 1rem;
+      width: 1rem;
+      margin-top: -0.4375rem;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+
+      &::-webkit-slider-thumb {
+        background-color: $actionSecondary;
+        outline: 3px solid $contentPrimary;
+        outline-offset: 0.125rem;
+      }
+    }
+
+
+    &::-moz-range-track {
+      background-color: $contentPrimary;
+      height: 0.125rem;
+    }
+
+    &::-moz-range-thumb {
+      appearance: none;
+      background-color: $actionPrimary;
+      border: none;
+      border-radius: 50%;
+      height: 1rem;
+      width: 1rem;
+      margin-top: -0.4375rem;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+
+      &::-moz-range-thumb {
+        background-color: $actionSecondary;
+        outline: 3px solid $contentPrimary;
+        outline-offset: 0.125rem;
+      }
+    }
+  }
+
+  &--is-color {
+    cursor: pointer;
+    height: 1.25rem;
+
+    &::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+
+    &::-webkit-color-swatch {
+      border: none;
+      box-shadow: 0 0 0.125rem 0 rgba(black, 0.25);
+    }
+  }
 }
 
 .value {
-  width: 25%;
+  width: 15%;
 }
 </style>

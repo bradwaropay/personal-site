@@ -35,13 +35,13 @@
           "vuejs",
           "storybook"
         ],
-        "path": "#"
+        "path": "/"
       },
       {
         "image": "css-micro-animations",
         "heading": "CSS Micro Animations",
         "description": "An ongoing exercise in creativity with constraints, experimenting with how much can be done with CSS animations and a single <div>.",
-        "path": "",
+        "path": "/",
         "builtWith": [
           "css3"
         ]
@@ -50,7 +50,7 @@
         "image": "honey-crew",
         "heading": "Honey Crew",
         "description": "A character generator for Honey Heist. Created for fun and learning Composition API and other new vue/nuxt 3 features.",
-        "path": "",
+        "path": "/",
         "builtWith": [
           "nuxtjs"
         ]
@@ -94,6 +94,6 @@
   },
   "about": {
     "heading": "About Me",
-    "description": "<p>I love building for the web and making it better for everyone! With 15+ years experience of creating for the web and leading teams, I focus on the overall user and developer/designer experience (UX/DX), establishing intuitive, extensible systems and patterns that foster creativity and productivity, not stifle it, resulting in accessible, responsive, and performant products and tools for users and easier maintenance and faster iteration times for developers and designers.</p><p>Located in Madison, WI, when I'm not experimenting and creating for the web, I enjoy cooking, fitness, reading and adding to my library, and checking out breweries and trying new beers.</p>"
+    "description": "<p>I love building for the web and making it better for everyone! Located in Madison, WI, I'm a front-end engineer with over 15 years experience of leading teams and creating for the web.</p><p>I focus on the overall user and developer/designer experience (UX/DX), establishing intuitive, extensible systems and patterns that foster creativity and productivity, not stifle it, resulting in accessible, responsive, and performant products and tools for users and easier maintenance and faster iteration times for developers and designers.</p>"
   }
 }

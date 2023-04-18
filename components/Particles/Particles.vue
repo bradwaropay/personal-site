@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { initParticles, destroyParticles } from './assets/scripts/particles';
+import { initParticles, destroyParticles } from './Particle'
 
 import { Options } from './Options'
 

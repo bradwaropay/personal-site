@@ -107,10 +107,8 @@ html,
 body,
 #__nuxt {
   @include typographyReset;
-
-  /* Fallback for mobile browser viewport height changes */
-  background: $backgroundSecondary;
-
+  
+  background: $backgroundPrimary;
   height: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: $spMd;

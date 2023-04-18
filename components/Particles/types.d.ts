@@ -1,5 +1,3 @@
-type HexColor = `#${string}`;
-
 interface ParticleOptions {
   color: HexColor,
   size: number,

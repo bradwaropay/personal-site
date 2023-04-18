@@ -13,7 +13,7 @@ defineProps<Props>()
       <h2 class="heading">{{ heading }}</h2>
       <div class="description" v-html="description" />
     </div>
-    <img class="image" src="http://via.placeholder.com/640x640" alt="Brad Waropay Portrait" />
+    <img class="image" src="~/assets/images/photo.jpg" alt="Brad Waropay Portrait" />
   </article>
 </template>
 
