@@ -19,7 +19,8 @@ const durationSeconds = computed(() => { return `${props.duration}s` });
 </script>
 
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 89.01" role="img" aria-labelledby="logo-title">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 89.01" role="img" aria-labelledby="logo-title" height="284.83"
+    width="320">
     <title id="logo-title">Brad Waropay Logo</title>
     <defs>
       <linearGradient id="logo-gradient" x1="50%" y1="0%" x2="50%" y2="100%">
@@ -43,3 +44,5 @@ const durationSeconds = computed(() => { return `${props.duration}s` });
     </g>
   </svg>
 </template>
+
+<style lang="scss" scoped></style>
