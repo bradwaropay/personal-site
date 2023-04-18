@@ -45,7 +45,7 @@ const listClasses = computed(() => {
   <h3 class="heading" v-if="!!heading">{{ heading }}</h3>
   <ul :class="listClasses">
     <li class="item" v-for="client in clients">
-      <img class="logo" :src="clientLogo(client.logo)" :alt="client.name" />
+      <img class="logo" :src="clientLogo(client.logo)" :alt="client.name" height="110" width="300" />
     </li>
   </ul>
 </template>
@@ -133,6 +133,6 @@ const listClasses = computed(() => {
 }
 
 .logo {
-  max-width: 100%;
+  height: auto;
 }
 </style>

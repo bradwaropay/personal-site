@@ -19,7 +19,7 @@ const props = defineProps<Props>()
 <template>
   <a class="link" href={{ card.path }}>
     <article class="card">
-      <img class="image" :src="`svg/featured/${card.image}.svg`" :alt="card.description" />
+      <img class="image" :src="`svg/featured/${card.image}.svg`" :alt="card.description" height="100" width="100" />
       <div class="content">
         <h3 class="heading">{{ card.heading }}</h3>
         <p class="description">{{ card.description }}</p>
@@ -75,18 +75,15 @@ const props = defineProps<Props>()
     grid-template-areas:
       "image content"
       "image footer";
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: 1fr auto;
   }
 }
 
 .image {
   grid-area: image;
-  max-width: 25%;
-
-  @media screen and (min-width: $bpSm) {
-    max-width: 100%;
-  }
+  height: 5rem;
+  width: 5rem;
 }
 
 .content {

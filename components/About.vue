@@ -13,7 +13,7 @@ defineProps<Props>()
       <h2 class="heading">{{ heading }}</h2>
       <div class="description" v-html="description" />
     </div>
-    <img class="image" src="~/assets/images/photo.jpg" alt="Brad Waropay Portrait" />
+    <img class="image" src="~/assets/images/photo.webp" alt="Brad Waropay Portrait" height="320" width="320" />
   </article>
 </template>
 
@@ -32,8 +32,7 @@ defineProps<Props>()
 }
 
 .image {
-  width: 20rem;
-  min-width: 20rem;
+  max-width: 100%;
   border-radius: 50%;
   align-self: center;
 
