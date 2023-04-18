@@ -9,6 +9,9 @@ export default defineNuxtConfig({
       title: "Brad Waropay | Front-End Architecture and Design Systems",
       viewport: "width=device-width, initial-scale=1",
       charset: "utf-8",
+      htmlAttrs: {
+        lang: "en",
+      },
       "meta": [
         {
           "name": "msapplication-TileColor",
@@ -29,7 +32,7 @@ export default defineNuxtConfig({
         { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
         { rel: "manifest", href: "/site.webmanifest" },
         { rel: "mask-icon", href: "/safari-pinned-tab.svg", color: "#5bbad5" },
-      ]
+      ],
     }
   },
   css: [
