@@ -1,5 +1,6 @@
 // Font Families
-$ffPrimary: "Inconsolata", monospace;
+// sans-serif instead of monospace to reduce CLS
+$ffPrimary: "Inconsolata", sans-serif;
 
 // Font Weights
 $fwPrimaryRegular: 400;
