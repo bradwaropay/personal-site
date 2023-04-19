@@ -1,0 +1,36 @@
+{
+  "heading": "Featured Work",
+  "description": "<p>A selection of recent work and personal projects. For more of my work check out my <a href=\"https://github.com/bradwaropay\">GitHub</a> and <a href=\"https://codepen.io/bradwaropay\">CodePen</a> accounts.</p>",
+  "descriptionNoFeatures": "<p>Sorry, I'm busy organizing this section. For samples of my work check out my <a href=\"https://github.com/bradwaropay\">GitHub</a> and <a href=\"https://codepen.io/bradwaropay\">CodePen</a> accounts.</p>",
+  "features": [
+    {
+      "image": "warlock",
+      "heading": "Warlock",
+      "description": "Design system, component library, documentation, and usage guidelines for my personal microsite, this site!",
+      "builtWith": [
+        "figma",
+        "vuejs",
+        "storybook"
+      ],
+      "path": "/"
+    },
+    {
+      "image": "css-micro-animations",
+      "heading": "CSS Micro Animations",
+      "description": "An ongoing exercise in creativity with constraints, experimenting with how much can be done with CSS animations and a single <div>.",
+      "path": "/",
+      "builtWith": [
+        "css3"
+      ]
+    },
+    {
+      "image": "honey-crew",
+      "heading": "Honey Crew",
+      "description": "A character generator for Honey Heist. Created for fun and learning Composition API and other new vue/nuxt 3 features.",
+      "path": "/",
+      "builtWith": [
+        "nuxtjs"
+      ]
+    }
+  ]
+}

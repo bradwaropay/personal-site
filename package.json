@@ -13,6 +13,7 @@
     "sass-loader": "^13.2.1"
   },
   "dependencies": {
+    "@nuxtjs/google-fonts": "^3.0.0",
     "devicon": "^2.15.1"
   }
 }

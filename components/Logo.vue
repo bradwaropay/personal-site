@@ -45,4 +45,3 @@ const durationSeconds = computed(() => { return `${props.duration}s` });
   </svg>
 </template>
 
-<style lang="scss" scoped></style>

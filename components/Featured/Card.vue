@@ -17,7 +17,7 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-  <a class="link" href={{ card.path }}>
+  <a class="link" :href="card.path">
     <article class="card">
       <img class="image" :src="`svg/featured/${card.image}.svg`" :alt="card.description" height="100" width="100" />
       <div class="content">

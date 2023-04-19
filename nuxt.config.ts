@@ -46,6 +46,16 @@ export default defineNuxtConfig({
           additionalData: `@import "~/assets/styles/styles.scss";`
         }
       }
+    },
+  },
+  modules: [
+    '@nuxtjs/google-fonts'
+  ],
+  googleFonts: {
+    preconnect: true,
+    display: 'swap',
+    families: {
+      Inconsolata: [400, 700],
     }
   }
 })

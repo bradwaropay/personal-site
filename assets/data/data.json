@@ -30,29 +30,20 @@
         "image": "warlock",
         "heading": "Warlock",
         "description": "Design system, component library, documentation, and usage guidelines for my personal microsite, this site!",
+        "path": "https://warlock.bradwaropay.com",
         "builtWith": [
           "figma",
           "vuejs",
           "storybook"
-        ],
-        "path": "/"
+        ]
       },
       {
         "image": "css-micro-animations",
         "heading": "CSS Micro Animations",
         "description": "An ongoing exercise in creativity with constraints, experimenting with how much can be done with CSS animations and a single <div>.",
-        "path": "/",
+        "path": "https://codepen.io/bradwaropay/pen/ZEKvBXd",
         "builtWith": [
           "css3"
-        ]
-      },
-      {
-        "image": "honey-crew",
-        "heading": "Honey Crew",
-        "description": "A character generator for Honey Heist. Created for fun and learning Composition API and other new vue/nuxt 3 features.",
-        "path": "/",
-        "builtWith": [
-          "nuxtjs"
         ]
       }
     ],
