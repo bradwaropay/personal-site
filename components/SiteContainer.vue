@@ -12,7 +12,7 @@ watch(Open, async () => {
   <Particles />
   <div class="container" ref="page">
     <slot name="header" />
-    <main>
+    <main class="main">
       <slot />
     </main>
     <slot name="footer" />
