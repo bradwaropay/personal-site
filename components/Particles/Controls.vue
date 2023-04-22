@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import Open from "./ControlsState"
-import Options from './Options'
+import Options, { getInitialOptions, defaults } from './Options'
 
 const close = () => {
   Open.value = false;
@@ -61,6 +61,13 @@ const connectControls = reactive([
     rangeStep: 1
   },
 ])
+
+const resetParticles = () => {
+  Options.particle = { ...defaults.particle };
+}
+const resetConnections = () => {
+  Options.connect = { ...defaults.connect };
+}
 </script>
 
 <template>
@@ -78,6 +85,9 @@ const connectControls = reactive([
               v-model="Options.particle[control.key as keyof ParticleOptions]" />
             <span class="value">{{ Options.particle[control.key as keyof ParticleOptions] }}</span>
           </li>
+          <li class="control control--is-reset">
+            <InputButton label="Reset Particles" fullWidth :action="resetParticles" />
+          </li>
         </ul>
         <h3 class="heading">Connections</h3>
         <ul class="controls">
@@ -89,6 +99,9 @@ const connectControls = reactive([
             <input v-if="control.type === 'color'" :class="`input input--is-${control.type}`" :type="control.type"
               v-model="Options.connect[control.key as keyof ConnectOptions]" />
             <span class="value">{{ Options.connect[control.key as keyof ConnectOptions] }}</span>
+          </li>
+          <li class="control control--is-reset">
+            <InputButton label="Reset Connections" fullWidth :action="resetConnections" />
           </li>
         </ul>
       </div>
@@ -156,15 +169,13 @@ const connectControls = reactive([
 }
 
 .controls {
+  background-color: rgba($backgroundPrimary, 0.125);
+  box-shadow: inset 0 0 0.25rem 0 rgba(black, 0.1);
+  padding: $spSm;
+
   &+* {
     margin-top: $spSm;
   }
-}
-
-.controls {
-  background-color: rgba($backgroundPrimary, 0.125);
-  box-shadow: inset 0 0 0.25rem 0 rgba(black, 0.1);
-  padding: $spXs $spSm;
 }
 
 .control {
@@ -175,6 +186,10 @@ const connectControls = reactive([
 
   &+& {
     margin-top: $sp2Xs;
+
+    &--is-reset {
+      margin-top: $spSm;
+    }
   }
 }
 

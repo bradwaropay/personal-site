@@ -6,11 +6,19 @@ const page = ref();
 watch(Open, async () => {
   page.value.inert = Open.value
 });
+
+const containerClasses = computed(() => {
+  const classes = ['container'];
+
+  if (Open.value) classes.push('container--has-active-modal');
+
+  return classes
+})
 </script>
 
 <template>
   <Particles />
-  <div class="container" ref="page">
+  <div :class="containerClasses" scroll="no" ref="page">
     <slot name="header" />
     <main class="main">
       <slot />
@@ -39,5 +47,7 @@ watch(Open, async () => {
       position: relative;
     }
   }
+
+  &--has-active-modal {}
 }
 </style>

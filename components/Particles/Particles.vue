@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { initParticles, destroyParticles } from './Particle'
 
-import { Options } from './Options'
+import Options from './Options'
 
 const particlesRef = ref();
 const connectionsRef = ref();

@@ -48,7 +48,7 @@ const listClasses = computed(() => {
       <img class="logo" :src="clientLogo(client.logo)" :alt="client.name" height="110" width="300" />
     </li>
   </ul>
-  <p class="more-info"><a href="/Brad_Waropay-Resume-2023.pdf">Check out my resume</a> for more info.
+  <p class="more-info">Check out <a href="/Brad_Waropay-Resume-2023.pdf">my resume</a> for more info.
   </p>
 </template>
 
