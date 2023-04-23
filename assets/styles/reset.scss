@@ -112,12 +112,13 @@ body,
 
 html {
   @include typographyReset;
+
+  scroll-behavior: smooth;
+  scroll-padding-top: $spMd;
 }
 
 body {
   background: $backgroundPrimary;
-  scroll-behavior: smooth;
-  scroll-padding-top: $spMd;
 
   &.has-modal {
     overflow-y: hidden;
