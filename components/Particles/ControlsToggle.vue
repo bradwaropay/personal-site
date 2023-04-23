@@ -1,14 +1,18 @@
 <script lang="ts" setup>
-import Open, { toggleOpen } from './ControlsState';
+import Open, { toggleModal } from './ControlsState';
 
 const toggleClasses = computed(() => {
-  return Open.value ? ['toggle', 'toggle--is-open'] : ['toggle']
+  const classes = ['toggle']
+
+  if (Open.value) classes.push('toggle--is-open')
+
+  return classes
 })
 
 </script>
 
 <template>
-  <button :class="toggleClasses" aria-label="Toggle particle controls" @click="toggleOpen" />
+  <button :class="toggleClasses" aria-label="Toggle particle controls" @click="toggleModal" />
 </template>
 
 <style lang="scss" scoped>

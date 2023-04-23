@@ -25,7 +25,6 @@ const buttonClasses = computed(() => {
 <style lang="scss" scoped >
 .button {
   background-color: $actionPrimary;
-  border-radius: 0.25rem;
   padding: 0 $spXs;
   text-align: center;
   cursor: pointer;

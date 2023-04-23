@@ -1,10 +1,6 @@
 <script lang="ts" setup>
-import Open from "./ControlsState"
+import Open, { closeModal } from "./ControlsState"
 import Options, { getInitialOptions, defaults } from './Options'
-
-const close = () => {
-  Open.value = false;
-}
 
 const particleControls = reactive([
   {
@@ -72,7 +68,7 @@ const resetConnections = () => {
 
 <template>
   <Transition name="modal">
-    <div class="container" v-if="Open" @click="close">
+    <div class="container" v-if="Open" @click="closeModal">
       <div class="modal" role="dialog" aria-label="Particle Controls" aria-modal="true" v-if="Open" @click.stop>
         <h3 class=" heading">Particles</h3>
         <ul class="controls">
@@ -143,21 +139,22 @@ const resetConnections = () => {
 }
 
 .container {
-  align-items: center;
   background-color: rgba($backgroundPrimary, 0.5);
-  display: flex;
-  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  height: 100vh;
   justify-content: center;
   position: fixed;
   width: 100%;
   z-index: 1;
   padding: $contentGutter;
+  overflow-y: auto;
 }
 
 .modal {
   background-color: rgba($accentPrimary, 0.95);
   box-shadow: 0 0 0.5rem 0 rgba(black, 0.5);
-
   padding: $spSm;
   border-radius: 1rem;
   width: 100%;

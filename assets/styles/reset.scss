@@ -107,12 +107,21 @@ meter {
 html,
 body,
 #__nuxt {
-  @include typographyReset;
-  
-  background: $backgroundPrimary;
   height: 100%;
+}
+
+html {
+  @include typographyReset;
+}
+
+body {
+  background: $backgroundPrimary;
   scroll-behavior: smooth;
   scroll-padding-top: $spMd;
+
+  &.has-modal {
+    overflow-y: hidden;
+  }
 }
 
 ::selection {
