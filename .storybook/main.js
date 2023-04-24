@@ -1,6 +1,9 @@
+import path from 'path'
+import { loadConfigFromFile, mergeConfig } from 'vite'
+
 /** @type { import('@storybook/vue3-vite').StorybookConfig } */
 const config = {
-  stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|jsx|ts|tsx)", "../components/**/*.mdx", "../components/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -13,5 +16,12 @@ const config = {
   docs: {
     autodocs: "tag",
   },
+  async viteFinal(baseConfig) {
+    const { config: userConfig } = await loadConfigFromFile(
+      path.resolve(__dirname, "../vite.config.ts")
+    )
+
+    return mergeConfig(baseConfig, userConfig)
+  }
 };
 export default config;

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { Link as HeroLink } from "~/components/Hero.vue";
+import { Link } from "~/components/Hero/Hero.vue";
 import data from "~/assets/data/data.json";
 
 const { hero, featured, about } = data;
-const heroLinks = hero.links as HeroLink[];
+const heroLinks = hero.links as Link[];
 </script>
 
 <template>

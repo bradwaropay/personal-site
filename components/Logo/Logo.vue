@@ -2,9 +2,10 @@
 import { computed } from 'vue';
 
 interface Props {
-  startColor?: `#${string}`
-  endColor?: `#${string}`
+  startColor?: `#${string}`,
+  endColor?: `#${string}`,
   duration?: number
+  solidColor?: `#${string}`,
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -16,6 +17,10 @@ const props = withDefaults(defineProps<Props>(), {
 const startGradient = computed(() => { return `${props.startColor}; ${props.endColor}; ${props.startColor}` });
 const endGradient = computed(() => { return `${props.endColor}; ${props.startColor}; ${props.endColor}` });
 const durationSeconds = computed(() => { return `${props.duration}s` });
+
+const fill = computed(() => {
+  return !!props.solidColor ? props.solidColor : "url('#logo-gradient')";
+})
 </script>
 
 <template>
@@ -34,7 +39,7 @@ const durationSeconds = computed(() => { return `${props.duration}s` });
         </stop>
       </linearGradient>
     </defs>
-    <g fill="url('#logo-gradient')">
+    <g :fill="fill">
       <path
         d="m14.84,58.52c0,8.63,7.02,15.66,15.66,15.66s15.66-7.02,15.66-15.66-7.02-15.66-15.66-15.66v7.14c4.7,0,8.52,3.82,8.52,8.52s-3.82,8.52-8.52,8.52-8.52-3.82-8.52-8.52V0h-7.14v58.52Z" />
       <path
@@ -44,4 +49,3 @@ const durationSeconds = computed(() => { return `${props.duration}s` });
     </g>
   </svg>
 </template>
-
