@@ -1,4 +1,5 @@
 import "../assets/styles/reset.scss"
+import "devicon/devicon.min.css"
 
 /** @type { import('@storybook/vue3').Preview } */
 const preview = {
