@@ -7,7 +7,7 @@ import data from '~/assets/data/data.json';
 const { features } = data.featured;
 
 const meta: Meta<typeof Card> = {
-  title: 'Featured/Card',
+  title: 'Featured Card',
   component: Card,
   parameters: {
     layout: 'centered',

@@ -23,7 +23,7 @@ declare module '@vue/runtime-core' {
     FooterFooter: typeof import('./components/Footer/Footer.vue')['default']
     Hero: typeof import('./components/Hero/Hero.vue')['default']
     HeroHero: typeof import('./components/Hero/Hero.vue')['default']
-    InputButton: typeof import('./components/Input/InputButton.vue')['default']
+    InputButton: typeof import('./components/Input/Button/InputButton.vue')['default']
     InputInputButton: typeof import('./components/Input/InputButton.vue')['default']
     Logo: typeof import('./components/Logo/Logo.vue')['default']
     LogoLogo: typeof import('./components/Logo/Logo.vue')['default']
@@ -36,6 +36,7 @@ declare module '@vue/runtime-core' {
     Section: typeof import('./components/Section/Section.vue')['default']
     SectionSection: typeof import('./components/Section/Section.vue')['default']
     SiteContainer: typeof import('./components/SiteContainer/SiteContainer.vue')['default']
+    SiteContainerSection: typeof import('./components/SiteContainer/Section/Section.vue')['default']
     SiteContainerSiteContainer: typeof import('./components/SiteContainer/SiteContainer.vue')['default']
   }
 }

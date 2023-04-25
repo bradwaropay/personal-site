@@ -15,7 +15,7 @@ const props = defineProps<Props>()
 
 
 const clientLogo = (logo: string) => {
-  return `svg/clients/${logo}.svg`
+  return `./svg/clients/${logo}.svg`
 }
 
 const listClasses = computed(() => {

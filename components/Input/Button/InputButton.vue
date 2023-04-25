@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 interface Props {
   label: string,
-  fullWidth?: boolean,
   action: () => void
+  fullWidth?: boolean,
 }
 
 const props = defineProps<Props>();
