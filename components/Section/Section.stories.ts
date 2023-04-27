@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 import Section from './Section.vue';
 
 const meta: Meta<typeof Section> = {
-  title: 'Section',
+  title: 'Structural/Section',
   component: Section,
   parameters: {
     layout: 'centered',

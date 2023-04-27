@@ -1,0 +1,58 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+import { Palette, Global, Theme } from '~/assets/scripts/colors.ts'
+
+import { capitalize } from '~/assets/scripts/utils.ts';
+
+<Meta title="Tokens/Colors" />
+
+# Color System
+
+## Palette
+
+<ColorPalette>
+{Object.entries(Palette).map((color, i) => {
+  return (
+    <ColorItem
+      key={color[0]}
+      title={capitalize(color[0])}
+      colors={{ [color[0]]: color[1] }}
+    />
+  )})
+}
+</ColorPalette>
+
+# Theme
+
+## Global
+
+<ColorPalette>
+{Object.entries(Global).map((category, i) => {
+  return (
+    <ColorItem
+      key={category[0]}
+      title={capitalize(category[0])}
+      colors={{...category[1]}}
+    />
+  )})
+}
+</ColorPalette>
+
+{Object.entries(Theme).map((name, i) => {
+  return (
+    <>
+      <h2>{capitalize(name[0])}</h2>
+      <ColorPalette>
+      {Object.entries(name[1]).map((category, i) => {
+        return (
+          <ColorItem
+            key={category[0]}
+            title={capitalize(category[0])}
+            colors={{...category[1]}}
+          />
+        )
+      })}
+      </ColorPalette>
+    </>
+  )})
+}

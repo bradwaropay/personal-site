@@ -7,7 +7,7 @@ import data from '~/assets/data/data.json';
 const { about } = data;
 
 const meta: Meta<typeof About> = {
-  title: 'About',
+  title: 'Complex/About',
   component: About,
   parameters: {
     layout: 'centered',

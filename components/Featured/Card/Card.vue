@@ -57,7 +57,7 @@ const props = defineProps<Props>()
 
 .card {
   border-radius: 1rem;
-  border: 0.25rem dashed $sulphur;
+  border: 0.25rem dashed $actionSecondary;
   display: grid;
   gap: $spXs $spSm;
   grid-template-areas:

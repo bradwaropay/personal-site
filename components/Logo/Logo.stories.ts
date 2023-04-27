@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 import Logo from './Logo.vue';
 
 const meta: Meta<typeof Logo> = {
-  title: 'Logo',
+  title: 'Simple/Logo',
   component: Logo,
   parameters: {
     layout: 'centered',

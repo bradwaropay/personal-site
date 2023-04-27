@@ -7,7 +7,7 @@ import data from '~/assets/data/data.json';
 const { featured } = data;
 
 const meta: Meta<typeof ClientList> = {
-  title: 'Client List',
+  title: 'Complex/Client List',
   component: ClientList,
   parameters: {
     layout: 'centered',

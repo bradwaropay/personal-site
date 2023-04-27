@@ -15,3 +15,8 @@ export const hexToRGB = (hex: `#${string}`) => {
       ?.map(x => parseInt(x, 16))
     : '255,255,255'
 }
+
+
+export const capitalize = (string: string) => {
+  return string.charAt(0).toUpperCase() + string.substring(1);
+}

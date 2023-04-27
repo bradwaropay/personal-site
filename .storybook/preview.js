@@ -11,6 +11,11 @@ const preview = {
         date: /Date$/,
       },
     },
+    options: {
+      storySort: {
+        order: ['Overview', 'Tokens', 'Structural', 'Simple', 'Complex'],
+      },
+    },
   },
 };
 

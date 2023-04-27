@@ -6,7 +6,7 @@ import data from '~/assets/data/data.json';
 const { hero } = data;
 
 const meta: Meta<typeof Hero> = {
-  title: 'Hero',
+  title: 'Complex/Hero',
   component: Hero,
   parameters: {
     layout: 'centered',

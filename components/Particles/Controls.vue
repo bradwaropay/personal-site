@@ -149,7 +149,8 @@ const resetConnections = () => {
   width: 100%;
   z-index: 1;
   padding: $contentGutter;
-  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .modal {
