@@ -6,6 +6,12 @@ export const debounce = (fn: Function, ms = 250) => {
   };
 };
 
+export const setDeepObject = (obj: { [key: string]: any }, keys: string[], val: any) => { 
+  const lastKey = keys.pop();
+  const deepObject = keys.reduce((obj, key) => obj[key] = obj[key] || {}, obj); 
+  deepObject[lastKey as keyof typeof obj] = val;
+};
+
 export const hexToRGB = (hex: `#${string}`) => {
   const validate = /^#([0-9a-f]{3}){1,2}$/i;
   return validate.test(hex)
@@ -15,7 +21,6 @@ export const hexToRGB = (hex: `#${string}`) => {
       ?.map(x => parseInt(x, 16))
     : '255,255,255'
 }
-
 
 export const capitalize = (string: string) => {
   return string.charAt(0).toUpperCase() + string.substring(1);

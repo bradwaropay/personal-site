@@ -3,20 +3,18 @@
 // Export colors for JS
 :export {
   // Palette - color-palette-$themeName-$categoryName-$colorName
-  @each $colorName, $color in $palette {
-    color-palette-#{$colorName}: $color
-  };
-  // Global - color-global-$categoryName-$colorName
-  @each $categoryName, $category in $global {
-    @each $colorName, $color in $category {
-      color-global-#{$categoryName}-#{$colorName}: $color
+  @each $themeName, $colors in $palette {
+      @each $colorName, $color in $colors {
+      color-palette-#{$themeName}-#{$colorName}: $color;
     }
   };
-  // Themes - color-theme-$themeName-$categoryName-$colorName
-  @each $themeName, $theme in $themes {
-    @each $categoryName, $category in $theme {
-      @each $colorName, $color in $category {
-        color-theme-#{$themeName}-#{$categoryName}-#{$colorName}: $color
+  // Themes - color-theme-$themeName-$typeName-$categoryName-$colorName
+  @each $themeName, $types in $theme {
+    @each $typeName, $categories in $types {
+      @each $categoryName, $colors in $categories {
+        @each $colorName, $color in $colors {
+          color-theme-#{$themeName}-#{$typeName}-#{$categoryName}-#{$colorName}: $color;
+        }
       }
     }
   };

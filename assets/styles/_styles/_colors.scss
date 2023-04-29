@@ -1,20 +1,22 @@
 // Color Palette
 $palette: (
-  source: #ffffff,
-  ash: #efefef,
-  smoke: #333333,
-  void: #000000,
-  sulfur: #ffaa00,
-  flame: #f1511a,
-  ghast: #7a5fff,
-  shadow: #281726,
-  scry: #3eafc4,
-  midnight: #0d1b27,
-  ectoplasm: #01ff89
+  default: (
+    source: #ffffff,
+    ash: #efefef,
+    coal: #101010,
+    void: #000000,
+    flame: #f1511a,
+    sulfur: #ffaa00,
+    ectoplasm: #01ff89,
+    scry: #3eafc4,
+    midnight: #0d1b27,
+    ghast: #7a5fff,
+    shadow: #281726
+  )
 );
 
-@function palette($color) {
-  @return map-get($palette, $color);
+@function palette($color, $name: default) {
+  @return map-get(map-get($palette, $name), $color);
 };
 
 // TODO: Remove
@@ -29,59 +31,78 @@ $accentPrimary: palette(ghast);
 $accentSecondary: palette(scry);
 $accentTertiary: palette(ectoplasm);
 
-$global: (
-  neutral: (
-    white: palette(source),
-    light: palette(ash),
-    dark: palette(smoke),
-    black: palette(void)
-  ),
-  accent: (
-    blue: palette(scry),
-    green: palette(ectoplasm),
-    purple: palette(ghast),
-  )
-);
-
 // Color Themes - Add themes here using palette()
-$themes: (
-  dark: (
-    background: (
-      base: palette(midnight),
-      alt: palette(shadow)
+$theme: (
+  // Theme
+  default: (
+    // Type
+    implicit: (
+      // Category
+      neutral: (
+        // Color
+        white: palette(source),
+        light: palette(ash),
+        dark: palette(coal),
+        black: palette(void)
+      ),
+      accent: (
+        base: palette(scry),
+        alt: palette(ghast),
+        alt2: palette(ectoplasm),
+      )
     ),
-    content: (
-      base: palette(ash),
-      alt: palette(sulfur)
-    ),
-    action: (
-      base: palette(flame),
-      alt: palette(sulfur)
+    explicit: (
+      background: (
+        base: palette(midnight),
+        alt: palette(shadow)
+      ),
+      particles: (
+        base: palette(ash),
+        alt: palette(scry)
+      ),
+      modal: (
+        base: palette(ghast)
+      ),
+      content: (
+        light: palette(ash),
+        dark: palette(coal),
+        alt: palette(sulfur)
+      ),
+      action: (
+        base: palette(flame),
+        alt: palette(sulfur)
+      ),
+      status: (
+        alert: palette(flame),
+        warning: palette(sulfur),
+        success: palette(ectoplasm),
+        info: palette(scry),
+      )
     )
   )
+
 );
 
 :root {
-  // Generate global colors
-  @each $categoryName, $category in $global {
-    @each $colorName, $color in $category {
-      --color-#{$categoryName}-#{$colorName}: #{$color};
-    }
-  };
-
-  // Generate default theme colors (Dark)
-  @each $categoryName, $category in map-get($themes, dark) {
-    @each $colorName, $color in $category {
-      --color-#{$categoryName}-#{$colorName}: #{$color};
-    }
-  };
-
-  //  Generate theme colors from $themes
-  @each $themeName, $theme in $themes {
-    &[data-theme="#{themeName}"] {
-      @each $categoryName, $category in $theme {
-        @each $colorName, $color in $category {
+  // Generate default theme
+  @each $typeName, $categories in map-get($theme, default) {
+    @each $categoryName, $colors in $categories {
+        @each $colorName, $color in $colors {
           --color-#{$categoryName}-#{$colorName}: #{$color};
+        }
+      }
+    };
+
+  // Generate all other themes
+  @each $themeName, $types in $theme {
+    @if $themeName != default {
+      &[data-theme="#{$themeName}"] {
+        @each $typeName, $categories in $types {
+          @each $categoryName, $colors in $categories {
+            @each $colorName, $color in $colors {
+              --color-#{$categoryName}-#{$colorName}: #{$color};
+            }
+          }
         }
       }
     }

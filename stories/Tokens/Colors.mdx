@@ -1,6 +1,6 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
 
-import { Palette, Global, Theme } from '~/assets/scripts/colors.ts'
+import { Color } from '~/assets/scripts/tokens.ts'
 
 import { capitalize } from '~/assets/scripts/utils.ts';
 
@@ -8,40 +8,12 @@ import { capitalize } from '~/assets/scripts/utils.ts';
 
 # Color System
 
-## Palette
+## Theme
 
-<ColorPalette>
-{Object.entries(Palette).map((color, i) => {
-  return (
-    <ColorItem
-      key={color[0]}
-      title={capitalize(color[0])}
-      colors={{ [color[0]]: color[1] }}
-    />
-  )})
-}
-</ColorPalette>
-
-# Theme
-
-## Global
-
-<ColorPalette>
-{Object.entries(Global).map((category, i) => {
-  return (
-    <ColorItem
-      key={category[0]}
-      title={capitalize(category[0])}
-      colors={{...category[1]}}
-    />
-  )})
-}
-</ColorPalette>
-
-{Object.entries(Theme).map((name, i) => {
+{Object.entries(Color.theme.default).map((name, i) => {
   return (
     <>
-      <h2>{capitalize(name[0])}</h2>
+      <h3>{capitalize(name[0])}</h3>
       <ColorPalette>
       {Object.entries(name[1]).map((category, i) => {
         return (
@@ -56,3 +28,17 @@ import { capitalize } from '~/assets/scripts/utils.ts';
     </>
   )})
 }
+
+## Palette
+
+<ColorPalette>
+{Object.entries(Color.palette.default).map((color, i) => {
+  return (
+    <ColorItem
+      key={color[0]}
+      title={capitalize(color[0])}
+      colors={{ [color[0]]: color[1] }}
+    />
+  )})
+}
+</ColorPalette>
