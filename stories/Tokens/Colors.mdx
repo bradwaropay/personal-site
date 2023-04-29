@@ -1,6 +1,6 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
 
-import { Color } from '~/assets/scripts/tokens.ts'
+import { Colors } from '~/assets/scripts/tokens.ts'
 
 import { capitalize } from '~/assets/scripts/utils.ts';
 
@@ -10,7 +10,7 @@ import { capitalize } from '~/assets/scripts/utils.ts';
 
 ## Theme
 
-{Object.entries(Color.theme.default).map((name, i) => {
+{Object.entries(Colors.theme.default).map((name, i) => {
   return (
     <>
       <h3>{capitalize(name[0])}</h3>
@@ -32,7 +32,7 @@ import { capitalize } from '~/assets/scripts/utils.ts';
 ## Palette
 
 <ColorPalette>
-{Object.entries(Color.palette.default).map((color, i) => {
+{Object.entries(Colors.palette.default).map((color, i) => {
   return (
     <ColorItem
       key={color[0]}
