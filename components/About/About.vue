@@ -19,14 +19,15 @@ defineProps<Props>()
 
 <style lang="scss" scoped>
 .about {
+  @include text(md);
+
   display: flex;
   flex-direction: column-reverse;
-  gap: $spSm;
+  gap: useSpacing(md);
   align-items: flex-start;
 
-  @media screen and (min-width: $bpLg) {
-    font-size: $textMd;
-    gap: $spMd;
+  @media screen and (min-width: useBreakpoint(lg)) {
+    gap: useSpacing(lg);
     flex-direction: row;
   }
 }
@@ -36,26 +37,24 @@ defineProps<Props>()
   border-radius: 50%;
   align-self: center;
 
-  @media screen and (min-width: $bpLg) {
+  @media screen and (min-width: useBreakpoint(lg)) {
     align-self: flex-start;
   }
 }
 
 .content {
-  flex-grow: 1;
+  @include text(md);
 
-  @media screen and (min-width: $bpMd) {
-    font-size: $textMd;
-  }
+  flex-grow: 1;
 }
 
 .heading {
-  @include heading;
+  @include heading(md);
 }
 
 .description {
   :deep(p + p) {
-    margin-top: $spXs;
+    margin-top: useSpacing(sm);
   }
 }
 </style>

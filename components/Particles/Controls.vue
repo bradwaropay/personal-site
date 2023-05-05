@@ -139,7 +139,7 @@ const resetConnections = () => {
 }
 
 .container {
-  background-color: rgba($backgroundPrimary, 0.5);
+  background-color: rgba(var(--color-overlay-background-rgb), 0.5);
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
@@ -148,15 +148,15 @@ const resetConnections = () => {
   position: fixed;
   width: 100%;
   z-index: 1;
-  padding: $contentGutter;
+  padding: var(--content-gutter);
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
 .modal {
-  background-color: rgba($accentPrimary, 0.95);
+  background-color: rgba(var(--color-overlay-modal-rgb), 0.95);
   box-shadow: 0 0 0.5rem 0 rgba(black, 0.5);
-  padding: $spSm;
+  padding: useSpacing(md);
   border-radius: 1rem;
   width: 100%;
   max-width: 46rem;
@@ -167,26 +167,26 @@ const resetConnections = () => {
 }
 
 .controls {
-  background-color: rgba($backgroundPrimary, 0.125);
+  background-color: rgba(var(--color-neutral-baseAlt-rgb), 0.125);
   box-shadow: inset 0 0 0.25rem 0 rgba(black, 0.1);
-  padding: $spSm;
+  padding: useSpacing(md);
 
   &+* {
-    margin-top: $spSm;
+    margin-top: useSpacing(md);
   }
 }
 
 .control {
   align-items: center;
   display: flex;
-  gap: $spSm;
+  gap: useSpacing(md);
   position: relative;
 
   &+& {
-    margin-top: $sp2Xs;
+    margin-top: useSpacing(xs);
 
     &--is-reset {
-      margin-top: $spSm;
+      margin-top: useSpacing(md);
     }
   }
 }
@@ -207,13 +207,13 @@ const resetConnections = () => {
     }
 
     &::-webkit-slider-runnable-track {
-      background-color: $contentPrimary;
+      background-color: var(--color-content-base);
       height: 0.125rem;
     }
 
     &::-webkit-slider-thumb {
       appearance: none;
-      background-color: $actionPrimary;
+      background-color: var(--color-action-base);
       border: none;
       border-radius: 50%;
       height: 1rem;
@@ -226,21 +226,21 @@ const resetConnections = () => {
     &:hover {
 
       &::-webkit-slider-thumb {
-        background-color: $actionSecondary;
-        outline: 3px solid $contentPrimary;
+        background-color: var(--color-action-accent);
+        outline: 3px solid var(--color-content-base);
         outline-offset: 0.125rem;
       }
     }
 
 
     &::-moz-range-track {
-      background-color: $contentPrimary;
+      background-color: var(--color-content-base);
       height: 0.125rem;
     }
 
     &::-moz-range-thumb {
       appearance: none;
-      background-color: $actionPrimary;
+      background-color: var(--color-action-base);
       border: none;
       border-radius: 50%;
       height: 1rem;
@@ -253,8 +253,8 @@ const resetConnections = () => {
     &:hover {
 
       &::-moz-range-thumb {
-        background-color: $actionSecondary;
-        outline: 3px solid $contentPrimary;
+        background-color: var(--color-action-accent);
+        outline: 3px solid var(--color-content-base);
         outline-offset: 0.125rem;
       }
     }

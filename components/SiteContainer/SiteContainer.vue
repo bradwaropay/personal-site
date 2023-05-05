@@ -26,7 +26,7 @@ watch(Open, async () => {
 
   &::before {
     background-attachment: fixed;
-    background-image: $backgroundGradient;
+    background-image: linear-gradient(0deg, var(--color-background-accent) 0%, transparent 75%, transparent 100%);
     content: "";
     position: fixed;
     width: 100%;

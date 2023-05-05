@@ -10,25 +10,17 @@ const date = new Date().getFullYear();
 
 <style lang="scss" scoped>
 .footer {
-  margin: $spLg auto;
-  max-width: $contentContainer;
-  padding: 0 $contentGutter $spXs;
+  margin: useSpacing(xl) auto;
+  max-width: var(--content-container);
+  padding: 0 var(--content-gutter) useSpacing(sm);
   pointer-events: none;
 
   :deep(*) {
     pointer-events: all;
   }
 
-  @media screen and (min-width: $bpMd) {
-    margin-top: $spXl;
-    max-width: $contentContainerLg;
-    padding: 0 $contentGutterLg $spXs;
-  }
-
-  @media screen and (min-width: $bpLg) {
-    margin-top: $spXl;
-    max-width: $contentContainerLg;
-    padding: 0 $contentGutterLg $spXs;
+  @media screen and (min-width: useBreakpoint(md)) {
+    margin-top: useSpacing(xxl);
   }
 }
 </style>

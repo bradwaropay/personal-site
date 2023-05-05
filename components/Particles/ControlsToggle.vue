@@ -18,13 +18,13 @@ const toggleClasses = computed(() => {
 <style lang="scss" scoped>
 .toggle {
   border-radius: 50%;
-  border: 0.75rem solid $actionPrimary;
+  border: 0.75rem solid var(--color-action-base);
   cursor: pointer;
   display: block;
   height: 1.5rem;
   position: fixed;
-  right: $spSm;
-  top: $spSm;
+  right: useSpacing(md);
+  top: useSpacing(md);
   transition:
     border-color 0.2s linear,
     border-width 0.2s ease-in-out;
@@ -61,7 +61,7 @@ const toggleClasses = computed(() => {
   &:active,
   &:hover,
   &:focus {
-    border-color: $actionSecondary;
+    border-color: var(--color-action-accent);
   }
 
   &--is-open {
@@ -69,7 +69,7 @@ const toggleClasses = computed(() => {
 
     &::before,
     &::after {
-      background-color: $actionPrimary;
+      background-color: var(--color-action-base);
     }
 
     &:active,
@@ -79,7 +79,7 @@ const toggleClasses = computed(() => {
 
       &::before,
       &::after {
-        background-color: $actionSecondary;
+        background-color: var(--color-action-accent);
       }
     }
 

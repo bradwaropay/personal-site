@@ -1,61 +1,153 @@
-// Font Families
-// Fallback to sans-serif instead of monospace to reduce CLS
-$ffPrimary: "Inconsolata", sans-serif;
+// Fonts
+$font: (
+  family: (
+    // Fallback to sans-serif instead of monospace to eliminate CLS
+    base: #{"Inconsolata", sans-serif}
+  ),
+  weight: (
+    normal: 400,
+    bold: 700
+  )
+);
 
-// Font Weights
-$fwPrimaryRegular: 400;
-$fwPrimaryBold: 700;
+@function getFont($category, $value) {
+  @return map-get(map-get($font, $category), $value);
+};
 
-// Global Typography Reset
+// Base Typography
+$baseTypography: (
+  family: getFont(family, base),
+  lineHeight: 1.75,
+  size: 16px,
+  weight: getFont(weight, normal),
+);
+
+@function getBaseTypography($baseVar) {
+  @return map-get($baseTypography, $baseVar);
+};
+
 @mixin typographyReset {
-  color: $contentPrimary;
-  font-family: $ffPrimary;
-  font-size: 16px;
-  font-weight: $fwPrimaryRegular;
-  line-height: 1.75;
+  color: var(--color-content-base);
+  font-family: getBaseTypography(family);
+  font-size: getBaseTypography(size);
+  font-weight: getBaseTypography(weight);
+  line-height: getBaseTypography(lineHeight);
 }
 
-// Text Sizes
-$textSm: 1rem;
-$textMd: 1.25rem;
-$textLg: 1.5rem;
+$heading: (
+  sm: (
+    base: 1.5rem,
+    sm: 1.5rem,
+    md: 1.5rem,
+    lg: 1.5rem
+  ),
+  md: (
+    base: 2rem,
+    sm: 2rem,
+    md: 3rem,
+    lg: 3rem
+  ),
+  lg: (
+    base: 3rem,
+    sm: 3rem,
+    md: 4rem,
+    lg: 4rem
+  )
+);
 
-// Headings
+@function getHeading($size, $breakpoint) {
+  @return map-get(map-get($heading, $size), $breakpoint);
+};
+
+// Generate CSS heading variables
+:root {
+  @each $fontSizeName, $fontSize in $heading {
+    --font-heading-#{$fontSizeName}: #{getHeading($fontSizeName, base)};
+  };
+
+  @each $breakpointName, $breakpointSize in $breakpoint {
+    @media screen and (min-width: $breakpointSize) {
+      @each $fontSizeName, $fontSize in $heading {
+        --font-heading-#{$fontSizeName}: #{getHeading($fontSizeName, $breakpointName)};
+      };
+    }
+  };
+}
+
 @mixin heading($size: md) {
   display: inline-block;
+  font-size: var(--font-heading-#{$size});
   line-height: 1;
-  text-decoration: underline $contentSecondary;
+  text-decoration: underline var(--color-content-accent);
 
-  @if $size == "lg" {
-    font-size: 3rem;
-    font-weight: $fwPrimaryBold;
-
-    @media screen and (min-width: $bpMd) {
-      font-size: 4rem;
-    }
-  } @else if $size == "md" {
-    font-size: 2rem;
-    font-weight: $fwPrimaryBold;
-
-    @media screen and (min-width: $bpMd) {
-      font-size: 3rem;
-    }
+  @if $size == "sm" {
+    font-weight: getFont(weight, normal);
   } @else {
-    font-size: 1.5rem;
-    font-weight: $fwPrimaryRegular;
+    font-weight: getFont(weight, bold);
   }
 
   &+* {
-    margin-top: $spXs;
+    margin-top: useSpacing(sm);
   }
 }
 
-@mixin link {
-  color: $actionPrimary;
-  text-decoration: wavy underline transparent;
-  transition: text-decoration-color 0.2s linear;
+$text: (
+  sm: (
+    base: 1rem,
+    sm: 1rem,
+    md: 1rem,
+    lg: 1rem
+  ),
+  md: (
+    base: 1rem,
+    sm: 1rem,
+    md: 1.25rem,
+    lg: 1.25rem
+  ),
+  lg: (
+    base: 1.5rem,
+    sm: 1.5rem,
+    md: 1.5rem,
+    lg: 1.5rem
+  )
+);
+
+@function getText($size, $breakpoint) {
+  @return map-get(map-get($text, $size), $breakpoint);
+};
+
+// Generate CSS text variables
+:root {
+  @each $fontSizeName, $fontSize in $text {
+    --font-text-#{$fontSizeName}: #{getText($fontSizeName, base)};
+  };
+
+  @each $breakpointName, $breakpointSize in $breakpoint {
+    @media screen and (min-width: $breakpointSize) {
+      @each $fontSizeName, $fontSize in $text {
+        --font-text-#{$fontSizeName}: #{getText($fontSizeName, $breakpointName)};
+      };
+    }
+  };
+}
+
+@mixin text($size: md, $weight: normal) {
+  font-size: var(--font-text-#{$size});
+  font-weight: getFont(weight, $weight);
 }
 
 @mixin linkHover {
-  text-decoration: wavy underline $actionSecondary;
+  text-decoration: wavy underline var(--color-action-accent);
+}
+
+@mixin link {
+  color: var(--color-action-base);
+  text-decoration: wavy underline transparent;
+  transition: text-decoration-color 0.2s linear;
+
+  &:active,
+  &:focus,
+  &:hover {
+    @include linkHover;
+  }
 }

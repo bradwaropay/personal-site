@@ -8,10 +8,10 @@
 .section {
   @include content;
 
-  margin-top: $spLg;
+  margin-top: useSpacing(xl);
 
-  @media screen and (min-width: $bpLg) {
-    margin-top: $spXl;
+  @media screen and (min-width: useBreakpoint(lg)) {
+    margin-top: useSpacing(xxl);
   }
 }
 </style>

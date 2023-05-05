@@ -64,18 +64,18 @@ const listClasses = computed(() => {
 .list {
   align-items: center;
   display: grid;
-  gap: $spSm $spMd;
+  gap: useSpacing(md) useSpacing(lg);
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: $spSm;
+  margin-top: useSpacing(md);
 
-  @media screen and (min-width: $bpSm) {
-    gap: $spSm $spMd;
+  @media screen and (min-width: useBreakpoint(sm)) {
+    gap: useSpacing(md) useSpacing(lg);
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  @media screen and (min-width: $bpLg) {
-    gap: $spMd $spLg;
-    margin-top: $spMd;
+  @media screen and (min-width: useBreakpoint(lg)) {
+    gap: useSpacing(lg) useSpacing(xl);
+    margin-top: useSpacing(lg);
   }
 
   &--has-odd-items {
@@ -88,7 +88,7 @@ const listClasses = computed(() => {
         grid-column: 2 / 4;
       }
 
-      @media screen and (min-width: $bpSm) {
+      @media screen and (min-width: useBreakpoint(sm)) {
         &:last-child {
           grid-column: span 2;
         }
@@ -98,16 +98,16 @@ const listClasses = computed(() => {
 
   &--has-odd-items-one {
 
-    @media screen and (min-width: $bpSm) {
+    @media screen and (min-width: useBreakpoint(sm)) {
       grid-template-columns: repeat(6, minmax(0, 1fr));
     }
 
-    @media screen and (min-width: $bpLg) {
+    @media screen and (min-width: useBreakpoint(lg)) {
       grid-template-columns: repeat(10, minmax(0, 1fr));
     }
 
     .item {
-      @media screen and (min-width: $bpLg) {
+      @media screen and (min-width: useBreakpoint(lg)) {
         &:nth-last-child(4) {
           grid-column: 2 / 4;
         }
@@ -118,13 +118,13 @@ const listClasses = computed(() => {
 
   &--has-odd-items-three {
 
-    @media screen and (min-width: $bpSm) {
+    @media screen and (min-width: useBreakpoint(sm)) {
       grid-template-columns: repeat(8, minmax(0, 1fr));
     }
 
     .item {
 
-      @media screen and (min-width: $bpSm) {
+      @media screen and (min-width: useBreakpoint(sm)) {
 
         &:nth-last-child(3) {
           grid-column: 2 / 4;
@@ -139,11 +139,9 @@ const listClasses = computed(() => {
 }
 
 .more-info {
-  text-align: center;
-  margin-top: $spMd;
+  @include text(md);
 
-  @media screen and (min-width: $bpSm) {
-    font-size: $textMd;
-  }
+  text-align: center;
+  margin-top: useSpacing(lg);
 }
 </style>

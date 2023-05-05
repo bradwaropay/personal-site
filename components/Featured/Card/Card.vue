@@ -37,7 +37,7 @@ const props = defineProps<Props>()
 
 <style lang="scss" scoped>
 .link {
-  color: $contentPrimary;
+  color: var(--color-content-base);
   text-decoration: none;
 
   &:hover,
@@ -45,8 +45,8 @@ const props = defineProps<Props>()
   &:active {
 
     .card {
-      background-color: rgba($contentPrimary, 0.075);
-      border-color: $actionPrimary;
+      background-color: rgba(var(--color-neutral-base-rgb), 0.075);
+      border-color: var(--color-action-base);
     }
 
     .heading {
@@ -57,21 +57,21 @@ const props = defineProps<Props>()
 
 .card {
   border-radius: 1rem;
-  border: 0.25rem dashed $actionSecondary;
+  border: 0.25rem dashed var(--color-action-accent);
   display: grid;
-  gap: $spXs $spSm;
+  gap: useSpacing(sm) useSpacing(md);
   grid-template-areas:
     "image"
     "content"
     "footer";
   grid-template-rows: auto 1fr auto;
   height: 100%;
-  padding: $spSm;
+  padding: useSpacing(md);
   transition:
     background-color 0.2s linear,
     border-color 0.2s linear;
 
-  @media screen and (min-width: $bpSm) {
+  @media screen and (min-width: useBreakpoint(sm)) {
     grid-template-areas:
       "image content"
       "image footer";
@@ -92,14 +92,14 @@ const props = defineProps<Props>()
 
 .heading {
   @include link;
+  @include text(lg);
 
-  font-size: $textLg;
   font-weight: 700;
   line-height: 1;
 }
 
 .description {
-  margin-top: $sp2Xs;
+  margin-top: useSpacing(xs);
 }
 
 .footer {
@@ -110,13 +110,14 @@ const props = defineProps<Props>()
 
 .list {
   display: flex;
-  gap: $sp2Xs;
-  margin-top: $sp2Xs;
+  gap: useSpacing(xs);
+  margin-top: useSpacing(xs);
 }
 
 .icon {
-  color: $accentSecondary;
-  font-size: $textMd;
+  @include text(md);
+
+  color: var(--color-accent-base);
   vertical-align: bottom;
 }
 

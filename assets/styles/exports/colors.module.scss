@@ -9,12 +9,10 @@
     }
   };
   // Themes - color-theme-$themeName-$typeName-$categoryName-$colorName
-  @each $themeName, $types in $theme {
-    @each $typeName, $categories in $types {
-      @each $categoryName, $colors in $categories {
-        @each $colorName, $color in $colors {
-          color-theme-#{$themeName}-#{$typeName}-#{$categoryName}-#{$colorName}: $color;
-        }
+  @each $themeName, $categories in $theme {
+    @each $categoryName, $colors in $categories {
+      @each $colorName, $color in $colors {
+        color-theme-#{$themeName}-#{$categoryName}-#{$colorName}: $color;
       }
     }
   };

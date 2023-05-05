@@ -36,19 +36,17 @@ const listClasses = computed(() => {
 }
 
 .description {
-  @media screen and (min-width: $bpMd) {
-    font-size: $textMd;
-  }
+  @include text(md);
 }
 
 .list {
   display: grid;
-  gap: $spSm;
+  gap: useSpacing(md);
   grid-auto-rows: 1fr;
   grid-template-columns: repeat(1, 1fr);
-  margin-top: $spMd;
+  margin-top: useSpacing(lg);
 
-  @media screen and (min-width: $bpLg) {
+  @media screen and (min-width: useBreakpoint(lg)) {
     grid-template-columns: repeat(4, 1fr);
 
     &--has-odd-items {
@@ -60,7 +58,7 @@ const listClasses = computed(() => {
 }
 
 .item {
-  @media screen and (min-width: $bpLg) {
+  @media screen and (min-width: useBreakpoint(lg)) {
     grid-column: span 2;
 
     &:only-child {

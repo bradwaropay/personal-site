@@ -37,28 +37,24 @@ defineProps<Props>()
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: $spMd;
-  padding-top: $spLg;
+  gap: useSpacing(lg);
+  padding-top: useSpacing(xl);
 
-  @media screen and (min-width: $bpLg) {
+  @media screen and (min-width: useBreakpoint(lg)) {
     flex-direction: row;
-    padding-top: $spXl;
+    padding-top: useSpacing(xxl);
     text-align: left;
   }
 }
 
 .logo {
   min-width: 20rem;
-  width: 20rem;
 }
 
 .intro {
-  flex-grow: 1;
-  position: relative;
+  @include text(md);
 
-  @media screen and (min-width: $bpMd) {
-    font-size: $textMd;
-  }
+  flex-grow: 1;
 }
 
 .heading {
@@ -66,26 +62,26 @@ defineProps<Props>()
 }
 
 .description {
-  margin-top: $spSm;
+  margin-top: useSpacing(md);
 }
 
 .nav {
-  margin-top: $spSm;
+  margin-top: useSpacing(md);
 }
 
 .list {
   display: inline-flex;
-  gap: $spXs;
+  gap: useSpacing(sm);
 }
 
 .item {
-  &::before {
-    content: "/";
-    padding-right: $spXs;
-  }
-
   &:first-child::before {
     display: none;
+  }
+
+  &::before {
+    content: "/";
+    padding-right: useSpacing(sm);
   }
 }
 </style>

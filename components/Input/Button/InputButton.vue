@@ -24,11 +24,12 @@ const buttonClasses = computed(() => {
 
 <style lang="scss" scoped >
 .button {
-  background-color: $actionPrimary;
-  padding: 0 $spXs;
+  @include text(md);
+
+  background-color: var(--color-action-base);
+  padding: 0 useSpacing(sm);
   text-align: center;
   cursor: pointer;
-  font-size: $textMd;
   transition:
     background-color 0.2s linear,
     color 0.2s linear;
@@ -36,8 +37,8 @@ const buttonClasses = computed(() => {
   &:hover,
   &:active,
   &:focus {
-    background-color: $actionSecondary;
-    color: $backgroundPrimary;
+    background-color: var(--color-action-accent);
+    color: var(--color-background-base);
   }
 
   &--is-full-width {

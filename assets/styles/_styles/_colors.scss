@@ -1,107 +1,93 @@
+// DO NOT use sass maps for color styling
+// ONLY use CSS variables for color styling
+
 // Color Palette
 $palette: (
   default: (
     source: #ffffff,
     ash: #efefef,
-    coal: #101010,
-    void: #000000,
     flame: #f1511a,
     sulfur: #ffaa00,
     ectoplasm: #01ff89,
     scry: #3eafc4,
     midnight: #0d1b27,
     ghast: #7a5fff,
-    shadow: #281726
+    shadow: #281726,
+    void: #000000
   )
 );
 
-@function palette($color, $name: default) {
+@function getPalette($color, $name: default) {
   @return map-get(map-get($palette, $name), $color);
 };
-
-// TODO: Remove
-$backgroundPrimary: palette(midnight);
-$backgroundSecondary: palette(shadow);
-$backgroundGradient: linear-gradient(0deg, $backgroundSecondary 0%, transparent 75%, transparent 100%);
-$contentPrimary: palette(ash);
-$contentSecondary: palette(sulfur);
-$actionPrimary: palette(flame);
-$actionSecondary: palette(sulfur);
-$accentPrimary: palette(ghast);
-$accentSecondary: palette(scry);
-$accentTertiary: palette(ectoplasm);
 
 // Color Themes - Add themes here using palette()
 $theme: (
   // Theme
   default: (
-    // Type
-    implicit: (
-      // Category
-      neutral: (
-        // Color
-        white: palette(source),
-        light: palette(ash),
-        dark: palette(coal),
-        black: palette(void)
-      ),
-      accent: (
-        base: palette(scry),
-        alt: palette(ghast),
-        alt2: palette(ectoplasm),
-      )
+    neutral: (
+      // --color-neutral-$swatch
+      base: getPalette(source),
+      baseAlt: getPalette(void)
     ),
-    explicit: (
-      background: (
-        base: palette(midnight),
-        alt: palette(shadow)
-      ),
-      particles: (
-        base: palette(ash),
-        alt: palette(scry)
-      ),
-      modal: (
-        base: palette(ghast)
-      ),
-      content: (
-        light: palette(ash),
-        dark: palette(coal),
-        alt: palette(sulfur)
-      ),
-      action: (
-        base: palette(flame),
-        alt: palette(sulfur)
-      ),
-      status: (
-        alert: palette(flame),
-        warning: palette(sulfur),
-        success: palette(ectoplasm),
-        info: palette(scry),
-      )
+    accent: (
+      // --color-accent-$swatch
+      base: getPalette(scry)
+    ),
+    background: (
+      // --color-background-$swatch
+      base: getPalette(midnight),
+      accent: getPalette(shadow)
+    ),
+    particles: (
+      // --color-particles-$swatch
+      base: getPalette(ash),
+      accent: getPalette(scry)
+    ),
+    logo: (
+      // --color-logo-$swatch
+      start: getPalette(ghast),
+      end: getPalette(ectoplasm)
+    ),
+    overlay: (
+      // --color-overlay-$swatch
+      background: getPalette(void),
+      modal: getPalette(ghast)
+    ),
+    content: (
+      // --color-content-$swatch
+      base: getPalette(ash),
+      baseAlt: getPalette(midnight),
+      accent: getPalette(sulfur)
+    ),
+    action: (
+      // --color-action-$swatch
+      base: getPalette(flame),
+      accent: getPalette(sulfur),
+      neutral: getPalette(ash),
+      neutralAlt: getPalette(midnight)
     )
   )
-
 );
 
+// Generate CSS color variables
 :root {
   // Generate default theme
-  @each $typeName, $categories in map-get($theme, default) {
-    @each $categoryName, $colors in $categories {
-        @each $colorName, $color in $colors {
-          --color-#{$categoryName}-#{$colorName}: #{$color};
-        }
+  @each $categoryName, $colors in map-get($theme, default) {
+      @each $colorName, $color in $colors {
+        --color-#{$categoryName}-#{$colorName}: #{$color};
+        --color-#{$categoryName}-#{$colorName}-rgb: #{red($color), green($color), blue($color)};
       }
-    };
+  };
 
   // Generate all other themes
-  @each $themeName, $types in $theme {
+  @each $themeName, $categories in $theme {
     @if $themeName != default {
       &[data-theme="#{$themeName}"] {
-        @each $typeName, $categories in $types {
-          @each $categoryName, $colors in $categories {
-            @each $colorName, $color in $colors {
-              --color-#{$categoryName}-#{$colorName}: #{$color};
-            }
+        @each $categoryName, $colors in $categories {
+          @each $colorName, $color in $colors {
+            --color-#{$categoryName}-#{$colorName}: #{$color};
+            --color-#{$categoryName}-#{$colorName}-rgb: #{red($color), green($color), blue($color)};
           }
         }
       }

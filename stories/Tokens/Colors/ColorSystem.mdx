@@ -4,30 +4,24 @@ import { Colors } from '~/assets/scripts/tokens.ts'
 
 import { capitalize } from '~/assets/scripts/utils.ts';
 
-<Meta title="Tokens/Colors" />
+<Meta title="Tokens/Colors/Color System" />
 
 # Color System
 
 ## Theme
 
-{Object.entries(Colors.theme.default).map((name, i) => {
+<ColorPalette>
+{Object.entries(Colors.theme.default).map((category, i) => {
   return (
-    <>
-      <h3>{capitalize(name[0])}</h3>
-      <ColorPalette>
-      {Object.entries(name[1]).map((category, i) => {
-        return (
-          <ColorItem
-            key={category[0]}
-            title={capitalize(category[0])}
-            colors={{...category[1]}}
-          />
-        )
-      })}
-      </ColorPalette>
-    </>
-  )})
-}
+    <ColorItem
+      key={category[0]}
+      title={capitalize(category[0])}
+      subtitle={`--color-${category[0]}-$swatch`}
+      colors={{...category[1]}}
+    />
+  )
+})}
+</ColorPalette>
 
 ## Palette
 
@@ -37,6 +31,7 @@ import { capitalize } from '~/assets/scripts/utils.ts';
     <ColorItem
       key={color[0]}
       title={capitalize(color[0])}
+      subtitle={`--color-palette-${color[0]}`}
       colors={{ [color[0]]: color[1] }}
     />
   )})
