@@ -8,32 +8,80 @@ import { capitalize } from '~/assets/scripts/utils.ts';
 
 # Color System
 
-## Theme
+DESCRIPTION GOES HERE
 
-<ColorPalette>
-{Object.entries(Colors.theme.default).map((category, i) => {
-  return (
-    <ColorItem
-      key={category[0]}
-      title={capitalize(category[0])}
-      subtitle={`--color-${category[0]}-$swatch`}
-      colors={{...category[1]}}
-    />
-  )
-})}
-</ColorPalette>
+<br/>
 
 ## Palette
 
+DESCRIPTION GOES HERE
+
+<br/>
+
 <ColorPalette>
-{Object.entries(Colors.palette.default).map((color, i) => {
-  return (
-    <ColorItem
-      key={color[0]}
-      title={capitalize(color[0])}
-      subtitle={`--color-palette-${color[0]}`}
-      colors={{ [color[0]]: color[1] }}
-    />
-  )})
-}
+  {Object.entries(Colors.palette.default).map((color, i) => {
+    return (
+      <ColorItem
+        key={color[0]}
+        title={capitalize(color[0])}
+        subtitle={`--color-palette-${color[0]}`}
+        colors={{ ...color[1] }}
+      />
+    )})
+  }
 </ColorPalette>
+
+## Theme
+
+DESCRIPTION GOES HERE
+
+<br/>
+
+{Object.entries(Colors.theme.default).map((category) => {
+  return (
+    <>
+      <h3 id={`theme-${category[0]}`}>{category[0]}</h3>
+      {
+        category[0] === 'neutral' &&
+        <p>DESCRIPTION GOES HERE</p>
+      }
+      {
+        category[0] === 'brand' &&
+        <p>DESCRIPTION GOES HERE</p>
+      }
+      {
+        category[0] === 'accent' &&
+        <p>DESCRIPTION GOES HERE</p>
+      }
+      {
+        category[0] === 'background' &&
+        <p>DESCRIPTION GOES HERE</p>
+      }
+      {
+        category[0] === 'content' &&
+        <p>DESCRIPTION GOES HERE</p>
+      }
+      {
+        category[0] === 'action' &&
+        <p>DESCRIPTION GOES HERE</p>
+      }
+      {
+        category[0] === 'status' &&
+        <p>DESCRIPTION GOES HERE</p>
+      }
+      <br/>
+      <ColorPalette>
+        {Object.entries(category[1]).map((type) => {
+          return ( 
+            <ColorItem
+              key={type[1]}
+              title={type[0]}
+              subtitle={`--color-${category[0]}-${type[0]}`}
+              colors={{...type[1]}}
+            />
+          )
+        })}
+      </ColorPalette>
+    </>
+  )
+})}

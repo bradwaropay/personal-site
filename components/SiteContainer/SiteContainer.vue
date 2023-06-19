@@ -19,6 +19,12 @@ watch(Open, async () => {
   </div>
 </template>
 
+<style>
+:root {
+  --site-container-background-gradient: linear-gradient(0deg, var(--color-base-secondary-100) 0%, transparent 75%, transparent 100%);
+}
+</style>
+
 <style lang="scss" scoped>
 .container {
   grid-template-rows: 1fr auto auto;
@@ -26,8 +32,9 @@ watch(Open, async () => {
 
   &::before {
     background-attachment: fixed;
-    background-image: linear-gradient(0deg, var(--color-background-accent) 0%, transparent 75%, transparent 100%);
+    background-image: var(--site-container-background-gradient);
     content: "";
+    opacity: .75;
     position: fixed;
     width: 100%;
     height: 100%;

@@ -1,7 +1,7 @@
 // Fonts
 $font: (
   family: (
-    // Fallback to sans-serif instead of monospace to eliminate CLS
+    // Fallback to sans-serif instead of monospace to eliminate unnecessary CLS
     base: #{"Inconsolata", sans-serif}
   ),
   weight: (
@@ -25,14 +25,6 @@ $baseTypography: (
 @function getBaseTypography($baseVar) {
   @return map-get($baseTypography, $baseVar);
 };
-
-@mixin typographyReset {
-  color: var(--color-content-base);
-  font-family: getBaseTypography(family);
-  font-size: getBaseTypography(size);
-  font-weight: getBaseTypography(weight);
-  line-height: getBaseTypography(lineHeight);
-}
 
 $heading: (
   sm: (
@@ -59,38 +51,6 @@ $heading: (
   @return map-get(map-get($heading, $size), $breakpoint);
 };
 
-// Generate CSS heading variables
-:root {
-  @each $fontSizeName, $fontSize in $heading {
-    --font-heading-#{$fontSizeName}: #{getHeading($fontSizeName, base)};
-  };
-
-  @each $breakpointName, $breakpointSize in $breakpoint {
-    @media screen and (min-width: $breakpointSize) {
-      @each $fontSizeName, $fontSize in $heading {
-        --font-heading-#{$fontSizeName}: #{getHeading($fontSizeName, $breakpointName)};
-      };
-    }
-  };
-}
-
-@mixin heading($size: md) {
-  display: inline-block;
-  font-size: var(--font-heading-#{$size});
-  line-height: 1;
-  text-decoration: underline var(--color-content-accent);
-
-  @if $size == "sm" {
-    font-weight: getFont(weight, normal);
-  } @else {
-    font-weight: getFont(weight, bold);
-  }
-
-  &+* {
-    margin-top: useSpacing(sm);
-  }
-}
-
 $text: (
   sm: (
     base: 1rem,
@@ -116,8 +76,22 @@ $text: (
   @return map-get(map-get($text, $size), $breakpoint);
 };
 
-// Generate CSS text variables
+// Generate CSS variables
 :root {
+  // Headings
+  @each $fontSizeName, $fontSize in $heading {
+    --font-heading-#{$fontSizeName}: #{getHeading($fontSizeName, base)};
+  };
+
+  @each $breakpointName, $breakpointSize in $breakpoint {
+    @media screen and (min-width: $breakpointSize) {
+      @each $fontSizeName, $fontSize in $heading {
+        --font-heading-#{$fontSizeName}: #{getHeading($fontSizeName, $breakpointName)};
+      };
+    }
+  };
+
+  // Text
   @each $fontSizeName, $fontSize in $text {
     --font-text-#{$fontSizeName}: #{getText($fontSizeName, base)};
   };
@@ -129,6 +103,37 @@ $text: (
       };
     }
   };
+
+  // Set page colors
+  --page-color-text: var(--color-content-primary-100);
+  --page-color-text-underline: var(--color-accent-primary-200);
+  --page-color-link: var(--color-action-primary-200);
+  --page-color-link-underline-hover: var(--color-accent-primary-200);
+}
+
+@mixin typographyReset {
+  color: var(--page-color-text);
+  font-family: getBaseTypography(family);
+  font-size: getBaseTypography(size);
+  font-weight: getBaseTypography(weight);
+  line-height: getBaseTypography(lineHeight);
+}
+
+@mixin heading($size: md) {
+  display: inline-block;
+  font-size: var(--font-heading-#{$size});
+  line-height: 1;
+  text-decoration: underline var(--page-color-text-underline);
+
+  @if $size == "sm" {
+    font-weight: getFont(weight, normal);
+  } @else {
+    font-weight: getFont(weight, bold);
+  }
+
+  &+* {
+    margin-top: useSpacing(sm);
+  }
 }
 
 @mixin text($size: md, $weight: normal) {
@@ -137,11 +142,11 @@ $text: (
 }
 
 @mixin linkHover {
-  text-decoration: wavy underline var(--color-action-accent);
+  text-decoration: wavy underline var(--page-color-link-underline-hover);
 }
 
 @mixin link {
-  color: var(--color-action-base);
+  color: var(--page-color-link);
   text-decoration: wavy underline transparent;
   transition: text-decoration-color 0.2s linear;
 

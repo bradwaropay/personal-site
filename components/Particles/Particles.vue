@@ -18,8 +18,8 @@ onUnmounted(() => {
 <template>
   <canvas class="canvas canvas--is-connections" ref="connectionsRef" />
   <canvas class="canvas canvas--is-particles" ref="particlesRef" />
-  <ParticlesControlsToggle />
-  <ParticlesControls />
+  <!-- <ParticlesControlsToggle />
+  <ParticlesControls /> -->
 </template>
 
 <style lang="scss" scoped>

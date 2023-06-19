@@ -103,6 +103,12 @@ meter {
 }
 
 /* Custom Reset */
+:root {
+  --page-color-background: var(--color-base-primary-100);
+  --page-color-selection: var(--color-accent-secondary-200-rgb);
+}
+
+
 html,
 body,
 #__nuxt,
@@ -119,7 +125,7 @@ html {
 }
 
 body {
-  background: var(--color-background-base);
+  background: var(--page-color-background);
 
   &.has-modal {
     overflow-y: hidden;
@@ -127,7 +133,7 @@ body {
 }
 
 ::selection {
-  background-color: rgba(var(--color-accent-base-rgb), 0.5);
+  background-color: rgba(var(--page-color-selection), 0.5);
 }
 
 a {

@@ -1,7 +1,7 @@
 import { reactive } from "vue";
 
 export const getInitialOptions = () => ({
-  backgroundColor: '#0d1b27',
+  backgroundColor: '#0d2529',
   density: 20,
   particle: {
     color: '#efefef',

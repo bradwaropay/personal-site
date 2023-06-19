@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from '@vue/reactivity';
 
 export interface Card {
   image: string,
@@ -25,6 +24,7 @@ const props = defineProps<Props>()
         <p class="description">{{ card.description }}</p>
       </div>
       <footer class="footer">
+        <p class="label">Made with:</p>
         <ul class="list">
           <li class="item" v-for="icon in card.builtWith">
             <i :class="`icon devicon-${icon}-plain`" :title="icon" />
@@ -35,9 +35,21 @@ const props = defineProps<Props>()
   </a>
 </template>
 
+<!-- Theme variables -->
+<style>
+:root {
+  --featured-card-color-link: var(--color-content-primary-100);
+  --featured-card-color-icon: var(--color-accent-primary-200);
+  --featured-card-color-label: var(--color-accent-secondary-100);
+  --featured-card-background: var(--color-accent-secondary-200-rgb);
+}
+</style>
+
 <style lang="scss" scoped>
+// Component variables
+
 .link {
-  color: var(--color-content-base);
+  color: var(--featured-card-color-link);
   text-decoration: none;
 
   &:hover,
@@ -45,8 +57,7 @@ const props = defineProps<Props>()
   &:active {
 
     .card {
-      background-color: rgba(var(--color-neutral-base-rgb), 0.075);
-      border-color: var(--color-action-base);
+      background-color: rgba(var(--featured-card-background), 0.375);
     }
 
     .heading {
@@ -56,10 +67,10 @@ const props = defineProps<Props>()
 }
 
 .card {
+  background-color: rgba(var(--featured-card-background), 0.125);
   border-radius: 1rem;
-  border: 0.25rem dashed var(--color-action-accent);
   display: grid;
-  gap: useSpacing(sm) useSpacing(md);
+  gap: useSpacing(md);
   grid-template-areas:
     "image"
     "content"
@@ -103,22 +114,26 @@ const props = defineProps<Props>()
 }
 
 .footer {
+  align-items: center;
   display: flex;
+  gap: useSpacing(sm);
   grid-area: footer;
-  justify-content: flex-end;
+}
+
+.label {
+  color: var(--featured-card-color-label);
 }
 
 .list {
   display: flex;
   gap: useSpacing(xs);
-  margin-top: useSpacing(xs);
 }
 
 .icon {
   @include text(md);
 
-  color: var(--color-accent-base);
-  vertical-align: bottom;
+  color: var(--featured-card-color-icon);
+  vertical-align: middle;
 }
 
 .description {

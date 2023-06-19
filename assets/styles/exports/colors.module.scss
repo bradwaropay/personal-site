@@ -4,15 +4,19 @@
 :export {
   // Palette - color-palette-$themeName-$categoryName-$colorName
   @each $themeName, $colors in $palette {
-      @each $colorName, $color in $colors {
-      color-palette-#{$themeName}-#{$colorName}: $color;
+    @each $colorName, $swatches in $colors {
+      @each $swatchName, $swatch in $swatches {
+        color-palette-#{$themeName}-#{$colorName}-#{$swatchName}: $swatch;
+      }
     }
   };
   // Themes - color-theme-$themeName-$typeName-$categoryName-$colorName
   @each $themeName, $categories in $theme {
-    @each $categoryName, $colors in $categories {
-      @each $colorName, $color in $colors {
-        color-theme-#{$themeName}-#{$categoryName}-#{$colorName}: $color;
+    @each $categoryName, $types in $categories {
+      @each $typeName, $colors in $types {
+        @each $colorName, $color in $colors {
+          color-theme-#{$themeName}-#{$categoryName}-#{$typeName}-#{$colorName}: $color;
+        }
       }
     }
   };

@@ -4,93 +4,192 @@
 // Color Palette
 $palette: (
   default: (
-    source: #ffffff,
-    ash: #efefef,
-    flame: #f1511a,
-    sulfur: #ffaa00,
-    ectoplasm: #01ff89,
-    scry: #3eafc4,
-    midnight: #0d1b27,
-    ghast: #7a5fff,
-    shadow: #281726,
-    void: #000000
-  )
+    iron: (
+      100: #ffffff,
+      200: darken(#ffffff, 6.25),
+      300: darken(#ffffff, 12.5),
+      400: darken(#ffffff, 25),
+      500: #808080,
+      600: lighten(#000000, 25),
+      700: lighten(#000000, 12.5),
+      800: lighten(#000000, 6.25),
+      900: #000000,
+    ),
+    flame: (
+      100: lighten(#f1511a, 40),
+      200: lighten(#f1511a, 30),
+      300: lighten(#f1511a, 20),
+      400: lighten(#f1511a, 10),
+      500: #f1511a,
+      600: darken(#f1511a, 10),
+      700: darken(#f1511a, 20),
+      800: darken(#f1511a, 30),
+      900: darken(#f1511a, 40),
+    ),
+    sulfur: (
+      100: lighten(#ffaa00, 40),
+      200: lighten(#ffaa00, 30),
+      300: lighten(#ffaa00, 20),
+      400: lighten(#ffaa00, 10),
+      500: #ffaa00,
+      600: darken(#ffaa00, 10),
+      700: darken(#ffaa00, 20),
+      800: darken(#ffaa00, 30),
+      900: darken(#ffaa00, 40),
+    ),
+    ectoplasm: (
+      100: lighten(#01ff89, 40),
+      200: lighten(#01ff89, 30),
+      300: lighten(#01ff89, 20),
+      400: lighten(#01ff89, 10),
+      500: #01ff89,
+      600: darken(#01ff89, 10),
+      700: darken(#01ff89, 20),
+      800: darken(#01ff89, 30),
+      900: darken(#01ff89, 40),
+    ),
+    scry: (
+      100: lighten(#3eafc4, 40),
+      200: lighten(#3eafc4, 30),
+      300: lighten(#3eafc4, 20),
+      400: lighten(#3eafc4, 10),
+      500: #3eafc4,
+      600: darken(#3eafc4, 10),
+      700: darken(#3eafc4, 20),
+      800: darken(#3eafc4, 30),
+      900: darken(#3eafc4, 40),
+    ),
+    ghast: (
+      100: lighten(#502cff, 40),
+      200: lighten(#502cff, 30),
+      300: lighten(#502cff, 20),
+      400: lighten(#502cff, 10),
+      500: #502cff,
+      600: darken(#502cff, 10),
+      700: darken(#502cff, 20),
+      800: darken(#502cff, 30),
+      900: darken(#502cff, 40),
+    ),
+    wyrd: (
+      100: lighten(#ff00ae, 40),
+      200: lighten(#ff00ae, 30),
+      300: lighten(#ff00ae, 20),
+      400: lighten(#ff00ae, 10),
+      500: #ff00ae,
+      600: darken(#ff00ae, 10),
+      700: darken(#ff00ae, 20),
+      800: darken(#ff00ae, 30),
+      900: darken(#ff00ae, 40),
+    ),
+  ),
 );
 
-@function getPalette($color, $name: default) {
-  @return map-get(map-get($palette, $name), $color);
+@function getPalette($color, $swatch: 500, $theme: default) {
+  @return map-get(map-get(map-get($palette, $theme), $color), $swatch);
 };
 
 // Color Themes - Add themes here using palette()
 $theme: (
-  // Theme
   default: (
+    brand: (
+      primary: (
+        100: getPalette(ghast, 400),
+      ),
+      secondary: (
+        100: getPalette(ectoplasm, 500),
+      ),
+    ),
     neutral: (
-      // --color-neutral-$swatch
-      base: getPalette(source),
-      baseAlt: getPalette(void)
+      grayscale: (
+        100: getPalette(iron, 100),
+        200: getPalette(iron, 200),
+        300: getPalette(iron, 500),
+        400: getPalette(iron, 700),
+        500: getPalette(iron, 900),
+      ),
+    ),
+    base: (
+      primary: (
+        100: getPalette(scry, 900),
+      ),
+      secondary: (
+        100: getPalette(wyrd, 900),
+      ),
     ),
     accent: (
-      // --color-accent-$swatch
-      base: getPalette(scry)
-    ),
-    background: (
-      // --color-background-$swatch
-      base: getPalette(midnight),
-      accent: getPalette(shadow)
-    ),
-    particles: (
-      // --color-particles-$swatch
-      base: getPalette(ash),
-      accent: getPalette(scry)
-    ),
-    logo: (
-      // --color-logo-$swatch
-      start: getPalette(ghast),
-      end: getPalette(ectoplasm)
-    ),
-    overlay: (
-      // --color-overlay-$swatch
-      background: getPalette(void),
-      modal: getPalette(ghast)
+      primary: (
+        100: getPalette(sulfur, 400),
+        200: getPalette(sulfur, 500),
+        300: getPalette(sulfur, 600),
+      ),
+      secondary: (
+        100: getPalette(scry, 400),
+        200: getPalette(scry, 500),
+        300: getPalette(scry, 600),
+      ),
     ),
     content: (
-      // --color-content-$swatch
-      base: getPalette(ash),
-      baseAlt: getPalette(midnight),
-      accent: getPalette(sulfur)
+      primary: (
+        100: getPalette(iron, 200),
+        200: getPalette(iron, 500),
+        300: getPalette(iron, 700),
+      ),
     ),
     action: (
-      // --color-action-$swatch
-      base: getPalette(flame),
-      accent: getPalette(sulfur),
-      neutral: getPalette(ash),
-      neutralAlt: getPalette(midnight)
-    )
-  )
+      primary: (
+        100: getPalette(flame, 400),
+        200: getPalette(flame, 500),
+        300: getPalette(flame, 600),
+      ),
+    ),
+    status: (
+      alert: (
+        100: getPalette(flame, 100),
+        200: getPalette(flame, 600),
+        300: getPalette(flame, 800),
+      ),
+      warning: (
+        100: getPalette(sulfur, 100),
+        200: getPalette(sulfur, 400),
+        300: getPalette(sulfur, 700),
+      ),
+      success: (
+        100: getPalette(ectoplasm,100),
+        200: getPalette(ectoplasm,600),
+        300: getPalette(ectoplasm,800),
+      ),
+      info: (
+        100: getPalette(scry, 100),
+        200: getPalette(scry, 500),
+        300: getPalette(scry, 800),
+      ),
+    ),
+  ),
 );
 
 // Generate CSS color variables
 :root {
   // Generate default theme
-  @each $categoryName, $colors in map-get($theme, default) {
+  @each $categoryName, $types in map-get($theme, default) {
+    @each $typeName, $colors in $types {
       @each $colorName, $color in $colors {
-        --color-#{$categoryName}-#{$colorName}: #{$color};
-        --color-#{$categoryName}-#{$colorName}-rgb: #{red($color), green($color), blue($color)};
-      }
-  };
-
-  // Generate all other themes
-  @each $themeName, $categories in $theme {
-    @if $themeName != default {
-      &[data-theme="#{$themeName}"] {
-        @each $categoryName, $colors in $categories {
-          @each $colorName, $color in $colors {
-            --color-#{$categoryName}-#{$colorName}: #{$color};
-            --color-#{$categoryName}-#{$colorName}-rgb: #{red($color), green($color), blue($color)};
-          }
-        }
+        --color-#{$categoryName}-#{$typeName}-#{$colorName}: #{$color};
+        --color-#{$categoryName}-#{$typeName}-#{$colorName}-rgb: #{red($color), green($color), blue($color)};
       }
     }
   };
+
+  // Generate all other themes
+  // @each $themeName, $categories in $theme {
+  //   @if $themeName != default {
+  //     &[data-theme="#{$themeName}"] {
+  //       @each $categoryName, $colors in $categories {
+  //         @each $colorName, $color in $colors {
+  //           --color-#{$categoryName}-#{$colorName}: #{$color};
+  //           --color-#{$categoryName}-#{$colorName}-rgb: #{red($color), green($color), blue($color)};
+  //         }
+  //       }
+  //     }
+  //   }
+  // };
 }
