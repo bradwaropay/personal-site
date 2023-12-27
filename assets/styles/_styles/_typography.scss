@@ -14,11 +14,14 @@ $font: (
   @return map-get(map-get($font, $category), $value);
 };
 
+$baseFontSize: 16px;
+$baseLineHeight: $baseSpacing;
+
 // Base Typography
 $baseTypography: (
   family: getFont(family, base),
-  lineHeight: 1.75,
-  size: 16px,
+  lineHeight: $baseLineHeight,
+  size: $baseFontSize,
   weight: getFont(weight, normal),
 );
 
@@ -65,8 +68,8 @@ $text: (
     lg: 1.25rem
   ),
   lg: (
-    base: 1.5rem,
-    sm: 1.5rem,
+    base: 1.25rem,
+    sm: 1.25rem,
     md: 1.5rem,
     lg: 1.5rem
   )
@@ -120,25 +123,60 @@ $text: (
 }
 
 @mixin heading($size: md) {
-  display: inline-block;
+  display: block;
   font-size: var(--font-heading-#{$size});
-  line-height: 1;
   text-decoration: underline var(--page-color-text-underline);
+
+  &+* {
+    margin-top: useSpacing(sm);
+  }
 
   @if $size == "sm" {
     font-weight: getFont(weight, normal);
+    line-height: 1.625;
   } @else {
     font-weight: getFont(weight, bold);
   }
 
-  &+* {
-    margin-top: useSpacing(sm);
+  @if $size == "md" {
+    line-height: 1.21875;
+
+    @media screen and (min-width: useBreakpoint(md)) {
+      line-height: 1.3541666;
+    }
+  }
+
+  @if $size == "lg" {
+    line-height: 1.1666;
+
+    &+* {
+      margin-top: useSpacing(md);
+    }
+
+    @media screen and (min-width: useBreakpoint(md)) {
+      line-height: 1.3125;
+    }
   }
 }
 
 @mixin text($size: md, $weight: normal) {
   font-size: var(--font-text-#{$size});
   font-weight: getFont(weight, $weight);
+  line-height: 1.625;
+
+  @if $size == "md" {
+    @media screen and (min-width: useBreakpoint(md)) {
+      line-height: 1.95;
+    }
+  }
+
+  @if $size == "lg" {
+    line-height: 1.95;
+
+    @media screen and (min-width: useBreakpoint(md)) {
+      line-height: 2.1666;
+    }
+  }
 }
 
 @mixin linkHover {

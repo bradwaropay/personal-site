@@ -121,7 +121,7 @@ html {
   @include typographyReset;
 
   scroll-behavior: smooth;
-  scroll-padding-top: useSpacing(sm);
+  scroll-padding-top: useSpacing(lg);
 }
 
 body {

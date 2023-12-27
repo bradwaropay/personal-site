@@ -1,0 +1,34 @@
+:root {
+  --button-text: var(--color-content-primary-100);
+  --button-text-hover: var(--color-action-primary-200);
+  --button-background: var(--color-action-primary-200);
+  --button-background-hover: var(--color-accent-primary-100);
+}
+
+.button {
+  @include text(md);
+
+  background-color: var(--button-background);
+  cursor: pointer;
+  color: var(--button-text);
+  display: inline-block;
+  padding: useSpacing(sm) useSpacing(lg);
+  transition:
+    background-color 0.2s linear,
+    color 0.2s linear;
+
+  @at-root a#{&} {
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: var(--button-background-hover);
+    color: var(--button-text-hover);
+  }
+
+  &--is-full-width {
+    display: block;
+  }
+}

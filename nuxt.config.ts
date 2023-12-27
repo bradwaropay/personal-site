@@ -1,12 +1,9 @@
-import data from "./assets/data/data.json";
-
-const { hero } = data;
-
+import { RuntimeConfig } from 'nuxt/schema';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
     head: {
-      title: "Brad Waropay | Front-End Architecture and Design Systems",
+      title: "Brad Waropay | Front-End Architecture and Design System Consulting",
       viewport: "width=device-width, initial-scale=1",
       charset: "utf-8",
       htmlAttrs: {
@@ -23,7 +20,7 @@ export default defineNuxtConfig({
         },
         {
           "name": "description",
-          "content": `${hero.heading}. ${hero.description}`,
+          "content": `test`,
         }
       ],
       "link": [
@@ -36,20 +33,22 @@ export default defineNuxtConfig({
     }
   },
   css: [
-    "~/assets/styles/reset.scss",
+    "@/assets/styles/reset.scss",
     "devicon/devicon.min.css"
   ],
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "~/assets/styles/styles.scss";`
+          additionalData: `@use "~/assets/styles/styles.scss" as *;`
         }
       }
     },
   },
   modules: [
-    '@nuxtjs/google-fonts'
+    '@nuxt/content',
+    '@nuxtjs/google-fonts',
+    'nuxt-mail',
   ],
   googleFonts: {
     preconnect: true,
@@ -57,5 +56,25 @@ export default defineNuxtConfig({
     families: {
       Inconsolata: [400, 700],
     }
-  }
+  },
+  mail: {
+    message: {
+      to: 'brad.waropay@gmail.com',
+    },
+    smtp: {
+      service: 'gmail',
+      auth: {
+        user: 'brad.waropay@gmail.com',
+        pass: process.env.MAIL_PASS,
+      },
+    },
+  },
+  content: {},
+  components: [
+    '~/components/structural',
+    '~/components/simple',
+    '~/components/complex',
+    '~/components/presentation',
+    '~/components'
+  ]
 })

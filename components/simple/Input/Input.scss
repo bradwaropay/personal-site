@@ -1,0 +1,56 @@
+.input {
+  &--has-error {
+    .field {
+      outline: 0.125rem solid var(--color-status-alert-200);
+    }
+
+    .message {
+      color: var(--color-status-alert-200);
+    }
+  }
+
+  &--is-valid {
+    .field {
+      outline: 0.125rem solid var(--color-status-success-200);
+    }
+
+    .message {
+      color: var(--color-status-sucess-200);
+    }
+  }
+}
+
+.label,
+.field,
+.error {
+  display: block;
+  width: 100%;
+}
+
+.label,
+.error {
+  @include text(md);
+}
+
+.label {
+  color: var(--color-status-info-200);
+
+  &:focus,
+  &:active {
+    color: var(--color-status-info-200);
+  }
+}
+
+.field {
+  @include text(md);
+
+  background-color: var(--color-neutral-grayscale-100);
+  color: var(--color-neutral-grayscale-500);
+  outline-offset: 0.25rem;
+  padding: useSpacing(xs) useSpacing(sm);
+
+  &:active,
+  &:focus {
+    outline: 0.125rem solid var(--color-status-warning-200);
+  }
+}

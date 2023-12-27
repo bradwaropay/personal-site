@@ -1,24 +1,14 @@
-$breakpoint: (
-  sm: 40rem,
-  md: 50rem,
-  lg: 78rem
-);
-
-@function useBreakpoint($size) {
-  @return map-get($breakpoint, $size);
-};
-
 $layer: (
   base: 0,
   page: 100,
   overlay: 200
 );
 
-@function useLayer($layer) {
-  @return map-get($zIndex, $layer);
+@function useLayer($zIndex) {
+  @return map-get($layer, $zIndex);
 };
 
-$baseSpacing: 1.5rem;
+$baseSpacing: 1.625rem;
 
 $spacing: (
   xs: calc($baseSpacing / 4),
@@ -26,7 +16,8 @@ $spacing: (
   md: calc($baseSpacing * 1),
   lg: calc($baseSpacing * 2),
   xl: calc($baseSpacing * 4),
-  xxl: calc($baseSpacing * 8),
+  xxl: calc($baseSpacing * 6),
+  xxxl: calc($baseSpacing * 8),
 );
 
 @function useSpacing($size) {
@@ -35,10 +26,10 @@ $spacing: (
 
 $content: (
   container: (
-    base: useBreakpoint(md),
-    sm: useBreakpoint(md),
-    md: useBreakpoint(md),
-    lg: useBreakpoint(lg),
+    base: 40rem,
+    sm: 40rem,
+    md: 50rem,
+    lg: 80rem,
   ),
   gutter: (
     base: 2rem,
@@ -51,6 +42,17 @@ $content: (
 @function getContent($param, $breakpoint) {
   @return map-get(map-get($content, $param), $breakpoint);
 };
+
+$breakpoint: (
+  sm: #{getContent(container, sm) + (2 * getContent(gutter, sm))},
+  md: #{getContent(container, md) + (2 * getContent(gutter, md))},
+  lg: #{getContent(container, lg) + (2 * getContent(gutter, lg))},
+);
+
+@function useBreakpoint($size) {
+  @return map-get($breakpoint, $size);
+};
+
 
 :root {
   --content-container: #{getContent(container, base)};
@@ -69,4 +71,23 @@ $content: (
   max-width: var(--content-container);
   padding-left: var(--content-gutter);
   padding-right: var(--content-gutter);
+}
+
+@mixin grid($rowGap: md, $columnGap: md) {
+  display: grid;
+  gap: useSpacing($rowGap) useSpacing($columnGap);
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media screen and (min-width: useBreakpoint(sm)) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @media screen and (min-width: useBreakpoint(md)) {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @media screen and (min-width: useBreakpoint(lg)) {
+    grid-template-columns: repeat(12, 1fr);
+  }
 }

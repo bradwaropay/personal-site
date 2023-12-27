@@ -180,16 +180,18 @@ $theme: (
   };
 
   // Generate all other themes
-  // @each $themeName, $categories in $theme {
-  //   @if $themeName != default {
-  //     &[data-theme="#{$themeName}"] {
-  //       @each $categoryName, $colors in $categories {
-  //         @each $colorName, $color in $colors {
-  //           --color-#{$categoryName}-#{$colorName}: #{$color};
-  //           --color-#{$categoryName}-#{$colorName}-rgb: #{red($color), green($color), blue($color)};
-  //         }
-  //       }
-  //     }
-  //   }
-  // };
+  @each $themeName, $categories in $theme {
+    @if $themeName != default {
+      &[data-theme="#{$themeName}"] {
+        @each $categoryName, $types in $categories {
+          @each $typeName, $colors in $types {
+            @each $colorName, $color in $colors {
+              --color-#{$categoryName}-#{$typeName}-#{$colorName}: #{$color};
+              --color-#{$categoryName}-#{$typeName}-#{$colorName}-rgb: #{red($color), green($color), blue($color)};
+            }
+          }
+        }
+      }
+    }
+  };
 }
